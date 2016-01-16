@@ -1,0 +1,1929 @@
+var factoryLevels = {
+    tutorial1: {
+        map: function (factory) {
+            factory.createBaseFloor();
+            factory.placeObject(8, 13, 'generator', true, false);
+            factory.mark(8, 13, 'red');
+            factory.placeObject(9, 14, 'block', true, false);
+            factory.mark(9, 14, 'red');
+            factory.placeObject(9, 13, 'block', true, false);
+            factory.mark(9, 13, 'red');
+            factory.placeObject(9, 12, 'block', true, false);
+            factory.mark(9, 12, 'red');
+            factory.placeObject(9, 11, 'block', true, false);
+            factory.mark(9, 11, 'red');
+            factory.placeObject(9, 6, 'block', true, false);
+            factory.mark(9, 6, 'red');
+            factory.placeObject(9, 5, 'block', true, false);
+            factory.mark(9, 5, 'red');
+            factory.placeObject(9, 4, 'block', true, false);
+            factory.mark(9, 4, 'red');
+            factory.placeObject(9, 3, 'block', true, false);
+            factory.mark(9, 3, 'red');
+            factory.placeObject(8, 3, 'block', true, false);
+            factory.mark(8, 3, 'red');
+            factory.placeObject(7, 3, 'block', true, false);
+            factory.mark(7, 3, 'red');
+            factory.placeObject(7, 4, 'block', true, false);
+            factory.mark(7, 4, 'red');
+            factory.placeObject(7, 5, 'block', true, false);
+            factory.mark(7, 5, 'red');
+            factory.placeObject(7, 6, 'block', true, false);
+            factory.mark(7, 6, 'red');
+            factory.placeObject(7, 11, 'block', true, false);
+            factory.mark(7, 11, 'red');
+            factory.placeObject(7, 12, 'block', true, false);
+            factory.mark(7, 12, 'red');
+            factory.placeObject(7, 13, 'block', true, false);
+            factory.mark(7, 13, 'red');
+            factory.placeObject(7, 14, 'block', true, false);
+            factory.mark(7, 14, 'red');
+            factory.placeObject(8, 14, 'block', true, false);
+            factory.mark(8, 14, 'red');
+            factory.placeObject(8, 4, 'storage', true, false);
+            factory.mark(8, 4, 'red');
+            factory.placeObject(8, 5, 'pipe', true, false);
+            factory.mark(8, 5, 'red');
+            factory.placeObject(8, 12, 'pipe', true, false);
+            factory.mark(8, 12, 'red');
+            factory.placeObject(8, 6, 'pipe', true, false);
+            factory.placeObject(8, 11, 'pipe', true, false);
+            factory.placeObject(10, 13, 'hidepin').text = 'Hydrogen generator';
+            factory.placeObject(10, 4, 'hidepin').text = 'Collector';
+            factory.placeObject(12, 9, 'hidepin').text = 'Connect pipe from generator to collector';
+            factory.placePatch9(8, 5, 'top');
+            factory.placePatch9(8, 5, 'bottom');
+            factory.mark(8, 5, 'red');
+            factory.placePatch9(8, 12, 'top');
+            factory.placePatch9(8, 12, 'bottom');
+            factory.mark(8, 12, 'red');
+            factory.placePatch9(8, 6, 'top');
+            factory.placePatch9(8, 11, 'bottom');
+
+
+        },
+        name: 'Tutorial 1',
+        subname: 'Basics',
+        itemsToGenerate: ['H'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('H', 5));
+        },
+        nextFactory: 'tutorial2',
+        tools: ['pipe', 'info'],
+        animation: [
+            {
+                text: 'Hello worker. Befere you go to work you have to pass this training.<br>' +
+                'On our first lesson we will be learn how to build pipe!'
+            },
+            {text: 'On left side, on Objects window, you can see objects that you can build.'},
+            {text: 'Now it\'s only pipe, but don\'t worry. Next will be appear later :)'},
+            {text: 'OK. Look on the factory map. I pin some text to better understand where everything is.'},
+            {
+                text: 'Look at Hydrogen generator. It produce Hydrogen, you can check that by hover on\n' +
+                'bubbles coming from it.'
+            },
+            {text: 'Now. Connect using pipe, generator to collector above. Some pipe was already make. '},
+            {
+                text: 'Your goal is collect 5 hydrogen in collector. As you have reach it, you can click\n' +
+                '"Next Day" button on Objectives window.'
+            },
+        ]
+    },
+    tutorial2: {
+        map: function (factory) {
+            factory.createBaseFloor();
+            factory.placeObject(17, 14, 'generator', true, false, ['O']);
+            factory.mark(17, 14, 'red');
+            factory.placeObject(18, 15, 'block', true, false);
+            factory.mark(18, 15, 'red');
+            factory.placeObject(17, 15, 'block', true, false);
+            factory.mark(17, 15, 'red');
+            factory.placeObject(16, 15, 'block', true, false);
+            factory.mark(16, 15, 'red');
+            factory.placeObject(14, 7, 'block', true, false);
+            factory.mark(14, 7, 'red');
+            factory.placeObject(13, 7, 'block', true, false);
+            factory.mark(13, 7, 'red');
+            factory.placeObject(12, 7, 'block', true, false);
+            factory.mark(12, 7, 'red');
+            factory.placeObject(10, 15, 'block', true, false);
+            factory.mark(10, 15, 'red');
+            factory.placeObject(9, 15, 'block', true, false);
+            factory.mark(9, 15, 'red');
+            factory.placeObject(8, 15, 'block', true, false);
+            factory.mark(8, 15, 'red');
+            factory.placeObject(9, 14, 'generator', true, false, ['H']);
+            factory.mark(9, 14, 'red');
+            factory.placeObject(11, 8, 'pipe', true, false);
+            factory.mark(11, 8, 'red');
+            factory.placeObject(12, 8, 'pipe', true, false);
+            factory.mark(12, 8, 'red');
+            factory.placeObject(13, 8, 'pipe', true, false);
+            factory.mark(13, 8, 'red');
+            factory.placeObject(13, 9, 'pipe', true, false);
+            factory.placeObject(11, 7, 'pipe', true, false);
+            factory.mark(11, 7, 'red');
+            factory.placeObject(11, 6, 'pipe', true, false);
+            factory.mark(11, 6, 'red');
+            factory.placeObject(12, 6, 'pipe', true, false);
+            factory.mark(12, 6, 'red');
+            factory.placeObject(14, 6, 'pipe', true, false);
+            factory.mark(14, 6, 'red');
+            factory.placeObject(15, 6, 'pipe', true, false);
+            factory.mark(15, 6, 'red');
+            factory.placeObject(16, 6, 'pipe', true, false);
+            factory.mark(16, 6, 'red');
+            factory.placeObject(17, 6, 'pipe', true, false);
+            factory.mark(17, 6, 'red');
+            factory.placeObject(15, 7, 'block', true, false);
+            factory.mark(15, 7, 'red');
+            factory.placeObject(16, 7, 'block', true, false);
+            factory.mark(16, 7, 'red');
+            factory.placeObject(17, 7, 'block', true, false);
+            factory.mark(17, 7, 'red');
+            factory.placeObject(18, 7, 'block', true, false);
+            factory.mark(18, 7, 'red');
+            factory.placeObject(9, 13, 'pipe', true, false);
+            factory.mark(9, 13, 'red');
+            factory.placeObject(9, 12, 'pipe', true, false);
+            factory.placeObject(17, 13, 'pipe', true, false);
+            factory.mark(17, 13, 'red');
+            factory.placeObject(17, 12, 'pipe', true, false);
+            factory.placeObject(10, 13, 'block', true, false);
+            factory.mark(10, 13, 'red');
+            factory.placeObject(10, 12, 'block', true, false);
+            factory.mark(10, 12, 'red');
+            factory.placeObject(10, 11, 'block', true, false);
+            factory.mark(10, 11, 'red');
+            factory.placeObject(11, 11, 'block', true, false);
+            factory.mark(11, 11, 'red');
+            factory.placeObject(12, 11, 'block', true, false);
+            factory.mark(12, 11, 'red');
+            factory.placeObject(12, 9, 'block', true, false);
+            factory.mark(12, 9, 'red');
+            factory.placeObject(11, 9, 'block', true, false);
+            factory.mark(11, 9, 'red');
+            factory.placeObject(10, 9, 'block', true, false);
+            factory.mark(10, 9, 'red');
+            factory.placeObject(9, 9, 'block', true, false);
+            factory.mark(9, 9, 'red');
+            factory.placeObject(8, 9, 'block', true, false);
+            factory.mark(8, 9, 'red');
+            factory.placeObject(8, 10, 'block', true, false);
+            factory.mark(8, 10, 'red');
+            factory.placeObject(8, 11, 'block', true, false);
+            factory.mark(8, 11, 'red');
+            factory.placeObject(8, 12, 'block', true, false);
+            factory.mark(8, 12, 'red');
+            factory.placeObject(8, 13, 'block', true, false);
+            factory.mark(8, 13, 'red');
+            factory.placeObject(8, 14, 'block', true, false);
+            factory.mark(8, 14, 'red');
+            factory.placeObject(10, 14, 'block', true, false);
+            factory.mark(10, 14, 'red');
+            factory.placeObject(13, 11, 'block', true, false);
+            factory.mark(13, 11, 'red');
+            factory.placeObject(14, 11, 'block', true, false);
+            factory.mark(14, 11, 'red');
+            factory.placeObject(15, 11, 'block', true, false);
+            factory.mark(15, 11, 'red');
+            factory.placeObject(16, 11, 'block', true, false);
+            factory.mark(16, 11, 'red');
+            factory.placeObject(16, 12, 'block', true, false);
+            factory.mark(16, 12, 'red');
+            factory.placeObject(16, 13, 'block', true, false);
+            factory.mark(16, 13, 'red');
+            factory.placeObject(16, 14, 'block', true, false);
+            factory.mark(16, 14, 'red');
+            factory.placeObject(18, 14, 'block', true, false);
+            factory.mark(18, 14, 'red');
+            factory.placeObject(18, 13, 'block', true, false);
+            factory.mark(18, 13, 'red');
+            factory.placeObject(18, 12, 'block', true, false);
+            factory.mark(18, 12, 'red');
+            factory.placeObject(18, 11, 'block', true, false);
+            factory.mark(18, 11, 'red');
+            factory.placeObject(18, 10, 'block', true, false);
+            factory.mark(18, 10, 'red');
+            factory.placeObject(18, 9, 'block', true, false);
+            factory.mark(18, 9, 'red');
+            factory.placeObject(17, 9, 'block', true, false);
+            factory.mark(17, 9, 'red');
+            factory.placeObject(16, 9, 'block', true, false);
+            factory.mark(16, 9, 'red');
+            factory.placeObject(15, 9, 'block', true, false);
+            factory.mark(15, 9, 'red');
+            factory.placeObject(14, 9, 'block', true, false);
+            factory.mark(14, 9, 'red');
+            factory.placeObject(10, 8, 'block', true, false);
+            factory.mark(10, 8, 'red');
+            factory.placeObject(10, 7, 'block', true, false);
+            factory.mark(10, 7, 'red');
+            factory.placeObject(10, 6, 'block', true, false);
+            factory.mark(10, 6, 'red');
+            factory.placeObject(10, 5, 'block', true, false);
+            factory.mark(10, 5, 'red');
+            factory.placeObject(11, 5, 'block', true, false);
+            factory.mark(11, 5, 'red');
+            factory.placeObject(12, 5, 'block', true, false);
+            factory.mark(12, 5, 'red');
+            factory.placeObject(13, 5, 'block', true, false);
+            factory.mark(13, 5, 'red');
+            factory.placeObject(14, 5, 'block', true, false);
+            factory.mark(14, 5, 'red');
+            factory.placeObject(15, 5, 'block', true, false);
+            factory.mark(15, 5, 'red');
+            factory.placeObject(16, 5, 'block', true, false);
+            factory.mark(16, 5, 'red');
+            factory.placeObject(17, 5, 'block', true, false);
+            factory.mark(17, 5, 'red');
+            factory.placeObject(18, 5, 'block', true, false);
+            factory.mark(18, 5, 'red');
+            factory.placeObject(18, 6, 'block', true, false);
+            factory.mark(18, 6, 'red');
+            factory.placeObject(17, 6, 'storage', true, false);
+            factory.placeObject(9, 16, 'hidepin').text = 'Hydrogen Generator ';
+            factory.placeObject(17, 16, 'hidepin').text = 'Oxygen Generator';
+            factory.placeObject(13, 4, 'hidepin').text = 'Combiner';
+            factory.placeObject(19, 6, 'hidepin').text = 'Collector';
+            factory.placeObject(13, 6, 'combiner', true, false);
+            factory.mark(13, 6, 'red');
+            factory.placePatch9(11, 8, 'right');
+            factory.placePatch9(11, 8, 'top');
+            factory.mark(11, 8, 'red');
+            factory.placePatch9(12, 8, 'left');
+            factory.placePatch9(12, 8, 'right');
+            factory.mark(12, 8, 'red');
+            factory.placePatch9(13, 8, 'left');
+            factory.placePatch9(13, 8, 'bottom');
+            factory.mark(13, 8, 'red');
+            factory.placePatch9(13, 9, 'top');
+            factory.placePatch9(11, 7, 'top');
+            factory.placePatch9(11, 7, 'bottom');
+            factory.mark(11, 7, 'red');
+            factory.placePatch9(11, 6, 'right');
+            factory.placePatch9(11, 6, 'bottom');
+            factory.mark(11, 6, 'red');
+            factory.placePatch9(12, 6, 'left');
+            factory.placePatch9(12, 6, 'right');
+            factory.mark(12, 6, 'red');
+            factory.placePatch9(14, 6, 'left');
+            factory.placePatch9(14, 6, 'right');
+            factory.mark(14, 6, 'red');
+            factory.placePatch9(15, 6, 'left');
+            factory.placePatch9(15, 6, 'right');
+            factory.mark(15, 6, 'red');
+            factory.placePatch9(16, 6, 'left');
+            factory.placePatch9(16, 6, 'right');
+            factory.mark(16, 6, 'red');
+            factory.placePatch9(17, 6, 'left');
+            factory.mark(17, 6, 'red');
+            factory.placePatch9(9, 13, 'top');
+            factory.placePatch9(9, 13, 'bottom');
+            factory.mark(9, 13, 'red');
+            factory.placePatch9(9, 12, 'bottom');
+            factory.placePatch9(17, 13, 'top');
+            factory.placePatch9(17, 13, 'bottom');
+            factory.mark(17, 13, 'red');
+            factory.placePatch9(17, 12, 'bottom');
+
+        },
+        name: 'Tutorial 2',
+        subname: 'Combining items',
+        itemsToGenerate: ['H', 'O'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('water', 10));
+        },
+        nextFactory: 'tutorial3',
+        tools: ['pipe', 'info'],
+        animation: [
+            {text: 'Second lesson! Yey! Today we will be learning how to combine different elements.'},
+            {text: 'Look at the factory map. You can see, there is two generators. One is produce hydrogen and another oxygen.'},
+            {text: 'As probably everyone knows, water is H2O. So lets combine two elements of hydrogen and one element of oxygen.'},
+            {text: 'To do that, we provide you with super advanced Combiner!'},
+            {text: 'Connect both generators to combiner, and look how water will be make ;]'},
+            {text: 'After collecting 10 water elements. Click "Next Day" for next tutorial.'},
+            {text: 'And remember! Items remain in combiner until it can by combine to something new.'},
+        ]
+    },
+    tutorial3: {
+        map: function (factory) {
+            factory.createBaseFloor();
+            factory.placeObject(10, 14, 'generator', true, false);
+            factory.mark(10, 14, 'red');
+            factory.placeObject(14, 5, 'storage', true, false);
+            factory.mark(14, 5, 'red');
+            factory.placeObject(9, 15, 'block', true, false);
+            factory.mark(9, 15, 'red');
+            factory.placeObject(10, 15, 'block', true, false);
+            factory.mark(10, 15, 'red');
+            factory.placeObject(11, 15, 'block', true, false);
+            factory.mark(11, 15, 'red');
+            factory.placeObject(10, 13, 'pipe', true, false);
+            factory.mark(10, 13, 'red');
+            factory.placeObject(10, 12, 'pipe', true, false);
+            factory.placeObject(14, 9, 'fireplace', true, false);
+            factory.mark(14, 9, 'red');
+            factory.placeObject(15, 10, 'block', true, false);
+            factory.mark(15, 10, 'red');
+            factory.placeObject(14, 10, 'block', true, false);
+            factory.mark(14, 10, 'red');
+            factory.placeObject(13, 10, 'block', true, false);
+            factory.mark(13, 10, 'red');
+            factory.placeObject(12, 15, 'block', true, false);
+            factory.mark(12, 15, 'red');
+            factory.placeObject(12, 14, 'block', true, false);
+            factory.mark(12, 14, 'red');
+            factory.placeObject(12, 13, 'block', true, false);
+            factory.mark(12, 13, 'red');
+            factory.placeObject(12, 12, 'block', true, false);
+            factory.mark(12, 12, 'red');
+            factory.placeObject(12, 11, 'block', true, false);
+            factory.mark(12, 11, 'red');
+            factory.placeObject(12, 10, 'block', true, false);
+            factory.mark(12, 10, 'red');
+            factory.placeObject(8, 15, 'block', true, false);
+            factory.mark(8, 15, 'red');
+            factory.placeObject(8, 14, 'block', true, false);
+            factory.mark(8, 14, 'red');
+            factory.placeObject(8, 13, 'block', true, false);
+            factory.mark(8, 13, 'red');
+            factory.placeObject(8, 12, 'block', true, false);
+            factory.mark(8, 12, 'red');
+            factory.placeObject(8, 11, 'block', true, false);
+            factory.mark(8, 11, 'red');
+            factory.placeObject(8, 10, 'block', true, false);
+            factory.mark(8, 10, 'red');
+            factory.placeObject(8, 9, 'block', true, false);
+            factory.mark(8, 9, 'red');
+            factory.placeObject(8, 8, 'block', true, false);
+            factory.mark(8, 8, 'red');
+            factory.placeObject(8, 7, 'block', true, false);
+            factory.mark(8, 7, 'red');
+            factory.placeObject(8, 6, 'block', true, false);
+            factory.mark(8, 6, 'red');
+            factory.placeObject(9, 6, 'block', true, false);
+            factory.mark(9, 6, 'red');
+            factory.placeObject(10, 6, 'block', true, false);
+            factory.mark(10, 6, 'red');
+            factory.placeObject(11, 6, 'block', true, false);
+            factory.mark(11, 6, 'red');
+            factory.placeObject(12, 6, 'block', true, false);
+            factory.mark(12, 6, 'red');
+            factory.placeObject(16, 6, 'block', true, false);
+            factory.mark(16, 6, 'red');
+            factory.placeObject(17, 6, 'block', true, false);
+            factory.mark(17, 6, 'red');
+            factory.placeObject(18, 6, 'block', true, false);
+            factory.mark(18, 6, 'red');
+            factory.placeObject(19, 6, 'block', true, false);
+            factory.mark(19, 6, 'red');
+            factory.placeObject(19, 7, 'block', true, false);
+            factory.mark(19, 7, 'red');
+            factory.placeObject(19, 8, 'block', true, false);
+            factory.mark(19, 8, 'red');
+            factory.placeObject(19, 9, 'block', true, false);
+            factory.mark(19, 9, 'red');
+            factory.placeObject(19, 10, 'block', true, false);
+            factory.mark(19, 10, 'red');
+            factory.placeObject(18, 10, 'block', true, false);
+            factory.mark(18, 10, 'red');
+            factory.placeObject(17, 10, 'block', true, false);
+            factory.mark(17, 10, 'red');
+            factory.placeObject(16, 10, 'block', true, false);
+            factory.mark(16, 10, 'red');
+            factory.placeObject(12, 5, 'block', true, false);
+            factory.mark(12, 5, 'red');
+            factory.placeObject(16, 5, 'block', true, false);
+            factory.mark(16, 5, 'red');
+            factory.placeObject(14, 6, 'pipe', true, false);
+            factory.mark(14, 6, 'red');
+            factory.placeObject(14, 8, 'pipe', true, false);
+            factory.mark(14, 8, 'red');
+            factory.placeObject(14, 7, 'pipe', true, false);
+            factory.mark(14, 7, 'red');
+            factory.placeObject(13, 9, 'pipe', true, false);
+            factory.placeObject(14, 11, 'hidepin').text = 'Fireplace burn or boil elements\nFor example: water convert to steam';
+            factory.placeObject(10, 16, 'hidepin').text = 'Water pump';
+            factory.placeObject(14, 4, 'hidepin').text = 'Collect steam';
+            factory.placeObject(9, 8, 'hidepin').text = 'TODO: Connect pipe';
+            factory.placePatch9(10, 13, 'top');
+            factory.placePatch9(10, 13, 'bottom');
+            factory.mark(10, 13, 'red');
+            factory.placePatch9(10, 12, 'bottom');
+            factory.placePatch9(14, 6, 'top');
+            factory.placePatch9(14, 6, 'bottom');
+            factory.mark(14, 6, 'red');
+            factory.placePatch9(14, 8, 'top');
+            factory.placePatch9(14, 8, 'bottom');
+            factory.mark(14, 8, 'red');
+            factory.placePatch9(14, 7, 'top');
+            factory.placePatch9(14, 7, 'bottom');
+            factory.mark(14, 7, 'red');
+            factory.placePatch9(13, 9, 'right');
+
+
+        },
+        name: 'Tutorial 3',
+        subname: 'Fireplace',
+        itemsToGenerate: ['water'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('steam', 1));
+        },
+        nextFactory: 'tutorial4',
+        tools: ['pipe', 'info'],
+        animation: [
+            {text: 'Ohh! This will be good! Finally we add some hot staff to system :)'},
+            {text: 'How to make a steam? By boiling water of course! So, let\'s do that.'},
+            {
+                text: 'There is a water generator, or water pump as you will.\n' +
+                'Connect it to fireplace to boil water.'
+            },
+            {text: 'That all! Collect only one steam element and go to next day.'},
+        ],
+        cookbook: ['water', 'H', 'O', 'steam']
+    },
+    tutorial4: {
+        map: function (factory) {
+            factory.createBaseFloor();
+            factory.placeObject(8, 14, 'generator', true, false, ['H']);
+            factory.mark(8, 14, 'red');
+            factory.placeObject(18, 14, 'generator', true, false, ['O']);
+            factory.mark(18, 14, 'red');
+            factory.placeObject(8, 13, 'pipe', true, false);
+            factory.mark(8, 13, 'red');
+            factory.placeObject(18, 13, 'pipe', true, false);
+            factory.mark(18, 13, 'red');
+            factory.placeObject(8, 11, 'pipe', true, false);
+            factory.mark(8, 11, 'red');
+            factory.placeObject(8, 10, 'pipe', true, false);
+            factory.mark(8, 10, 'red');
+            factory.placeObject(18, 11, 'pipe', true, false);
+            factory.mark(18, 11, 'red');
+            factory.placeObject(18, 10, 'pipe', true, false);
+            factory.mark(18, 10, 'red');
+            factory.placeObject(7, 10, 'block', true, false);
+            factory.mark(7, 10, 'red');
+            factory.placeObject(7, 11, 'block', true, false);
+            factory.mark(7, 11, 'red');
+            factory.placeObject(7, 12, 'block', true, false);
+            factory.mark(7, 12, 'red');
+            factory.placeObject(7, 13, 'block', true, false);
+            factory.mark(7, 13, 'red');
+            factory.placeObject(7, 14, 'block', true, false);
+            factory.mark(7, 14, 'red');
+            factory.placeObject(7, 15, 'block', true, false);
+            factory.mark(7, 15, 'red');
+            factory.placeObject(8, 15, 'block', true, false);
+            factory.mark(8, 15, 'red');
+            factory.placeObject(9, 15, 'block', true, false);
+            factory.mark(9, 15, 'red');
+            factory.placeObject(10, 15, 'block', true, false);
+            factory.mark(10, 15, 'red');
+            factory.placeObject(11, 15, 'block', true, false);
+            factory.mark(11, 15, 'red');
+            factory.placeObject(12, 15, 'block', true, false);
+            factory.mark(12, 15, 'red');
+            factory.placeObject(13, 15, 'block', true, false);
+            factory.mark(13, 15, 'red');
+            factory.placeObject(14, 15, 'block', true, false);
+            factory.mark(14, 15, 'red');
+            factory.placeObject(15, 15, 'block', true, false);
+            factory.mark(15, 15, 'red');
+            factory.placeObject(16, 15, 'block', true, false);
+            factory.mark(16, 15, 'red');
+            factory.placeObject(17, 15, 'block', true, false);
+            factory.mark(17, 15, 'red');
+            factory.placeObject(18, 15, 'block', true, false);
+            factory.mark(18, 15, 'red');
+            factory.placeObject(19, 15, 'block', true, false);
+            factory.mark(19, 15, 'red');
+            factory.placeObject(19, 14, 'block', true, false);
+            factory.mark(19, 14, 'red');
+            factory.placeObject(19, 13, 'block', true, false);
+            factory.mark(19, 13, 'red');
+            factory.placeObject(19, 12, 'block', true, false);
+            factory.mark(19, 12, 'red');
+            factory.placeObject(19, 11, 'block', true, false);
+            factory.mark(19, 11, 'red');
+            factory.placeObject(19, 10, 'block', true, false);
+            factory.mark(19, 10, 'red');
+            factory.placeObject(2, 3, 'deleter', true, false);
+            factory.mark(2, 3, 'red');
+            factory.placeObject(25, 3, 'storage', true, false, {item: 'steam', restrict: true});
+            factory.mark(25, 3, 'red');
+            factory.placeObject(2, 4, 'pipe', true, false);
+            factory.mark(2, 4, 'red');
+            factory.placeObject(3, 4, 'pipe', true, false);
+            factory.mark(3, 4, 'red');
+            factory.placeObject(4, 4, 'pipe', true, false);
+            factory.placeObject(25, 4, 'pipe', true, false);
+            factory.mark(25, 4, 'red');
+            factory.placeObject(24, 4, 'pipe', true, false);
+            factory.mark(24, 4, 'red');
+            factory.placeObject(23, 4, 'pipe', true, false);
+            factory.placeObject(3, 3, 'block', true, false);
+            factory.mark(3, 3, 'red');
+            factory.placeObject(3, 2, 'block', true, false);
+            factory.mark(3, 2, 'red');
+            factory.placeObject(2, 2, 'block', true, false);
+            factory.mark(2, 2, 'red');
+            factory.placeObject(1, 2, 'block', true, false);
+            factory.mark(1, 2, 'red');
+            factory.placeObject(1, 3, 'block', true, false);
+            factory.mark(1, 3, 'red');
+            factory.placeObject(1, 4, 'block', true, false);
+            factory.placeObject(1, 5, 'block', true, false);
+            factory.mark(1, 5, 'red');
+            factory.placeObject(2, 5, 'block', true, false);
+            factory.mark(2, 5, 'red');
+            factory.placeObject(3, 5, 'block', true, false);
+            factory.mark(3, 5, 'red');
+            factory.placeObject(24, 3, 'block', true, false);
+            factory.mark(24, 3, 'red');
+            factory.placeObject(24, 2, 'block', true, false);
+            factory.mark(24, 2, 'red');
+            factory.placeObject(25, 2, 'block', true, false);
+            factory.mark(25, 2, 'red');
+            factory.placeObject(26, 2, 'block', true, false);
+            factory.mark(26, 2, 'red');
+            factory.placeObject(26, 3, 'block', true, false);
+            factory.mark(26, 3, 'red');
+            factory.placeObject(26, 4, 'block', true, false);
+            factory.mark(26, 4, 'red');
+            factory.placeObject(26, 5, 'block', true, false);
+            factory.mark(26, 5, 'red');
+            factory.placeObject(25, 5, 'block', true, false);
+            factory.mark(25, 5, 'red');
+            factory.placeObject(24, 5, 'block', true, false);
+            factory.mark(24, 5, 'red');
+            factory.placeObject(8, 9, 'pipe', true, false);
+            factory.placeObject(18, 9, 'pipe', true, false);
+            factory.mark(18, 9, 'red');
+            factory.placeObject(17, 10, 'block', true, false);
+            factory.mark(17, 10, 'red');
+            factory.placeObject(16, 10, 'block', true, false);
+            factory.mark(16, 10, 'red');
+            factory.placeObject(15, 10, 'block', true, false);
+            factory.mark(15, 10, 'red');
+            factory.placeObject(14, 10, 'block', true, false);
+            factory.mark(14, 10, 'red');
+            factory.placeObject(13, 10, 'block', true, false);
+            factory.mark(13, 10, 'red');
+            factory.placeObject(12, 10, 'block', true, false);
+            factory.mark(12, 10, 'red');
+            factory.placeObject(11, 10, 'block', true, false);
+            factory.mark(11, 10, 'red');
+            factory.placeObject(10, 10, 'block', true, false);
+            factory.mark(10, 10, 'red');
+            factory.placeObject(9, 10, 'block', true, false);
+            factory.mark(9, 10, 'red');
+            factory.placeObject(9, 13, 'pipe', true, false);
+            factory.mark(9, 13, 'red');
+            factory.placeObject(10, 13, 'pipe', true, false);
+            factory.mark(10, 13, 'red');
+            factory.placeObject(11, 13, 'pipe', true, false);
+            factory.mark(11, 13, 'red');
+            factory.placeObject(11, 12, 'pipe', true, false);
+            factory.mark(11, 12, 'red');
+            factory.placeObject(12, 12, 'pipe', true, false);
+            factory.mark(12, 12, 'red');
+            factory.placeObject(13, 12, 'pipe', true, false);
+            factory.mark(13, 12, 'red');
+            factory.placeObject(13, 13, 'pipe', true, false);
+            factory.mark(13, 13, 'red');
+            factory.placeObject(13, 14, 'pipe', true, false);
+            factory.mark(13, 14, 'red');
+            factory.placeObject(14, 14, 'pipe', true, false);
+            factory.mark(14, 14, 'red');
+            factory.placeObject(14, 13, 'pipe', true, false);
+            factory.mark(14, 13, 'red');
+            factory.placeObject(14, 12, 'pipe', true, false);
+            factory.mark(14, 12, 'red');
+            factory.placeObject(14, 11, 'pipe', true, false);
+            factory.mark(14, 11, 'red');
+            factory.placeObject(13, 11, 'pipe', true, false);
+            factory.mark(13, 11, 'red');
+            factory.placeObject(12, 11, 'pipe', true, false);
+            factory.mark(12, 11, 'red');
+            factory.placeObject(11, 11, 'pipe', true, false);
+            factory.mark(11, 11, 'red');
+            factory.placeObject(10, 11, 'pipe', true, false);
+            factory.mark(10, 11, 'red');
+            factory.placeObject(10, 12, 'pipe', true, false);
+            factory.mark(10, 12, 'red');
+            factory.placeObject(9, 12, 'pipe', true, false);
+            factory.mark(9, 12, 'red');
+            factory.placeObject(8, 12, 'pipe', true, false);
+            factory.mark(8, 12, 'red');
+            factory.placeObject(17, 12, 'pipe', true, false);
+            factory.mark(17, 12, 'red');
+            factory.placeObject(17, 13, 'pipe', true, false);
+            factory.mark(17, 13, 'red');
+            factory.placeObject(17, 14, 'pipe', true, false);
+            factory.mark(17, 14, 'red');
+            factory.placeObject(16, 14, 'pipe', true, false);
+            factory.mark(16, 14, 'red');
+            factory.placeObject(16, 13, 'pipe', true, false);
+            factory.mark(16, 13, 'red');
+            factory.placeObject(15, 13, 'pipe', true, false);
+            factory.mark(15, 13, 'red');
+            factory.placeObject(15, 12, 'pipe', true, false);
+            factory.mark(15, 12, 'red');
+            factory.placeObject(15, 11, 'pipe', true, false);
+            factory.mark(15, 11, 'red');
+            factory.placeObject(16, 11, 'pipe', true, false);
+            factory.mark(16, 11, 'red');
+            factory.placeObject(16, 12, 'pipe', true, false);
+            factory.mark(16, 12, 'red');
+            factory.placeObject(17, 11, 'pipe', true, false);
+            factory.mark(17, 11, 'red');
+            factory.placeObject(10, 14, 'pipe', true, false);
+            factory.mark(10, 14, 'red');
+            factory.placeObject(11, 14, 'pipe', true, false);
+            factory.mark(11, 14, 'red');
+            factory.placeObject(12, 14, 'pipe', true, false);
+            factory.mark(12, 14, 'red');
+            factory.placeObject(12, 13, 'pipe', true, false);
+            factory.mark(12, 13, 'red');
+            factory.placeObject(18, 12, 'pipe', true, false);
+            factory.mark(18, 12, 'red');
+            factory.placeObject(4, 2, 'hidepin').text = 'Trash';
+            factory.placeObject(16, 6, 'fireplace', true, false);
+            factory.mark(16, 6, 'red');
+            factory.placeObject(9, 6, 'pipe', true, false);
+            factory.placeObject(11, 6, 'pipe', true, false);
+            factory.placeObject(16, 7, 'pipe', true, false);
+            factory.placeObject(16, 5, 'pipe', true, false);
+            factory.placeObject(13, 2, 'filter', true, false);
+            factory.mark(13, 2, 'red');
+            factory.placeObject(13, 3, 'pipe', true, false);
+            factory.placeObject(27, 3, 'hidepin').text = 'Accept only steam';
+            factory.placeObject(18, 16, 'hidepin').text = 'Oxygen generator';
+            factory.placeObject(8, 16, 'hidepin').text = 'Hydrogen generator';
+            factory.placeObject(10, 7, 'block', true, false);
+            factory.mark(10, 7, 'red');
+            factory.placeObject(11, 7, 'block', true, false);
+            factory.mark(11, 7, 'red');
+            factory.placeObject(9, 7, 'block', true, false);
+            factory.mark(9, 7, 'red');
+            factory.placeObject(10, 6, 'combiner', true, false);
+            factory.mark(10, 6, 'red');
+            factory.placeObject(17, 6, 'hidepin').text = 'Make steam from water';
+            factory.placeObject(10, 8, 'hidepin').text = 'Combine Hydrogen\nand Oxygen into water';
+            factory.placeObject(13, 1, 'hidepin').text = 'Filter elements';
+            //factory.placeObject(23,8,'hidepin').text = 'Connect all devices to make steam.\nAfter boiling water you have to separate\nfire and steam to different storage';
+            //factory.placeObject(23,11,'hidepin').text = 'To filter items, select Info tool from\nTool section on left and click on filter';
+            //factory.placeObject(27,13,'filter',true,false);
+            //factory.placeObject(28,14,'block',true,false);
+            //factory.placeObject(27,14,'block',true,false);
+            //factory.placeObject(26,14,'block',true,false);
+            //factory.placeObject(23,15,'hidepin').text = 'Then, select element on specific output\nto allow pass it.';
+            factory.placeObject(14, 2, 'pipe', true, false);
+            factory.placeObject(12, 2, 'pipe', true, false);
+            factory.placeObject(19, 9, 'block', true, false);
+            factory.placeObject(19, 8, 'block', true, false);
+            factory.placeObject(18, 8, 'block', true, false);
+            factory.placeObject(17, 8, 'block', true, false);
+            factory.placeObject(16, 8, 'block', true, false);
+            factory.placeObject(7, 9, 'block', true, false);
+            factory.placeObject(7, 8, 'block', true, false);
+            factory.placeObject(7, 7, 'block', true, false);
+            factory.placeObject(7, 6, 'block', true, false);
+            factory.placeObject(7, 5, 'block', true, false);
+            factory.placeObject(8, 5, 'block', true, false);
+            factory.placeObject(9, 5, 'block', true, false);
+            factory.placeObject(4, 3, 'block', true, false);
+            factory.placeObject(5, 3, 'block', true, false);
+            factory.placeObject(6, 3, 'block', true, false);
+            factory.placeObject(7, 3, 'block', true, false);
+            factory.placeObject(8, 3, 'block', true, false);
+            factory.placeObject(9, 3, 'block', true, false);
+            factory.placeObject(10, 3, 'block', true, false);
+            factory.placeObject(11, 1, 'block', true, false);
+            factory.placeObject(14, 3, 'block', true, false);
+            factory.placeObject(15, 3, 'block', true, false);
+            factory.placeObject(10, 5, 'block', true, false);
+            factory.placeObject(11, 5, 'block', true, false);
+            factory.placeObject(12, 5, 'block', true, false);
+            factory.placeObject(13, 5, 'block', true, false);
+            factory.placeObject(14, 5, 'block', true, false);
+            factory.placeObject(15, 5, 'block', true, false);
+            factory.placeObject(15, 6, 'block', true, false);
+            factory.placeObject(18, 7, 'block', true, false);
+            factory.placeObject(18, 5, 'block', true, false);
+            factory.placeObject(17, 5, 'block', true, false);
+            factory.placeObject(17, 4, 'block', true, false);
+            factory.placeObject(17, 3, 'block', true, false);
+            factory.placeObject(16, 3, 'block', true, false);
+            factory.placeObject(24, 1, 'block', true, false);
+            factory.placeObject(23, 1, 'block', true, false);
+            factory.placeObject(22, 1, 'block', true, false);
+            factory.placeObject(21, 1, 'block', true, false);
+            factory.placeObject(20, 1, 'block', true, false);
+            factory.placeObject(19, 1, 'block', true, false);
+            factory.placeObject(18, 1, 'block', true, false);
+            factory.placeObject(18, 0, 'block', true, false);
+            factory.placeObject(12, 7, 'block', true, false);
+            factory.placeObject(13, 7, 'block', true, false);
+            factory.placeObject(17, 9, 'pipe', true, false);
+            factory.mark(17, 9, 'red');
+            factory.placeObject(16, 9, 'pipe', true, false);
+            factory.mark(16, 9, 'red');
+            factory.placeObject(15, 9, 'pipe', true, false);
+            factory.placeObject(12, 3, 'block', true, false);
+            factory.placeObject(12, 4, 'block', true, false);
+            factory.placeObject(10, 1, 'block', true, false);
+            factory.placeObject(10, 2, 'block', true, false);
+            factory.placeObject(12, 1, 'block', true, false);
+            factory.placeObject(12, 6, 'pipe', true, false);
+            factory.placeObject(13, 6, 'pipe', true, false);
+            factory.placeObject(14, 6, 'pipe', true, false);
+            factory.placeObject(14, 7, 'pipe', true, false);
+            factory.placeObject(15, 7, 'pipe', true, false);
+            factory.placeObject(14, 9, 'pipe', true, false);
+            factory.placeObject(13, 9, 'pipe', true, false);
+            factory.placeObject(12, 9, 'pipe', true, false);
+            factory.placeObject(11, 9, 'pipe', true, false);
+            factory.placeObject(10, 9, 'pipe', true, false);
+            factory.placeObject(9, 9, 'pipe', true, false);
+            factory.placeObject(8, 8, 'pipe', true, false);
+            factory.placeObject(11, 2, 'pipe', true, false);
+            factory.placeObject(11, 3, 'pipe', true, false);
+            factory.placeObject(11, 4, 'pipe', true, false);
+            factory.placeObject(10, 4, 'pipe', true, false);
+            factory.placeObject(9, 4, 'pipe', true, false);
+            factory.placeObject(15, 2, 'pipe', true, false);
+            factory.placeObject(16, 2, 'pipe', true, false);
+            factory.placeObject(17, 2, 'pipe', true, false);
+            factory.placeObject(18, 2, 'pipe', true, false);
+            factory.placeObject(19, 2, 'pipe', true, false);
+            factory.placeObject(16, 4, 'pipe', true, false);
+            factory.placeObject(15, 4, 'pipe', true, false);
+            factory.placePatch9(8, 13, 'right');
+            factory.placePatch9(8, 13, 'bottom');
+            factory.mark(8, 13, 'red');
+            factory.placePatch9(18, 13, 'left');
+            factory.placePatch9(18, 13, 'bottom');
+            factory.mark(18, 13, 'red');
+            factory.placePatch9(8, 11, 'top');
+            factory.placePatch9(8, 11, 'bottom');
+            factory.mark(8, 11, 'red');
+            factory.placePatch9(8, 10, 'top');
+            factory.placePatch9(8, 10, 'bottom');
+            factory.mark(8, 10, 'red');
+            factory.placePatch9(18, 11, 'left');
+            factory.placePatch9(18, 11, 'top');
+            factory.mark(18, 11, 'red');
+            factory.placePatch9(18, 10, 'top');
+            factory.placePatch9(18, 10, 'bottom');
+            factory.mark(18, 10, 'red');
+            factory.placePatch9(2, 4, 'right');
+            factory.placePatch9(2, 4, 'top');
+            factory.mark(2, 4, 'red');
+            factory.placePatch9(3, 4, 'left');
+            factory.placePatch9(3, 4, 'right');
+            factory.mark(3, 4, 'red');
+            factory.placePatch9(4, 4, 'left');
+            factory.placePatch9(25, 4, 'left');
+            factory.placePatch9(25, 4, 'top');
+            factory.mark(25, 4, 'red');
+            factory.placePatch9(24, 4, 'left');
+            factory.placePatch9(24, 4, 'right');
+            factory.mark(24, 4, 'red');
+            factory.placePatch9(23, 4, 'right');
+            factory.placePatch9(8, 9, 'right');
+            factory.placePatch9(8, 9, 'top');
+            factory.placePatch9(8, 9, 'bottom');
+            factory.placePatch9(18, 9, 'left');
+            factory.placePatch9(18, 9, 'bottom');
+            factory.mark(18, 9, 'red');
+            factory.placePatch9(9, 13, 'left');
+            factory.placePatch9(9, 13, 'right');
+            factory.mark(9, 13, 'red');
+            factory.placePatch9(10, 13, 'left');
+            factory.placePatch9(10, 13, 'bottom');
+            factory.mark(10, 13, 'red');
+            factory.placePatch9(11, 13, 'right');
+            factory.placePatch9(11, 13, 'top');
+            factory.mark(11, 13, 'red');
+            factory.placePatch9(11, 12, 'right');
+            factory.placePatch9(11, 12, 'bottom');
+            factory.mark(11, 12, 'red');
+            factory.placePatch9(12, 12, 'left');
+            factory.placePatch9(12, 12, 'right');
+            factory.mark(12, 12, 'red');
+            factory.placePatch9(13, 12, 'left');
+            factory.placePatch9(13, 12, 'bottom');
+            factory.mark(13, 12, 'red');
+            factory.placePatch9(13, 13, 'top');
+            factory.placePatch9(13, 13, 'bottom');
+            factory.mark(13, 13, 'red');
+            factory.placePatch9(13, 14, 'right');
+            factory.placePatch9(13, 14, 'top');
+            factory.mark(13, 14, 'red');
+            factory.placePatch9(14, 14, 'left');
+            factory.placePatch9(14, 14, 'top');
+            factory.mark(14, 14, 'red');
+            factory.placePatch9(14, 13, 'top');
+            factory.placePatch9(14, 13, 'bottom');
+            factory.mark(14, 13, 'red');
+            factory.placePatch9(14, 12, 'top');
+            factory.placePatch9(14, 12, 'bottom');
+            factory.mark(14, 12, 'red');
+            factory.placePatch9(14, 11, 'left');
+            factory.placePatch9(14, 11, 'bottom');
+            factory.mark(14, 11, 'red');
+            factory.placePatch9(13, 11, 'left');
+            factory.placePatch9(13, 11, 'right');
+            factory.mark(13, 11, 'red');
+            factory.placePatch9(12, 11, 'left');
+            factory.placePatch9(12, 11, 'right');
+            factory.mark(12, 11, 'red');
+            factory.placePatch9(11, 11, 'left');
+            factory.placePatch9(11, 11, 'right');
+            factory.mark(11, 11, 'red');
+            factory.placePatch9(10, 11, 'right');
+            factory.placePatch9(10, 11, 'bottom');
+            factory.mark(10, 11, 'red');
+            factory.placePatch9(10, 12, 'left');
+            factory.placePatch9(10, 12, 'top');
+            factory.mark(10, 12, 'red');
+            factory.placePatch9(9, 12, 'left');
+            factory.placePatch9(9, 12, 'right');
+            factory.mark(9, 12, 'red');
+            factory.placePatch9(8, 12, 'right');
+            factory.placePatch9(8, 12, 'top');
+            factory.mark(8, 12, 'red');
+            factory.placePatch9(17, 12, 'left');
+            factory.placePatch9(17, 12, 'right');
+            factory.placePatch9(17, 12, 'top');
+            factory.mark(17, 12, 'red');
+            factory.placePatch9(17, 13, 'right');
+            factory.placePatch9(17, 13, 'bottom');
+            factory.mark(17, 13, 'red');
+            factory.placePatch9(17, 14, 'left');
+            factory.placePatch9(17, 14, 'top');
+            factory.mark(17, 14, 'red');
+            factory.placePatch9(16, 14, 'right');
+            factory.placePatch9(16, 14, 'top');
+            factory.mark(16, 14, 'red');
+            factory.placePatch9(16, 13, 'left');
+            factory.placePatch9(16, 13, 'bottom');
+            factory.mark(16, 13, 'red');
+            factory.placePatch9(15, 13, 'right');
+            factory.placePatch9(15, 13, 'top');
+            factory.mark(15, 13, 'red');
+            factory.placePatch9(15, 12, 'top');
+            factory.placePatch9(15, 12, 'bottom');
+            factory.mark(15, 12, 'red');
+            factory.placePatch9(15, 11, 'right');
+            factory.placePatch9(15, 11, 'bottom');
+            factory.mark(15, 11, 'red');
+            factory.placePatch9(16, 11, 'left');
+            factory.placePatch9(16, 11, 'bottom');
+            factory.mark(16, 11, 'red');
+            factory.placePatch9(16, 12, 'right');
+            factory.placePatch9(16, 12, 'top');
+            factory.mark(16, 12, 'red');
+            factory.placePatch9(17, 11, 'right');
+            factory.placePatch9(17, 11, 'bottom');
+            factory.mark(17, 11, 'red');
+            factory.placePatch9(10, 14, 'right');
+            factory.placePatch9(10, 14, 'top');
+            factory.mark(10, 14, 'red');
+            factory.placePatch9(11, 14, 'left');
+            factory.placePatch9(11, 14, 'right');
+            factory.mark(11, 14, 'red');
+            factory.placePatch9(12, 14, 'left');
+            factory.placePatch9(12, 14, 'top');
+            factory.mark(12, 14, 'red');
+            factory.placePatch9(12, 13, 'left');
+            factory.placePatch9(12, 13, 'bottom');
+            factory.mark(12, 13, 'red');
+            factory.placePatch9(18, 12, 'left');
+            factory.mark(18, 12, 'red');
+            factory.placePatch9(9, 6, 'right');
+            factory.placePatch9(11, 6, 'left');
+            factory.placePatch9(11, 6, 'right');
+            factory.placePatch9(16, 7, 'left');
+            factory.placePatch9(16, 7, 'top');
+            factory.placePatch9(16, 5, 'top');
+            factory.placePatch9(16, 5, 'bottom');
+            factory.placePatch9(13, 3, 'top');
+            factory.placePatch9(14, 2, 'left');
+            factory.placePatch9(14, 2, 'right');
+            factory.placePatch9(12, 2, 'left');
+            factory.placePatch9(12, 2, 'right');
+            factory.placePatch9(17, 9, 'left');
+            factory.placePatch9(17, 9, 'right');
+            factory.mark(17, 9, 'red');
+            factory.placePatch9(16, 9, 'left');
+            factory.placePatch9(16, 9, 'right');
+            factory.mark(16, 9, 'red');
+            factory.placePatch9(15, 9, 'left');
+            factory.placePatch9(15, 9, 'right');
+            factory.placePatch9(12, 6, 'left');
+            factory.placePatch9(12, 6, 'right');
+            factory.placePatch9(13, 6, 'left');
+            factory.placePatch9(13, 6, 'right');
+            factory.placePatch9(14, 6, 'left');
+            factory.placePatch9(14, 6, 'bottom');
+            factory.placePatch9(14, 7, 'right');
+            factory.placePatch9(14, 7, 'top');
+            factory.placePatch9(15, 7, 'left');
+            factory.placePatch9(15, 7, 'right');
+            factory.placePatch9(14, 9, 'left');
+            factory.placePatch9(14, 9, 'right');
+            factory.placePatch9(13, 9, 'left');
+            factory.placePatch9(13, 9, 'right');
+            factory.placePatch9(12, 9, 'left');
+            factory.placePatch9(12, 9, 'right');
+            factory.placePatch9(11, 9, 'left');
+            factory.placePatch9(11, 9, 'right');
+            factory.placePatch9(10, 9, 'left');
+            factory.placePatch9(10, 9, 'right');
+            factory.placePatch9(9, 9, 'left');
+            factory.placePatch9(9, 9, 'right');
+            factory.placePatch9(8, 8, 'bottom');
+            factory.placePatch9(11, 2, 'right');
+            factory.placePatch9(11, 2, 'bottom');
+            factory.placePatch9(11, 3, 'top');
+            factory.placePatch9(11, 3, 'bottom');
+            factory.placePatch9(11, 4, 'left');
+            factory.placePatch9(11, 4, 'top');
+            factory.placePatch9(10, 4, 'left');
+            factory.placePatch9(10, 4, 'right');
+            factory.placePatch9(9, 4, 'right');
+            factory.placePatch9(15, 2, 'left');
+            factory.placePatch9(15, 2, 'right');
+            factory.placePatch9(16, 2, 'left');
+            factory.placePatch9(16, 2, 'right');
+            factory.placePatch9(17, 2, 'left');
+            factory.placePatch9(17, 2, 'right');
+            factory.placePatch9(18, 2, 'left');
+            factory.placePatch9(18, 2, 'right');
+            factory.placePatch9(19, 2, 'left');
+            factory.placePatch9(16, 4, 'left');
+            factory.placePatch9(16, 4, 'bottom');
+            factory.placePatch9(15, 4, 'right');
+
+
+        },
+        name: 'Tutorial 4',
+        subname: 'Filter',
+        itemsToGenerate: ['H', 'O'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[1]({
+                steam: 10
+            }));
+        },
+        nextFactory: 'tutorial5',
+        tools: ['pipe', 'info'],
+        animation: [
+            {text: 'It\'s time for our last lesson! Finally we will be learning how to use filters!'},
+            {text: 'Filter can block some elements, and pass elements that you want to go it through.'},
+            {text: 'Select "Wrench" tool from tools window on left side and click on the filter.'},
+            {text: 'It\'s weirdly blinking thing on top of the map.'},
+            {text: 'To limit some output of filter for example to steam, select it from the list.'},
+            {
+                text: 'Just remember! This collectors accept only specific items! If you put wrong item,\n' +
+                'objective will fail and you have to start over again.'
+            },
+        ],
+        cookbook: ['water', 'H', 'O', 'steam']
+    },
+    tutorial5: {
+        map: function (factory) {
+            factory.createBaseFloor();
+            factory.placeObject(14, 2, 'storage', true, false, {item: 'steam', restrict: true});
+            factory.mark(14, 2, 'red');
+            factory.placeObject(14, 3, 'pipe', true, false);
+            factory.mark(14, 3, 'red');
+            factory.placeObject(15, 3, 'block', true, false);
+            factory.mark(15, 3, 'red');
+            factory.placeObject(15, 2, 'block', true, false);
+            factory.mark(15, 2, 'red');
+            factory.placeObject(15, 1, 'block', true, false);
+            factory.mark(15, 1, 'red');
+            factory.placeObject(14, 1, 'block', true, false);
+            factory.mark(14, 1, 'red');
+            factory.placeObject(13, 1, 'block', true, false);
+            factory.mark(13, 1, 'red');
+            factory.placeObject(13, 2, 'block', true, false);
+            factory.mark(13, 2, 'red');
+            factory.placeObject(13, 3, 'block', true, false);
+            factory.mark(13, 3, 'red');
+            factory.placeObject(14, 4, 'pipe', true, false);
+            factory.placeObject(3, 10, 'pipe', true, false);
+            factory.mark(3, 10, 'red');
+            factory.placeObject(4, 10, 'pipe', true, false);
+            factory.placeObject(2, 8, 'pin').text = 'Generate Hydrogen and Oxygen';
+            factory.placeObject(16, 2, 'pin').text = 'Collector who accept ONLY steam';
+            factory.placeObject(2, 11, 'generator', true, false);
+            factory.mark(2, 11, 'red');
+            factory.placeObject(3, 11, 'block', true, false);
+            factory.mark(3, 11, 'red');
+            factory.placeObject(3, 12, 'block', true, false);
+            factory.mark(3, 12, 'red');
+            factory.placeObject(2, 12, 'block', true, false);
+            factory.mark(2, 12, 'red');
+            factory.placeObject(1, 12, 'block', true, false);
+            factory.mark(1, 12, 'red');
+            factory.placeObject(1, 11, 'block', true, false);
+            factory.mark(1, 11, 'red');
+            factory.placeObject(1, 10, 'block', true, false);
+            factory.mark(1, 10, 'red');
+            factory.placeObject(1, 9, 'block', true, false);
+            factory.mark(1, 9, 'red');
+            factory.placeObject(2, 9, 'block', true, false);
+            factory.mark(2, 9, 'red');
+            factory.placeObject(3, 9, 'block', true, false);
+            factory.mark(3, 9, 'red');
+            factory.placeObject(2, 10, 'pipe', true, false);
+            factory.mark(2, 10, 'red');
+            factory.placePatch9(14, 3, 'top');
+            factory.placePatch9(14, 3, 'bottom');
+            factory.mark(14, 3, 'red');
+            factory.placePatch9(14, 4, 'top');
+            factory.placePatch9(3, 10, 'left');
+            factory.placePatch9(3, 10, 'right');
+            factory.mark(3, 10, 'red');
+            factory.placePatch9(4, 10, 'left');
+            factory.placePatch9(2, 10, 'right');
+            factory.placePatch9(2, 10, 'bottom');
+            factory.mark(2, 10, 'red');
+
+        },
+        name: 'Tutorial 5',
+        subname: 'Final test!',
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('steam', 10));
+        },
+        nextFactory: 'stage1',
+        itemsToGenerate: ['H', 'O'],
+        tools: ['pipe', 'info', 'filter', 'fireplace', 'generator', 'combiner', 'block'],
+        animation: [
+            {text: 'This is your final test! Now, you\'re on your own.'},
+            {text: 'But don\'t worry, it\'s not hard test. In fact, you do exact same last one :)'},
+            {text: 'So, show me that you know everything about making steam!'},
+            {text: 'Shall we?'},
+            {
+                text: 'Quick tips: Generators produce randomly oxygen and hydrogen.<br>' +
+                'Object have input ond output. Remember to put pipe on appropriate side.'
+            },
+            {text: '[whisper] One more tip: Spacebar is pause!'},
+            {text: 'Good luck!'},
+
+        ],
+        cookbook: ['water', 'H', 'O', 'steam']
+
+    },
+    empty: {
+        map: function (factory) {
+            factory.createBaseFloor();
+        },
+        name: 'First factory',
+        subname: 'Ice cream!',
+        itemsToGenerate: ['water'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('H', 5));
+        },
+        nextFactory: 'tutorial2',
+    },
+    emptyhouse: {
+        map: function (factory) {
+            factory.createBaseFloor();
+            $('#storyscreen').addClass('home');
+            factory.getGame().getRenderEngine().changeBackground('background2');
+        },
+        name: 'First homise',
+        subname: 'Ice cream!',
+        itemsToGenerate: ['water', 'coffeebeans'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('coffee', 2));
+            game.addObjective(objectivesPrefabs[0]('coffeesugar', 2), [
+                {text: 'Could you add some sugar to my coffee, please?'}
+            ]);
+        },
+        nextFactory: 'tutorial2',
+    },
+    stage1: {
+        map: function (factory) {
+            factory.createBaseFloor();
+            factory.placeObject(3, 5, 'generator', true, false);
+            factory.mark(3, 5, 'red');
+            factory.placeObject(3, 4, 'pipe', true, false);
+            factory.mark(3, 4, 'red');
+            factory.placeObject(4, 4, 'pipe', true, false);
+            factory.mark(4, 4, 'red');
+            factory.placeObject(5, 4, 'pipe', true, false);
+            factory.placeObject(4, 5, 'block', true, false);
+            factory.mark(4, 5, 'red');
+            factory.placeObject(4, 6, 'block', true, false);
+            factory.mark(4, 6, 'red');
+            factory.placeObject(3, 6, 'block', true, false);
+            factory.mark(3, 6, 'red');
+            factory.placeObject(2, 6, 'block', true, false);
+            factory.mark(2, 6, 'red');
+            factory.placeObject(2, 5, 'block', true, false);
+            factory.mark(2, 5, 'red');
+            factory.placeObject(2, 4, 'block', true, false);
+            factory.mark(2, 4, 'red');
+            factory.placeObject(2, 3, 'block', true, false);
+            factory.mark(2, 3, 'red');
+            factory.placeObject(3, 3, 'block', true, false);
+            factory.mark(3, 3, 'red');
+            factory.placeObject(4, 3, 'block', true, false);
+            factory.mark(4, 3, 'red');
+            factory.placeObject(19, 4, 'storage', true, false, {item: 'water', restrict: true});
+            factory.mark(19, 4, 'red');
+            factory.placeObject(17, 4, 'pipe', true, false);
+            factory.placeObject(18, 4, 'pipe', true, false);
+            factory.mark(18, 4, 'red');
+            factory.placeObject(18, 5, 'block', true, false);
+            factory.mark(18, 5, 'red');
+            factory.placeObject(19, 5, 'block', true, false);
+            factory.mark(19, 5, 'red');
+            factory.placeObject(20, 5, 'block', true, false);
+            factory.mark(20, 5, 'red');
+            factory.placeObject(20, 4, 'block', true, false);
+            factory.mark(20, 4, 'red');
+            factory.placeObject(20, 3, 'block', true, false);
+            factory.mark(20, 3, 'red');
+            factory.placeObject(19, 3, 'block', true, false);
+            factory.mark(19, 3, 'red');
+            factory.placeObject(18, 3, 'block', true, false);
+            factory.mark(18, 3, 'red');
+            factory.placeObject(11, 9, 'deleter', true, false);
+            factory.mark(11, 9, 'red');
+            factory.placeObject(11, 8, 'pipe', true, false);
+            factory.mark(11, 8, 'red');
+            factory.placeObject(11, 7, 'pipe', true, false);
+            factory.placeObject(12, 8, 'block', true, false);
+            factory.mark(12, 8, 'red');
+            factory.placeObject(12, 9, 'block', true, false);
+            factory.mark(12, 9, 'red');
+            factory.placeObject(12, 10, 'block', true, false);
+            factory.mark(12, 10, 'red');
+            factory.placeObject(11, 10, 'block', true, false);
+            factory.mark(11, 10, 'red');
+            factory.placeObject(10, 10, 'block', true, false);
+            factory.mark(10, 10, 'red');
+            factory.placeObject(10, 9, 'block', true, false);
+            factory.mark(10, 9, 'red');
+            factory.placeObject(10, 8, 'block', true, false);
+            factory.mark(10, 8, 'red');
+            factory.placeObject(19, 6, 'pin').text = 'Collector accept ONLY water';
+            factory.placeObject(11, 11, 'pin').text = 'Trash';
+            factory.placeObject(3, 7, 'pin').text = 'Produce water and oxygen';
+            factory.placePatch9(3, 4, 'right');
+            factory.placePatch9(3, 4, 'bottom');
+            factory.mark(3, 4, 'red');
+            factory.placePatch9(4, 4, 'left');
+            factory.placePatch9(4, 4, 'right');
+            factory.mark(4, 4, 'red');
+            factory.placePatch9(5, 4, 'left');
+            factory.placePatch9(17, 4, 'right');
+            factory.placePatch9(18, 4, 'left');
+            factory.placePatch9(18, 4, 'right');
+            factory.mark(18, 4, 'red');
+            factory.placePatch9(11, 8, 'top');
+            factory.placePatch9(11, 8, 'bottom');
+            factory.mark(11, 8, 'red');
+            factory.placePatch9(11, 7, 'bottom');
+
+        },
+        name: 'Day 1',
+        subname: 'Your first day',
+        itemsToGenerate: ['water', 'O'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('water', 5));
+        },
+        nextFactory: 'stage2',
+        tools: ['pipe', 'info', 'block'],
+        animation: [
+            {text: 'Hello again worker! From now on, I\'m your manager!'},
+            {text: 'Here is your task for this day.'},
+            {text: 'Our water pump was damage, and some oxygen getting into pipe.'},
+            {text: 'You have to filter water and destroy oxygen.'},
+            {text: 'Unfortunately we don\'t have any filters.'},
+            {text: 'Maybe use somehow gravity or look to cookbook on right top corner. It\'s very helpful.'},
+            {text: 'Hope you can make it :)'},
+            {text: 'See you tomorrow!'},
+
+        ],
+        cookbook: ['water', 'O']
+
+    },
+    stage2: {
+        map: function (factory) {
+            factory.createBaseFloor();
+            factory.placeObject(3, 8, 'generator', true, false, ['orange']);
+            factory.mark(3, 8, 'red');
+            factory.placeObject(3, 7, 'pipe', true, false);
+            factory.mark(3, 7, 'red');
+            factory.placeObject(4, 7, 'pipe', true, false);
+            factory.mark(4, 7, 'red');
+            factory.placeObject(5, 7, 'pipe', true, false);
+            factory.placeObject(4, 8, 'block', true, false);
+            factory.mark(4, 8, 'red');
+            factory.placeObject(4, 9, 'block', true, false);
+            factory.mark(4, 9, 'red');
+            factory.placeObject(3, 9, 'block', true, false);
+            factory.mark(3, 9, 'red');
+            factory.placeObject(2, 9, 'block', true, false);
+            factory.mark(2, 9, 'red');
+            factory.placeObject(2, 8, 'block', true, false);
+            factory.mark(2, 8, 'red');
+            factory.placeObject(2, 7, 'block', true, false);
+            factory.mark(2, 7, 'red');
+            factory.placeObject(2, 6, 'block', true, false);
+            factory.mark(2, 6, 'red');
+            factory.placeObject(3, 6, 'block', true, false);
+            factory.mark(3, 6, 'red');
+            factory.placeObject(4, 6, 'block', true, false);
+            factory.mark(4, 6, 'red');
+            factory.placeObject(3, 10, 'pin').text = 'Oranges';
+            factory.placeObject(4, 12, 'block', true, false);
+            factory.mark(4, 12, 'red');
+            factory.placeObject(3, 12, 'block', true, false);
+            factory.mark(3, 12, 'red');
+            factory.placeObject(2, 12, 'block', true, false);
+            factory.mark(2, 12, 'red');
+            factory.placeObject(2, 13, 'block', true, false);
+            factory.mark(2, 13, 'red');
+            factory.placeObject(2, 14, 'block', true, false);
+            factory.mark(2, 14, 'red');
+            factory.placeObject(2, 15, 'block', true, false);
+            factory.mark(2, 15, 'red');
+            factory.placeObject(3, 15, 'block', true, false);
+            factory.mark(3, 15, 'red');
+            factory.placeObject(4, 15, 'block', true, false);
+            factory.mark(4, 15, 'red');
+            factory.placeObject(4, 14, 'block', true, false);
+            factory.mark(4, 14, 'red');
+            factory.placeObject(3, 14, 'generator', true, false, ['water']);
+            factory.mark(3, 14, 'red');
+            factory.placeObject(3, 13, 'pipe', true, false);
+            factory.mark(3, 13, 'red');
+            factory.placeObject(4, 13, 'pipe', true, false);
+            factory.mark(4, 13, 'red');
+            factory.placeObject(5, 13, 'pipe', true, false);
+            factory.placeObject(3, 16, 'pin').text = 'Water';
+            factory.placeObject(26, 9, 'storage', true, false, {item: 'icecream', restrict: true});
+            factory.mark(26, 9, 'red');
+            factory.placeObject(25, 9, 'pipe', true, false);
+            factory.mark(25, 9, 'red');
+            factory.placeObject(24, 9, 'pipe', true, false);
+            factory.placeObject(25, 10, 'block', true, false);
+            factory.mark(25, 10, 'red');
+            factory.placeObject(26, 10, 'block', true, false);
+            factory.mark(26, 10, 'red');
+            factory.placeObject(27, 10, 'block', true, false);
+            factory.mark(27, 10, 'red');
+            factory.placeObject(27, 9, 'block', true, false);
+            factory.mark(27, 9, 'red');
+            factory.placeObject(27, 8, 'block', true, false);
+            factory.mark(27, 8, 'red');
+            factory.placeObject(26, 8, 'block', true, false);
+            factory.mark(26, 8, 'red');
+            factory.placeObject(25, 8, 'block', true, false);
+            factory.mark(25, 8, 'red');
+            factory.placeObject(26, 11, 'pin').text = 'Accept only ice cream';
+            factory.placePatch9(3, 7, 'right');
+            factory.placePatch9(3, 7, 'bottom');
+            factory.mark(3, 7, 'red');
+            factory.placePatch9(4, 7, 'left');
+            factory.placePatch9(4, 7, 'right');
+            factory.mark(4, 7, 'red');
+            factory.placePatch9(5, 7, 'left');
+            factory.placePatch9(3, 13, 'right');
+            factory.placePatch9(3, 13, 'bottom');
+            factory.mark(3, 13, 'red');
+            factory.placePatch9(4, 13, 'left');
+            factory.placePatch9(4, 13, 'right');
+            factory.mark(4, 13, 'red');
+            factory.placePatch9(5, 13, 'left');
+            factory.placePatch9(25, 9, 'left');
+            factory.placePatch9(25, 9, 'right');
+            factory.mark(25, 9, 'red');
+            factory.placePatch9(24, 9, 'right');
+
+        },
+        name: 'Day 2',
+        subname: 'No ice cream!',
+        tools: ['pipe', 'info', 'block', 'filter', 'combiner', 'separator', 'freezer'],
+        itemsToGenerate: ['water', 'orange'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('icecream', 15));
+        },
+        nextFactory: 'stage3',
+        animation: [
+            {text: 'Crisis alert! Our ice cream machine is broken, and there are kids waiting for their ice cream!!'},
+            {text: 'We have to fix this, and quick!'},
+            {text: 'Here! Make some useful thing of separator and freezer!'},
+            {text: 'Quick info: Separator tears items on parts. Useful for making juice ;)'},
+            {text: 'And freezer, well... freeze staff :)'},
+
+        ],
+        cookbook: ['orange', 'water', 'ice', 'icecream', 'juice', 'pulp']
+    },
+    stage3: {
+        map: function (factory) {
+            factory.createBaseFloor();
+            factory.placeObject(4, 6, 'line', true, false);
+            factory.mark(4, 6, 'red');
+            factory.placeObject(5, 6, 'line', true, false);
+            factory.mark(5, 6, 'red');
+            factory.placeObject(6, 6, 'line', true, false);
+            factory.placeObject(5, 7, 'block', true, false);
+            factory.mark(5, 7, 'red');
+            factory.placeObject(5, 8, 'block', true, false);
+            factory.mark(5, 8, 'red');
+            factory.placeObject(4, 8, 'block', true, false);
+            factory.mark(4, 8, 'red');
+            factory.placeObject(3, 8, 'block', true, false);
+            factory.mark(3, 8, 'red');
+            factory.placeObject(3, 7, 'block', true, false);
+            factory.mark(3, 7, 'red');
+            factory.placeObject(3, 6, 'block', true, false);
+            factory.mark(3, 6, 'red');
+            factory.placeObject(3, 5, 'block', true, false);
+            factory.mark(3, 5, 'red');
+            factory.placeObject(4, 5, 'block', true, false);
+            factory.mark(4, 5, 'red');
+            factory.placeObject(5, 5, 'block', true, false);
+            factory.mark(5, 5, 'red');
+            factory.placeObject(21, 7, 'block', true, false);
+            factory.mark(21, 7, 'red');
+            factory.placeObject(21, 5, 'block', true, false);
+            factory.mark(21, 5, 'red');
+            factory.placeObject(20, 6, 'line', true, false);
+            factory.placeObject(21, 6, 'line', true, false);
+            factory.mark(21, 6, 'red');
+            factory.placeObject(22, 6, 'line', true, false);
+            factory.mark(22, 6, 'red');
+            factory.placeObject(23, 6, 'storage', true, false);
+            factory.mark(23, 6, 'red');
+            factory.placeObject(22, 7, 'block', true, false);
+            factory.mark(22, 7, 'red');
+            factory.placeObject(23, 7, 'block', true, false);
+            factory.mark(23, 7, 'red');
+            factory.placeObject(24, 7, 'block', true, false);
+            factory.mark(24, 7, 'red');
+            factory.placeObject(24, 6, 'block', true, false);
+            factory.mark(24, 6, 'red');
+            factory.placeObject(24, 5, 'block', true, false);
+            factory.mark(24, 5, 'red');
+            factory.placeObject(23, 5, 'block', true, false);
+            factory.mark(23, 5, 'red');
+            factory.placeObject(22, 5, 'block', true, false);
+            factory.mark(22, 5, 'red');
+            factory.placeObject(12, 2, 'pipe', true, false);
+            factory.placeObject(13, 2, 'pipe', true, false);
+            factory.mark(13, 2, 'red');
+            factory.placeObject(14, 2, 'pipe', true, false);
+            factory.mark(14, 2, 'red');
+            factory.placeObject(14, 3, 'pipe', true, false);
+            factory.mark(14, 3, 'red');
+            factory.placeObject(13, 3, 'pipe', true, false);
+            factory.mark(13, 3, 'red');
+            factory.placeObject(13, 4, 'pipe', true, false);
+            factory.mark(13, 4, 'red');
+            factory.placeObject(14, 4, 'pipe', true, false);
+            factory.mark(14, 4, 'red');
+            factory.placeObject(14, 5, 'pipe', true, false);
+            factory.mark(14, 5, 'red');
+            factory.placeObject(13, 5, 'pipe', true, false);
+            factory.mark(13, 5, 'red');
+            factory.placeObject(12, 5, 'pipe', true, false);
+            factory.mark(12, 5, 'red');
+            factory.placeObject(12, 4, 'pipe', true, false);
+            factory.mark(12, 4, 'red');
+            factory.placeObject(11, 4, 'pipe', true, false);
+            factory.mark(11, 4, 'red');
+            factory.placeObject(11, 5, 'pipe', true, false);
+            factory.mark(11, 5, 'red');
+            factory.placeObject(11, 6, 'pipe', true, false);
+            factory.mark(11, 6, 'red');
+            factory.placeObject(12, 6, 'pipe', true, false);
+            factory.mark(12, 6, 'red');
+            factory.placeObject(13, 6, 'pipe', true, false);
+            factory.mark(13, 6, 'red');
+            factory.placeObject(14, 6, 'pipe', true, false);
+            factory.mark(14, 6, 'red');
+            factory.placeObject(15, 6, 'pipe', true, false);
+            factory.mark(15, 6, 'red');
+            factory.placeObject(15, 7, 'pipe', true, false);
+            factory.mark(15, 7, 'red');
+            factory.placeObject(14, 7, 'pipe', true, false);
+            factory.mark(14, 7, 'red');
+            factory.placeObject(13, 7, 'pipe', true, false);
+            factory.mark(13, 7, 'red');
+            factory.placeObject(13, 8, 'pipe', true, false);
+            factory.mark(13, 8, 'red');
+            factory.placeObject(14, 8, 'pipe', true, false);
+            factory.mark(14, 8, 'red');
+            factory.placeObject(14, 9, 'pipe', true, false);
+            factory.mark(14, 9, 'red');
+            factory.placeObject(13, 9, 'pipe', true, false);
+            factory.mark(13, 9, 'red');
+            factory.placeObject(13, 10, 'pipe', true, false);
+            factory.mark(13, 10, 'red');
+            factory.placeObject(14, 10, 'pipe', true, false);
+            factory.mark(14, 10, 'red');
+            factory.placeObject(13, 11, 'pipe', true, false);
+            factory.mark(13, 11, 'red');
+            factory.placeObject(12, 11, 'pipe', true, false);
+            factory.mark(12, 11, 'red');
+            factory.placeObject(12, 10, 'pipe', true, false);
+            factory.mark(12, 10, 'red');
+            factory.placeObject(15, 10, 'pipe', true, false);
+            factory.placeObject(14, 11, 'pipe', true, false);
+            factory.placeObject(13, 12, 'block', true, false);
+            factory.mark(13, 12, 'red');
+            factory.placeObject(13, 13, 'block', true, false);
+            factory.mark(13, 13, 'red');
+            factory.placeObject(13, 14, 'block', true, false);
+            factory.mark(13, 14, 'red');
+            factory.placeObject(13, 15, 'block', true, false);
+            factory.mark(13, 15, 'red');
+            factory.placeObject(13, 16, 'block', true, false);
+            factory.mark(13, 16, 'red');
+            factory.placeObject(13, 17, 'block', true, false);
+            factory.mark(13, 17, 'red');
+            factory.placeObject(13, 18, 'block', true, false);
+            factory.mark(13, 18, 'red');
+            factory.placeObject(13, 1, 'block', true, false);
+            factory.mark(13, 1, 'red');
+            factory.placeObject(13, 0, 'block', true, false);
+            factory.mark(13, 0, 'red');
+            factory.placeObject(4, 7, 'generator', true, false, ['phone']);
+            factory.mark(4, 7, 'red');
+            factory.placeObject(11, 10, 'pipe', true, false);
+            factory.placeObject(15, 2, 'pipe', true, false);
+            factory.placePatch9byTool(4, 6, 'right', true, 'line');
+            factory.placePatch9byTool(4, 6, 'bottom', true, 'line');
+            factory.mark(4, 6, 'red');
+            factory.placePatch9byTool(5, 6, 'left', true, 'line');
+            factory.placePatch9byTool(5, 6, 'right', true, 'line');
+            factory.mark(5, 6, 'red');
+            factory.placePatch9byTool(6, 6, 'left', true, 'line');
+            factory.placePatch9byTool(20, 6, 'right', true, 'line');
+            factory.placePatch9byTool(21, 6, 'left', true, 'line');
+            factory.placePatch9byTool(21, 6, 'right', true, 'line');
+            factory.mark(21, 6, 'red');
+            factory.placePatch9byTool(22, 6, 'left', true, 'line');
+            factory.placePatch9byTool(22, 6, 'right', true, 'line');
+            factory.mark(22, 6, 'red');
+            factory.placePatch9(12, 2, 'right');
+            factory.placePatch9(13, 2, 'left');
+            factory.placePatch9(13, 2, 'right');
+            factory.mark(13, 2, 'red');
+            factory.placePatch9(14, 2, 'left');
+            factory.placePatch9(14, 2, 'right');
+            factory.placePatch9(14, 2, 'bottom');
+            factory.mark(14, 2, 'red');
+            factory.placePatch9(14, 3, 'left');
+            factory.placePatch9(14, 3, 'top');
+            factory.mark(14, 3, 'red');
+            factory.placePatch9(13, 3, 'right');
+            factory.placePatch9(13, 3, 'bottom');
+            factory.mark(13, 3, 'red');
+            factory.placePatch9(13, 4, 'right');
+            factory.placePatch9(13, 4, 'top');
+            factory.mark(13, 4, 'red');
+            factory.placePatch9(14, 4, 'left');
+            factory.placePatch9(14, 4, 'bottom');
+            factory.mark(14, 4, 'red');
+            factory.placePatch9(14, 5, 'left');
+            factory.placePatch9(14, 5, 'top');
+            factory.mark(14, 5, 'red');
+            factory.placePatch9(13, 5, 'left');
+            factory.placePatch9(13, 5, 'right');
+            factory.mark(13, 5, 'red');
+            factory.placePatch9(12, 5, 'right');
+            factory.placePatch9(12, 5, 'top');
+            factory.mark(12, 5, 'red');
+            factory.placePatch9(12, 4, 'left');
+            factory.placePatch9(12, 4, 'bottom');
+            factory.mark(12, 4, 'red');
+            factory.placePatch9(11, 4, 'right');
+            factory.placePatch9(11, 4, 'bottom');
+            factory.mark(11, 4, 'red');
+            factory.placePatch9(11, 5, 'top');
+            factory.placePatch9(11, 5, 'bottom');
+            factory.mark(11, 5, 'red');
+            factory.placePatch9(11, 6, 'right');
+            factory.placePatch9(11, 6, 'top');
+            factory.mark(11, 6, 'red');
+            factory.placePatch9(12, 6, 'left');
+            factory.placePatch9(12, 6, 'right');
+            factory.mark(12, 6, 'red');
+            factory.placePatch9(13, 6, 'left');
+            factory.placePatch9(13, 6, 'right');
+            factory.mark(13, 6, 'red');
+            factory.placePatch9(14, 6, 'left');
+            factory.placePatch9(14, 6, 'right');
+            factory.mark(14, 6, 'red');
+            factory.placePatch9(15, 6, 'left');
+            factory.placePatch9(15, 6, 'bottom');
+            factory.mark(15, 6, 'red');
+            factory.placePatch9(15, 7, 'left');
+            factory.placePatch9(15, 7, 'top');
+            factory.mark(15, 7, 'red');
+            factory.placePatch9(14, 7, 'left');
+            factory.placePatch9(14, 7, 'right');
+            factory.mark(14, 7, 'red');
+            factory.placePatch9(13, 7, 'right');
+            factory.placePatch9(13, 7, 'bottom');
+            factory.mark(13, 7, 'red');
+            factory.placePatch9(13, 8, 'right');
+            factory.placePatch9(13, 8, 'top');
+            factory.mark(13, 8, 'red');
+            factory.placePatch9(14, 8, 'left');
+            factory.placePatch9(14, 8, 'bottom');
+            factory.mark(14, 8, 'red');
+            factory.placePatch9(14, 9, 'left');
+            factory.placePatch9(14, 9, 'top');
+            factory.mark(14, 9, 'red');
+            factory.placePatch9(13, 9, 'right');
+            factory.placePatch9(13, 9, 'bottom');
+            factory.mark(13, 9, 'red');
+            factory.placePatch9(13, 10, 'left');
+            factory.placePatch9(13, 10, 'right');
+            factory.placePatch9(13, 10, 'top');
+            factory.mark(13, 10, 'red');
+            factory.placePatch9(14, 10, 'left');
+            factory.placePatch9(14, 10, 'right');
+            factory.mark(14, 10, 'red');
+            factory.placePatch9(13, 11, 'left');
+            factory.placePatch9(13, 11, 'right');
+            factory.mark(13, 11, 'red');
+            factory.placePatch9(12, 11, 'right');
+            factory.placePatch9(12, 11, 'top');
+            factory.mark(12, 11, 'red');
+            factory.placePatch9(12, 10, 'left');
+            factory.placePatch9(12, 10, 'right');
+            factory.placePatch9(12, 10, 'bottom');
+            factory.mark(12, 10, 'red');
+            factory.placePatch9(15, 10, 'left');
+            factory.placePatch9(14, 11, 'left');
+            factory.placePatch9(11, 10, 'right');
+            factory.placePatch9(15, 2, 'left');
+
+
+        },
+        name: 'Day 3',
+        subname: 'Blocked by pipe',
+        tools: ['pipe', 'line', 'info', 'block', 'filter', 'combiner', 'separator', 'pusher'],
+        itemsToGenerate: ['phone'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('phone', 15));
+        },
+        nextFactory: 'stage4',
+        animation: [
+            {text: 'Hello there worker! We have here some bad situation...'},
+            {text: 'As you can see, our transportation line can\'t go through this pipe!'},
+            {text: 'But we must transport this little phones to warehouse!'},
+            {text: 'Please, figure out how to do it and do it!'},
+
+        ],
+        cookbook: ['phone', 'electronic', 'plastic', 'silicon', 'copper']
+    },
+    stage4: {
+        map: function (factory) {
+            factory.createBaseFloor();
+            factory.placeObject(1, 17, 'pin').text = 'Wheat';
+            factory.placeObject(5, 17, 'pin').text = 'Water';
+            factory.placeObject(9, 17, 'pin').text = ' Eggs';
+            factory.placeObject(2, 16, 'block', true, false);
+            factory.mark(2, 16, 'red');
+            factory.placeObject(6, 16, 'block', true, false);
+            factory.mark(6, 16, 'red');
+            factory.placeObject(10, 16, 'block', true, false);
+            factory.mark(10, 16, 'red');
+            factory.placeObject(2, 15, 'generator', true, false, ['wheat']);
+            factory.mark(2, 15, 'red');
+            factory.placeObject(6, 15, 'generator', true, false, ['water']);
+            factory.mark(6, 15, 'red');
+            factory.placeObject(10, 15, 'generator', true, false, ['egg']);
+            factory.mark(10, 15, 'red');
+            factory.placeObject(3, 16, 'block', true, false);
+            factory.mark(3, 16, 'red');
+            factory.placeObject(3, 15, 'block', true, false);
+            factory.mark(3, 15, 'red');
+            factory.placeObject(3, 14, 'block', true, false);
+            factory.mark(3, 14, 'red');
+            factory.placeObject(1, 16, 'block', true, false);
+            factory.mark(1, 16, 'red');
+            factory.placeObject(1, 15, 'block', true, false);
+            factory.mark(1, 15, 'red');
+            factory.placeObject(1, 14, 'block', true, false);
+            factory.mark(1, 14, 'red');
+            factory.placeObject(5, 16, 'block', true, false);
+            factory.mark(5, 16, 'red');
+            factory.placeObject(5, 15, 'block', true, false);
+            factory.mark(5, 15, 'red');
+            factory.placeObject(5, 14, 'block', true, false);
+            factory.mark(5, 14, 'red');
+            factory.placeObject(7, 14, 'block', true, false);
+            factory.mark(7, 14, 'red');
+            factory.placeObject(7, 15, 'block', true, false);
+            factory.mark(7, 15, 'red');
+            factory.placeObject(7, 16, 'block', true, false);
+            factory.mark(7, 16, 'red');
+            factory.placeObject(9, 14, 'block', true, false);
+            factory.mark(9, 14, 'red');
+            factory.placeObject(9, 15, 'block', true, false);
+            factory.mark(9, 15, 'red');
+            factory.placeObject(9, 16, 'block', true, false);
+            factory.mark(9, 16, 'red');
+            factory.placeObject(11, 16, 'block', true, false);
+            factory.mark(11, 16, 'red');
+            factory.placeObject(11, 15, 'block', true, false);
+            factory.mark(11, 15, 'red');
+            factory.placeObject(11, 14, 'block', true, false);
+            factory.mark(11, 14, 'red');
+            factory.placeObject(2, 14, 'pipe', true, false);
+            factory.mark(2, 14, 'red');
+            factory.placeObject(2, 13, 'pipe', true, false);
+            factory.placeObject(6, 14, 'pipe', true, false);
+            factory.mark(6, 14, 'red');
+            factory.placeObject(6, 13, 'pipe', true, false);
+            factory.placeObject(10, 14, 'line', true, false);
+            factory.mark(10, 14, 'red');
+            factory.placeObject(10, 13, 'line', true, false);
+            factory.placeObject(25, 15, 'storage', true, false);
+            factory.mark(25, 15, 'red');
+            factory.placeObject(24, 16, 'block', true, false);
+            factory.mark(24, 16, 'red');
+            factory.placeObject(25, 16, 'block', true, false);
+            factory.mark(25, 16, 'red');
+            factory.placeObject(26, 16, 'block', true, false);
+            factory.mark(26, 16, 'red');
+            factory.placeObject(26, 15, 'block', true, false);
+            factory.mark(26, 15, 'red');
+            factory.placeObject(26, 14, 'block', true, false);
+            factory.mark(26, 14, 'red');
+            factory.placeObject(25, 14, 'block', true, false);
+            factory.mark(25, 14, 'red');
+            factory.placeObject(24, 14, 'block', true, false);
+            factory.mark(24, 14, 'red');
+            factory.placeObject(24, 15, 'line', true, false);
+            factory.mark(24, 15, 'red');
+            factory.placeObject(23, 15, 'line', true, false);
+            factory.placeObject(24, 17, 'pin').text = 'Tasty bread go here :)';
+            factory.placePatch9(2, 14, 'top');
+            factory.placePatch9(2, 14, 'bottom');
+            factory.mark(2, 14, 'red');
+            factory.placePatch9(2, 13, 'bottom');
+            factory.placePatch9(6, 14, 'top');
+            factory.placePatch9(6, 14, 'bottom');
+            factory.mark(6, 14, 'red');
+            factory.placePatch9(6, 13, 'bottom');
+            factory.placePatch9byTool(10, 14, 'top', true, 'line');
+            factory.placePatch9byTool(10, 14, 'bottom', true, 'line');
+            factory.mark(10, 14, 'red');
+            factory.placePatch9byTool(10, 13, 'bottom', true, 'line');
+            factory.placePatch9byTool(24, 15, 'left', true, 'line');
+            factory.placePatch9byTool(24, 15, 'right', true, 'line');
+            factory.mark(24, 15, 'red');
+            factory.placePatch9byTool(23, 15, 'right', true, 'line');
+
+
+        },
+        name: 'Day 4',
+        subname: 'Baking time!',
+        tools: ['pipe', 'line', 'info', 'block', 'filter', 'combiner', 'separator', 'pusher', 'fireplace'],
+        itemsToGenerate: [],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('bread', 15));
+            game.addObjective(objectivesPrefabs[0]('goodbread', 15), [
+                {text: 'Damn! This bread taste like mud!'},
+                {text: 'Add to your muddy dough another egg and water, then bake!'},
+                {text: 'Here 50$ for upgrade bakery.'},
+                {text: 'Don\'t disappoint me this time!'},
+            ]);
+        },
+        nextFactory: 'stage5',
+        animation: [
+            {text: 'Hmmm... Is\'t very odd... It seams that we don\'t have any issue. Hmm...'},
+            {text: 'Well, never mind! Task for you:<br>Today you will be cook!'},
+            {text: 'Our client require 15 bread. And you have amazing opportunity to do it :)'},
+            {text: 'Here is your cook cap. Back to work.'},
+            {text: 'Aaaaa! Now I find missing issue! We don\'t a lot of money!'},
+            {text: 'I\'m sure you can make it :)'},
+
+        ],
+        cookbook: ['water', 'egg', 'flour', 'dough', 'wheat'],
+        money: 200
+    },
+    stage5: {
+        map: function (factory) {
+            factory.createBaseFloor();
+            factory.placeObject(4, 9, 'generator', true, false, ['bread', 'goodbread']);
+            factory.mark(4, 9, 'red');
+            factory.placeObject(4, 8, 'line', true, false);
+            factory.mark(4, 8, 'red');
+            factory.placeObject(4, 7, 'line', true, false);
+            factory.placeObject(5, 8, 'block', true, false);
+            factory.mark(5, 8, 'red');
+            factory.placeObject(5, 9, 'block', true, false);
+            factory.mark(5, 9, 'red');
+            factory.placeObject(5, 10, 'block', true, false);
+            factory.mark(5, 10, 'red');
+            factory.placeObject(4, 10, 'block', true, false);
+            factory.mark(4, 10, 'red');
+            factory.placeObject(3, 10, 'block', true, false);
+            factory.mark(3, 10, 'red');
+            factory.placeObject(3, 9, 'block', true, false);
+            factory.mark(3, 9, 'red');
+            factory.placeObject(3, 8, 'block', true, false);
+            factory.mark(3, 8, 'red');
+            factory.placeObject(3, 11, 'pin').text = 'Bread';
+            factory.placeObject(7, 8, 'block', true, false);
+            factory.mark(7, 8, 'red');
+            factory.placeObject(7, 9, 'block', true, false);
+            factory.mark(7, 9, 'red');
+            factory.placeObject(7, 10, 'block', true, false);
+            factory.mark(7, 10, 'red');
+            factory.placeObject(8, 10, 'block', true, false);
+            factory.mark(8, 10, 'red');
+            factory.placeObject(9, 10, 'block', true, false);
+            factory.mark(9, 10, 'red');
+            factory.placeObject(9, 9, 'block', true, false);
+            factory.mark(9, 9, 'red');
+            factory.placeObject(9, 8, 'block', true, false);
+            factory.mark(9, 8, 'red');
+            factory.placeObject(8, 9, 'generator', true, false, ['ham', 'tomato', 'cheese']);
+            factory.mark(8, 9, 'red');
+            factory.placeObject(8, 8, 'pipe', true, false);
+            factory.mark(8, 8, 'red');
+            factory.placeObject(8, 7, 'pipe', true, false);
+            factory.placeObject(7, 11, 'pin').text = 'Ingredients';
+            factory.placeObject(26, 8, 'storage', true, false, {item: 'goodsandwich', restrict: true});
+            factory.mark(26, 8, 'red');
+            factory.placeObject(25, 8, 'line', true, false);
+            factory.mark(25, 8, 'red');
+            factory.placeObject(24, 8, 'line', true, false);
+            factory.placeObject(25, 7, 'block', true, false);
+            factory.mark(25, 7, 'red');
+            factory.placeObject(26, 7, 'block', true, false);
+            factory.mark(26, 7, 'red');
+            factory.placeObject(27, 7, 'block', true, false);
+            factory.mark(27, 7, 'red');
+            factory.placeObject(27, 8, 'block', true, false);
+            factory.mark(27, 8, 'red');
+            factory.placeObject(27, 9, 'block', true, false);
+            factory.mark(27, 9, 'red');
+            factory.placeObject(26, 9, 'block', true, false);
+            factory.mark(26, 9, 'red');
+            factory.placeObject(25, 9, 'block', true, false);
+            factory.mark(25, 9, 'red');
+            factory.placeObject(25, 10, 'pin').text = 'Put sandwiches here';
+            factory.placePatch9byTool(4, 8, 'top', true, 'line');
+            factory.placePatch9byTool(4, 8, 'bottom', true, 'line');
+            factory.mark(4, 8, 'red');
+            factory.placePatch9byTool(4, 7, 'bottom', true, 'line');
+            factory.placePatch9(8, 8, 'top');
+            factory.placePatch9(8, 8, 'bottom');
+            factory.mark(8, 8, 'red');
+            factory.placePatch9(8, 7, 'bottom');
+            factory.placePatch9byTool(25, 8, 'left', true, 'line');
+            factory.placePatch9byTool(25, 8, 'right', true, 'line');
+            factory.mark(25, 8, 'red');
+            factory.placePatch9byTool(24, 8, 'right', true, 'line');
+
+
+        },
+        name: 'Day 5',
+        subname: 'Yammi Yammi',
+        tools: ['pipe', 'line', 'info', 'block', 'filter', 'combiner', 'separator', 'pusher', 'deleter'],
+        itemsToGenerate: ['bread', 'goodbread'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('goodsandwich', 15));
+        },
+        nextFactory: 'home1',
+        animation: [
+            {text: 'Hey! Tomorrow is your first 2 day vacation!'},
+            {text: 'I hope you are exiting for this little break!'},
+            {text: 'Ok, back to business. Last time you baking bread, right?', linkText: 'Right! My bread was awesome!'},
+            {text: 'Sure, sure... no one remember that muddy bread you did.'},
+            {text: 'But anyway, since we have fully operational bakery, our company wants to start selling sandwiches!'},
+            {text: 'Once again, you will be responsible for that.'},
+            {text: 'And remember: it\'s hard to make a good sandwich.'},
+            {text: 'Try your best!'},
+
+        ],
+        cookbook: ['bread', 'goodbread', 'slicebread', 'slicegoodbread', 'ham', 'sliceham', 'tomato', 'slicetomato', 'cheese', 'slicecheese'],
+        money: 500,
+        failMessage: 'That again taste like mud! Try again!'
+    },
+    home1: {
+        map: function (factory) {
+            $('#storyscreen').addClass('home');
+            factory.getGame().getRenderEngine().changeBackground('background2');
+            factory.createBaseFloor();
+            factory.placeObject(5, 9, 'generator', true, false, ['coffeebeans', 'sugar']);
+            factory.mark(5, 9, 'red');
+            factory.placeObject(6, 9, 'block', true, false);
+            factory.mark(6, 9, 'red');
+            factory.placeObject(6, 10, 'block', true, false);
+            factory.mark(6, 10, 'red');
+            factory.placeObject(5, 10, 'block', true, false);
+            factory.mark(5, 10, 'red');
+            factory.placeObject(4, 10, 'block', true, false);
+            factory.mark(4, 10, 'red');
+            factory.placeObject(4, 9, 'block', true, false);
+            factory.mark(4, 9, 'red');
+            factory.placeObject(4, 8, 'block', true, false);
+            factory.mark(4, 8, 'red');
+            factory.placeObject(6, 8, 'block', true, false);
+            factory.mark(6, 8, 'red');
+            factory.placeObject(5, 8, 'pipe', true, false);
+            factory.mark(5, 8, 'red');
+            factory.placeObject(5, 7, 'pipe', true, false);
+            factory.placeObject(4, 11, 'pin').text = 'Pantry';
+            factory.placeObject(10, 8, 'pipe', true, false);
+            factory.mark(10, 8, 'red');
+            factory.placeObject(10, 7, 'pipe', true, false);
+            factory.placeObject(10, 9, 'generator', true, false, ['water']);
+            factory.mark(10, 9, 'red');
+            factory.placeObject(11, 8, 'block', true, false);
+            factory.mark(11, 8, 'red');
+            factory.placeObject(11, 9, 'block', true, false);
+            factory.mark(11, 9, 'red');
+            factory.placeObject(11, 10, 'block', true, false);
+            factory.mark(11, 10, 'red');
+            factory.placeObject(10, 10, 'block', true, false);
+            factory.mark(10, 10, 'red');
+            factory.placeObject(9, 10, 'block', true, false);
+            factory.mark(9, 10, 'red');
+            factory.placeObject(9, 9, 'block', true, false);
+            factory.mark(9, 9, 'red');
+            factory.placeObject(9, 8, 'block', true, false);
+            factory.mark(9, 8, 'red');
+            factory.placeObject(17, 7, 'coffeemachine', true, false);
+            factory.mark(17, 7, 'red');
+            factory.placeObject(17, 8, 'block', true, false);
+            factory.mark(17, 8, 'red');
+            factory.placeObject(18, 7, 'pin').text = 'Coffee machine';
+            factory.placeObject(24, 11, 'storage', true, false);
+            factory.mark(24, 11, 'red');
+            factory.placeObject(23, 10, 'block', true, false);
+            factory.mark(23, 10, 'red');
+            factory.placeObject(24, 10, 'block', true, false);
+            factory.mark(24, 10, 'red');
+            factory.placeObject(25, 10, 'block', true, false);
+            factory.mark(25, 10, 'red');
+            factory.placeObject(25, 11, 'block', true, false);
+            factory.mark(25, 11, 'red');
+            factory.placeObject(25, 12, 'block', true, false);
+            factory.mark(25, 12, 'red');
+            factory.placeObject(24, 12, 'block', true, false);
+            factory.mark(24, 12, 'red');
+            factory.placeObject(23, 12, 'block', true, false);
+            factory.mark(23, 12, 'red');
+            factory.placeObject(23, 11, 'pipe', true, false);
+            factory.mark(23, 11, 'red');
+            factory.placeObject(22, 11, 'pipe', true, false);
+            factory.placeObject(9, 11, 'pin').text = 'Water';
+            factory.placePatch9(5, 8, 'top');
+            factory.placePatch9(5, 8, 'bottom');
+            factory.mark(5, 8, 'red');
+            factory.placePatch9(5, 7, 'bottom');
+            factory.placePatch9(10, 8, 'top');
+            factory.placePatch9(10, 8, 'bottom');
+            factory.mark(10, 8, 'red');
+            factory.placePatch9(10, 7, 'bottom');
+            factory.placePatch9(23, 11, 'left');
+            factory.placePatch9(23, 11, 'right');
+            factory.mark(23, 11, 'red');
+            factory.placePatch9(22, 11, 'right');
+
+
+        },
+        name: 'Day 6',
+        subname: 'Home, sweet home',
+        tools: ['pipe', 'info', 'block', 'filter', 'combiner', 'separator', 'pusher', 'deleter'],
+        itemsToGenerate: ['water', 'coffeebeans', 'sugar'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('coffee', 2));
+            game.addObjective(objectivesPrefabs[0]('coffeesugar', 2), [
+                {text: 'Could you add some sugar to my coffee, please?'}
+            ]);
+        },
+        nextFactory: 'home1',
+        animation: [
+            {text: 'Wakie Wakie honey!'},
+            {text: 'I see you brought some staff from work...'},
+            {text: 'So maybe you have this things, you make my coffee?', linkText: 'Sure!'},
+
+        ],
+        cookbook: ['water', 'coffeebeans', 'coffeepowder', 'coffee', 'sugar', 'coffeesugar'],
+        money: 500,
+        failMessage: 'That again taste like mud! Try again!'
+    },
+};

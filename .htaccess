@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteBase /
+RewriteRule ^factory_(.+).html$ pixelFactory/game.php?factory=$1
+RewriteRule ^(.+).html(.*)$ pixelFactory/$1.php$2
+RewriteRule ^game.html$ pixelFactory/game.php

@@ -1,0 +1,448 @@
+#cursor {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background: url("../images/cursor.png");
+    z-index: 200;
+    pointer-events: none;
+}
+
+body {
+    margin: 0;
+    background: url("../images/gui-background.png");
+    overflow: hidden;
+    font-family: 'VT323', serif;
+    color: #fafafa;
+}
+
+.ui-tooltip {
+    padding: 8px;
+    position: absolute;
+    z-index: 9999;
+    max-width: 300px;
+    background: url("../images/black.png");
+}
+
+h1 {
+    margin: 2px;
+    font-size: 1.3em;
+}
+
+.hide {
+    display: none;
+
+}
+
+select {
+    /*font-family: 'VT323', serif;*/
+    /*font-size: 2em;*/
+}
+
+.gui-window {
+    position: relative;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+#bookWindow {
+    width: 700px;
+    height: 460px;
+    background: url("../images/bookWindow.png");
+    position: absolute;
+    z-index: auto;
+    left: 25%;
+    top: 15%;
+}
+
+#bookWindow > .left {
+    float: left;
+    width: 345px;
+    height: 400px;
+    transform: perspective(1500px) rotateY(30deg);
+    font-size: 1.5em;
+    margin-top: 25px;
+}
+
+#bookWindow > .right {
+    float: right;
+    width: 345px;
+    height: 400px;
+    transform: perspective(1500px) rotateY(-30deg);
+    font-size: 1.5em;
+    margin-top: 25px;
+}
+
+#cookbook {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 130px;
+    height: 80px;
+    background: url("../images/book.png");
+}
+
+#cookbook:hover {
+    cursor: pointer;
+    background: url("../images/bookHover.png");
+}
+
+.gui-window .gui-title {
+    text-align: center;
+    color: #f2f2f2;
+    font-size: 1.3em;
+    margin: 0;
+    padding: 9px;
+    background: url("../images/gui-window-title.png");
+}
+
+.gui-window.green .gui-title {
+    background: url("../images/gui-window-title-green.png");
+}
+
+.gui-window .gui-body {
+    margin: 0;
+    background: url("../images/gui-window-body.png");
+    padding: 2px 14px 10px 14px;
+}
+
+.gui-window.green .gui-body {
+    background: url("../images/gui-window-body-green.png");
+}
+
+.gui-window::after {
+    content: " ";
+    display: block;
+    background: url("../images/gui-window-bottom.png");
+    height: 11px;
+    width: 100%;
+
+    position: absolute;
+    bottom: -8px;
+}
+
+.gui-window.green::after {
+    background: url("../images/gui-window-bottom-green.png");
+}
+
+.gui-window small {
+    margin-left: 9px;
+}
+
+.gui-window-float {
+    position: absolute !important;
+}
+
+.gui-window textarea {
+    color: #f2f2f2;
+    font-size: 1.3em;
+    font-family: 'VT323', serif;
+    background: url("../images/gui-text.png");
+    border: 5px solid #3a3a3a;
+    margin: 5px;
+    padding: 2px;
+    min-width: 247px;
+    max-width: 247px;
+    min-height: 97px;
+    max-height: 97px;
+}
+
+.gui-window .gui-title .close {
+    float: right;
+    color: #f2f2f2;
+    min-width: 20px;
+    max-height: 20px;
+    font-family: 'VT323', serif;
+    background: url("../images/gui-text-error.png");
+    border: 2px solid #3a3a3a;
+    cursor: pointer;
+}
+
+.gui-window .gui-title .close:hover {
+    background: url("../images/gui-text-success.png");
+}
+
+.gui-text {
+    background: url("../images/gui-text.png");
+    border: 5px solid #3a3a3a;
+    margin: 5px;
+    padding: 2px;
+}
+
+.gui-button {
+    border: 5px solid #48474A;
+    background: #3a3a3a url("../images/gui-button.png");
+    display: inline-block;
+    padding: 4px;
+    color: #f2f2f2;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.center {
+    text-align: center;
+}
+
+#game {
+    display: none;
+}
+
+#viewport {
+    overflow: hidden;
+    height: 100vh;
+    margin-left: 300px;
+
+}
+
+#viewport2 {
+    overflow: hidden;
+    height: calc(100vh - 8px);
+    width: calc(100vw - 336px);
+    margin-left: 328px;
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+
+}
+
+#tools {
+    position: relative;
+    float: left;
+    overflow-y: auto;
+    height: 100vh;
+    width: 320px;;
+}
+
+#tools .gui-window {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#infoTextVal {
+    display: inline;
+}
+
+#tools {
+    padding: 4px;
+}
+
+.tool {
+    width: 50px;
+    height: 50px;
+    background: url(../images/buttonBox.png);
+    display: inline-block;
+    cursor: pointer;
+    margin-left: -1px;
+
+}
+
+.tool:not(.activeTool):hover {
+    background: url(../images/buttonBoxHover.png);
+}
+
+.tool.activeTool {
+    background: url(../images/buttonBoxActive.png);
+}
+
+.tool div {
+    width: 32px;
+    height: 32px;
+    margin: 9px;
+}
+
+#screen {
+    position: relative;
+    margin: auto;
+    top: 0;
+    left: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #fafafa;
+
+}
+
+.collectedItems {
+    font-size: 1.1em;
+    margin: 2px;
+    margin-top: 6px;
+}
+
+ol {
+    margin: 1px;
+}
+
+li.red {
+    color: #f4a5a0;
+}
+
+li.green {
+    color: #acefb2;
+}
+
+.white {
+    color: #ffffff;
+}
+
+.info-screen {
+    height: 50vh;
+}
+
+.info-viewport {
+    display: none;
+    background: url("../images/gui-background-black.png");
+    border: 5px solid #3a3a3a;
+    position: absolute;
+    width: 50vw;
+    height: 40vh;
+    left: 50vw;
+    top: 50vh;
+    margin-left: -25vw;
+    margin-top: -20vh;
+}
+
+.info-viewport.green {
+    background: url("../images/gui-background-green.png");
+}
+
+.info-viewport.red {
+    background: url("../images/gui-background-red.png");
+}
+
+.info-text {
+    font-size: 5em;
+    text-align: center;
+    height: 20vh;
+    line-height: 20vh;
+}
+
+.info-subtext {
+    font-size: 3em;
+    text-align: center;
+}
+
+.switch-on {
+    width: 53px;
+    height: 100px;
+    background: url("../images/switch.png");
+    background-position: 53px 0px;
+}
+
+.switch-off {
+    width: 53px;
+    height: 100px;
+    background: url("../images/switch.png");
+    background-position: 0px 0px;
+}
+
+.inline {
+    display: inline-block;
+}
+
+#storyscreen {
+    position: fixed;
+    top: 18px;
+    z-index: 10;
+    left: 331px;
+    background: url("../images/gui-background-black.png");
+    border: 3px solid #3a3a3a;
+    padding: 5px;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+    color: #b8b8b8;
+    margin: 8px;
+}
+
+.infoWindowText {
+    float: right;
+    width: 210px;
+    height: 90px;
+    display: table;
+}
+
+.infoWindowText p {
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.arrow {
+    width: 61px;
+    height: 37px;
+}
+
+.arrow:hover {
+    cursor: pointer;
+}
+
+.arrow.left {
+    background: url("../images/left-arrow.png");
+    float: left;
+}
+
+.arrow.left:hover {
+    background: url("../images/left-arrow-red.png");
+}
+
+.arrow.right {
+    background: url("../images/right-arrow.png");
+    float: right;
+}
+
+.arrow.right:hover {
+    background: url("../images/right-arrow-red.png");
+}
+
+#cookbook h1, h2, h3, h4 {
+    margin: 2px;
+}
+
+#infoFilter {
+    background: url("../images/gui-filter.png");
+    border: 3px solid #3a3a3a;
+}
+
+.gui-select {
+    width: 88px;
+    background: url("../images/black.png");
+    font-family: 'VT323', serif;
+    font-size: 1.1em;
+}
+
+option {
+    background: #3a3a3a;
+    font-family: 'VT323', serif;
+    font-size: 1.1em;
+}
+
+tr, td {
+    margin: 0;
+    padding: 0;
+}
+
+td {
+    width: 82px;
+}
+
+.info-message {
+    margin: 0;
+    text-align: center;
+    font-size: 2em;
+}
+
+.home {
+    background: url("../images/gui-background-blue.png") !important;
+}
+
+.home a {
+    color: #FDADBB !important;
+}
