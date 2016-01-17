@@ -111,12 +111,7 @@
         <div class="gui-window" id="objectiveWindow">
             <div class="gui-title">Objectives</div>
             <div id="objective" class="gui-body">
-                <h1>Produce 20 HcE3</h1>
 
-                <p>Pharmaceutical company needs 20 HcE3 units to produce the drug</p>
-
-                <div>Reward: 200 $</div>
-                <div>Collected items: 0/20</div>
             </div>
         </div>
         <a href="#" id="save">Save</a>
