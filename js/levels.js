@@ -72,20 +72,20 @@ var factoryLevels = {
         tools: ['pipe', 'info'],
         animation: [
             {
-                text: 'Hello worker. Befere you go to work you have to pass this training.<br>' +
+                text: 'Hello worker. Befere you go to work, you have to pass this training.<br>' +
                 'On our first lesson we will be learn how to build pipe!'
             },
-            {text: 'On left side, on Objects window, you can see objects that you can build.'},
+            {text: 'On left side, in Objects window, you can see objects that you can build.'},
             {text: 'Now it\'s only pipe, but don\'t worry. Next will be appear later :)'},
             {text: 'OK. Look on the factory map. I pin some text to better understand where everything is.'},
             {
-                text: 'Look at Hydrogen generator. It produce Hydrogen, you can check that by hover on\n' +
+                text: 'Look at Hydrogen generator. It produce Hydrogen, you can check that by hover mouse on\n' +
                 'bubbles coming from it.'
             },
-            {text: 'Now. Connect using pipe, generator to collector above. Some pipe was already make. '},
+            {text: 'Now. Using pipe connect generator to collector above. Some pipe was already make. '},
             {
                 text: 'Your goal is collect 5 hydrogen in collector. As you have reach it, you can click\n' +
-                '"Next Day" button on Objectives window.'
+                '"Next Day" button in Objectives window.'
             },
         ]
     },
@@ -297,11 +297,11 @@ var factoryLevels = {
         nextFactory: 'tutorial3',
         tools: ['pipe', 'info'],
         animation: [
-            {text: 'Second lesson! Yey! Today we will be learning how to combine different elements.'},
+            {text: 'Second lesson! Yey! Today, we will be learning how to combine different elements.'},
             {text: 'Look at the factory map. You can see, there is two generators. One is produce hydrogen and another oxygen.'},
             {text: 'As probably everyone knows, water is H2O. So lets combine two elements of hydrogen and one element of oxygen.'},
-            {text: 'To do that, we provide you with super advanced Combiner!'},
-            {text: 'Connect both generators to combiner, and look how water will be make ;]'},
+            {text: 'To do that, we provide you super advanced Element Combiner!'},
+            {text: 'Connect both generators to combiner, and look how water will be make :)'},
             {text: 'After collecting 10 water elements. Click "Next Day" for next tutorial.'},
             {text: 'And remember! Items remain in combiner until it can by combine to something new.'},
         ]
@@ -403,7 +403,7 @@ var factoryLevels = {
             factory.placeObject(14, 7, 'pipe', true, false);
             factory.mark(14, 7, 'red');
             factory.placeObject(13, 9, 'pipe', true, false);
-            factory.placeObject(14, 11, 'hidepin').text = 'Fireplace burn or boil elements\nFor example: water convert to steam';
+            factory.placeObject(14, 11, 'hidepin').text = 'Fireplace burn or boil elements\nFor example: water is converting to steam';
             factory.placeObject(10, 16, 'hidepin').text = 'Water pump';
             factory.placeObject(14, 4, 'hidepin').text = 'Collect steam';
             factory.placeObject(9, 8, 'hidepin').text = 'TODO: Connect pipe';
@@ -672,13 +672,6 @@ var factoryLevels = {
             factory.placeObject(17, 6, 'hidepin').text = 'Make steam from water';
             factory.placeObject(10, 8, 'hidepin').text = 'Combine Hydrogen\nand Oxygen into water';
             factory.placeObject(13, 1, 'hidepin').text = 'Filter elements';
-            //factory.placeObject(23,8,'hidepin').text = 'Connect all devices to make steam.\nAfter boiling water you have to separate\nfire and steam to different storage';
-            //factory.placeObject(23,11,'hidepin').text = 'To filter items, select Info tool from\nTool section on left and click on filter';
-            //factory.placeObject(27,13,'filter',true,false);
-            //factory.placeObject(28,14,'block',true,false);
-            //factory.placeObject(27,14,'block',true,false);
-            //factory.placeObject(26,14,'block',true,false);
-            //factory.placeObject(23,15,'hidepin').text = 'Then, select element on specific output\nto allow pass it.';
             factory.placeObject(14, 2, 'pipe', true, false);
             factory.placeObject(12, 2, 'pipe', true, false);
             factory.placeObject(19, 9, 'block', true, false);
