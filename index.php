@@ -23,7 +23,6 @@
             <div class="cell">
                 <div id="text">
                     <a href="intro.html">New Game (with Tutorial)</a>
-                    <a href="factory_stage1.html">New Game (without Tutorial)</a>
                     <a href="stages.html">Select level</a>
                     <a href="credits.html">Credits</a>
                 </div>
