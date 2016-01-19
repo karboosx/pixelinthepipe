@@ -52,24 +52,26 @@ select {
     z-index: auto;
     left: 25%;
     top: 15%;
+    color:#212240;
 }
 
 #bookWindow > .left {
     float: left;
-    width: 345px;
-    height: 400px;
-    transform: perspective(1500px) rotateY(30deg);
+    width: 340px;
+    margin-top: 10px;
+    margin-left:10px;
+    height: 395px;
     font-size: 1.5em;
-    margin-top: 25px;
+
 }
 
 #bookWindow > .right {
     float: right;
-    width: 345px;
-    height: 400px;
-    transform: perspective(1500px) rotateY(-30deg);
+    width: 330px;
+    margin-top: 10px;
+    margin-right:10px;
+    height: 395px;
     font-size: 1.5em;
-    margin-top: 25px;
 }
 
 #cookbook {
@@ -376,30 +378,39 @@ a {
 }
 
 .arrow {
-    width: 61px;
+    width: 45px;
     height: 37px;
+    padding:3px;
+    background-position:3px 3px;
+    background-repeat:no-repeat;
 }
 
 .arrow:hover {
     cursor: pointer;
 }
 
+.arrows{
+    margin-left:10px;
+    margin-right:10px;
+    
+
+}
 .arrow.left {
-    background: url("../images/left-arrow.png");
+    background-image: url("../images/left-arrow.png");
     float: left;
 }
 
 .arrow.left:hover {
-    background: url("../images/left-arrow-red.png");
+    background-image: url("../images/left-arrow-red.png");
 }
 
 .arrow.right {
-    background: url("../images/right-arrow.png");
+    background-image: url("../images/right-arrow.png");
     float: right;
 }
 
 .arrow.right:hover {
-    background: url("../images/right-arrow-red.png");
+    background-image: url("../images/right-arrow-red.png");
 }
 
 #cookbook h1, h2, h3, h4 {

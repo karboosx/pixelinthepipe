@@ -20,7 +20,7 @@ function CookBook() {
 
         var rightClick = function (cookBook) {
             return function () {
-                if (cookBook.cookBookItemList.length - 1 > cookBook.cookBookPage)
+                if (cookBook.cookBookItemList.length - 2 > cookBook.cookBookPage)
                     cookBook.cookBookPage += 2;
 
                 cookBook.renderCookBook();
@@ -28,8 +28,8 @@ function CookBook() {
         };
 
 
-        $('#bookWindow .left .arrow').click(leftClick(this));
-        $('#bookWindow .right .arrow').click(rightClick(this));
+        $('.arrows .left.arrow').click(leftClick(this));
+        $('.arrows .right.arrow').click(rightClick(this));
 
     };
 
@@ -56,7 +56,7 @@ function CookBook() {
                     :
                 '<p class="center">Transportation: ' + transportationItems['pipe'].name + ', ' + transportationItems['line'].name + '</p>') +
 
-                '<p class="center">Combined with: ' + this.renderItemList(items[this.cookBookItemList[page]].combine) + '</p>' +
+                '<p class="center">Combined by: ' + this.renderItemList(items[this.cookBookItemList[page]].combine) + '</p>' +
                 '<p class="center">Disassemble: ' + this.renderItemList(items[this.cookBookItemList[page]].separate) + '</p>'
 
                 ;

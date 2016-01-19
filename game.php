@@ -134,13 +134,16 @@
     <div id="bookWindow" class="hide">
         <div class="left">
             <div class="text"></div>
-            <div class="arrow left"></div>
         </div>
         <div class="right">
             <div class="text"></div>
-            <div class="arrow right"></div>
-
         </div>
+		<div style="clear:both"></div>
+		
+		<div class="arrows">
+			<div class="arrow left"></div>
+			<div class="arrow right"></div>
+		</div>
     </div>
 
     <div id="pinEditWindow" class="gui-window gui-window-float hide">
