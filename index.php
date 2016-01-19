@@ -22,7 +22,7 @@
         <div class="centerBlock" style="height: 100%">
             <div class="cell">
                 <div id="text">
-                    <a href="intro.html">New Game (with Tutorial)</a>
+                    <a href="intro.html">New Game</a>
                     <a href="stages.html">Select level</a>
                     <a href="credits.html">Credits</a>
                 </div>
