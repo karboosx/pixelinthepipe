@@ -44,6 +44,7 @@
 </div>
 <div id="game">
     <div id="tools">
+		<a class="back-button" href="index.html">Menu</a>
         <div class="gui-window">
             <div class="gui-title">Money</div>
             <div class="gui-body">

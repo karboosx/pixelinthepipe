@@ -457,3 +457,16 @@ td {
 .home a {
     color: #FDADBB !important;
 }
+
+.back-button {
+    background: url("../images/gui-background-black.png");
+    border: 3px solid #3a3a3a;
+    padding: 5px;
+    margin: 5px;
+	text-align:center;
+}
+
+.back-button:hover {
+    cursor: pointer;
+    background: url("../images/gui-background-green.png");
+}
