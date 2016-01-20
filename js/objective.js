@@ -6,6 +6,9 @@ var objectivesPrefabs = [
     },
     function (needs) {
         return {name: 'Produce items', reword: 50, needs: needs};
+    },
+    function (needs,decTime) {
+        return {name: 'Achieve temperature', reword: 50, needs: needs,itemsTitle:'Actual temperature', additionItemText:' °C',decTime:decTime};
     }
 ];
 
@@ -20,12 +23,15 @@ function Objective(data, animation) {
     this.calculated = false;
     this.animationInstance = undefined;
     this.animation = undefined;
-
+    this.itemsTitle = data.itemsTitle || undefined;
+    this.additionItemText = data.additionItemText || undefined;
+    this.decTime = data.decTime || undefined;
 
     if (animation != undefined) {
         this.animation = animation;
     }
 
+    var decTimeCounter = 0;
     this.toJson = function () {
         return {
             name: this.name,
@@ -48,6 +54,20 @@ function Objective(data, animation) {
                 break;
             }
         }
+
+        if(this.decTime != undefined){
+            decTimeCounter++;
+        }
+
+        if (this.decTime<=decTimeCounter){
+            decTimeCounter=0;
+
+            for (name in this.needs) {
+                if (this.collectedNeeds[name] > 0) {
+                    game.removeItemFromStorage(name);
+                }
+            }
+        }
     };
 
     this.checkReqItem = function (name_) {
@@ -67,6 +87,8 @@ function Objective(data, animation) {
         }
         this.calculated = true;
     };
+
+
 
     this.complete = function (game) {
         for (var name in this.needs) {

@@ -478,6 +478,18 @@ function Game(x_, y_, engine_) {
         renderEngine.hasToRefreshObjectives = true;
     };
 
+    this.removeItemFromStorage = function (name) {
+        var count = 0;
+        for (var i in storageItems) {
+            var item = storageItems[i];
+
+            if (item.getName() == name) {
+                storageItems.splice(i, 1);
+                return;
+            }
+        }
+    };
+
     this.getStorage = function () {
         return storageItems;
     };

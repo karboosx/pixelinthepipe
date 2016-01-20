@@ -266,10 +266,16 @@ function Render(target_, cursor_) {
             }
 
             if (!objective.canComplete) {
-                $objective.append('<div class="collectedItems">Collected Items</div>');
+                if (objective.itemsTitle != undefined){
+                    $objective.append('<div class="collectedItems">'+objective.itemsTitle+'</div>');
+                }else {
+                    $objective.append('<div class="collectedItems">Collected Items</div>');
+                }
                 $objective.append('<ol>');
                 for (var name in objective.needs) {
-                    $objective.append('<li class="' + (objective.collectedNeeds[name] >= objective.needs[name] ? 'green' : 'red') + '">' + items[name].name + ' : ' + objective.collectedNeeds[name] + '/' + objective.needs[name] + '</li>');
+                    $objective.append('<li class="' + (objective.collectedNeeds[name] >= objective.needs[name] ? 'green' : 'red') + '">' + items[name].name + ' : ' + objective.collectedNeeds[name] + '/' + objective.needs[name] +
+                        (objective.additionItemText != undefined ? objective.additionItemText : '')
+                        +'</li>');
                 }
                 $objective.append('</ol>');
 
