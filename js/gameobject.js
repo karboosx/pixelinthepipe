@@ -276,7 +276,6 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
             if (this.objects[i].checkIfDead()){
                 this.deleteItem(i);
             }
-            console.log(this.objects[i].lifetime);
         }
     };
 

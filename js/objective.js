@@ -8,7 +8,14 @@ var objectivesPrefabs = [
         return {name: 'Produce items', reword: 50, needs: needs};
     },
     function (needs,decTime) {
-        return {name: 'Achieve temperature', reword: 50, needs: needs,itemsTitle:'Actual temperature', additionItemText:' °C',decTime:decTime};
+        var finalNeeds = {};
+        var needsText = {};
+        for (var obj in needs) {
+            var need = needs[obj];
+            finalNeeds[obj] = need.count;
+            needsText[obj] = need.text;
+        }
+        return {name: 'Achieve temperature', reword: 50, needs: finalNeeds,itemsTitle:'Actual temperature', additionItemText:' °C',decTime:decTime,needsText:needsText};
     }
 ];
 
@@ -26,6 +33,7 @@ function Objective(data, animation) {
     this.itemsTitle = data.itemsTitle || undefined;
     this.additionItemText = data.additionItemText || undefined;
     this.decTime = data.decTime || undefined;
+    this.needsText = data.needsText || undefined;
 
     if (animation != undefined) {
         this.animation = animation;

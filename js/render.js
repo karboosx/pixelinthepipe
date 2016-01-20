@@ -273,7 +273,9 @@ function Render(target_, cursor_) {
                 }
                 $objective.append('<ol>');
                 for (var name in objective.needs) {
-                    $objective.append('<li class="' + (objective.collectedNeeds[name] >= objective.needs[name] ? 'green' : 'red') + '">' + items[name].name + ' : ' + objective.collectedNeeds[name] + '/' + objective.needs[name] +
+                    $objective.append('<li class="' + (objective.collectedNeeds[name] >= objective.needs[name] ? 'green' : 'red') + '">' +
+                        (objective.needsText != undefined ? objective.needsText[name] : items[name].name) +
+                        ' : ' + objective.collectedNeeds[name] + '/' + objective.needs[name] +
                         (objective.additionItemText != undefined ? objective.additionItemText : '')
                         +'</li>');
                 }

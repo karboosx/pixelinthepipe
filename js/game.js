@@ -129,9 +129,12 @@ var objectsData = {
 
             if (random < 2) {
                 object.addItem('heat');
+            }else if (random < 4) {
+                object.addItem('lowheat');
             }
 
             object.combine(object.objects, 'heat');
+            object.combine(object.objects, 'lowheat');
 
         },
         desc: 'Burn or boil elements',

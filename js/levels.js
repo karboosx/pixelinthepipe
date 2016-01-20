@@ -1913,7 +1913,7 @@ var factoryLevels = {
                 {text: 'Could you add some sugar to my coffee, please?'}
             ]);
         },
-        nextFactory: 'home1',
+        nextFactory: 'home2',
         animation: [
             {text: 'Wakie Wakie honey!'},
             {text: 'I see you brought some staff from work...'},
@@ -1929,13 +1929,77 @@ var factoryLevels = {
             factory.createBaseFloor();
             $('#storyscreen').addClass('home');
             factory.getGame().getRenderEngine().changeBackground('background2');
+            factory.placeObject(5,13,'generator',true,false);
+            factory.mark(5,13,'red');
+            factory.placeObject(6,12,'block',true,false);
+            factory.mark(6,12,'red');
+            factory.placeObject(6,13,'block',true,false);
+            factory.mark(6,13,'red');
+            factory.placeObject(6,14,'block',true,false);
+            factory.mark(6,14,'red');
+            factory.placeObject(5,14,'block',true,false);
+            factory.mark(5,14,'red');
+            factory.placeObject(4,14,'block',true,false);
+            factory.mark(4,14,'red');
+            factory.placeObject(4,13,'block',true,false);
+            factory.mark(4,13,'red');
+            factory.placeObject(4,12,'block',true,false);
+            factory.mark(4,12,'red');
+            factory.placeObject(5,12,'pipe',true,false);
+            factory.mark(5,12,'red');
+            factory.placeObject(5,11,'pipe',true,false);
+            factory.placeObject(14,13,'storage',true,false, {item: 'hotwater', restrict: true});
+            factory.mark(14,13,'red');
+            factory.placeObject(14,14,'block',true,false);
+            factory.mark(14,14,'red');
+            factory.placeObject(14,12,'block',true,false);
+            factory.mark(14,12,'red');
+            factory.placeObject(13,12,'block',true,false);
+            factory.mark(13,12,'red');
+            factory.placeObject(15,12,'block',true,false);
+            factory.mark(15,12,'red');
+            factory.placeObject(15,14,'block',true,false);
+            factory.mark(15,14,'red');
+            factory.placeObject(13,14,'block',true,false);
+            factory.mark(13,14,'red');
+            factory.placeObject(16,13,'pipe',true,false);
+            factory.placeObject(15,13,'pipe',true,false);
+            factory.mark(15,13,'red');
+            factory.placeObject(13,13,'pipe',true,false);
+            factory.mark(13,13,'red');
+            factory.placeObject(12,13,'pipe',true,false);
+            factory.placeObject(4,15,'pin').text = 'Water pump';
+            factory.placeObject(13,15,'pin').text = 'Heater';
+            factory.placePatch9(5,12,'top');
+            factory.placePatch9(5,12,'bottom');
+            factory.mark(5,12,'red');
+            factory.placePatch9(5,11,'bottom');
+            factory.placePatch9(16,13,'left');
+            factory.placePatch9(15,13,'left');
+            factory.placePatch9(15,13,'right');
+            factory.mark(15,13,'red');
+            factory.placePatch9(13,13,'left');
+            factory.placePatch9(13,13,'right');
+            factory.mark(13,13,'red');
+            factory.placePatch9(12,13,'right');
+
         },
-        name: 'First homise',
-        subname: 'Ice cream!',
-        itemsToGenerate: ['water', 'coffeebeans'],
+        name: 'Day 7',
+        subname: 'Freeze!',
+        itemsToGenerate: ['water'],
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[2]({heat:20},10));
+            game.addObjective(objectivesPrefabs[2]({hotwater:{count:20,text:'Temperature'}},10));
         },
-        nextFactory: 'tutorial2',
+        nextFactory: 'home3',
+        animation: [
+            {text: 'Honey! It\'s really cold in here!'},
+            {text: 'I think heater was broken.'},
+            {text: 'Could you check it and fix it?', linkText: 'Sure!'},
+            {text: 'Oh! Remember that steam in heater may cause explode!', linkText: 'OK....'},
+
+        ],
+        cookbook: ['water', 'ice', 'hotwater'],
+        money: 500,
+        failMessage: 'Heater exploded!'
     },
 };
