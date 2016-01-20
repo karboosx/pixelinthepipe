@@ -107,6 +107,9 @@
                 <div class="tool" title="Create coffee machine" data-tool="object" data-object="coffeemachine">
                     <div style="background: url(images/coffeemachine.png)"></div>
                 </div>
+                <div class="tool" title="Create heater" data-tool="object" data-object="heater">
+                    <div style="background: url(images/heater.png)"></div>
+                </div>
             </div>
         </div>
         <div class="gui-window" id="objectiveWindow">

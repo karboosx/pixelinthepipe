@@ -40,6 +40,7 @@ var imagesPath = [
     {name: 'separator', src: 'images/separator.png', frame: 4},
     {name: 'freezer', src: 'images/freezer.png', frame: 3},
     {name: 'coffeemachine', src: 'images/coffeemachine.png', frame: 5},
+    {name: 'heater', src: 'images/heater.png', frame: 3},
 ];
 
 var gameOptions = {
@@ -125,7 +126,14 @@ var objectsData = {
         canStop: true,
         onTick: function (object, map) {
 
-            var random = Math.floor(Math.random() * 30);
+            var rand = 30;
+            if (object.additionalData != undefined) {
+                if (object.additionalData.hasOwnProperty('random')){
+                    rand = object.additionalData.random;
+                }
+            }
+
+            var random = Math.floor(Math.random() * rand);
 
             if (random < 2) {
                 object.addItem('heat');
@@ -191,13 +199,18 @@ var objectsData = {
         canStop: true,
         onTick: function (object, map, game, factory) {
 
-            var random = Math.floor(Math.random() * 30);
-
             var item = factory.itemsToGenerate;
 
+            var rand = 30;
             if (object.additionalData != undefined) {
-                item = object.additionalData;
+                item = object.additionalData.items;
+                if (object.additionalData.hasOwnProperty('random')){
+                    rand = object.additionalData.random;
+                }
             }
+
+            var random = Math.floor(Math.random() * rand);
+
 
             var itemRandom = Math.floor(Math.random() * item.length);
 
@@ -221,6 +234,7 @@ var objectsData = {
         frameDelay: 4,
         canStop: true,
         onTick: function (object, map, game) {
+            var objectsToReturn = [];
             if (game.getObjective() != undefined) {
 
 
@@ -238,14 +252,42 @@ var objectsData = {
                         )
                         || object.additionalData == undefined) {
 
-                        if (game.getObjective().checkReqItem(itemName))
+                        if (game.getObjective().checkReqItem(itemName)) {
                             game.addItemToStorage(object, i);
-                        else
+                            objectsToReturn.push(itemName);
+                        }else {
                             object.moveItemForward(i, map);
+                        }
                     }
                 }
             }
             game.getRenderEngine().hasToRefreshObjectives = true;
+            return objectsToReturn;
+        },
+        desc: 'Collect elements to achieve objectives',
+        name: 'Collector'
+    },
+    heater: {
+        type: 'heater',
+        image: 'heater',
+        randomFrame: true,
+        input: io('left'),
+        output: io('right'),
+        cost: 20,
+        frameDelay: 4,
+        canStop: true,
+        onTick: function (object, map, game) {
+            var objects = objectsData.storage.onTick(object,map,game);
+            if (objects.length>0){
+                for (var i = 0; i < objects.length; i++) {
+                    object.addItem('water');
+
+                }
+
+                object.moveItemsForward(map);
+
+            }
+
         },
         desc: 'Collect elements to achieve objectives',
         name: 'Collector'

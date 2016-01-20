@@ -96,7 +96,7 @@ var factoryLevels = {
     tutorial2: {
         map: function (factory) {
             factory.createBaseFloor();
-            factory.placeObject(17, 14, 'generator', true, false, ['O']);
+            factory.placeObject(17, 14, 'generator', true, false, {items:['O']});
             factory.mark(17, 14, 'red');
             factory.placeObject(18, 15, 'block', true, false);
             factory.mark(18, 15, 'red');
@@ -116,7 +116,7 @@ var factoryLevels = {
             factory.mark(9, 15, 'red');
             factory.placeObject(8, 15, 'block', true, false);
             factory.mark(8, 15, 'red');
-            factory.placeObject(9, 14, 'generator', true, false, ['H']);
+            factory.placeObject(9, 14, 'generator', true, false, {items:['H']});
             factory.mark(9, 14, 'red');
             factory.placeObject(11, 8, 'pipe', true, false);
             factory.mark(11, 8, 'red');
@@ -450,9 +450,9 @@ var factoryLevels = {
     tutorial4: {
         map: function (factory) {
             factory.createBaseFloor();
-            factory.placeObject(8, 14, 'generator', true, false, ['H']);
+            factory.placeObject(8, 14, 'generator', true, false, {items:['H']});
             factory.mark(8, 14, 'red');
-            factory.placeObject(18, 14, 'generator', true, false, ['O']);
+            factory.placeObject(18, 14, 'generator', true, false, {items:['O']});
             factory.mark(18, 14, 'red');
             factory.placeObject(8, 13, 'pipe', true, false);
             factory.mark(8, 13, 'red');
@@ -1216,7 +1216,7 @@ var factoryLevels = {
     stage2: {
         map: function (factory) {
             factory.createBaseFloor();
-            factory.placeObject(3, 8, 'generator', true, false, ['orange']);
+            factory.placeObject(3, 8, 'generator', true, false, {items:['orange']});
             factory.mark(3, 8, 'red');
             factory.placeObject(3, 7, 'pipe', true, false);
             factory.mark(3, 7, 'red');
@@ -1260,7 +1260,7 @@ var factoryLevels = {
             factory.mark(4, 15, 'red');
             factory.placeObject(4, 14, 'block', true, false);
             factory.mark(4, 14, 'red');
-            factory.placeObject(3, 14, 'generator', true, false, ['water']);
+            factory.placeObject(3, 14, 'generator', true, false, {items:['water']});
             factory.mark(3, 14, 'red');
             factory.placeObject(3, 13, 'pipe', true, false);
             factory.mark(3, 13, 'red');
@@ -1457,7 +1457,7 @@ var factoryLevels = {
             factory.mark(13, 1, 'red');
             factory.placeObject(13, 0, 'block', true, false);
             factory.mark(13, 0, 'red');
-            factory.placeObject(4, 7, 'generator', true, false, ['phone']);
+            factory.placeObject(4, 7, 'generator', true, false, {items:['phone']});
             factory.mark(4, 7, 'red');
             factory.placeObject(11, 10, 'pipe', true, false);
             factory.placeObject(15, 2, 'pipe', true, false);
@@ -1602,11 +1602,11 @@ var factoryLevels = {
             factory.mark(6, 16, 'red');
             factory.placeObject(10, 16, 'block', true, false);
             factory.mark(10, 16, 'red');
-            factory.placeObject(2, 15, 'generator', true, false, ['wheat']);
+            factory.placeObject(2, 15, 'generator', true, false, {items:['wheat']});
             factory.mark(2, 15, 'red');
-            factory.placeObject(6, 15, 'generator', true, false, ['water']);
+            factory.placeObject(6, 15, 'generator', true, false, {items:['water']});
             factory.mark(6, 15, 'red');
-            factory.placeObject(10, 15, 'generator', true, false, ['egg']);
+            factory.placeObject(10, 15, 'generator', true, false, {items:['egg']});
             factory.mark(10, 15, 'red');
             factory.placeObject(3, 16, 'block', true, false);
             factory.mark(3, 16, 'red');
@@ -1721,7 +1721,7 @@ var factoryLevels = {
     stage5: {
         map: function (factory) {
             factory.createBaseFloor();
-            factory.placeObject(4, 9, 'generator', true, false, ['bread', 'goodbread']);
+            factory.placeObject(4, 9, 'generator', true, false, {items:['bread', 'goodbread']});
             factory.mark(4, 9, 'red');
             factory.placeObject(4, 8, 'line', true, false);
             factory.mark(4, 8, 'red');
@@ -1755,7 +1755,7 @@ var factoryLevels = {
             factory.mark(9, 9, 'red');
             factory.placeObject(9, 8, 'block', true, false);
             factory.mark(9, 8, 'red');
-            factory.placeObject(8, 9, 'generator', true, false, ['ham', 'tomato', 'cheese']);
+            factory.placeObject(8, 9, 'generator', true, false, {items:['ham', 'tomato', 'cheese']});
             factory.mark(8, 9, 'red');
             factory.placeObject(8, 8, 'pipe', true, false);
             factory.mark(8, 8, 'red');
@@ -1824,7 +1824,7 @@ var factoryLevels = {
             $('#storyscreen').addClass('home');
             factory.getGame().getRenderEngine().changeBackground('background2');
             factory.createBaseFloor();
-            factory.placeObject(5, 9, 'generator', true, false, ['coffeebeans', 'sugar']);
+            factory.placeObject(5, 9, 'generator', true, false, {items:['coffeebeans', 'sugar']});
             factory.mark(5, 9, 'red');
             factory.placeObject(6, 9, 'block', true, false);
             factory.mark(6, 9, 'red');
@@ -1847,7 +1847,7 @@ var factoryLevels = {
             factory.placeObject(10, 8, 'pipe', true, false);
             factory.mark(10, 8, 'red');
             factory.placeObject(10, 7, 'pipe', true, false);
-            factory.placeObject(10, 9, 'generator', true, false, ['water']);
+            factory.placeObject(10, 9, 'generator', true, false, {items:['water']});
             factory.mark(10, 9, 'red');
             factory.placeObject(11, 8, 'block', true, false);
             factory.mark(11, 8, 'red');
@@ -1929,7 +1929,7 @@ var factoryLevels = {
             factory.createBaseFloor();
             $('#storyscreen').addClass('home');
             factory.getGame().getRenderEngine().changeBackground('background2');
-            factory.placeObject(5,13,'generator',true,false);
+            factory.placeObject(5,13,'generator',true,false,{items:['water'],random:5});
             factory.mark(5,13,'red');
             factory.placeObject(6,12,'block',true,false);
             factory.mark(6,12,'red');
@@ -1948,7 +1948,7 @@ var factoryLevels = {
             factory.placeObject(5,12,'pipe',true,false);
             factory.mark(5,12,'red');
             factory.placeObject(5,11,'pipe',true,false);
-            factory.placeObject(14,13,'storage',true,false, {item: 'hotwater', restrict: true});
+            factory.placeObject(14,13,'heater',true,false,{item: 'hotwater', restrict: true});
             factory.mark(14,13,'red');
             factory.placeObject(14,14,'block',true,false);
             factory.mark(14,14,'red');
@@ -1968,11 +1968,41 @@ var factoryLevels = {
             factory.placeObject(13,13,'pipe',true,false);
             factory.mark(13,13,'red');
             factory.placeObject(12,13,'pipe',true,false);
+            factory.mark(12,13,'red');
             factory.placeObject(4,15,'pin').text = 'Water pump';
             factory.placeObject(13,15,'pin').text = 'Heater';
+            factory.placeObject(11,13,'fireplace',true,false,{random:5});
+            factory.mark(11,13,'red');
+            factory.placeObject(12,14,'block',true,false);
+            factory.mark(12,14,'red');
+            factory.placeObject(11,14,'block',true,false);
+            factory.mark(11,14,'red');
+            factory.placeObject(10,14,'block',true,false);
+            factory.mark(10,14,'red');
+            factory.placeObject(10,13,'pipe',true,false);
+            factory.mark(10,13,'red');
+            factory.placeObject(9,13,'pipe',true,false);
+            factory.placeObject(11,12,'pipe',true,false);
+            factory.mark(11,12,'red');
+            factory.placeObject(12,12,'pipe',true,false);
+            factory.mark(12,12,'red');
+            factory.placeObject(13,11,'block',true,false);
+            factory.mark(13,11,'red');
+            factory.placeObject(12,11,'block',true,false);
+            factory.mark(12,11,'red');
+            factory.placeObject(10,11,'block',true,false);
+            factory.mark(10,11,'red');
+            factory.placeObject(10,12,'block',true,false);
+            factory.mark(10,12,'red');
+            factory.placeObject(5,10,'pipe',true,false);
+            factory.placeObject(5,9,'pipe',true,false);
+            factory.placeObject(11,11,'pipe',true,false);
+            factory.mark(11,11,'red');
+            factory.placeObject(11,10,'pipe',true,false);
             factory.placePatch9(5,12,'top');
             factory.placePatch9(5,12,'bottom');
             factory.mark(5,12,'red');
+            factory.placePatch9(5,11,'top');
             factory.placePatch9(5,11,'bottom');
             factory.placePatch9(16,13,'left');
             factory.placePatch9(15,13,'left');
@@ -1982,7 +2012,26 @@ var factoryLevels = {
             factory.placePatch9(13,13,'right');
             factory.mark(13,13,'red');
             factory.placePatch9(12,13,'right');
-
+            factory.placePatch9(12,13,'top');
+            factory.mark(12,13,'red');
+            factory.placePatch9(10,13,'left');
+            factory.placePatch9(10,13,'right');
+            factory.mark(10,13,'red');
+            factory.placePatch9(9,13,'right');
+            factory.placePatch9(11,12,'right');
+            factory.placePatch9(11,12,'top');
+            factory.placePatch9(11,12,'bottom');
+            factory.mark(11,12,'red');
+            factory.placePatch9(12,12,'left');
+            factory.placePatch9(12,12,'bottom');
+            factory.mark(12,12,'red');
+            factory.placePatch9(5,10,'top');
+            factory.placePatch9(5,10,'bottom');
+            factory.placePatch9(5,9,'bottom');
+            factory.placePatch9(11,11,'top');
+            factory.placePatch9(11,11,'bottom');
+            factory.mark(11,11,'red');
+            factory.placePatch9(11,10,'bottom');
         },
         name: 'Day 7',
         subname: 'Freeze!',
@@ -1995,11 +2044,13 @@ var factoryLevels = {
             {text: 'Honey! It\'s really cold in here!'},
             {text: 'I think heater was broken.'},
             {text: 'Could you check it and fix it?', linkText: 'Sure!'},
+            {text: 'Just heat some water and put it into heater'},
             {text: 'Oh! Remember that steam in heater may cause explode!', linkText: 'OK....'},
 
         ],
+        tools:['pipe','info', 'block','deleter'],
         cookbook: ['water', 'ice', 'hotwater'],
         money: 500,
-        failMessage: 'Heater exploded!'
+        failMessage: 'Heater damaged!'
     },
 };
