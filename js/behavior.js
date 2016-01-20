@@ -319,20 +319,19 @@ function GameBehavior(game, factory) {
     var patch9 = {
         create: function (type, destroyable) {
 
-
             var obj = factory.getObject(posX, posY) || factory.placeObject(posX, posY, type, destroyable);
             var objLast = factory.getObject(lastPosX, lastPosY) || factory.placeObject(lastPosX, lastPosY, type);
 
             if (game.isLockDestroyable && ((obj != undefined && !obj.destructable) || (objLast != undefined && !objLast.destructable)))
                 return;
 
-            if (obj.getType() != type) {
+            if (obj != undefined && obj.getType() != type) {
                 if (imagesData[obj.image].patch9 != undefined) {
                     return false;
                 }
             }
 
-            if (objLast.getType() != type) {
+            if (objLast != undefined && objLast.getType() != type) {
                 if (imagesData[objLast.image].patch9 != undefined) {
                     return false;
                 }
