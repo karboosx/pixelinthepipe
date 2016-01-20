@@ -73,20 +73,24 @@ var factoryLevels = {
         animation: [
             {
                 text: 'Hello worker. Befere you go to work, you have to pass this training.<br>' +
-                'On our first lesson we will be learn how to build pipe!'
+                'On our first lesson we will be learn how to build a pipe!'
             },
             {text: 'On left side, in Objects window, you can see objects that you can build.'},
-            {text: 'Now it\'s only pipe, but don\'t worry. Next will be appear later :)'},
-            {text: 'OK. Look on the factory map. I pin some text to better understand where everything is.'},
+            {text: 'Now, there is only a pipe, but don\'t worry. Next objects will be appear later :)'},
+            {text: 'OK. Look on the factory map. I pin some text for you to better understand where everything is.'},
             {
                 text: 'Look at Hydrogen generator. It produce Hydrogen, you can check that by hover mouse on\n' +
                 'bubbles coming from it.'
             },
-            {text: 'Now. Using pipe connect generator to collector above. Some pipe was already make. '},
+            {text: 'Now. Using pipe connect generator to collector above. Some pipe was already maked. '},
             {
-                text: 'Your goal is collect 5 hydrogen in collector. As you have reach it, you can click\n' +
-                '"Next Day" button in Objectives window.'
+                text: 'Your goal is collect 5 hydrogen in collector. As soon as you reach it, you can click\n' +
+                '"Next Day" button in Objectives window to go to next training factory.'
             },
+			{text:'Contruction object - Left mouse button'},
+			{text:'Remove object/Disconnect pipe - Right mouse button'},
+			{text:'Move map - Middle mouse button'},
+			{text:''},
         ]
     },
     tutorial2: {
@@ -298,7 +302,7 @@ var factoryLevels = {
         tools: ['pipe', 'info'],
         animation: [
             {text: 'Second lesson! Yey! Today, we will be learning how to combine different elements.'},
-            {text: 'Look at the factory map. You can see, there is two generators. One is produce hydrogen and another oxygen.'},
+            {text: 'Look at the factory map. As you can see, there is two generators. One is produce hydrogen and another oxygen.'},
             {text: 'As probably everyone knows, water is H2O. So lets combine two elements of hydrogen and one element of oxygen.'},
             {text: 'To do that, we provide you super advanced Element Combiner!'},
             {text: 'Connect both generators to combiner, and look how water will be make :)'},
@@ -433,7 +437,7 @@ var factoryLevels = {
         nextFactory: 'tutorial4',
         tools: ['pipe', 'info'],
         animation: [
-            {text: 'Ohh! This will be good! Finally we add some hot staff to system :)'},
+            {text: 'Ohh! This will be good! Finally, we put some hot staff to system :)'},
             {text: 'How to make a steam? By boiling water of course! So, let\'s do that.'},
             {
                 text: 'There is a water generator, or water pump as you will.\n' +
@@ -974,13 +978,13 @@ var factoryLevels = {
         nextFactory: 'tutorial5',
         tools: ['pipe', 'info'],
         animation: [
-            {text: 'It\'s time for our last lesson! Finally we will be learning how to use filters!'},
+            {text: 'It\'s time for our last lesson! Finally, we will be learning how to use filters!'},
             {text: 'Filter can block some elements, and pass elements that you want to go it through.'},
             {text: 'Select "Wrench" tool from tools window on left side and click on the filter.'},
             {text: 'It\'s weirdly blinking thing on top of the map.'},
             {text: 'To limit some output of filter for example to steam, select it from the list.'},
             {
-                text: 'Just remember! This collectors accept only specific items! If you put wrong item,\n' +
+                text: 'Just remember! This collectors accept only specific items! If you put wrong item into it,\n' +
                 'objective will fail and you have to start over again.'
             },
         ],
@@ -1058,7 +1062,7 @@ var factoryLevels = {
         tools: ['pipe', 'info', 'filter', 'fireplace', 'generator', 'combiner', 'block'],
         animation: [
             {text: 'This is your final test! Now, you\'re on your own.'},
-            {text: 'But don\'t worry, it\'s not hard test. In fact, you do exact same last one :)'},
+            {text: 'But don\'t worry, it\'s not hard test. In fact, you do exact same last time :)'},
             {text: 'So, show me that you know everything about making steam!'},
             {text: 'Shall we?'},
             {
@@ -1197,11 +1201,11 @@ var factoryLevels = {
         tools: ['pipe', 'info', 'block'],
         animation: [
             {text: 'Hello again worker! From now on, I\'m your manager!'},
-            {text: 'Here is your task for this day.'},
-            {text: 'Our water pump was damage, and some oxygen getting into pipe.'},
+            {text: 'Here is your task for today.'},
+            {text: 'Our water pump was damaged, and some oxygen getting into pipe.'},
             {text: 'You have to filter water and destroy oxygen.'},
             {text: 'Unfortunately we don\'t have any filters.'},
-            {text: 'Maybe use somehow gravity or look to cookbook on right top corner. It\'s very helpful.'},
+            {text: 'Maybe use somehow gravity or look to cookbook on right top corner of the screen. It\'s very helpful.'},
             {text: 'Hope you can make it :)'},
             {text: 'See you tomorrow!'},
 
@@ -1315,9 +1319,10 @@ var factoryLevels = {
         animation: [
             {text: 'Crisis alert! Our ice cream machine is broken, and there are kids waiting for their ice cream!!'},
             {text: 'We have to fix this, and quick!'},
-            {text: 'Here! Make some useful thing of separator and freezer!'},
+            {text: 'Here! Make some useful thing using separator and freezer!'},
             {text: 'Quick info: Separator tears items on parts. Useful for making juice ;)'},
             {text: 'And freezer, well... freeze staff :)'},
+            {text: 'Hurry!'},
 
         ],
         cookbook: ['orange', 'water', 'ice', 'icecream', 'juice', 'pulp']
@@ -1705,12 +1710,12 @@ var factoryLevels = {
             {text: 'Hmmm... Is\'t very odd... It seams that we don\'t have any issue. Hmm...'},
             {text: 'Well, never mind! Task for you:<br>Today you will be cook!'},
             {text: 'Our client require 15 bread. And you have amazing opportunity to do it :)'},
-            {text: 'Here is your cook cap. Back to work.'},
+            {text: 'Here is your cook cap. Back to work!'},
             {text: 'Aaaaa! Now I find missing issue! We don\'t a lot of money!'},
             {text: 'I\'m sure you can make it :)'},
 
         ],
-        cookbook: ['water', 'egg', 'flour', 'dough', 'wheat'],
+        cookbook: ['water', 'egg', 'flour', 'dough', 'wheat','bread'],
         money: 200
     },
     stage5: {
@@ -1802,7 +1807,7 @@ var factoryLevels = {
         animation: [
             {text: 'Hey! Tomorrow is your first 2 day vacation!'},
             {text: 'I hope you are exiting for this little break!'},
-            {text: 'Ok, back to business. Last time you baking bread, right?', linkText: 'Right! My bread was awesome!'},
+            {text: 'Ok, back to business. Last time you was baked bread, right?', linkText: 'Right! My bread was awesome!'},
             {text: 'Sure, sure... no one remember that muddy bread you did.'},
             {text: 'But anyway, since we have fully operational bakery, our company wants to start selling sandwiches!'},
             {text: 'Once again, you will be responsible for that.'},
@@ -1912,11 +1917,25 @@ var factoryLevels = {
         animation: [
             {text: 'Wakie Wakie honey!'},
             {text: 'I see you brought some staff from work...'},
-            {text: 'So maybe you have this things, you make my coffee?', linkText: 'Sure!'},
+            {text: 'So, maybe you make my coffee?', linkText: 'Sure!'},
 
         ],
         cookbook: ['water', 'coffeebeans', 'coffeepowder', 'coffee', 'sugar', 'coffeesugar'],
         money: 500,
         failMessage: 'That again taste like mud! Try again!'
+    },
+    home2: {
+        map: function (factory) {
+            factory.createBaseFloor();
+            $('#storyscreen').addClass('home');
+            factory.getGame().getRenderEngine().changeBackground('background2');
+        },
+        name: 'First homise',
+        subname: 'Ice cream!',
+        itemsToGenerate: ['water', 'coffeebeans'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[2]({heat:20},10));
+        },
+        nextFactory: 'tutorial2',
     },
 };
