@@ -7,6 +7,7 @@ var imagesPath = [
      */
     {name: 'cursor', src: 'images/cursor.png'},
     {name: 'cursor-error', src: 'images/cursor-error.png'},
+    {name: 'cursor-warning', src: 'images/cursor-warning.png'},
     {name: 'io', src: 'images/io.png'},
     {name: 'number99', src: 'images/number99.png'},
     {name: 'warning', src: 'images/warning.png'},

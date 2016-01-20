@@ -202,6 +202,6 @@ function Item(object, item) {
         if (direction == 'right') this.move(right, 'left');
         if (direction == 'up') this.move(top, 'bottom');
         if (direction == 'down') this.move(bottom, 'top');
-        if (direction == 'none') object.registerError('');
+        if (direction == 'none') object.registerWarning('');
     }
 }

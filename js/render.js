@@ -347,6 +347,26 @@ function Render(target_, cursor_) {
         canvas.fillText(errorMessage, posX * game.sizeX + game.sizeX / 2, (posY + 1) * game.sizeY + game.sizeY / 2);
     };
 
+    this.renderWarningOnMap = function (game, posX, posY, errorMessage, frame) {
+        if (frame == undefined) frame = 0;
+
+        canvas.drawImage(images['cursor-warning'],//image
+            frame * game.sizeX / game.scale,//posX skad bierze obrazek
+            0,//posY skad bierze obrazek
+            game.sizeX / game.scale,
+            game.sizeY / game.scale,
+            posX * game.sizeX,//posX
+            posY * game.sizeY,//posY
+            game.sizeX,
+            game.sizeY
+        );
+
+        canvas.fillStyle = "#a56000";
+        canvas.font = "18px VT323";
+        canvas.textAlign = "center";
+        canvas.fillText(errorMessage, posX * game.sizeX + game.sizeX / 2, (posY + 1) * game.sizeY + game.sizeY / 2);
+    };
+
     this.drawWarning = function (obj, game) {
 
         if (obj != undefined) {
@@ -493,6 +513,10 @@ function Render(target_, cursor_) {
             if (object.hasError()) {
                 object.renderErrorOnMap();
             }
+            if (object.hasWarning()) {
+                object.renderWarningOnMap();
+            }
+
             if (method != undefined && !gameOptions.pause && !object.stop)
                 object.nextFrame();
         }
@@ -503,6 +527,9 @@ function Render(target_, cursor_) {
 
             if (object.hasError()) {
                 object.renderErrorOnMap();
+            }
+            if (object.hasWarning()) {
+                object.renderWarningOnMap();
             }
         }
     };

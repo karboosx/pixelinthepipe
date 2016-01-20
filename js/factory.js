@@ -30,6 +30,9 @@ function Factory(name_, subname_, game_, x_, y_) {
     this.renderErrorOnMap = function (posX, posY, errorMessage, frame) {
         return game_.getRenderEngine().renderErrorOnMap(game_, posX, posY, errorMessage, frame);
     };
+    this.renderWarningOnMap = function (posX, posY, errorMessage, frame) {
+        return game_.getRenderEngine().renderWarningOnMap(game_, posX, posY, errorMessage, frame);
+    };
 
     this.getObjects = function () {
         return objects;

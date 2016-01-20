@@ -57,8 +57,21 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
         }
     };
 
+    this.registerWarning = function (errorMessage, duration) {
+        if (!this.isRegisteredWarning) {
+            this.isRegisteredWarning = true;
+            if (duration == undefined) duration = 100;
+            this.warningMessage = errorMessage;
+            this.warningDuration = duration;
+        }
+    };
+
     this.hasError = function () {
         return this.errorMessage != undefined;
+    };
+
+    this.hasWarning = function () {
+        return this.warningMessage != undefined;
     };
 
 
@@ -72,6 +85,20 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
                 this.errorMessage = undefined;
                 this.errorDuration = 0;
                 this.isRegisteredError = false;
+            }
+        }
+    };
+
+    this.renderWarningOnMap = function () {
+        if (this.isRegisteredWarning) {
+            factory.renderWarningOnMap(this.x, this.y, this.warningMessage, 0);
+
+            this.warningDuration--;
+
+            if (this.warningDuration <= 0) {
+                this.warningMessage = undefined;
+                this.warningDuration = 0;
+                this.isRegisteredWarning = false;
             }
         }
     };
