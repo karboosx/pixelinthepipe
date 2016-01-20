@@ -2050,7 +2050,7 @@ var factoryLevels = {
         ],
         tools:['pipe','info', 'block','deleter'],
         cookbook: ['water', 'ice', 'hotwater'],
-        money: 500,
+        money: 25,
         failMessage: 'Heater damaged!'
     },
 };
