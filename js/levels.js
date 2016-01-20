@@ -1931,16 +1931,28 @@ var factoryLevels = {
             factory.getGame().getRenderEngine().changeBackground('background2');
             factory.placeObject(5,13,'generator',true,false,{items:['water'],random:5});
             factory.placeObject(10,10,'block',true,false);
+            factory.mark(10,10,'red');
             factory.placeObject(10,9,'block',true,false);
+            factory.mark(10,9,'red');
             factory.placeObject(10,8,'block',true,false);
+            factory.mark(10,8,'red');
             factory.placeObject(10,7,'block',true,false);
+            factory.mark(10,7,'red');
             factory.placeObject(10,6,'block',true,false);
+            factory.mark(10,6,'red');
             factory.placeObject(10,5,'block',true,false);
+            factory.mark(10,5,'red');
             factory.placeObject(10,4,'block',true,false);
+            factory.mark(10,4,'red');
             factory.placeObject(10,3,'block',true,false);
+            factory.mark(10,3,'red');
             factory.placeObject(10,2,'block',true,false);
+            factory.mark(10,2,'red');
             factory.placeObject(10,1,'block',true,false);
+            factory.mark(10,1,'red');
             factory.placeObject(10,0,'block',true,false);
+            factory.mark(10,0,'red');
+
             factory.mark(5,13,'red');
             factory.placeObject(6,12,'block',true,false);
             factory.mark(6,12,'red');
