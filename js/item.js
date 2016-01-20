@@ -2,11 +2,11 @@ var items = {
     ice: {name: 'Ice', type: 'solid', combine: {water: 1, cold: 1}, separate: {water: 1}, combineDevice: 'freezer'},
     water: {name: 'Water', type: 'liquid', combine: {H: 2, O: 1}, transportType: 'pipe'},
     H: {name: 'Hydrogen', type: 'gas'},
-    cold: {name: 'Cold', type: 'gas'},
+    cold: {name: 'Cold', type: 'gas',lifetime:10},
     O: {name: 'Oxygen', type: 'gas'},
     juice: {name: 'Juice', type: 'liquid'},
     pulp: {name: 'Pulp', type: 'solid'},
-    heat: {name: 'Heat', type: 'gas'},
+    heat: {name: 'Heat', type: 'gas',lifetime:10},
     steam: {name: 'Steam', type: 'gas', combine: {water: 1, heat: 1}, combineAdditionalItem: {}, combineDevice: 'fireplace'},
     orange: {name: 'Orange', type: 'solid', combine: {juice: 1, pulp: 1}, separate: {juice: 1, pulp: 1}},
     icecream: {name: 'Ice cream', type: 'solid', combine: {juice: 1, ice: 1}, separate: {juice: 1, water: 1}},
@@ -69,6 +69,7 @@ function Item(object, item) {
 
     var movedInThisTick = false;
     var container = object;
+    this.lifetime = 0;
 
     var lastDirection = '';
 
@@ -96,9 +97,21 @@ function Item(object, item) {
     };
 
 
+
     this.moveForwardOnTick = function (item, object, map) {
         item.moveForward(object, map);
 
+    };
+
+    this.incLifeTime = function () {
+        this.lifetime++;
+    };
+
+    this.checkIfDead = function () {
+        if (itemData.hasOwnProperty('lifetime'))
+            return this.lifetime >= itemData['lifetime'];
+        else
+            return false;
     };
 
     this.go = function (left, right, up, down) {

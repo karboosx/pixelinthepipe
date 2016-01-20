@@ -186,6 +186,7 @@ function Factory(name_, subname_, game_, x_, y_) {
 
                     object.onTick(object, map, game_, this);
                     object.tickObjects(object, map, game_, this);
+                    object.deleteDeadObjects();
                 }
             }
         }

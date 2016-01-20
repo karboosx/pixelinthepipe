@@ -241,7 +241,6 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
 
 
     this.deleteItem = function (i) {
-
         this.objects.splice(i, 1);
     };
 
@@ -268,6 +267,16 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     this.tickObjects = function (map) {
         for (var i in this.objects) {
             this.objects[i].onTick(this.objects[i], this, map);
+            this.objects[i].incLifeTime();
+        }
+
+    };
+    this.deleteDeadObjects = function () {
+        for (var i in this.objects) {
+            if (this.objects[i].checkIfDead()){
+                this.deleteItem(i);
+            }
+            console.log(this.objects[i].lifetime);
         }
     };
 
