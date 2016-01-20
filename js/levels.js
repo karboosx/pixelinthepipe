@@ -1930,6 +1930,17 @@ var factoryLevels = {
             $('#storyscreen').addClass('home');
             factory.getGame().getRenderEngine().changeBackground('background2');
             factory.placeObject(5,13,'generator',true,false,{items:['water'],random:5});
+            factory.placeObject(10,10,'block',true,false);
+            factory.placeObject(10,9,'block',true,false);
+            factory.placeObject(10,8,'block',true,false);
+            factory.placeObject(10,7,'block',true,false);
+            factory.placeObject(10,6,'block',true,false);
+            factory.placeObject(10,5,'block',true,false);
+            factory.placeObject(10,4,'block',true,false);
+            factory.placeObject(10,3,'block',true,false);
+            factory.placeObject(10,2,'block',true,false);
+            factory.placeObject(10,1,'block',true,false);
+            factory.placeObject(10,0,'block',true,false);
             factory.mark(5,13,'red');
             factory.placeObject(6,12,'block',true,false);
             factory.mark(6,12,'red');
@@ -2048,7 +2059,7 @@ var factoryLevels = {
             {text: 'Oh! Remember that steam in heater may cause explode!', linkText: 'OK....'},
 
         ],
-        tools:['pipe','info', 'block','deleter'],
+        //tools:['pipe','info', 'block','deleter'],
         cookbook: ['water', 'ice', 'hotwater'],
         money: 25,
         failMessage: 'Heater damaged!'
