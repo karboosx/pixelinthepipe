@@ -27,7 +27,7 @@ $(function () {
         },
         {
             background: '1.png',
-            text: 'And you are one of the many people who working in factor\'s!',
+            text: 'And you are one of the many people who working in factory!',
             align: 'center'
         },
         {
