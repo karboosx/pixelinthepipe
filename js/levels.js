@@ -2071,7 +2071,7 @@ var factoryLevels = {
             {text: 'Oh! Remember that steam in heater may cause explode!', linkText: 'OK....'},
 
         ],
-        //tools:['pipe','info', 'block','deleter'],
+        tools:['pipe','info', 'block','deleter'],
         cookbook: ['water', 'ice', 'hotwater'],
         money: 25,
         failMessage: 'Heater damaged!'
