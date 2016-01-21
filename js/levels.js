@@ -1929,7 +1929,7 @@ var factoryLevels = {
             factory.createBaseFloor();
             $('#storyscreen').addClass('home');
             factory.getGame().getRenderEngine().changeBackground('background2');
-            factory.placeObject(5,13,'generator',true,false,{items:['water'],random:5});
+            factory.placeObject(5,13,'generator',true,false,{items:['water'],random:10});
             factory.placeObject(10,10,'block',true,false);
             factory.mark(10,10,'red');
             factory.placeObject(10,9,'block',true,false);

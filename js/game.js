@@ -124,6 +124,7 @@ var objectsData = {
         output: io('top'),
         cost: 20,
         canStop: true,
+        restrictCombine:true,
         onTick: function (object, map) {
 
             var rand = 30;
@@ -141,8 +142,7 @@ var objectsData = {
                 object.addItem('lowheat');
             }
 
-            object.combine(object.objects, 'heat');
-            object.combine(object.objects, 'lowheat');
+            object.combine(object.objects);
 
         },
         desc: 'Burn or boil elements',

@@ -15,7 +15,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     this.destructable = destructable;
     this.gravity = gravity;
     this.isRenderedError = false;
-
+    this.combineLoopCount = object.combineLoopCount || 5;
     this.transportType = (object.hasOwnProperty('transportType') ? object.transportType : undefined);
 
     this.additionalData = additionalData;
@@ -25,6 +25,19 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     this.canMveItemForward = (data.itemForward != undefined) ? data.itemForward : false;
 
     this.maxItems = (object.maxItems != undefined) ? object.maxItems : 99;
+
+    var combineItemsKeys = globalCombineItemsKeys;
+
+    if (object.restrictCombine != undefined && object.restrictCombine == true){
+        var temp = [];
+        for (var obj in items) {
+            var itemsObject = items[obj];
+            if (itemsObject.combineDevice != undefined && itemsObject.combineDevice == object.type){
+                temp.push(obj);
+            }
+            combineItemsKeys = temp;
+        }
+    }
 
     this.setVar = function (name, value) {
         this.vars[name] = value;
@@ -104,17 +117,20 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     };
 
     this.combine = function (objects, requireCombineItem, only) {
-        for (var itemName in items) {
 
+        for (var combineLoop = 0; combineLoop<this.combineLoopCount; combineLoop++) {
+
+            var itemName = combineItemsKeys[ combineItemsKeys.length * Math.random() << 0];
+            console.log(itemName);
             var item = items[itemName];//po tym itemie szukam combinacji
 
             if (only != undefined && itemName != only)
-                continue;
+                return;
 
             if (item.combine == undefined)
-                continue;
+                return;
             if (item.combineDevice != undefined && object.type != item.combineDevice)
-                continue;
+                return;
 
 
             if (requireCombineItem != undefined) {
@@ -126,7 +142,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
                 }
 
                 if (!haveRequiredItem) {
-                    continue;
+                    return;
                 }
             }
 

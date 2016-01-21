@@ -1,7 +1,7 @@
 var items = {
     ice: {name: 'Ice', type: 'solid', combine: {water: 1, cold: 1}, separate: {water: 1}, combineDevice: 'freezer'},
     water: {name: 'Water', type: 'liquid', combine: {H: 2, O: 1}, transportType: 'pipe'},
-    hotwater: {name: 'Hot Water', type: 'liquid', combine: {lowheat: 1, water: 1}, transportType: 'pipe'},
+    hotwater: {name: 'Hot Water', type: 'liquid', combine: {lowheat: 1, water: 1}, combineAdditionalItem: {}, transportType: 'pipe', combineDevice: 'fireplace'},
     H: {name: 'Hydrogen', type: 'gas'},
     cold: {name: 'Cold', type: 'gas',lifetime:10},
     O: {name: 'Oxygen', type: 'gas'},
@@ -45,6 +45,8 @@ var items = {
     sugar: {name: 'Sugar', type: 'solid'},
     coffeesugar: {name: 'Coffee with sugar', type: 'solid', combine: {coffee: 1, sugar: 1}},
 };
+
+var globalCombineItemsKeys = Object.keys(items);
 
 var itemTypes = {
     gas: {name: 'Gas', desc: 'In pipe or transportation line, gas at first trying to go up, next from side to side, and at the end go down'},
