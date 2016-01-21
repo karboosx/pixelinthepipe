@@ -125,6 +125,7 @@ var objectsData = {
         cost: 20,
         canStop: true,
         restrictCombine:true,
+        randomCombine:true,
         onTick: function (object, map) {
 
             var rand = 30;

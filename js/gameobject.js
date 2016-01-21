@@ -15,7 +15,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     this.destructable = destructable;
     this.gravity = gravity;
     this.isRenderedError = false;
-    this.combineLoopCount = object.combineLoopCount || 5;
+    this.combineLoopCount = object.combineLoopCount || 1;
     this.transportType = (object.hasOwnProperty('transportType') ? object.transportType : undefined);
 
     this.additionalData = additionalData;
@@ -116,84 +116,94 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
         }
     };
 
+    this.combineItem = function (itemName, objects, requireCombineItem, only) {
+        var item = items[itemName];//po tym itemie szukam combinacji
+
+        if (only != undefined && itemName != only)
+            return;
+
+        if (item.combine == undefined)
+            return;
+        if (item.combineDevice != undefined && object.type != item.combineDevice)
+            return;
+
+
+        if (requireCombineItem != undefined) {
+            var haveRequiredItem = false;
+            for (var item_name in item.combine) {
+                if (item_name == requireCombineItem) {
+                    haveRequiredItem = true;
+                }
+            }
+
+            if (!haveRequiredItem) {
+                return;
+            }
+        }
+
+        var temp_data = $.extend({}, item.combine);
+
+        for (var obj in objects) {
+            var obj_item = objects[obj];
+
+            if (temp_data[obj_item.getName()] != undefined)
+                temp_data[obj_item.getName()]--;
+
+        }
+
+        var skip = false;
+        for (obj in temp_data) {
+            if (temp_data[obj] > 0)
+                skip = true;
+        }
+
+        if (!skip) {
+            temp_data = $.extend({}, item.combine);
+
+            var newData = [];
+            for (obj in objects) {
+                obj_item = objects[obj];
+
+                if (temp_data[obj_item.getName()] != undefined && temp_data[obj_item.getName()] > 0) {
+                    temp_data[obj_item.getName()]--;
+                } else {
+                    newData.push(obj_item);
+                }
+            }
+            this.objects = newData;
+            this.addItem(itemName);
+
+            var item_count = 1;
+            if (item.combineAdditionalItem != undefined) {
+                for (var obj2 in item.combineAdditionalItem) {
+                    for (var i = 0; i < item.combineAdditionalItem[obj2]; i++) {
+                        this.addItem(obj2);
+                        item_count++;
+                    }
+                }
+            }
+
+            for (; item_count > 0; item_count--) {
+                this.moveItemForward(this.objects.length - 1, factory.map);
+            }
+
+        }
+    };
+
     this.combine = function (objects, requireCombineItem, only) {
 
-        for (var combineLoop = 0; combineLoop<this.combineLoopCount; combineLoop++) {
+        var itemName = undefined;
 
-            var itemName = combineItemsKeys[ combineItemsKeys.length * Math.random() << 0];
-            console.log(itemName);
-            var item = items[itemName];//po tym itemie szukam combinacji
+        if (object.randomCombine != undefined && object.randomCombine == true) {
+            itemName = combineItemsKeys[combineItemsKeys.length * Math.random() << 0];
 
-            if (only != undefined && itemName != only)
-                return;
+            this.combineItem(itemName, objects, requireCombineItem, only);
 
-            if (item.combine == undefined)
-                return;
-            if (item.combineDevice != undefined && object.type != item.combineDevice)
-                return;
+        }else{
+            for (itemName in items) {
 
-
-            if (requireCombineItem != undefined) {
-                var haveRequiredItem = false;
-                for (var item_name in item.combine) {
-                    if (item_name == requireCombineItem) {
-                        haveRequiredItem = true;
-                    }
-                }
-
-                if (!haveRequiredItem) {
-                    return;
-                }
+                this.combineItem(itemName, objects, requireCombineItem, only);
             }
-
-            var temp_data = $.extend({}, item.combine);
-
-            for (var obj in objects) {
-                var obj_item = objects[obj];
-
-                if (temp_data[obj_item.getName()] != undefined)
-                    temp_data[obj_item.getName()]--;
-
-            }
-
-            var skip = false;
-            for (obj in temp_data) {
-                if (temp_data[obj] > 0)
-                    skip = true;
-            }
-
-            if (!skip) {
-                temp_data = $.extend({}, item.combine);
-
-                var newData = [];
-                for (obj in objects) {
-                    obj_item = objects[obj];
-
-                    if (temp_data[obj_item.getName()] != undefined && temp_data[obj_item.getName()] > 0) {
-                        temp_data[obj_item.getName()]--;
-                    } else {
-                        newData.push(obj_item);
-                    }
-                }
-                this.objects = newData;
-                this.addItem(itemName);
-
-                var item_count = 1;
-                if (item.combineAdditionalItem != undefined) {
-                    for (var obj2 in item.combineAdditionalItem) {
-                        for (var i = 0; i < item.combineAdditionalItem[obj2]; i++) {
-                            this.addItem(obj2);
-                            item_count++;
-                        }
-                    }
-                }
-
-                for (; item_count > 0; item_count--) {
-                    this.moveItemForward(this.objects.length - 1, factory.map);
-                }
-
-            }
-
         }
     };
 
