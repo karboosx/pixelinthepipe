@@ -162,7 +162,7 @@ var objectsData = {
             object.combine(object.objects, undefined, 'coffee');
 
         },
-        desc: 'This machine is brewing coffee',
+        desc: 'This machine brewing coffee',
         name: 'Coffee Machine'
     },
 
@@ -740,7 +740,6 @@ function Game(x_, y_, engine_) {
                 }
             }
         });
-
     };
 
     this.create = function (interval) {

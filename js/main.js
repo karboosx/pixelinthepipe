@@ -30,8 +30,8 @@ var startFunction = function () {
             }
         );
 
+        var cookBook = new CookBook();
         if (factoryLevels[factoryID]['cookbook'] != undefined) {
-            var cookBook = new CookBook();
             cookBook.initCookBook(factoryLevels[factoryID]['cookbook']);
             game.allowedItems = factoryLevels[factoryID]['cookbook'];
             $('#cookbook').click(function () {
@@ -41,6 +41,10 @@ var startFunction = function () {
                     $('#bookWindow').addClass('hide');
             });
             $('#bookWindow').draggable();
+        }else{
+            $('#cookbook').click(function () {
+                cookBook.noCookbook();
+            });
         }
 
         game.create();

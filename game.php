@@ -227,6 +227,14 @@
         </div>
 
     </div>
+    <div class="info-viewport red" id="nocookbook-viewport">
+        <div class="info-screen" id="nocookbook-screen">
+            <div class="info-text" id="nocookbook-text">
+
+            </div>
+        </div>
+
+    </div>
     <div id="call_log"></div>
 </div>
 <div id="loading">

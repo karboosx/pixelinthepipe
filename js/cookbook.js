@@ -3,6 +3,12 @@ function CookBook() {
     this.cookBookItemList = undefined;
 
     this.initCookBook = function (itemList) {
+        if (itemList == undefined){
+            this.noCookbook();
+            return;
+        }
+
+        console.log(itemList);
         this.cookBookItemList = itemList;
         this.renderCookBook();
 
@@ -14,9 +20,9 @@ function CookBook() {
                     cookBook.cookBookPage = 0;
                 cookBook.renderCookBook();
             }
-
-
         };
+
+
 
         var rightClick = function (cookBook) {
             return function () {
@@ -32,6 +38,21 @@ function CookBook() {
         $('.arrows .right.arrow').click(rightClick(this));
 
     };
+
+    this.noCookbook = function () {
+
+        $('#fail-message').hide();
+        $('#fail-text').html('Cookbook not available');
+
+        var finishViewport = $('#fail-viewport');
+
+        finishViewport.fadeIn(500, function () {
+        });
+        setInterval(function () {
+            finishViewport.fadeOut(1000);
+        },1500);
+    };
+
 
     this.renderItemList = function (itemsList) {
 
