@@ -78,6 +78,9 @@
                 <div class="tool" title="Create transportation line" data-tool="line">
                     <div style="background: url(images/transporter.png)"></div>
                 </div>
+                <div class="tool" title="Create cable" data-tool="cable">
+                    <div style="background: url(images/cable.png)"></div>
+                </div>
                 <div class="tool" title="Create wall block" data-tool="object" data-object="block">
                     <div style="background: url(images/block.png)"></div>
                 </div>

@@ -445,6 +445,14 @@ function GameBehavior(game, factory) {
             return patch9.destroy('line');
         }
     };
+    this.tools['cable'] = {
+        left: function (destroyable) {
+            return patch9.create('cable', destroyable);
+        },
+        right: function () {
+            return patch9.destroy('cable');
+        }
+    };
 
     this.tools['pusher'] = {
         left: function () {

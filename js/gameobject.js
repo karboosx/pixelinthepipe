@@ -16,7 +16,8 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     this.gravity = gravity;
     this.isRenderedError = false;
     this.combineLoopCount = object.combineLoopCount || 1;
-    this.transportType = (object.hasOwnProperty('transportType') ? object.transportType : undefined);
+    this.transportType = (object.transportType!=undefined ? object.transportType : undefined);
+    this.transportRestrict = (object.transportRestrict != undefined ? object.transportRestrict : false);
 
     this.additionalData = additionalData;
 

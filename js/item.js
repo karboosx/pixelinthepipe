@@ -3,6 +3,7 @@ var items = {
     water: {name: 'Water', type: 'liquid', combine: {H: 2, O: 1}, transportType: 'pipe'},
     hotwater: {name: 'Hot Water', type: 'liquid', combine: {lowheat: 1, water: 1}, combineAdditionalItem: {}, transportType: 'pipe', combineDevice: 'fireplace'},
     H: {name: 'Hydrogen', type: 'gas'},
+    electricity: {name: 'Electricity', type: 'gas',transportType:'cable'},
     cold: {name: 'Cold', type: 'gas',lifetime:10},
     O: {name: 'Oxygen', type: 'gas'},
     juice: {name: 'Juice', type: 'liquid'},
@@ -63,6 +64,7 @@ var itemTypesDirections = {
 var transportationItems = {
     line: {name: 'Line'},
     pipe: {name: 'Pipe'},
+    cable: {name: 'cable'},
 };
 
 function Item(object, item) {
@@ -176,8 +178,10 @@ function Item(object, item) {
         try {
             var top = map[object.x][object.y - 1];
             var canGoTop = top.input.bottom && !top.stop && top.patch9.bottom &&
-                ((itemData.hasOwnProperty('transportType') && top.transportType != undefined &&
-                top.transportType == itemData.transportType) || itemData.transportType == undefined || top.transportType == undefined);
+                ((itemData.hasOwnProperty('transportType') && top.transportType != undefined && top.transportType == itemData.transportType) ||
+                itemData.transportType == undefined ||
+                top.transportType == undefined) &&
+                (top.hasOwnProperty('transportRestrict') && ((top.transportRestrict == true && itemData.transportType!=undefined && itemData.transportType == top.transportType ) || top.transportRestrict == false));
         } catch (e) {
             canGoTop = false;
         }
@@ -186,7 +190,8 @@ function Item(object, item) {
             var left = map[object.x - 1][object.y];
             var canGoLeft = left.input.right && !left.stop && left.patch9.right &&
                 ((itemData.hasOwnProperty('transportType') && left.transportType != undefined &&
-                left.transportType == itemData.transportType) || itemData.transportType == undefined || left.transportType == undefined);
+                left.transportType == itemData.transportType) || itemData.transportType == undefined || left.transportType == undefined) &&
+                (left.hasOwnProperty('transportRestrict') && ((left.transportRestrict == true && itemData.transportType!=undefined && itemData.transportType == left.transportType ) || left.transportRestrict == false));
         } catch (e) {
             canGoLeft = false;
         }
@@ -195,7 +200,8 @@ function Item(object, item) {
             var right = map[object.x + 1][object.y];
             var canGoRight = right.input.left && !right.stop && right.patch9.left &&
                 ((itemData.hasOwnProperty('transportType') && right.transportType != undefined &&
-                right.transportType == itemData.transportType) || itemData.transportType == undefined || right.transportType == undefined);
+                right.transportType == itemData.transportType) || itemData.transportType == undefined || right.transportType == undefined) &&
+                (right.hasOwnProperty('transportRestrict') && ((right.transportRestrict == true && itemData.transportType!=undefined && itemData.transportType == right.transportType ) || right.transportRestrict == false));
         } catch (e) {
             canGoRight = false;
         }
@@ -203,7 +209,8 @@ function Item(object, item) {
             var bottom = map[object.x][object.y + 1];
             var canGoBottom = bottom.input.top && !bottom.stop && bottom.patch9.top &&
                 ((itemData.hasOwnProperty('transportType') && bottom.transportType != undefined &&
-                bottom.transportType == itemData.transportType) || itemData.transportType == undefined || bottom.transportType == undefined);
+                bottom.transportType == itemData.transportType) || itemData.transportType == undefined || bottom.transportType == undefined) &&
+                (bottom.hasOwnProperty('transportRestrict') && ((bottom.transportRestrict == true && itemData.transportType!=undefined && itemData.transportType == bottom.transportType ) || bottom.transportRestrict == false));
         } catch (e) {
             canGoBottom = false;
         }

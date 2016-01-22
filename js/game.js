@@ -19,6 +19,7 @@ var imagesPath = [
      */
     {name: 'background1', src: 'images/background1.png', frame: 1},
     {name: 'background2', src: 'images/background2.png', frame: 1},
+    {name: 'background3', src: 'images/background3.png', frame: 1},
 
     /*
      Objects
@@ -32,6 +33,7 @@ var imagesPath = [
     {name: 'floor2', src: 'images/floor2.png', frame: 1},
     {name: 'pipe', src: 'images/plumb.png', frame: 1, patch9: true},
     {name: 'line', src: 'images/transporter.png', frame: 1, patch9: true},
+    {name: 'cable', src: 'images/cable.png', frame: 1, patch9: true},
     {name: 'block', src: 'images/block.png', frame: 1},
     {name: 'deleter1', src: 'images/deleter1.png', frame: 3},
     {name: 'addater', src: 'images/addater.png', frame: 4},
@@ -76,6 +78,20 @@ var objectsData = {
         desc: 'Pipe transport elements to machines. Pipe can connect to each other',
         name: 'Transport pipe',
         transportType: 'line'
+
+    },
+    cable: {
+        type: 'cable',
+        image: 'cable',
+        gravity: false,
+        itemForward: true,
+        cost: 2,
+        canStop: true,
+        maxItems: 99,
+        desc: 'Cable transport electricity',
+        name: 'Cable',
+        transportType: 'cable',
+        transportRestrict:true
 
     },
     block: {
