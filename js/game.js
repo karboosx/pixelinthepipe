@@ -85,9 +85,9 @@ var objectsData = {
         image: 'cable',
         gravity: false,
         itemForward: true,
-        cost: 2,
+        cost: 1,
         canStop: true,
-        maxItems: 99,
+        maxItems: 10,
         desc: 'Cable transport electricity',
         name: 'Cable',
         transportType: 'cable',
@@ -228,10 +228,8 @@ var objectsData = {
 
             var random = Math.floor(Math.random() * rand);
 
-
-            var itemRandom = Math.floor(Math.random() * item.length);
-
             if (random < 2) {
+                var itemRandom = Math.floor(Math.random() * item.length);
                 object.addItem(item[itemRandom]);
             }
 
