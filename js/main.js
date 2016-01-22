@@ -91,6 +91,7 @@ var startFunction = function () {
 
     }
 
+    $('.ui-helper-hidden-accessible').hide();
 };
 
 
