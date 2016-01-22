@@ -72,25 +72,24 @@ var factoryLevels = {
         tools: ['pipe', 'info'],
         animation: [
             {
-                text: 'Hello worker. Befere you go to work, you have to pass this training.<br>' +
+                text: 'Hello worker. Before you go to work, you have to pass this training.<br>' +
                 'On our first lesson we will be learn how to build a pipe!'
             },
-            {text: 'On left side, in Objects window, you can see objects that you can build.'},
+            {text: 'On left side of screen, in Objects window, you can see objects that you can build.'},
             {text: 'Now, there is only a pipe, but don\'t worry. Next objects will be appear later :)'},
             {text: 'OK. Look on the factory map. I pin some text for you to better understand where everything is.'},
             {
                 text: 'Look at Hydrogen generator. It produce Hydrogen, you can check that by hover mouse on\n' +
                 'bubbles coming from it.'
             },
-            {text: 'Now. Using pipe connect generator to collector above. Some pipe was already maked. '},
+            {text: 'Now. Using pipe, connect generator to collector above. Some pipe was already made. '},
             {
                 text: 'Your goal is collect 5 hydrogen in collector. As soon as you reach it, you can click\n' +
                 '"Next Day" button in Objectives window to go to next training factory.'
             },
-			{text:'Contruction object - Left mouse button'},
+			{text:'Quick instruction: Construction object - Left mouse button'},
 			{text:'Remove object/Disconnect pipe - Right mouse button'},
 			{text:'Move map - Middle mouse button'},
-			{text:''},
         ]
     },
     tutorial2: {
@@ -303,10 +302,10 @@ var factoryLevels = {
         animation: [
             {text: 'Second lesson! Yey! Today, we will be learning how to combine different elements.'},
             {text: 'Look at the factory map. As you can see, there is two generators. One is produce hydrogen and another oxygen.'},
-            {text: 'As probably everyone knows, water is H2O. So lets combine two elements of hydrogen and one element of oxygen.'},
+            {text: 'As probably everyone knows, water is H2O. So, let\'s combine two elements of hydrogen and one element of oxygen.'},
             {text: 'To do that, we provide you super advanced Element Combiner!'},
-            {text: 'Connect both generators to combiner, and look how water will be make :)'},
-            {text: 'After collecting 10 water elements. Click "Next Day" for next tutorial.'},
+            {text: 'Connect both generators to combiner and look how water will be make :)'},
+            {text: 'After collecting 10 elements of water, click "Next Day" for next tutorial.'},
             {text: 'And remember! Items remain in combiner until it can by combine to something new.'},
         ]
     },

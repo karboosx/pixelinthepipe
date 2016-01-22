@@ -190,7 +190,7 @@ function Render(target_, cursor_) {
             $('#fail-message').html(message).show();
         }
 
-        $('#fail-subtext').html('<a href="factory_' +
+        $('#fail-subtext').html('<a href="factory_by_reset_' +
             $("meta[name='factory']").attr("content") + '.html' +
             '">RESTART</a>');
 

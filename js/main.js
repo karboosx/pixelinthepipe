@@ -1,5 +1,6 @@
-var startFunction = function () {
     var factoryID = $("meta[name='factory']").attr("content");
+    var reset = $("meta[name='reset']").attr("content");
+var startFunction = function () {
 
     if (factoryLevels[factoryID] == undefined) {
 
@@ -79,8 +80,7 @@ var startFunction = function () {
             game.setMoney(factoryLevels[factoryID]['money']);
         }
 
-
-        if (factoryLevels[factoryID]['animation'] != undefined) {
+        if (factoryLevels[factoryID]['animation'] != undefined && reset != 'yes') {
             var intro = new IntroAnimation('#storyscreen', factoryLevels[factoryID]['animation']);
         }
 

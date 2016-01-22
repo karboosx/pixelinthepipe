@@ -18,6 +18,7 @@
     <script src="js/render.js"></script>
     <script src="js/game.js"></script>
     <meta name="factory" content="<?php echo(isset($_GET['factory']) ? $_GET['factory'] : 'tutorial1'); ?>">
+    <meta name="reset" content="<?php echo(isset($_GET['reset']) ? $_GET['reset'] : 'no'); ?>">
 
     <!-- You want to cheat? or worse... steel my code?! You bastard! I tell my mom!! -->
     <!-- Just kidding :) Feel free to use whatever you want :) -->
