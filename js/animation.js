@@ -55,9 +55,9 @@ function IntroAnimation(selector,animation,fadeIn,fadeOut){
             }
 
             if (data.hasOwnProperty('linkText')){
-                $('#nextFrame').html(data.linkText);
+                $('#nextFrame').html(data.linkText).addClass('active');
             }else{
-                $('#nextFrame').html('NEXT');
+                $('#nextFrame').html('NEXT').removeClass('active');
             }
         });
     };

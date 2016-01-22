@@ -455,7 +455,10 @@ td {
 }
 
 .home a {
-    color: #FDADBB !important;
+    color: #FDADBB;
+}
+.home a.active {
+    color: #48fd5d;
 }
 
 .back-button {
@@ -469,4 +472,9 @@ td {
 .back-button:hover {
     cursor: pointer;
     background: url("../images/gui-background-green.png");
+}
+
+
+#nextFrame.active{
+    color: #8cfa72;
 }
