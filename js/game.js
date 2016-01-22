@@ -763,6 +763,7 @@ function Game(x_, y_, engine_) {
 
         factors.push(new Factory('Episode 1', 'Learning basics', this, x_, y_));
 
+        if (reset != 'yes')
         renderEngine.renderFactoryInfo(this, type);
 
         behavior = new GameBehavior(this, this.getFactory(type.id));

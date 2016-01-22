@@ -1,5 +1,6 @@
 RewriteEngine on
 RewriteBase /pixelinthepipe/
+RewriteRule ^factory_by_reset_(.+).html$ game.php?factory=$1&reset=yes
 RewriteRule ^factory_(.+).html$ game.php?factory=$1
 RewriteRule ^(.+).html(.*)$ $1.php$2
 RewriteRule ^game.html$ game.php
