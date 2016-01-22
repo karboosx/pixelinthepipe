@@ -3,7 +3,7 @@ var items = {
     water: {name: 'Water', type: 'liquid', combine: {H: 2, O: 1}, transportType: 'pipe'},
     hotwater: {name: 'Hot Water', type: 'liquid', combine: {lowheat: 1, water: 1}, combineAdditionalItem: {}, transportType: 'pipe', combineDevice: 'fireplace'},
     H: {name: 'Hydrogen', type: 'gas'},
-    electricity: {name: 'Electricity', type: 'gas',transportType:'cable'},
+    electricity: {name: 'Electricity', type: 'electricity',transportType:'cable',noLastDirection:true},
     cold: {name: 'Cold', type: 'gas',lifetime:10},
     O: {name: 'Oxygen', type: 'gas'},
     juice: {name: 'Juice', type: 'liquid'},
@@ -53,12 +53,14 @@ var itemTypes = {
     gas: {name: 'Gas', desc: 'In pipe or transportation line, gas at first trying to go up, next from side to side, and at the end go down'},
     solid: {name: 'Solid', desc: 'In pipe or transportation line, solid at first trying to go down, next from side to side, and at the end go up'},
     liquid: {name: 'Liquid', desc: 'In pipe or transportation line, liquid at first trying to go down, next from side to side, and at the end go up'},
+    electricity: {name: 'Electricity', desc: 'Electricity go everywhere'},
 };
 
 var itemTypesDirections = {
     gas: ['up', ['left', 'right'], 'down'],
     solid: ['down', ['left', 'right'], 'up'],
-    liquid: ['down', ['left', 'right'], 'up']
+    liquid: ['down', ['left', 'right'], 'up'],
+    electricity: 'random'
 };
 
 var transportationItems = {
@@ -120,8 +122,18 @@ function Item(object, item) {
             return false;
     };
 
+    this.shuffle = function (o){
+        for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+    };
+
     this.go = function (left, right, up, down) {
         var behavior = this.types[type];
+
+        if (typeof behavior == 'string' &&  behavior == 'random'){
+            var temp_behavior = ['up', 'left', 'right', 'down'];
+            behavior=this.shuffle(temp_behavior);
+        }
 
         for (var i in behavior) {
             var direction = behavior[i];
