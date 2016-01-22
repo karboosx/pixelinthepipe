@@ -1081,7 +1081,7 @@ var factoryLevels = {
         },
         name: 'First factory',
         subname: 'Ice cream!',
-        itemsToGenerate: ['water'],
+        itemsToGenerate: ['H','electricity'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('H', 5));
         },
@@ -2054,7 +2054,7 @@ var factoryLevels = {
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[2]({hotwater:{count:20,text:'Temperature'}},10));
         },
-        nextFactory: 'home3',
+        nextFactory: 'new1',
         animation: [
             {text: 'Honey! It\'s really cold in here!'},
             {text: 'I think heater was broken.'},
@@ -2066,6 +2066,29 @@ var factoryLevels = {
         tools:['pipe','info', 'block','deleter'],
         cookbook: ['water', 'ice', 'hotwater'],
         money: 25,
+        failMessage: 'Heater damaged!'
+    },
+    new1: {
+        map: function (factory) {
+            factory.createBaseFloor();
+            $('#storyscreen').addClass('home');
+            factory.getGame().getRenderEngine().changeBackground('background3');
+        },
+        name: 'Day 8',
+        subname: 'New Factory!',
+        itemsToGenerate: ['water'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[2]({hotwater:{count:20,text:'Temperature'}},10));
+        },
+        nextFactory: 'new1',
+        animation: [
+            {text: 'Honey! It\'s really cold in here!'},
+
+
+        ],
+        //tools:['pipe','info', 'block','deleter'],
+        cookbook: ['water', 'ice', 'hotwater'],
+        money: 2500,
         failMessage: 'Heater damaged!'
     },
 };

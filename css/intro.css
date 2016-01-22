@@ -69,3 +69,13 @@ a {
 .back {
     font-size: 2em;
 }
+
+#decision a{
+    margin: 40px;
+    font-size: 2em;
+    color:#1c94c4;
+}
+
+#nextFrame.active{
+    color: #CAA22F;
+}
