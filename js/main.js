@@ -25,7 +25,11 @@ var startFunction = function () {
                 return game.addFactory(game.newBasicFactory(factoryLevels[factoryID]['name'], factoryLevels[factoryID]['subname']), factoryLevels[factoryID]['itemsToGenerate']);
             },
             function (factory) {
-                factoryLevels[factoryID]['map'](factory);
+                if (typeof factoryLevels[factoryID]['map'] == 'string'){
+                    factoryLevels[factoryLevels[factoryID]['map']]['map'](factory);
+                }else {
+                    factoryLevels[factoryID]['map'](factory);
+                }
                 if (factoryLevels[factoryID]['objectives'] != undefined)
                     factoryLevels[factoryID]['objectives'](this, factory);
             }

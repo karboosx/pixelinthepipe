@@ -2054,7 +2054,7 @@ var factoryLevels = {
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[2]({hotwater:{count:20,text:'Temperature'}},10));
         },
-        nextFactory: 'new1',
+        nextFactory: 'new1_d',
         animation: [
             {text: 'Honey! It\'s really cold in here!'},
             {text: 'I think heater was broken.'},
@@ -2068,27 +2068,207 @@ var factoryLevels = {
         money: 25,
         failMessage: 'Heater damaged!'
     },
-    new1: {
+    rep1: {
         map: function (factory) {
             factory.createBaseFloor();
-            $('#storyscreen').addClass('home');
-            factory.getGame().getRenderEngine().changeBackground('background3');
+            factory.getGame().getRenderEngine().changeBackground('background2');
+            factory.placeObject(4,13,'generator',true,false);
+            factory.mark(4,13,'red');
+            factory.placeObject(4,12,'line',true,false);
+            factory.mark(4,12,'red');
+            factory.placeObject(5,12,'line',true,false);
+            factory.mark(5,12,'red');
+            factory.placeObject(6,12,'line',true,false);
+            factory.mark(6,12,'red');
+            factory.placeObject(8,12,'line',true,false);
+            factory.mark(8,12,'red');
+            factory.placeObject(9,12,'line',true,false);
+            factory.mark(9,12,'red');
+            factory.placeObject(10,12,'line',true,false);
+            factory.mark(10,12,'red');
+            factory.placeObject(7,12,'combiner',true,false);
+            factory.mark(7,12,'red');
+            factory.placeObject(11,12,'combiner',true,false);
+            factory.mark(11,12,'red');
+            factory.placeObject(17,12,'combiner',true,false);
+            factory.mark(17,12,'red');
+            factory.placeObject(21,12,'combiner',true,false);
+            factory.mark(21,12,'red');
+            factory.placeObject(12,12,'line',true,false);
+            factory.mark(12,12,'red');
+            factory.placeObject(13,12,'line',true,false);
+            factory.mark(13,12,'red');
+            factory.placeObject(14,12,'line',true,false);
+            factory.mark(14,12,'red');
+            factory.placeObject(15,12,'line',true,false);
+            factory.mark(15,12,'red');
+            factory.placeObject(16,12,'line',true,false);
+            factory.mark(16,12,'red');
+            factory.placeObject(18,12,'line',true,false);
+            factory.mark(18,12,'red');
+            factory.placeObject(19,12,'line',true,false);
+            factory.mark(19,12,'red');
+            factory.placeObject(20,12,'line',true,false);
+            factory.mark(20,12,'red');
+            factory.placeObject(22,12,'line',true,false);
+            factory.mark(22,12,'red');
+            factory.placeObject(23,12,'line',true,false);
+            factory.mark(23,12,'red');
+            factory.placeObject(24,12,'storage',true,false);
+            factory.mark(24,12,'red');
+            factory.placeObject(5,13,'block',true,false);
+            factory.mark(5,13,'red');
+            factory.placeObject(6,13,'block',true,false);
+            factory.mark(6,13,'red');
+            factory.placeObject(7,13,'block',true,false);
+            factory.mark(7,13,'red');
+            factory.placeObject(8,13,'block',true,false);
+            factory.mark(8,13,'red');
+            factory.placeObject(9,13,'block',true,false);
+            factory.mark(9,13,'red');
+            factory.placeObject(10,13,'block',true,false);
+            factory.mark(10,13,'red');
+            factory.placeObject(11,13,'block',true,false);
+            factory.mark(11,13,'red');
+            factory.placeObject(12,13,'block',true,false);
+            factory.mark(12,13,'red');
+            factory.placeObject(13,13,'block',true,false);
+            factory.mark(13,13,'red');
+            factory.placeObject(14,13,'block',true,false);
+            factory.mark(14,13,'red');
+            factory.placeObject(15,13,'block',true,false);
+            factory.mark(15,13,'red');
+            factory.placeObject(16,13,'block',true,false);
+            factory.mark(16,13,'red');
+            factory.placeObject(17,13,'block',true,false);
+            factory.mark(17,13,'red');
+            factory.placeObject(18,13,'block',true,false);
+            factory.mark(18,13,'red');
+            factory.placeObject(19,13,'block',true,false);
+            factory.mark(19,13,'red');
+            factory.placeObject(20,13,'block',true,false);
+            factory.mark(20,13,'red');
+            factory.placeObject(21,13,'block',true,false);
+            factory.mark(21,13,'red');
+            factory.placeObject(22,13,'block',true,false);
+            factory.mark(22,13,'red');
+            factory.placeObject(23,13,'block',true,false);
+            factory.mark(23,13,'red');
+            factory.placeObject(24,13,'block',true,false);
+            factory.mark(24,13,'red');
+            factory.placeObject(4,14,'block',true,false);
+            factory.mark(4,14,'red');
+            factory.placeObject(5,14,'block',true,false);
+            factory.mark(5,14,'red');
+            factory.placeObject(3,14,'block',true,false);
+            factory.mark(3,14,'red');
+            factory.placeObject(3,13,'block',true,false);
+            factory.mark(3,13,'red');
+            factory.placePatch9byTool(4,12,'right',true,'line');
+            factory.placePatch9byTool(4,12,'bottom',true,'line');
+            factory.mark(4,12,'red');
+            factory.placePatch9byTool(5,12,'left',true,'line');
+            factory.placePatch9byTool(5,12,'right',true,'line');
+            factory.mark(5,12,'red');
+            factory.placePatch9byTool(6,12,'left',true,'line');
+            factory.placePatch9byTool(6,12,'right',true,'line');
+            factory.mark(6,12,'red');
+            factory.placePatch9byTool(8,12,'left',true,'line');
+            factory.placePatch9byTool(8,12,'right',true,'line');
+            factory.mark(8,12,'red');
+            factory.placePatch9byTool(9,12,'left',true,'line');
+            factory.placePatch9byTool(9,12,'right',true,'line');
+            factory.mark(9,12,'red');
+            factory.placePatch9byTool(10,12,'left',true,'line');
+            factory.placePatch9byTool(10,12,'right',true,'line');
+            factory.mark(10,12,'red');
+            factory.placePatch9byTool(12,12,'left',true,'line');
+            factory.placePatch9byTool(12,12,'right',true,'line');
+            factory.mark(12,12,'red');
+            factory.placePatch9byTool(13,12,'left',true,'line');
+            factory.placePatch9byTool(13,12,'right',true,'line');
+            factory.mark(13,12,'red');
+            factory.placePatch9byTool(14,12,'left',true,'line');
+            factory.placePatch9byTool(14,12,'right',true,'line');
+            factory.mark(14,12,'red');
+            factory.placePatch9byTool(15,12,'left',true,'line');
+            factory.placePatch9byTool(15,12,'right',true,'line');
+            factory.mark(15,12,'red');
+            factory.placePatch9byTool(16,12,'left',true,'line');
+            factory.placePatch9byTool(16,12,'right',true,'line');
+            factory.mark(16,12,'red');
+            factory.placePatch9byTool(18,12,'left',true,'line');
+            factory.placePatch9byTool(18,12,'right',true,'line');
+            factory.mark(18,12,'red');
+            factory.placePatch9byTool(19,12,'left',true,'line');
+            factory.placePatch9byTool(19,12,'right',true,'line');
+            factory.mark(19,12,'red');
+            factory.placePatch9byTool(20,12,'left',true,'line');
+            factory.placePatch9byTool(20,12,'right',true,'line');
+            factory.mark(20,12,'red');
+            factory.placePatch9byTool(22,12,'left',true,'line');
+            factory.placePatch9byTool(22,12,'right',true,'line');
+            factory.mark(22,12,'red');
+            factory.placePatch9byTool(23,12,'left',true,'line');
+            factory.placePatch9byTool(23,12,'right',true,'line');
+            factory.mark(23,12,'red');
+
         },
         name: 'Day 8',
-        subname: 'New Factory!',
-        itemsToGenerate: ['water'],
+        subname: 'Boring work...',
+        itemsToGenerate: ['phone'],
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[2]({hotwater:{count:20,text:'Temperature'}},10));
+            game.addObjective(objectivesPrefabs[0]('phone',10));
+            game.addObjective(objectivesPrefabs[0]('phone',10));
+            game.addObjective(objectivesPrefabs[0]('phone',10));
         },
-        nextFactory: 'new1',
+        nextFactory: 'rep2',
         animation: [
-            {text: 'Honey! It\'s really cold in here!'},
-
-
+            {text: 'Welcome! I have bad news.', linkText:'What\'s going on?'},
+            {text: 'My boss didn\'t like your last decision.'},
+            {text: 'He said that you have to work on production line, checking phones.'},
+            {text: 'Sorry for that. That\'s not my call.'},
         ],
-        //tools:['pipe','info', 'block','deleter'],
-        cookbook: ['water', 'ice', 'hotwater'],
-        money: 2500,
-        failMessage: 'Heater damaged!'
+        tools:['pusher'],
+        cookbook: ['phone'],
+        money: 0,
+    },
+    rep2: {
+        map: 'rep1',
+        name: 'Another day',
+        subname: 'Boring work. Again.',
+        itemsToGenerate: ['phone'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('phone',10));
+            game.addObjective(objectivesPrefabs[0]('phone',10));
+            game.addObjective(objectivesPrefabs[0]('phone',10));
+        },
+        nextFactory: 'rep2_d',
+        animation: [
+            {text: 'Your production line waiting for you. Move it!', linkText:'Yes, yes...'},
+        ],
+        tools:['pusher'],
+        cookbook: ['phone'],
+        money: 0,
+        listing:false
+    },
+    rep3: {
+        map: 'rep1',
+        name: 'Another day',
+        subname: 'Boring work. Again.',
+        itemsToGenerate: ['phone'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('phone',10));
+            game.addObjective(objectivesPrefabs[0]('phone',10));
+            game.addObjective(objectivesPrefabs[0]('phone',10));
+        },
+        nextFactory: 'rep3',
+        animation: [
+            {text: 'Your production line waiting for you. Move it!', linkText:'Yes, yes...'},
+        ],
+        tools:['pusher'],
+        cookbook: ['phone'],
+        money: 0,
+        listing:false
     },
 };
