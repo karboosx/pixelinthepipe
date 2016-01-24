@@ -58,6 +58,7 @@ function GameBehavior(game, factory) {
         $(window).keypress(function (e) {
             if (e.keyCode == 0 || e.keyCode == 32) {
                 gameOptions.pause = !gameOptions.pause;
+                gameOptions.pauseForce = gameOptions.pause;
             }
         });
 
@@ -235,14 +236,15 @@ function GameBehavior(game, factory) {
     this.mouseDown = function (behavior) {
         return function (event) {
             game.pause();
-            if (event != undefined)
-                behavior.mouseOver(event);
-
             lastPosX = posX;
             lastPosY = posY;
             startPosX = x;
             startPosY = y;
             click = true;
+
+            if (event != undefined)
+                behavior.mouseOver(event);
+
         };
     };
 

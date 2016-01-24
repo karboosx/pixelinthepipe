@@ -57,7 +57,8 @@ var gameOptions = {
     drawStops: true,
     drawItemsNames: true,
     drawPowered: true,
-    pauseBorder:true
+    pauseBorder:true,
+    pauseForce:false
 };
 
 var objectsData = {
@@ -600,13 +601,18 @@ function Game(x_, y_, engine_) {
 
 
     this.pause = function () {
-        gameOptions.pause = true;
-        gameOptions.pauseBorder = false;
+        if (!gameOptions.pauseForce) {
+            gameOptions.pause = true;
+            gameOptions.pauseBorder = false;
+        }
     };
 
     this.resume = function () {
-        gameOptions.pause = false;
-        gameOptions.pauseBorder = true;
+
+        if (!gameOptions.pauseForce) {
+            gameOptions.pause = false;
+            gameOptions.pauseBorder = true;
+        }
     };
 
 
