@@ -61,7 +61,7 @@ function CookBook() {
 
         var array = [];
         for (var obj in itemsList) {
-            array.push(items[obj].name);
+            array.push(items[obj].name+'('+itemsList[obj]+')');
         }
 
         return array.join(', ');

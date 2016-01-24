@@ -45,8 +45,8 @@ select {
 }
 
 #bookWindow {
-    width: 700px;
-    height: 460px;
+    width: 812px;
+    height: 490px;
     background: url("../images/bookWindow.png");
     position: absolute;
     z-index: 100;
@@ -57,20 +57,20 @@ select {
 
 #bookWindow > .left {
     float: left;
-    width: 340px;
-    margin-top: 10px;
-    margin-left:10px;
-    height: 395px;
+    width: 343px;
+    margin-top: 7px;
+    margin-left: 63px;
+    height: 406px;
     font-size: 1.5em;
 
 }
 
 #bookWindow > .right {
     float: right;
-    width: 330px;
-    margin-top: 10px;
-    margin-right:10px;
-    height: 395px;
+    width: 336px;
+    margin-top: 7px;
+    margin-right: 63px;
+    height: 406px;
     font-size: 1.5em;
 }
 
@@ -78,9 +78,10 @@ select {
     position: fixed;
     top: 0;
     right: 0;
-    width: 130px;
-    height: 80px;
+    width: 84px;
+    height: 84px;
     background: url("../images/book.png");
+    margin:9px;
 }
 
 #cookbook:hover {
@@ -402,6 +403,7 @@ a {
 .arrow.left {
     background-image: url("../images/left-arrow.png");
     float: left;
+    margin-left: 55px;
 }
 
 .arrow.left:hover {
@@ -411,6 +413,7 @@ a {
 .arrow.right {
     background-image: url("../images/right-arrow.png");
     float: right;
+    margin-right: 55px;
 }
 
 .arrow.right:hover {

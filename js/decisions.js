@@ -46,6 +46,7 @@ $(function () {
                 {text:'Hope you have great time!'},
                 {text:'If you like it, please tell your fiends about this amazing game :)'},
                 {text:'~karboosx'},
+                {text:'So, what to do next? :D'},
             ],
             decisions:[
                 {text:'Take me to reddit.com', link: 'https://reddit.com'},
