@@ -256,6 +256,7 @@ function GameBehavior(game, factory) {
             posX = Math.floor(x / game.sizeX);
             posY = Math.floor(y / game.sizeY);
 
+
             engine.setPos(posX, posY);
 
             if (lastPosX == null)
@@ -385,10 +386,10 @@ function GameBehavior(game, factory) {
                 objLastType = undefined;
             }
 
-            if (objType != type)
-                obj = undefined;
-            if (objLastType != type)
-                objLast = undefined;
+            //if (objType != type)
+            //    obj = undefined;
+            //if (objLastType != type)
+            //    objLast = undefined;
 
             if (posX - lastPosX == 1 && posY - lastPosY == 0) {
                 //x+1

@@ -21,19 +21,16 @@ function IntroAnimation(selector,animationData,fadeIn,fadeOut){
 
     this.nextFrame = function(){
         currentFrame++;
-
-        if (currentFrame<animationLength){
+        var that = this;
+        if (currentFrame<animationLength-1){
             this.renderFrame(animation[currentFrame], fadeOut, fadeIn);
         }else{
-            screen.fadeOut(fadeOut);
+            screen.fadeOut(fadeOut, function () {
+                that.renderDecision();
+            });
         }
     };
 
-    function renderNextFrameButton(that) {
-        if (currentFrame == animationLength-1) {
-            that.renderDecision();
-        }
-    }
 
     this.renderDecision = function () {
         var $decision = $('#decision');
@@ -45,9 +42,7 @@ function IntroAnimation(selector,animationData,fadeIn,fadeOut){
     };
 
     this.renderFrame = function (data,fadeOut,fadeIn){
-        var that = this;
         screen.fadeOut(fadeOut,function() {
-            renderNextFrameButton(that);
 
             if (data.hasOwnProperty('background'))
             $(this).css('background', data.background);
@@ -74,11 +69,10 @@ function IntroAnimation(selector,animationData,fadeIn,fadeOut){
             }else{
                 $('#nextFrame').html('NEXT').removeClass('active');
             }
+
         });
     };
 
-
-    console.log(this.getAnimation());
 
     var functionNextFrame = function (introAnimation){
         return function(){

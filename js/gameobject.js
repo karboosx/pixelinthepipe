@@ -18,27 +18,72 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     this.combineLoopCount = object.combineLoopCount || 1;
     this.transportType = (object.transportType!=undefined ? object.transportType : undefined);
     this.transportRestrict = (object.transportRestrict != undefined ? object.transportRestrict : false);
-
+    this.electricityStrength = (object.electricityStrength != undefined ? object.electricityStrength : 30);
+    this.requirePower = (object.requirePower != undefined ? object.requirePower : false);
+    this.power = 0;
     this.additionalData = additionalData;
-
     this.vars = {};
-
     this.canMveItemForward = (data.itemForward != undefined) ? data.itemForward : false;
-
     this.maxItems = (object.maxItems != undefined) ? object.maxItems : 99;
-
     var combineItemsKeys = globalCombineItemsKeys;
 
+
     if (object.restrictCombine != undefined && object.restrictCombine == true){
-        var temp = [];
+        combineItemsKeys = [];
         for (var obj in items) {
             var itemsObject = items[obj];
             if (itemsObject.combineDevice != undefined && itemsObject.combineDevice == object.type){
-                temp.push(obj);
+                combineItemsKeys.push(obj);
             }
-            combineItemsKeys = temp;
         }
     }
+
+    this.powered = function () {
+        if (this.requirePower == undefined || this.requirePower == false){
+            return true;
+        }else if(this.requirePower == true){
+            return this.checkPower();
+        }
+    };
+
+    this.needPower= function () {
+        return this.requirePower == true;
+    };
+
+    this.checkPower = function () {
+        return this.power>0;
+    };
+
+    this.tickPower = function () {
+        if (this.needPower() && this.checkPower()){
+            this.power--;
+        }
+
+        if (this.needPower() && !this.checkPower()){
+            var electricityItemId =this.getItemIdByName('electricity');
+            if (electricityItemId != null) {
+                this.deleteItem(electricityItemId);
+                this.power = this.electricityStrength;
+            }
+        }
+
+        if (!this.powered() && gameOptions.drawPowered) {
+            this.registerError('Need power',2);
+        }
+
+    };
+
+    this.getItemIdByName = function (checkitem){
+        var objectLength = this.objects.length;
+        for (var i = 0; i < objectLength; i++) {
+            var item = this.objects[i];
+            if (item.getName() == checkitem){
+                return i;
+            }
+
+        }
+        return null;
+    };
 
     this.setVar = function (name, value) {
         this.vars[name] = value;
@@ -81,41 +126,50 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     };
 
     this.hasError = function () {
-        return this.errorMessage != undefined;
+        return this.isRegisteredError;
     };
 
     this.hasWarning = function () {
-        return this.warningMessage != undefined;
+        return this.isRegisteredWarning;
     };
 
 
-    this.renderErrorOnMap = function () {
+    this.tickError = function () {
         if (this.isRegisteredError) {
-            factory.renderErrorOnMap(this.x, this.y, this.errorMessage, 0);
+
+            if (this.errorDuration < 0) {
+                this.removeError();
+            }
 
             this.errorDuration--;
 
-            if (this.errorDuration <= 0) {
-                this.errorMessage = undefined;
-                this.errorDuration = 0;
-                this.isRegisteredError = false;
-            }
         }
     };
 
-    this.renderWarningOnMap = function () {
+    this.tickWarning = function () {
         if (this.isRegisteredWarning) {
-            factory.renderWarningOnMap(this.x, this.y, this.warningMessage, 0);
+
+            if (this.warningDuration < 0) {
+                this.removeWarning();
+            }
 
             this.warningDuration--;
 
-            if (this.warningDuration <= 0) {
-                this.warningMessage = undefined;
-                this.warningDuration = 0;
-                this.isRegisteredWarning = false;
-            }
         }
     };
+
+    this.removeWarning = function () {
+        this.warningMessage = undefined;
+        this.warningDuration = -1;
+        this.isRegisteredWarning = false;
+    };
+
+    this.removeError = function () {
+        this.errorMessage = undefined;
+        this.errorDuration = -1;
+        this.isRegisteredError = false;
+    };
+
 
     this.combineItem = function (itemName, objects, requireCombineItem, only) {
         var item = items[itemName];//po tym itemie szukam combinacji
@@ -193,11 +247,14 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
 
     this.combine = function (objects, requireCombineItem, only) {
 
+        if (objects.length == 0)
+            return;
+
         var itemName = undefined;
 
         if (object.randomCombine != undefined && object.randomCombine == true) {
             itemName = combineItemsKeys[combineItemsKeys.length * Math.random() << 0];
-
+            if (itemName != undefined)
             this.combineItem(itemName, objects, requireCombineItem, only);
 
         }else{
@@ -208,34 +265,60 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
         }
     };
 
-    this.separate = function (objects) {
+    this.separateItem = function (itemName, objects) {
+        var item = items[itemName];//po tym itemie szukam combinacji
 
-        var newObjects = [];
+        var newObjectsArray = [];
 
-        for (var itemName in items) {
-            var item = items[itemName];//po tym itemie szukam combinacji
+        if (item.separate == undefined)
+            return;
+        if (item.separateDevice != undefined && object.type != item.separateDevice)
+            return;
 
-            if (item.separate == undefined)
-                continue;
-            if (item.separateDevice != undefined && object.type != item.separateDevice)
-                continue;
+        var newArray = false;
+        for (var obj in objects) {
+            var obj_item = objects[obj];
 
-
-            for (var obj in objects) {
-                var obj_item = objects[obj];
-
-                if (obj_item.getName() == itemName) {
-
-                    for (var obj2 in item.separate) {
-                        for (var i = 0; i < item.separate[obj2]; i++) {
-                            this.addItem(obj2, newObjects);
-                        }
-                    }
-                }
+            if (obj_item.getName() == itemName) {
+                newArray = true;
             }
         }
 
-        this.objects = newObjects;
+        if (newArray) {
+            for (obj in objects) {
+                obj_item = objects[obj];
+
+                if (obj_item.getName() == itemName) {
+                    for (var obj2 in item.separate) {
+                        for (var i = 0; i < item.separate[obj2]; i++) {
+                            this.addItem(obj2,
+                                newObjectsArray);
+                        }
+                    }
+                }else{
+                    this.addItem(obj_item.getName(), newObjectsArray);
+                }
+            }
+
+
+            this.objects = newObjectsArray;
+        }
+    };
+
+    this.separate = function (objects) {
+
+        if (objects.length == 0)
+        return;
+        for (var itemName in items) {
+            var itemsObject = items[itemName];
+            if (object.restrictSeparate != undefined && object.restrictSeparate == true && itemsObject.separateDevice != undefined && itemsObject.separateDevice == object.type){
+                this.separateItem(itemName, objects);
+            }
+            if (object.restrictSeparate == undefined || object.restrictSeparate == false){
+                this.separateItem(itemName, objects);
+            }
+        }
+
 
         this.moveItemsForward(factory.map);
 

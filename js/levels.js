@@ -2271,4 +2271,147 @@ var factoryLevels = {
         money: 0,
         listing:false
     },
+    new1: {
+        map: function (factory) {
+            factory.getGame().getRenderEngine().changeBackground('background3');
+            factory.createBaseFloor();
+            factory.placeObject(2,5,'block',true,false);
+            factory.mark(2,5,'red');
+            factory.placeObject(2,6,'block',true,false);
+            factory.mark(2,6,'red');
+            factory.placeObject(2,7,'block',true,false);
+            factory.mark(2,7,'red');
+            factory.placeObject(3,7,'block',true,false);
+            factory.mark(3,7,'red');
+            factory.placeObject(4,7,'block',true,false);
+            factory.mark(4,7,'red');
+            factory.placeObject(2,12,'block',true,false);
+            factory.mark(2,12,'red');
+            factory.placeObject(2,13,'block',true,false);
+            factory.mark(2,13,'red');
+            factory.placeObject(2,14,'block',true,false);
+            factory.mark(2,14,'red');
+            factory.placeObject(3,14,'block',true,false);
+            factory.mark(3,14,'red');
+            factory.placeObject(4,14,'block',true,false);
+            factory.mark(4,14,'red');
+            factory.placeObject(4,5,'block',true,false);
+            factory.mark(4,5,'red');
+            factory.placeObject(4,6,'block',true,false);
+            factory.mark(4,6,'red');
+            factory.placeObject(4,13,'block',true,false);
+            factory.mark(4,13,'red');
+            factory.placeObject(4,12,'block',true,false);
+            factory.mark(4,12,'red');
+            factory.placeObject(3,13,'generator',true,false,{items:['O']});
+            factory.mark(3,13,'red');
+            factory.placeObject(3,6,'generator',true,false,{items:['gasoline']});
+            factory.mark(3,6,'red');
+            factory.placeObject(3,12,'pipe',true,false);
+            factory.mark(3,12,'red');
+            factory.placeObject(3,11,'pipe',true,false);
+            factory.placeObject(3,5,'pipe',true,false);
+            factory.mark(3,5,'red');
+            factory.placeObject(3,4,'pipe',true,false);
+            factory.placeObject(5,6,'pin').text = 'Gasoline';
+            factory.placeObject(5,13,'pin').text = 'Oxygen';
+            factory.placeObject(22,8,'block',true,false);
+            factory.mark(22,8,'red');
+            factory.placeObject(23,8,'block',true,false);
+            factory.mark(23,8,'red');
+            factory.placeObject(24,8,'block',true,false);
+            factory.mark(24,8,'red');
+            factory.placeObject(24,9,'block',true,false);
+            factory.mark(24,9,'red');
+            factory.placeObject(24,10,'block',true,false);
+            factory.mark(24,10,'red');
+            factory.placeObject(23,10,'block',true,false);
+            factory.mark(23,10,'red');
+            factory.placeObject(22,10,'block',true,false);
+            factory.mark(22,10,'red');
+            factory.placeObject(23,9,'storage',true,false);
+            factory.mark(23,9,'red');
+            factory.placeObject(22,9,'cable',true,false);
+            factory.mark(22,9,'red');
+            factory.placeObject(21,9,'cable',true,false);
+            factory.placePatch9(3,12,'top');
+            factory.placePatch9(3,12,'bottom');
+            factory.mark(3,12,'red');
+            factory.placePatch9(3,11,'bottom');
+            factory.placePatch9(3,5,'top');
+            factory.placePatch9(3,5,'bottom');
+            factory.mark(3,5,'red');
+            factory.placePatch9(3,4,'bottom');
+            factory.placePatch9byTool(22,9,'left',undefined,'cable');
+            factory.placePatch9byTool(22,9,'right',undefined,'cable');
+            factory.mark(22,9,'red');
+            factory.placePatch9byTool(21,9,'right',undefined,'cable');
+
+        },
+        name: 'Day 2-1',
+        subname: 'New job',
+        itemsToGenerate: ['gasoline','O'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('electricity',15));
+        },
+        nextFactory: 'new2',
+        animation: [
+            {text: 'Hello there! Welcome to "We make everything" factory!', linkText:'Hello!'},
+            {text: 'OK. Let\'s start your today work.'},
+            {text: 'Today, you will get easy task.'},
+            {text: 'Since yesterday we can make electricity!'},
+            {text: 'So, today you have to make generator!'},
+            {text: 'Here you have gasoline and oxygen provider.'},
+            {text: 'Just connect everything right and all will be right :)'},
+        ],
+        tools:['pusher','pipe','cable','block','electrogenerator'],
+        cookbook: ['gasoline','O','electricity'],
+        money: 200
+    },
+    new2: {
+        map: function (factory) {
+            factory.getGame().getRenderEngine().changeBackground('background3');
+            factory.createBaseFloor();
+
+        },
+        name: 'Day 2-2',
+        subname: 'Alcohol',
+        itemsToGenerate: ['gasoline','O','H','wheat'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('beer',15));
+        },
+        nextFactory: 'new3',
+        animation: [
+            {text: 'Hi! How you doing?', linkText:'Great!'},
+            {text: 'Glad to hear that.'},
+            {text: 'Here is your task for today: You have to build distillery!'},
+            {text: 'You have full freedom to do that.'},
+            {text: 'We required only once: you have to produce beer. Nothing else :)'},
+
+        ],
+        tools:['info','pusher','pipe','cable','block','electrogenerator','fermenter','distiller','filter','storage','generator','pin','combiner','deleter'],
+        cookbook: ['gasoline','O','H','wheat','electricity','alcohol','water','beer'],
+        money: 500
+    },
+    new3: {
+        map: function (factory) {
+            factory.getGame().getRenderEngine().changeBackground('background3');
+            factory.createBaseFloor();
+
+        },
+        name: 'Day 2-2',
+        subname: 'Alcohol',
+        itemsToGenerate: ['gasoline','O','H','wheat'],
+        objectives: function (game, factory) {
+            game.addObjective(objectivesPrefabs[0]('beer',15));
+        },
+        nextFactory: 'new2',
+        animation: [
+            {text: 'Hi! How you doing?'},
+
+        ],
+        tools:['info','pusher','pipe','cable','block','electrogenerator','fermenter','distiller','filter','storage','generator','pin','combiner','deleter'],
+        cookbook: ['gasoline','O','H','wheat','electricity','alcohol','water','beer'],
+        money: -1
+    },
 };

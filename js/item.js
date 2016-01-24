@@ -3,7 +3,10 @@ var items = {
     water: {name: 'Water', type: 'liquid', combine: {H: 2, O: 1}, transportType: 'pipe'},
     hotwater: {name: 'Hot Water', type: 'liquid', combine: {lowheat: 1, water: 1}, combineAdditionalItem: {}, transportType: 'pipe', combineDevice: 'fireplace'},
     H: {name: 'Hydrogen', type: 'gas'},
-    electricity: {name: 'Electricity', type: 'electricity',transportType:'cable',noLastDirection:true},
+    electricity: {name: 'Electricity', type: 'electricity',transportType:'cable',noLastDirection:true,combine:{gasoline:1,O:1},combineDevice:'electrogenerator'},
+    gasoline: {name: 'Gasoline', type: 'liquid', transportType: 'pipe'},
+    alcohol: {name: 'Alcohol', type: 'liquid', transportType: 'pipe',combine:{wheat:1,water:2},combineDevice:'fermenter',separate:{water:1,beer:1},separateDevice:'distiller'},
+    beer: {name: 'Beer', type: 'liquid', transportType: 'pipe'},
     cold: {name: 'Cold', type: 'gas',lifetime:10},
     O: {name: 'Oxygen', type: 'gas'},
     juice: {name: 'Juice', type: 'liquid'},
@@ -239,5 +242,6 @@ function Item(object, item) {
         if (direction == 'up') this.move(top, 'bottom');
         if (direction == 'down') this.move(bottom, 'top');
         if (direction == 'none') object.registerWarning('');
+        else object.removeWarning();
     }
 }

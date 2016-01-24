@@ -114,6 +114,15 @@
                 <div class="tool" title="Create heater" data-tool="object" data-object="heater">
                     <div style="background: url(images/heater.png)"></div>
                 </div>
+                <div class="tool" title="Create Electricity generator" data-tool="object" data-object="electrogenerator">
+                    <div style="background: url(images/electrogenerator.png)"></div>
+                </div>
+                <div class="tool" title="Create Fermenter" data-tool="object" data-object="fermenter">
+                    <div style="background: url(images/ferm.png)"></div>
+                </div>
+                <div class="tool" title="Create Distiller" data-tool="object" data-object="distiller">
+                    <div style="background: url(images/destyl.png)"></div>
+                </div>
             </div>
         </div>
         <div class="gui-window" id="objectiveWindow">

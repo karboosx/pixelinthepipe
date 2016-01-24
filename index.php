@@ -17,20 +17,17 @@
 <body>
 <h1><a href="index.html">Pixel in the Pipe!</a></h1>
 
-<div id="viewport">
-    <div id="screen">
-        <div class="centerBlock" style="height: 100%">
-            <div class="cell">
-                <div id="text">
-                    <a href="intro.html">New Game</a>
-                    <a href="stages.html">Select level</a>
-                    <a href="credits.html">Credits</a>
-                </div>
-            </div>
+<div id="viewport" class="centerBlock">
+    <div id="screen" class="cell">
+
+        <div id="text">
+            <a href="intro.html">New Game</a>
+            <a href="stages.html">Select level</a>
+            <a href="credits.html">Credits</a>
         </div>
     </div>
-    <a href="https://twitter.com/karboosx">Created by Michał Karbowiak</a>
 </div>
+    <a href="https://twitter.com/karboosx">Created by Michał Karbowiak</a>
 
 <?php echo include "analytics.php"; ?>
 </body>

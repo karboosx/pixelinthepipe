@@ -12,6 +12,7 @@ var imagesPath = [
     {name: 'number99', src: 'images/number99.png'},
     {name: 'warning', src: 'images/warning.png'},
     {name: 'stop', src: 'images/stop.png'},
+    {name: 'powered', src: 'images/powered.png'},
     {name: 'nodestruct', src: 'images/nodestruct.png'},
 
     /*
@@ -36,9 +37,12 @@ var imagesPath = [
     {name: 'cable', src: 'images/cable.png', frame: 1, patch9: true},
     {name: 'block', src: 'images/block.png', frame: 1},
     {name: 'deleter1', src: 'images/deleter1.png', frame: 3},
+    {name: 'fermenter', src: 'images/ferm.png', frame: 1},
+    {name: 'distiller', src: 'images/destyl.png', frame: 1},
     {name: 'addater', src: 'images/addater.png', frame: 4},
     {name: 'filter', src: 'images/aaa.png', frame: 4},
     {name: 'generator', src: 'images/generator.png', frame: 5},
+    {name: 'electrogenerator', src: 'images/electrogenerator.png', frame: 3},
     {name: 'separator', src: 'images/separator.png', frame: 4},
     {name: 'freezer', src: 'images/freezer.png', frame: 3},
     {name: 'coffeemachine', src: 'images/coffeemachine.png', frame: 5},
@@ -51,7 +55,8 @@ var gameOptions = {
     pause: false,
     drawIO: true,
     drawStops: true,
-    drawItemsNames: true
+    drawItemsNames: true,
+    drawPowered: true
 };
 
 var objectsData = {
@@ -116,7 +121,8 @@ var objectsData = {
         image: 'deleter1',
         gravity: true,
         randomFrame: true,
-        input: io('all'),
+        frameDelay:3,
+        input: io('top-bottom'),
         output: io('none'),
         cost: 10,
         canStop: true,
@@ -164,6 +170,57 @@ var objectsData = {
         },
         desc: 'Burn or boil elements',
         name: 'Fireplace'
+    },
+    electrogenerator: {
+        type: 'electrogenerator',
+        image: 'electrogenerator',
+        randomFrame: true,
+        input: io('all'),
+        output: io('top'),
+        cost: 20,
+        canStop: true,
+        restrictCombine:true,
+        randomCombine:true,
+        onTick: function (object, map) {
+
+            object.combine(object.objects);
+
+        },
+        desc: 'Burn or boil elements',
+        name: 'Fireplace'
+    },
+    fermenter: {
+        type: 'fermenter',
+        image: 'fermenter',
+        input: io('all'),
+        output: io('top'),
+        cost: 20,
+        canStop: true,
+        restrictCombine:true,
+        randomCombine:true,
+        requirePower:true,
+        onTick: function (object, map) {
+
+            object.combine(object.objects);
+
+        },
+        desc: 'Ferment alcohol',
+        name: 'Fermenter'
+    },
+    distiller: {
+        type: 'distiller',
+        image: 'distiller',
+        input: io('all'),
+        output: io('top'),
+        cost: 20,
+        canStop: true,
+        restrictSeparate:true,
+        requirePower:true,
+        onTick: function (object, map) {
+            object.separate(object.objects);
+        },
+        desc: 'Separate mixture',
+        name: 'Distiller'
     },
     coffeemachine: {
         type: 'coffeemachine',
@@ -442,6 +499,8 @@ function Game(x_, y_, engine_) {
     this.nextFactory = undefined;
 
     this.failMessage = undefined;
+    this.infiniteMoney = false;
+
     var objectives = [];
 
     var defaultInterval = 100;
@@ -570,6 +629,8 @@ function Game(x_, y_, engine_) {
     };
 
     this.addMoney = function (amount) {
+        if (this.infiniteMoney)
+            return true;
 
         if (amount == undefined)
             return;
@@ -583,11 +644,22 @@ function Game(x_, y_, engine_) {
 
     };
     this.setMoney = function (amount) {
+        if (amount == -1){
+            this.infiniteMoney = true;
+            renderEngine.info('money', '&#8734');
+        }
+
+        if (this.infiniteMoney)
+        return true;
+
         money = amount;
         renderEngine.info('money', money);
+
     };
 
     this.subMoney = function (amount) {
+        if (this.infiniteMoney)
+            return true;
 
         if (amount == undefined)
             return;
@@ -648,7 +720,7 @@ function Game(x_, y_, engine_) {
                     return false;
             },
             which: 2,
-            containment: [-marginLeft + 308, -marginTop, 308, 0]
+            containment: [-marginLeft + 328, -marginTop, 328, 0]
         });
 
 
@@ -740,11 +812,11 @@ function Game(x_, y_, engine_) {
                         console.log('factory.mark(' + object['x'] + ',' + object['y'] + ',\'red\');');
 
                     }
-                } else if (object['type'] == 'line') {
+                } else if (object['type'] == 'line' || object['type'] == 'cable' ) {
 
                     for (var dir_ in object.patch9) {
                         if (object.patch9[dir_]) {
-                            console.log('factory.placePatch9byTool(' + object['x'] + ',' + object['y'] + ',\'' + dir_ + '\',true,\'line\');');
+                            console.log('factory.placePatch9byTool(' + object['x'] + ',' + object['y'] + ',\'' + dir_ + '\',true,\''+object['type']+'\');');
                         }
                     }
 

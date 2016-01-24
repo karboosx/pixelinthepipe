@@ -463,7 +463,8 @@ function Render(target_, cursor_) {
                 canvas.font = "16px VT323";
                 canvas.textAlign = "left";
                 var text = object.text.split("\n");
-                for (var i = 0; i < text.length; i++) {
+                var textLength = text.length;
+                for (var i = 0; i < textLength; i++) {
                     var obj = text[i];
 
                     canvas.fillText(obj, (object.x + 1) * game.sizeX, (object.y + i / 2) * game.sizeY + 19);
@@ -512,12 +513,8 @@ function Render(target_, cursor_) {
 
             }
 
-            if (object.hasError()) {
-                object.renderErrorOnMap();
-            }
-            if (object.hasWarning()) {
-                object.renderWarningOnMap();
-            }
+
+
 
             if (method != undefined && !gameOptions.pause && !object.stop)
                 object.nextFrame();
@@ -528,10 +525,10 @@ function Render(target_, cursor_) {
             var object = objects[id];
 
             if (object.hasError()) {
-                object.renderErrorOnMap();
+                this.renderErrorOnMap(game,object.x,object.y,object.errorMessage,0);
             }
             if (object.hasWarning()) {
-                object.renderWarningOnMap();
+                this.renderWarningOnMap(game,object.x,object.y,object.warningMessage,0);
             }
         }
     };

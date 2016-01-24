@@ -14,17 +14,17 @@
     <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<h1><a href="index.html">Pixel in the Pipe!</a></h1>
+	<h1><a href="index.html">Pixel in the Pipe!</a></h1>
 
-<h2>Intro</h2>
+	<h2>Intro</h2>
 
-<div id="viewport">
-    <div id="screen">
-        <div id="text"></div>
-        <a id="nextFrame" href="#">NEXT</a>
-    </div>
-    <a href="factory_tutorial1.html">Skip this crap and start the game!</a>
-</div>
+	<div id="viewport" class="centerBlock">
+	    <div id="screen" class="cell">
+	        <div id="text"></div>
+	        <a id="nextFrame" href="#">NEXT</a>
+	    </div>
+	</div>
+	<a href="factory_tutorial1.html">Skip this crap and start the game!</a>
 
 <?php echo include "analytics.php"; ?>
 </body>

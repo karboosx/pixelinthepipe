@@ -168,7 +168,7 @@ function Factory(name_, subname_, game_, x_, y_) {
 
             if (!gameOptions.pause) {
 
-                if (!object.stop) {
+                if (!object.stop && object.powered()) {
                     if (object.canMveItemForward) {
                         object.moveItemsForward(map);
                     }
@@ -182,12 +182,18 @@ function Factory(name_, subname_, game_, x_, y_) {
         for (id in objects) {
             object = objects[id];
             if (!gameOptions.pause) {
-                if (!object.stop) {
+                object.tickError();
+                object.tickWarning();
+
+                object.tickPower();
+
+                if (!object.stop && object.powered()) {
 
                     object.onTick(object, map, game_, this);
                     object.tickObjects(object, map, game_, this);
                     object.deleteDeadObjects();
                 }
+
             }
         }
 

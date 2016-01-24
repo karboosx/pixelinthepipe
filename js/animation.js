@@ -26,16 +26,10 @@ function IntroAnimation(selector,animation,fadeIn,fadeOut){
         }
     };
 
-    function renderNextFrameButton() {
-        if (currentFrame == animationLength - 1) {
-            $('#nextFrame').text('END');
-        }
-    }
 
     this.renderFrame = function (data,fadeOut,fadeIn){
 
         screen.fadeOut(fadeOut,function() {
-            renderNextFrameButton();
 
             if (data.hasOwnProperty('background'))
             $(this).css('background', data.background);
@@ -54,10 +48,13 @@ function IntroAnimation(selector,animation,fadeIn,fadeOut){
                 $('#nextFrame').attr('href', data.link);
             }
 
+
             if (data.hasOwnProperty('linkText')){
                 $('#nextFrame').html(data.linkText).addClass('active');
-            }else{
+            }else if (currentFrame < animationLength - 1){
                 $('#nextFrame').html('NEXT').removeClass('active');
+            }else if (currentFrame == animationLength - 1) {
+                $('#nextFrame').text('END');
             }
         });
     };
