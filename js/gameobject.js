@@ -518,6 +518,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
                     if (data.frameDelay != undefined)
                         this.frameDelay = data.frameDelay;
 
+                    if (!this.isRegisteredError)
                     this.frame++;
                     if (this.frame >= imagesData[this.image].frame) {
                         this.frame = 0;
