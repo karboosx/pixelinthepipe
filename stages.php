@@ -6,6 +6,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/jquery-ui.js"></script>
 
+    <script src="js/item.js"></script>
     <script src="js/levels.js"></script>
     <script src="js/stages.js"></script>
 

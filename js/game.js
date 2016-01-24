@@ -346,7 +346,7 @@ var objectsData = {
         input: io('left'),
         output: io('right'),
         cost: 20,
-        frameDelay: 4,
+        frameDelay: 1,
         canStop: true,
         onTick: function (object, map, game) {
             var objects = objectsData.storage.onTick(object,map,game);
@@ -513,11 +513,17 @@ function Game(x_, y_, engine_) {
 
     var storageItems = [];
 
+
     var renderEngine = engine_ || new Render('#screen', '#cursor');
 
     var type = {
         type: 'factory',
         id: 0
+    };
+    this.hideObjectives = false;
+
+    this.noObjectives = function () {
+        this.hideObjectives = true;
     };
 
     this.toJson = function () {

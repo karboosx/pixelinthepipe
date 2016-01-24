@@ -73,3 +73,22 @@ a {
 #nextFrame.active{
     color: #CAA22F;
 }
+
+.input {
+    background: url("../images/gui-background-dark.png");
+    border: 3px solid #3a3a3a;
+    padding: 5px;
+    margin: 5px;
+    text-align:center;
+    color:#fafafa;
+    font-family: 'VT323', serif;
+    font-size:2em;
+}
+
+.input-button{
+    cursor: pointer;
+}
+.input-button:hover {
+    background: url("../images/gui-background-green.png");
+
+}

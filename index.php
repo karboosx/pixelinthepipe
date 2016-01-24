@@ -22,6 +22,7 @@
 
         <div id="text">
             <a href="intro.html">New Game</a>
+            <a href="editor.html">Editor</a>
             <a href="stages.html">Select level</a>
             <a href="credits.html">Credits</a>
         </div>

@@ -11,7 +11,6 @@ function Factory(name_, subname_, game_, x_, y_) {
     this.map = undefined;
     var objects = [];
 
-
     this.toJson = function () {
         return {
             name: this.name,

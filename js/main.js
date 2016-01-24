@@ -1,5 +1,8 @@
     var factoryID = $("meta[name='factory']").attr("content");
     var reset = $("meta[name='reset']").attr("content");
+    var sizeX = $("meta[name='sizeX']").attr("content");
+    var sizeY = $("meta[name='sizeY']").attr("content");
+
 var startFunction = function () {
 
     if (factoryLevels[factoryID] == undefined) {
@@ -15,6 +18,8 @@ var startFunction = function () {
     } else {
         if (factoryLevels[factoryID].hasOwnProperty('x') && factoryLevels[factoryID].hasOwnProperty('y'))
             var game = new Game(factoryLevels[factoryID]['x'], factoryLevels[factoryID]['y']);
+        else if (sizeX != 'null' && sizeY != 'null')
+            game = new Game(parseInt(sizeX),parseInt(sizeY));
         else
             game = new Game();
 
@@ -32,8 +37,12 @@ var startFunction = function () {
                 }
                 if (factoryLevels[factoryID]['objectives'] != undefined)
                     factoryLevels[factoryID]['objectives'](this, factory);
+
             }
         );
+
+        if (factoryLevels[factoryID]['objectives'] == undefined)
+            game.noObjectives();
 
         var cookBook = new CookBook();
         if (factoryLevels[factoryID]['cookbook'] != undefined) {

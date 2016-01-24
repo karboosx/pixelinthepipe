@@ -26,6 +26,10 @@ function Render(target_, cursor_) {
     this.posX = null;
     this.posY = null;
 
+    var $objective = $('#objective');
+    var $objectiveWindow = $('#objectiveWindow');
+    var $objectiveComplete = $('.objective-complete');
+
     var canvas = target[0].getContext('2d');
 
     canvas.imageSmoothingEnabled = false;
@@ -112,7 +116,6 @@ function Render(target_, cursor_) {
 
 
     this.render = function (game, type, nextFrame) {
-
 
         canvas.clearRect (0, 0, target.width(), target.height());
         if (!this.ifLoadedImages())
@@ -228,13 +231,16 @@ function Render(target_, cursor_) {
 
     this.renderObjective = function (game, objective_id) {
 
+
         if (!this.hasToRefreshObjectives || this.stopRenderObjective)
             return;
 
         this.hasToRefreshObjectives = false;
-        var $objective = $('#objective');
-        var $objectiveWindow = $('#objectiveWindow');
-        var $objectiveComplete = $('.objective-complete');
+
+        if (game.hideObjectives){
+            $objectiveWindow.hide();
+            return;
+        }
 
         var objective = game.getObjective(objective_id);
 

@@ -7,18 +7,21 @@
     <script src="js/jquery-ui.js"></script>
 
     <script src="js/cookbook.js"></script>
+	<script src="js/item.js"></script>
     <script src="js/levels.js"></script>
     <script src="js/animation.js"></script>
     <script src="js/helpers.js"></script>
     <script src="js/objective.js"></script>
     <script src="js/behavior.js"></script>
-    <script src="js/item.js"></script>
     <script src="js/factory.js"></script>
     <script src="js/gameobject.js"></script>
     <script src="js/render.js"></script>
     <script src="js/game.js"></script>
     <meta name="factory" content="<?php echo(isset($_GET['factory']) ? $_GET['factory'] : 'tutorial1'); ?>">
     <meta name="reset" content="<?php echo(isset($_GET['reset']) ? $_GET['reset'] : 'no'); ?>">
+    <meta name="sizeX" content="<?php echo(isset($_GET['sizeX']) ? $_GET['sizeX'] : 'null'); ?>">
+    <meta name="sizeY" content="<?php echo(isset($_GET['sizeY']) ? $_GET['sizeY'] : 'null'); ?>">
+    <meta name="editor" content="<?php echo(isset($_GET['editor']) ? $_GET['editor'] : 'null'); ?>">
 
     <!-- You want to cheat? or worse... steel my code?! You bastard! I tell my mom!! -->
     <!-- Just kidding :) Feel free to use whatever you want :) -->

@@ -1081,11 +1081,9 @@ var factoryLevels = {
         },
         name: 'First factory',
         subname: 'Ice cream!',
-        itemsToGenerate: ['H','electricity'],
-        objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[0]('H', 5));
-        },
-        nextFactory: 'tutorial2',
+        itemsToGenerate: globalCombineItemsKeys,
+        nextFactory: 'empty',
+        money:-1,
     },
     emptyhouse: {
         map: function (factory) {
