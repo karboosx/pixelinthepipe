@@ -171,8 +171,8 @@ function foreachToJson(array) {
 }
 
 
-function checkAtom(atom, mixture) {
-    if (atom == '*')
+function checkAtom(atom, mixture, allowAll) {
+    if (atom == '*' && allowAll == true)
         return true;
     if (atom == '-')
         return false;

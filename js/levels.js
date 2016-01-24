@@ -2401,9 +2401,9 @@ var factoryLevels = {
         subname: 'Computer Science',
         itemsToGenerate: ['aluminium','copper','gasoline','O','software','silicon'],
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[0]('computer',15));
+            game.addObjective(objectivesPrefabs[0]('computer',1));
         },
-        nextFactory: 'new2',
+        nextFactory: 'end',
         animation: [
             {text: 'Welcome back! Today we have very exiting task.'},
             {text: 'We have to build a computer!'},
@@ -2414,7 +2414,7 @@ var factoryLevels = {
 
         ],
         tools:['info','pusher','pipe','line','cable','block','electrogenerator','computerCombiner','filter','storage','generator','pin','combiner','deleter'],
-        cookbook: ['aluminium','motherboard','graphicCard','ram','computerCase','computer','software','copper','gasoline','O','electricity','electronic'],
+        cookbook: ['aluminium','motherboard','graphicCard','ram','computerCase','computer','software','copper','silicon','gasoline','O','electricity','electronic'],
         money: -1
     },
 };

@@ -265,7 +265,7 @@ function GameBehavior(game, factory) {
 
     this.mouseDown = function (behavior) {
         return function (event) {
-            event.preventDefault();
+            
             game.pause();
             lastPosX = posX;
             lastPosY = posY;
@@ -281,7 +281,7 @@ function GameBehavior(game, factory) {
 
     this.mouseOver = function (behavior) {
         return function (event) {
-            event.preventDefault();
+            
 
             var rightClick = (event.buttons === 2 || (event.which === 3));
             var leftClick = (event.buttons === 1 || (event.which === 1 && event.buttons == undefined));
@@ -319,7 +319,7 @@ function GameBehavior(game, factory) {
 
     this.mouseUp = function (behavior, destroyable) {
         return function (event) {
-            event.preventDefault();
+            
             var rightClick = (event.which === 3);
             var leftClick = (event.which === 1);
 

@@ -498,11 +498,20 @@ var objectsData = {
             for (var i in object.objects) {
                 var item = object.objects[i];
 
+                var itemName = item.getName();
+                var allowAll = true;
+                if (object.getVar('left') == itemName ||
+                object.getVar('top') == itemName ||
+                object.getVar('right') == itemName ||
+                object.getVar('bottom') == itemName){
+                    allowAll = false;
+                }
+
                 object.output = {
-                    left: checkAtom(object.getVar('left'), item.getName()),
-                    top: checkAtom(object.getVar('top'), item.getName()),
-                    right: checkAtom(object.getVar('right'), item.getName()),
-                    bottom: checkAtom(object.getVar('bottom'), item.getName())
+                    left: checkAtom(object.getVar('left'), itemName, allowAll),
+                    top: checkAtom(object.getVar('top'), itemName, allowAll),
+                    right: checkAtom(object.getVar('right'), itemName, allowAll),
+                    bottom: checkAtom(object.getVar('bottom'), itemName, allowAll)
                 };
 
 

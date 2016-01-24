@@ -38,6 +38,21 @@ $(function () {
                 {text:'Hire in your old job', link: 'factory_rep3.html'},
                 {text:'Find new job', link: 'factory_new1.html'},
             ]
+        },
+        end: {
+            animation:[
+                {text:'For now, that is all.'},
+                {text:'Maybe next challenges will appear soon.'},
+                {text:'Hope you have great time!'},
+                {text:'If you like it, please tell your fiends about this amazing game :)'},
+                {text:'~karboosx'},
+            ],
+            decisions:[
+                {text:'Take me to reddit.com', link: 'https://reddit.com'},
+                {text:'Take me to imgur.com', link: 'https://imgur.com'},
+                {text:'Take me to github.com', link: 'https://github.com'},
+
+            ]
         }
     };
 

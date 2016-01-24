@@ -34,7 +34,7 @@ $(function () {
             background: '1.png',
             text: 'So let\'s get to work! Yey!',
             align: 'center',
-            link: 'game.html',
+            link: 'factory_tutorial1.html',
             linkText: 'Let\'s play :)'
         }
     ];
