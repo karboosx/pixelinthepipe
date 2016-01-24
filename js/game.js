@@ -440,6 +440,7 @@ var objectsData = {
         cost: 20,
         canSelectItem:true,
         restrictAlphabet:true,
+        requirePower:true,
         onInit: function (object, factory) {
             object.setVar('item', '*');
 
