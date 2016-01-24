@@ -369,7 +369,11 @@ a {
     height: 90px;
     display: table;
 }
-
+.windowHeader{
+    text-align: center;
+    font-size: 1.3em;
+    margin:4px;
+}
 .infoWindowText p {
     margin: 0;
     display: table-cell;
@@ -429,6 +433,9 @@ a {
     font-size: 1.1em;
 }
 
+.gui-full{
+    width: 100%;
+}
 option {
     background: #3a3a3a;
     font-family: 'VT323', serif;

@@ -126,6 +126,9 @@
                 <div class="tool" title="Create Distiller" data-tool="object" data-object="distiller">
                     <div style="background: url(images/destyl.png)"></div>
                 </div>
+                <div class="tool" title="Create Computer Combiner" data-tool="object" data-object="computerCombiner">
+                    <div style="background: url(images/computer_asembly.png)"></div>
+                </div>
             </div>
         </div>
         <div class="gui-window" id="objectiveWindow">
@@ -202,6 +205,12 @@
                 </tr>
 
             </table>
+
+			<div id="infoSelectItem" class="">
+				<div class="windowHeader">Combine Item</div>
+				<select id="info-item" class="gui-button gui-select gui-full" data-x="-1" data-y="-1"></select>
+
+            </div>
 
 
         </div>

@@ -1081,7 +1081,7 @@ var factoryLevels = {
         },
         name: 'First factory',
         subname: 'Ice cream!',
-        itemsToGenerate: globalCombineItemsKeys,
+        itemsToGenerate: ['H','O','juice','ice'],
         nextFactory: 'empty',
         money:-1,
     },
@@ -2397,19 +2397,24 @@ var factoryLevels = {
             factory.createBaseFloor();
 
         },
-        name: 'Day 2-2',
-        subname: 'Alcohol',
-        itemsToGenerate: ['gasoline','O','H','wheat'],
+        name: 'Day 2-3',
+        subname: 'Computer Science',
+        itemsToGenerate: ['aluminium','copper','gasoline','O','software','silicon'],
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[0]('beer',15));
+            game.addObjective(objectivesPrefabs[0]('computer',15));
         },
         nextFactory: 'new2',
         animation: [
-            {text: 'Hi! How you doing?'},
+            {text: 'Welcome back! Today we have very exiting task.'},
+            {text: 'We have to build a computer!'},
+            {text: 'It\'s great to play a game :)'},
+            {text: 'I suggest to study cookbook first.'},
+            {text: 'Just like yesterday, you are free to do it.'},
+            {text: 'Good luck!'},
 
         ],
-        tools:['info','pusher','pipe','cable','block','electrogenerator','fermenter','distiller','filter','storage','generator','pin','combiner','deleter'],
-        cookbook: ['gasoline','O','H','wheat','electricity','alcohol','water','beer'],
+        tools:['info','pusher','pipe','line','cable','block','electrogenerator','computerCombiner','filter','storage','generator','pin','combiner','deleter'],
+        cookbook: ['aluminium','motherboard','graphicCard','ram','computerCase','computer','software','copper','gasoline','O','electricity','electronic'],
         money: -1
     },
 };

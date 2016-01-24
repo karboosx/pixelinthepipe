@@ -21,7 +21,6 @@ function Factory(name_, subname_, game_, x_, y_) {
         };
     };
 
-
     this.getGame = function () {
         return game_;
     };

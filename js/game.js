@@ -43,6 +43,7 @@ var imagesPath = [
     {name: 'filter', src: 'images/aaa.png', frame: 4},
     {name: 'generator', src: 'images/generator.png', frame: 5},
     {name: 'electrogenerator', src: 'images/electrogenerator.png', frame: 3},
+    {name: 'computerCombiner', src: 'images/computer_asembly.png', frame: 5},
     {name: 'separator', src: 'images/separator.png', frame: 4},
     {name: 'freezer', src: 'images/freezer.png', frame: 3},
     {name: 'coffeemachine', src: 'images/coffeemachine.png', frame: 5},
@@ -60,6 +61,7 @@ var gameOptions = {
     pauseBorder:true,
     pauseForce:false
 };
+
 
 var objectsData = {
     pipe: {
@@ -148,7 +150,6 @@ var objectsData = {
         output: io('top'),
         cost: 20,
         canStop: true,
-        restrictCombine:true,
         randomCombine:true,
         onTick: function (object, map) {
 
@@ -410,8 +411,44 @@ var objectsData = {
         output: io('right-bottom'),
         canStop: true,
         cost: 20,
+        canSelectItem:true,
+        onInit: function (object, factory) {
+            object.setVar('item', '*');
+
+            object.setAlphabetVar(factory);
+            object.refreshSelectedItems();
+        },
         onTick: function (object, map) {
 
+            object.refreshSelectedItems();
+            object.combine(object.objects);
+
+        },
+        desc: 'Combine elements to more complex items',
+        name: 'Element combiner'
+    },
+
+    computerCombiner: {
+        type: 'computerCombiner',
+        image: 'computerCombiner',
+        frameDelay: 1,
+        randomFrame: true,
+        gravity: true,
+        input: io('left-top'),
+        output: io('right-bottom'),
+        canStop: true,
+        cost: 20,
+        canSelectItem:true,
+        restrictAlphabet:true,
+        onInit: function (object, factory) {
+            object.setVar('item', '*');
+
+            object.setAlphabetVar(factory);
+            object.refreshSelectedItems();
+        },
+        onTick: function (object, map) {
+
+            object.refreshSelectedItems();
             object.combine(object.objects);
 
         },
@@ -452,17 +489,7 @@ var objectsData = {
             object.setVar('bottom', '-');
             object.setVar('right', '-');
 
-            if (factory.getGame().allowedItems != undefined) {
-                var alphabet = {};
-                var allowedItems = factory.getGame().allowedItems;
-                for (var i = 0; i < allowedItems.length; i++) {
-                    var obj = allowedItems[i];
-                    alphabet[obj] = items[obj];
-                }
-                object.setVar('alfabet', $.extend({'*': {name: 'All'}, '-': {name: 'None'}}, alphabet));
-            } else {
-                object.setVar('alfabet', $.extend({'*': {name: 'All'}, '-': {name: 'None'}}, items));
-            }
+            object.setAlphabetVar(factory);
         },
         onTick: function (object, map) {
 

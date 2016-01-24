@@ -128,6 +128,16 @@ function GameBehavior(game, factory) {
                     object.setVar(select.data('direction'), select.val());
                 }
             };
+            var select_click_item = function () {
+                var select = $(this);
+
+                if (select.data('x') >= 0 && select.data('y') >= 0) {
+                    var object = game.getFactory().getObject(select.data('x'), select.data('y'));
+                    object.setVar('item', select.val());
+                    object.refreshSelectedItems();
+                }
+            };
+            var $item = $('#info-item').change(select_click_item);
             var $left = $('#info-left').change(select_click);
             var $right = $('#info-right').change(select_click);
             var $top = $('#info-top').change(select_click);
@@ -185,6 +195,26 @@ function GameBehavior(game, factory) {
                     showWindow = true;
                 } else {
                     $('#infoFilter').hide();
+                }
+
+                if (object.getData().canSelectItem) {
+                    $('#infoSelectItem').show();
+                    var selectedItem = object.getVar('item');
+                    alfabet = object.getVar('alfabet');
+
+                    if (selectedItem && alfabet) {
+                        var $item = $('#info-item').html('').data('x', x).data('y', y);
+
+                        for (var i2 in alfabet) {
+                            if (alfabet[i2].hasOwnProperty('name')) {
+                                $item.append('<option value="' + i2 + '" ' + (i2 == selectedItem ? ' selected="selected"' : '') + '>' + alfabet[i2].name + '</option>');
+                            }
+                        }
+                    }
+
+                    showWindow = true;
+                } else {
+                    $('#infoSelectItem').hide();
                 }
 
 
@@ -272,10 +302,12 @@ function GameBehavior(game, factory) {
 
 
             if (click) {
-                if (!rightClick && leftClick)
-                    behavior.tools[tool].left();
-                else if (!leftClick && rightClick)
-                    behavior.tools[tool].right();
+                if (tool != undefined && behavior.tools.hasOwnProperty(tool)) {
+                    if (!rightClick && leftClick)
+                        behavior.tools[tool].left();
+                    else if (!leftClick && rightClick)
+                        behavior.tools[tool].right();
+                }
             }
 
             lastPosX = posX;
@@ -479,6 +511,8 @@ function GameBehavior(game, factory) {
         left: function () {
             behavior_.windows['info'].show(posX, posY);
             return true;
+        },
+        right: function () {
         }
     };
 

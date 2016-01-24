@@ -25,15 +25,69 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     this.vars = {};
     this.canMveItemForward = (data.itemForward != undefined) ? data.itemForward : false;
     this.maxItems = (object.maxItems != undefined) ? object.maxItems : 99;
+    
+    this.restrictAlphabet = (object.restrictAlphabet != undefined) ? object.restrictAlphabet : false;
+    this.restrictSeparate = (object.restrictSeparate != undefined) ? object.restrictSeparate : false;
+    this.restrictCombine = (object.restrictCombine != undefined) ? object.restrictCombine : false;
+    
     var combineItemsKeys = globalCombineItemsKeys;
+    var selectItemsKeys = globalCombineItemsKeys;
+
+    this.canSelectItem = (object.canSelectItem != undefined) ? object.canSelectItem : false;
+
+    var selectedItems = items;
+
+    this.refreshSelectedItems = function () {
+        selectedItems = {};
+        if (this.canSelectItem){
+            var selectedItem = this.getVar('item');
+            if (selectedItem == '-')
+                selectedItems = {};
+            else if (selectedItem == '*')
+                selectedItems = items;
+            else
+                selectedItems[selectedItem] = items[selectedItem];
+        }else{
+            selectedItems = items;
+        }
+    };
 
 
-    if (object.restrictCombine != undefined && object.restrictCombine == true){
+    this.setAlphabetVar = function (factory) {
+        if (factory.getGame().allowedItems != undefined || this.restrictAlphabet) {
+            var alphabet = {};
+            if (this.restrictAlphabet){
+                var allowedItems = selectItemsKeys;
+            }else {
+                allowedItems = factory.getGame().allowedItems;
+            }
+            for (var i = 0; i < allowedItems.length; i++) {
+                var obj = allowedItems[i];
+                alphabet[obj] = items[obj];
+            }
+            this.setVar('alfabet', $.extend({'*': {name: 'All'}, '-': {name: 'None'}}, alphabet));
+        } else {
+            this.setVar('alfabet', $.extend({'*': {name: 'All'}, '-': {name: 'None'}}, items));
+        }
+    };
+
+
+    if (this.restrictCombine == true){
         combineItemsKeys = [];
-        for (var obj in items) {
+        for (var obj in selectedItems) {
             var itemsObject = items[obj];
             if (itemsObject.combineDevice != undefined && itemsObject.combineDevice == object.type){
                 combineItemsKeys.push(obj);
+            }
+        }
+    }
+
+    if (this.restrictAlphabet){
+        selectItemsKeys = [];
+        for (obj in selectedItems) {
+            itemsObject = items[obj];
+            if ((itemsObject.combineDevice != undefined && itemsObject.combineDevice == object.type) || (itemsObject.separateDevice != undefined && itemsObject.separateDevice == object.type)){
+                selectItemsKeys.push(obj);
             }
         }
     }
@@ -172,7 +226,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
 
 
     this.combineItem = function (itemName, objects, requireCombineItem, only) {
-        var item = items[itemName];//po tym itemie szukam combinacji
+        var item = selectedItems[itemName];//po tym itemie szukam combinacji
 
         if (only != undefined && itemName != only)
             return;
@@ -258,7 +312,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
             this.combineItem(itemName, objects, requireCombineItem, only);
 
         }else{
-            for (itemName in items) {
+            for (itemName in selectedItems) {
 
                 this.combineItem(itemName, objects, requireCombineItem, only);
             }
@@ -266,7 +320,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     };
 
     this.separateItem = function (itemName, objects) {
-        var item = items[itemName];//po tym itemie szukam combinacji
+        var item = selectedItems[itemName];//po tym itemie szukam combinacji
 
         var newObjectsArray = [];
 
@@ -309,12 +363,12 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
 
         if (objects.length == 0)
         return;
-        for (var itemName in items) {
-            var itemsObject = items[itemName];
-            if (object.restrictSeparate != undefined && object.restrictSeparate == true && itemsObject.separateDevice != undefined && itemsObject.separateDevice == object.type){
+        for (var itemName in selectedItems) {
+            var itemsObject = selectedItems[itemName];
+            if (this.restrictSeparate != undefined && this.restrictSeparate == true && itemsObject.separateDevice != undefined && itemsObject.separateDevice == object.type){
                 this.separateItem(itemName, objects);
             }
-            if (object.restrictSeparate == undefined || object.restrictSeparate == false){
+            if (this.restrictSeparate == undefined || this.restrictSeparate == false){
                 this.separateItem(itemName, objects);
             }
         }
