@@ -234,6 +234,7 @@ function GameBehavior(game, factory) {
 
     this.mouseDown = function (behavior) {
         return function (event) {
+            game.pause();
             if (event != undefined)
                 behavior.mouseOver(event);
 
@@ -285,6 +286,7 @@ function GameBehavior(game, factory) {
             var rightClick = (event.which === 3);
             var leftClick = (event.which === 1);
 
+            game.resume();
             click = false;
 
             if (!rightClick && leftClick) {

@@ -145,7 +145,7 @@ function Render(target_, cursor_) {
         if (this.hasToRefreshObjectives)
             this.renderObjective(game, 0);
 
-        if (gameOptions.pause) {
+        if (gameOptions.pause && gameOptions.pauseBorder) {
             $('#viewport2').css('border', '4px solid red');
         } else {
             $('#viewport2').css('border', 'none');

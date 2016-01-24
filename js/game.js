@@ -56,7 +56,8 @@ var gameOptions = {
     drawIO: true,
     drawStops: true,
     drawItemsNames: true,
-    drawPowered: true
+    drawPowered: true,
+    pauseBorder:true
 };
 
 var objectsData = {
@@ -595,6 +596,17 @@ function Game(x_, y_, engine_) {
         }
 
         return count;
+    };
+
+
+    this.pause = function () {
+        gameOptions.pause = true;
+        gameOptions.pauseBorder = false;
+    };
+
+    this.resume = function () {
+        gameOptions.pause = false;
+        gameOptions.pauseBorder = true;
     };
 
 
