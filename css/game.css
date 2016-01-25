@@ -60,7 +60,7 @@ select {
     width: 124px;
     margin-top: 31px;
     margin-left: -75px;
-    height: 383px;
+    height: 438px;
     font-size: 1.5em;
 }
 
@@ -85,7 +85,7 @@ select {
     width: 343px;
     margin-top: 7px;
     margin-left: 14px;
-    height: 406px;
+    height: 424px;
     font-size: 1.5em;
 
 }
@@ -95,7 +95,7 @@ select {
     width: 336px;
     margin-top: 7px;
     margin-right: 63px;
-    height: 406px;
+    height: 424px;
     font-size: 1.5em;
 }
 
@@ -408,8 +408,8 @@ a {
 }
 
 .arrow {
-    width: 45px;
-    height: 37px;
+    width: 22px;
+    height: 18px;
     padding:3px;
     background-position:3px 3px;
     background-repeat:no-repeat;
@@ -422,13 +422,13 @@ a {
 .arrows{
     margin-left:10px;
     margin-right:10px;
-    
+
 
 }
 .arrow.left {
     background-image: url("../images/left-arrow.png");
     float: left;
-    margin-left: 55px;
+    margin-left: 14px;
 }
 
 .arrow.left:hover {
