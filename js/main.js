@@ -48,13 +48,19 @@ var startFunction = function () {
         if (factoryLevels[factoryID]['cookbook'] != undefined) {
             cookBook.initCookBook(factoryLevels[factoryID]['cookbook']);
             game.allowedItems = factoryLevels[factoryID]['cookbook'];
+
+            var $bookWindow = $('#bookWindow');
             $('#cookbook').click(function () {
-                if ($('#bookWindow').hasClass('hide'))
-                    $('#bookWindow').removeClass('hide');
+                if ($bookWindow.hasClass('hide'))
+                    $bookWindow.fadeIn(100, function(){
+                        $(this).removeClass('hide');
+                    });
                 else
-                    $('#bookWindow').addClass('hide');
+                    $bookWindow.fadeOut(100, function(){
+                        $(this).addClass('hide');
+                    });
             });
-            $('#bookWindow').draggable();
+            $bookWindow.draggable();
         }else{
             $('#cookbook').click(function () {
                 cookBook.noCookbook();
