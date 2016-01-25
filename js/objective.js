@@ -22,7 +22,7 @@ var objectivesPrefabs = [
 function Objective(data, animation) {
 
     this.name = data.name;
-    this.description = data.desc || data.description || '';
+    this.description = data.desc || data.description || undefined;
     this.needs = data.needs;
     this.reword = data.reword;
     this.canComplete = false;

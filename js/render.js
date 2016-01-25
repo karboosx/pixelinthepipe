@@ -264,7 +264,9 @@ function Render(target_, cursor_) {
 
             if (!$objectiveComplete.length) {
                 $objective.html('<h1>' + objective.name + '</h1>');
+                if (objective.description != undefined)
                 $objective.append('<p>' + objective.description + '</p>');
+
                 $objective.append('<div>Reward: ' + objective.reword + ' $</div>');
                 $objectiveWindow.removeClass('green');
             } else {
