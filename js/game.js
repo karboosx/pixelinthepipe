@@ -453,8 +453,8 @@ var objectsData = {
             object.combine(object.objects);
 
         },
-        desc: 'Combine elements to more complex items',
-        name: 'Element combiner'
+        desc: 'Combine elements create computers',
+        name: 'Computer Combiner'
     },
 
     separator: {

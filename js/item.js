@@ -77,7 +77,7 @@ var itemTypesDirections = {
 var transportationItems = {
     line: {name: 'Line'},
     pipe: {name: 'Pipe'},
-    cable: {name: 'cable'},
+    cable: {name: 'Wire'},
 };
 
 function Item(object, item) {
