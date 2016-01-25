@@ -18,6 +18,11 @@ body {
     margin: 5px;
 }
 
+.level h4,h3,p{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
 .level:hover {
     cursor: pointer;
     background: url("../images/gui-background-green.png");
@@ -34,4 +39,13 @@ h4, h3 {
 .no-background {
     background: none !important;
     border: none !important;
+}
+.easy-color{
+    color: #0D803C;
+}
+.tutorial-color{
+    color: #366b80;
+}
+.normal-color{
+    color: #c6943d;
 }

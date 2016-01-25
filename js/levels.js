@@ -63,6 +63,7 @@ var factoryLevels = {
 
         },
         name: 'Tutorial 1',
+        difficult:'tutorial',
         subname: 'Basics',
         itemsToGenerate: ['H'],
         objectives: function (game, factory) {
@@ -292,6 +293,7 @@ var factoryLevels = {
 
         },
         name: 'Tutorial 2',
+        difficult:'tutorial',
         subname: 'Combining items',
         itemsToGenerate: ['H', 'O'],
         objectives: function (game, factory) {
@@ -429,6 +431,7 @@ var factoryLevels = {
         },
         name: 'Tutorial 3',
         subname: 'Fireplace',
+        difficult:'tutorial',
         itemsToGenerate: ['water'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('steam', 1));
@@ -968,6 +971,7 @@ var factoryLevels = {
         },
         name: 'Tutorial 4',
         subname: 'Filter',
+        difficult:'tutorial',
         itemsToGenerate: ['H', 'O'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[1]({
@@ -1053,6 +1057,7 @@ var factoryLevels = {
         },
         name: 'Tutorial 5',
         subname: 'Final test!',
+        difficult:'tutorial',
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('steam', 10));
         },
@@ -1093,6 +1098,7 @@ var factoryLevels = {
         },
         name: 'First homise',
         subname: 'Ice cream!',
+        difficult:'tutorial',
         itemsToGenerate: ['water', 'coffeebeans'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('coffee', 2));
@@ -1190,6 +1196,7 @@ var factoryLevels = {
         },
         name: 'Day 1',
         subname: 'Your first day',
+        difficult:'easy',
         itemsToGenerate: ['water', 'O'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('water', 5));
@@ -1307,6 +1314,7 @@ var factoryLevels = {
         },
         name: 'Day 2',
         subname: 'No ice cream!',
+        difficult:'easy',
         tools: ['pipe', 'info', 'block', 'filter', 'combiner', 'separator', 'freezer'],
         itemsToGenerate: ['water', 'orange'],
         objectives: function (game, factory) {
@@ -1572,6 +1580,7 @@ var factoryLevels = {
         },
         name: 'Day 3',
         subname: 'Blocked by pipe',
+        difficult:'easy',
         tools: ['pipe', 'line', 'info', 'block', 'filter', 'combiner', 'separator', 'pusher'],
         itemsToGenerate: ['phone'],
         objectives: function (game, factory) {
@@ -1691,6 +1700,7 @@ var factoryLevels = {
         },
         name: 'Day 4',
         subname: 'Baking time!',
+        difficult:'easy',
         tools: ['pipe', 'line', 'info', 'block', 'filter', 'combiner', 'separator', 'pusher', 'fireplace'],
         itemsToGenerate: [],
         objectives: function (game, factory) {
@@ -1895,6 +1905,7 @@ var factoryLevels = {
         },
         name: 'Day 6',
         subname: 'Home, sweet home',
+        difficult:'easy',
         tools: ['pipe', 'info', 'block', 'filter', 'combiner', 'separator', 'pusher', 'deleter','coffeemachine'],
         itemsToGenerate: ['water', 'coffeebeans', 'sugar'],
         objectives: function (game, factory) {
@@ -2214,6 +2225,7 @@ var factoryLevels = {
         },
         name: 'Day 8',
         subname: 'Boring work...',
+        difficult:'easy',
         itemsToGenerate: ['phone'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('phone',10));
@@ -2234,6 +2246,7 @@ var factoryLevels = {
     rep2: {
         map: 'rep1',
         name: 'Another day',
+        difficult:'easy',
         subname: 'Boring work. Again.',
         itemsToGenerate: ['phone'],
         objectives: function (game, factory) {
@@ -2253,6 +2266,7 @@ var factoryLevels = {
     rep3: {
         map: 'rep1',
         name: 'Another day',
+        difficult:'easy',
         subname: 'Boring work. Again.',
         itemsToGenerate: ['phone'],
         objectives: function (game, factory) {
@@ -2348,6 +2362,7 @@ var factoryLevels = {
         },
         name: 'Day 2-1',
         subname: 'New job',
+        difficult:'easy',
         itemsToGenerate: ['gasoline','O'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('electricity',15));
@@ -2374,6 +2389,7 @@ var factoryLevels = {
         },
         name: 'Day 2-2',
         subname: 'Alcohol',
+        difficult:'normal',
         itemsToGenerate: ['gasoline','O','H','wheat'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('beer',15));
@@ -2399,6 +2415,7 @@ var factoryLevels = {
         },
         name: 'Day 2-3',
         subname: 'Computer Science',
+        difficult:'normal',
         itemsToGenerate: ['aluminium','copper','gasoline','O','software','silicon'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('computer',1));
