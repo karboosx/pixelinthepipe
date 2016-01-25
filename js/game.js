@@ -190,7 +190,7 @@ var objectsData = {
 
         },
         desc: 'Burn or boil elements',
-        name: 'Fireplace'
+        name: 'Electricity generator'
     },
     fermenter: {
         type: 'fermenter',

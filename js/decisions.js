@@ -31,6 +31,7 @@ $(function () {
         },
         nowork: {
             animation:[
+                {text:'[In home]'},
                 {text:'Honey! You have to get a job!', linkText:'Don\'t yelling on me!'},
             ],
             decisions:[
