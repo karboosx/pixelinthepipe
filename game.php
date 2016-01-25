@@ -81,7 +81,7 @@
                 <div class="tool" title="Create transportation line" data-tool="line">
                     <div style="background: url(images/transporter.png)"></div>
                 </div>
-                <div class="tool" title="Create cable" data-tool="cable">
+                <div class="tool" title="Create wire" data-tool="cable">
                     <div style="background: url(images/cable.png)"></div>
                 </div>
                 <div class="tool" title="Create wall block" data-tool="object" data-object="block">
@@ -155,7 +155,12 @@
     <div id="cookbook" title="Open / Close cookbook">
     </div>
     <div id="bookWindow" class="hide">
-        <div class="left">
+        <div class="bookmarks">
+            <div class="bookmark">test</div>
+            <div class="bookmark">test</div>
+            <div class="bookmark">test</div>
+        </div>
+	    <div class="left">
             <div class="text"></div>
         </div>
         <div class="right">
@@ -163,10 +168,10 @@
         </div>
 		<div style="clear:both"></div>
 		
-		<div class="arrows">
-			<div class="arrow left"></div>
-			<div class="arrow right"></div>
-		</div>
+<!--		<div class="arrows">-->
+<!--			<div class="arrow left"></div>-->
+<!--			<div class="arrow right"></div>-->
+<!--		</div>-->
     </div>
 
     <div id="pinEditWindow" class="gui-window gui-window-float hide">

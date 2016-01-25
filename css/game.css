@@ -55,11 +55,36 @@ select {
     color:#212240;
 }
 
+#bookWindow > .bookmarks {
+    float: left;
+    width: 124px;
+    margin-top: 31px;
+    margin-left: -75px;
+    height: 383px;
+    font-size: 1.5em;
+}
+
+#bookWindow > .bookmarks .bookmark:hover {
+    background: url("../images/bookmark-active.png");
+    cursor: pointer;
+    color:#fafafa;
+}
+#bookWindow > .bookmarks .bookmark {
+    background: url("../images/bookmark.png");
+    width: 102px;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 22px;
+    font-size: 0.66em;
+    color: #16124A;
+    margin-top: -7px;
+}
+
 #bookWindow > .left {
     float: left;
     width: 343px;
     margin-top: 7px;
-    margin-left: 63px;
+    margin-left: 14px;
     height: 406px;
     font-size: 1.5em;
 
@@ -453,7 +478,13 @@ tr, td {
 td {
     width: 82px;
 }
-
+#bookWindow p{
+    margin: 10px 3px 3px;
+    font-size: 0.8em;
+}
+#bookWindow p.small{
+    font-size:0.7em;
+}
 .info-message {
     margin: 0;
     text-align: center;
@@ -469,6 +500,14 @@ td {
 }
 .home a.active {
     color: #48fd5d;
+}
+
+.red-color{
+    color: #c75648;
+}
+
+.green-color{
+    color: #0D803C;
 }
 
 .back-button {

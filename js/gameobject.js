@@ -18,7 +18,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     this.combineLoopCount = object.combineLoopCount || 1;
     this.transportType = (object.transportType!=undefined ? object.transportType : undefined);
     this.transportRestrict = (object.transportRestrict != undefined ? object.transportRestrict : false);
-    this.electricityStrength = (object.electricityStrength != undefined ? object.electricityStrength : 30);
+    this.electricityStrength = (object.electricityStrength != undefined ? object.electricityStrength : 200);
     this.requirePower = (object.requirePower != undefined ? object.requirePower : false);
     this.power = 0;
     this.additionalData = additionalData;
@@ -298,6 +298,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
 
         }
     };
+
 
     this.combine = function (objects, requireCombineItem, only) {
 
