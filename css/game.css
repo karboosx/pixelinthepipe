@@ -130,9 +130,16 @@ select {
 .gui-window .gui-body {
     margin: 0;
     background: url("../images/gui-window-body.png");
-    padding: 2px 14px 10px 14px;
+    padding: 2px 14px 2px 14px;
 }
 
+#objective{
+    padding-bottom: 10px;
+}
+
+#objective h1{
+    margin:2px;
+}
 .gui-window.green .gui-body {
     background: url("../images/gui-window-body-green.png");
 }
