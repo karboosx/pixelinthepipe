@@ -25,7 +25,7 @@ body {
 
 .level:hover {
     cursor: pointer;
-    background: url("../images/gui-background-green.png");
+    background: url("../images/gui-background-dark.png");
 }
 
 h4, h3 {
