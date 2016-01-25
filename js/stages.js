@@ -4,6 +4,7 @@ $(function () {
         easy:{name:'Easy',addClass:'easy-color'},
         tutorial:{name:'Tutorial',addClass:'tutorial-color'},
         normal:{name:'Normal',addClass:'normal-color'},
+        hard:{name:'Hard',addClass:'hard-color'},
     };
 
     for (var i in factoryLevels) {

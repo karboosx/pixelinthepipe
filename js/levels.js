@@ -2415,7 +2415,7 @@ var factoryLevels = {
         },
         name: 'Day 2-3',
         subname: 'Computer Science',
-        difficult:'normal',
+        difficult:'hard',
         itemsToGenerate: ['aluminium','copper','gasoline','O','software','silicon'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('computer',1));
