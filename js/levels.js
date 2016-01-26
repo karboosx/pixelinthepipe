@@ -1091,6 +1091,7 @@ var factoryLevels = {
         subname: 'Feel free to create',
         nextFactory: 'empty',
         money:-1,
+        allowSave:true,
     },
     stage1: {
         map: function (factory) {

@@ -6,6 +6,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/jquery-ui.js"></script>
 
+	<script src="js/save.js"></script>
 	<script src="js/item.js"></script>
     <script src="js/levels.js"></script>
     <script src="js/animation.js"></script>
@@ -23,6 +24,7 @@
     <meta name="sizeX" content="<?php echo(isset($_GET['sizeX']) ? $_GET['sizeX'] : 'null'); ?>">
     <meta name="sizeY" content="<?php echo(isset($_GET['sizeY']) ? $_GET['sizeY'] : 'null'); ?>">
     <meta name="editor" content="<?php echo(isset($_GET['editor']) ? $_GET['editor'] : 'null'); ?>">
+    <meta name="extraLevel" content="<?php echo(isset($_GET['extralevel']) ? $_GET['extralevel'] : 'null'); ?>">
 
     <!-- You want to cheat? or worse... steel my code?! You bastard! I tell my mom!! -->
     <!-- Just kidding :) Feel free to use whatever you want :) -->
@@ -141,7 +143,6 @@
 
             </div>
         </div>
-        <a href="#" id="save">Save</a>
     </div>
     <div id="storyscreen" class="hide">
         <div id="text">No text</div>
@@ -156,8 +157,8 @@
         </canvas>
     </div>
 
-    <div id="cookbook" title="Open / Close cookbook">
-    </div>
+    <div id="cookbook" title="Open / Close cookbook"></div>
+	<div id="save" title="Save this factory"></div>
     <div id="bookWindow" class="hide bookWindow">
         <div class="bookmarks">
         </div>
@@ -173,6 +174,11 @@
 			<div class="arrow right"></div>
 		</div>
     </div>
+
+	<div id="jsonShow" class="bookWindow">
+        <textarea></textarea>
+    </div>
+
 	<div id="manual" title="Open / Close manual">
     </div>
     <div id="manualWindow" class="hide bookWindow">

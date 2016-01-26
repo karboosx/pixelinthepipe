@@ -874,59 +874,6 @@ function Game(x_, y_, engine_) {
             $('#loading').css('display', 'none');
             $('#game').css('display', 'block');
         });
-
-
-        $('#save').click(function () {
-
-
-            var factory = factors[0].getObjects();
-
-            for (var obj in factory) {
-                var object = factory[obj];
-                if (object['type'] == 'floor') continue;
-
-                else if (object['type'] == 'pin') {
-                    console.log('factory.placeObject(' + object['x'] + ',' + object['y'] + ',\'' + object['type'] + '\').text = \'' + object.text + '\';');
-
-                } else {
-                    console.log('factory.placeObject(' + object['x'] + ',' + object['y'] + ',\'' + object['type'] + '\',true,false);');
-                }
-                if (!object.destructable) {
-                    console.log('factory.mark(' + object['x'] + ',' + object['y'] + ',\'red\');');
-
-                }
-            }
-            for (var obj in factory) {
-                var object = factory[obj];
-                if (object['type'] == 'floor') continue;
-
-                else if (object['type'] == 'pipe') {
-
-                    for (var dir_ in object.patch9) {
-                        if (object.patch9[dir_]) {
-                            console.log('factory.placePatch9(' + object['x'] + ',' + object['y'] + ',\'' + dir_ + '\');');
-                        }
-                    }
-
-                    if (!object.destructable) {
-                        console.log('factory.mark(' + object['x'] + ',' + object['y'] + ',\'red\');');
-
-                    }
-                } else if (object['type'] == 'line' || object['type'] == 'cable' ) {
-
-                    for (var dir_ in object.patch9) {
-                        if (object.patch9[dir_]) {
-                            console.log('factory.placePatch9byTool(' + object['x'] + ',' + object['y'] + ',\'' + dir_ + '\',true,\''+object['type']+'\');');
-                        }
-                    }
-
-                    if (!object.destructable) {
-                        console.log('factory.mark(' + object['x'] + ',' + object['y'] + ',\'red\');');
-
-                    }
-                }
-            }
-        });
     };
 
     this.create = function (interval) {

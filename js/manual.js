@@ -61,17 +61,7 @@ function Manual(game) {
     };
 
     this.noManual = function () {
-
-        $('#fail-message').hide();
-        $('#fail-text').html('Cookbook not available');
-
-        var finishViewport = $('#fail-viewport');
-
-        finishViewport.fadeIn(500, function () {
-        });
-        setInterval(function () {
-            finishViewport.fadeOut(1000);
-        },1500);
+        $('#manual').hide();
     };
 
 

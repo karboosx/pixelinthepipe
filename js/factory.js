@@ -57,6 +57,34 @@ function Factory(name_, subname_, game_, x_, y_) {
 
     };
 
+    this.loadByJson = function (json) {
+        var objectsLength = json.objects.length;
+        for (var i = 0; i < objectsLength; i++) {
+            var obj = json.objects[i];
+
+            this.placeObject(obj.x,obj.y,obj.type,true,false,obj.data);
+        }
+
+        var transportersLength = json.transporters.length;
+        for (i = 0; i < transportersLength; i++) {
+            obj = json.transporters[i];
+            this.placePatch9byTool(obj.x,obj.y,obj.dir,false,obj.type);
+        }
+
+        var marksLength = json.marks.length;
+        for (i = 0; i < marksLength; i++) {
+            obj = json.marks[i];
+            this.mark(obj.x,obj.y,'red');
+        }
+
+        var pinsLength = json.pins.length;
+        for (i = 0; i < pinsLength; i++) {
+            obj = json.pins[i];
+            this.getObject(obj.x,obj.y).text = obj.text;
+        }
+
+    };
+
     this.placeObject = function (x, y, object, destructable, gravity, additionalData) {
 
         if (destructable == undefined) destructable = true;
