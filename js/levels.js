@@ -2317,7 +2317,7 @@ var factoryLevels = {
             factory.mark(3,5,'red');
             factory.placeObject(3,4,'pipe',true,false);
             factory.placeObject(5,6,'pin').text = 'Oil';
-            factory.placeObject(5,13,'pin').text = 'Water and smoke';
+            factory.placeObject(5,13,'pin').text = 'Water';
             factory.placeObject(22,8,'block',true,false);
             factory.mark(22,8,'red');
             factory.placeObject(23,8,'block',true,false);
@@ -2365,7 +2365,7 @@ var factoryLevels = {
             {text: 'Today, you will get easy task.'},
             {text: 'Since yesterday we can make electricity!'},
             {text: 'So, today you have to make generator!'},
-            {text: 'Here you have gasoline and oxygen provider.'},
+            {text: 'Here you have oil and water provider.'},
             {text: 'Just connect everything right and all will be right :)'},
             {text: 'Well, first you have to make gasoline.'},
             {text: 'Be aware that we have only one filter. Use it wisely.'},
