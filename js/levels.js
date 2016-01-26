@@ -2368,11 +2368,12 @@ var factoryLevels = {
             {text: 'Here you have gasoline and oxygen provider.'},
             {text: 'Just connect everything right and all will be right :)'},
             {text: 'Well, first you have to make gasoline.'},
+            {text: 'Be aware that we have only one filter. Use it wisely.'},
         ],
         tools:['pusher','pipe','cable','block','electrogenerator','separator','fireplace','refinery','info','filter'],
         cookbook: ['gasoline','O','H','electricity','oil','water','smoke','heat','lowheat','steam','hotwater'],
         money: 500,
-        objectLimits:{filter:2}
+        objectLimits:{filter:1}
     },
     new2: {
         map: function (factory) {
@@ -2417,7 +2418,7 @@ var factoryLevels = {
         animation: [
             {text: 'Welcome back! Today we have very exiting task.'},
             {text: 'We have to build a computer!'},
-            {text: 'It\'s great to play a game :)'},
+            {text: 'It\'s great to play games :)'},
             {text: 'I suggest to study cookbook first.'},
             {text: 'Just like yesterday, you are free to do it.'},
             {text: 'Good luck!'},
