@@ -1822,7 +1822,7 @@ var factoryLevels = {
             {text: 'Try your best!'},
 
         ],
-        cookbook: ['bread', 'goodbread', 'slicebread', 'slicegoodbread', 'ham', 'sliceham', 'tomato', 'slicetomato', 'cheese', 'slicecheese'],
+        cookbook: ['bread', 'goodbread', 'slicebread', 'goodslicebread', 'ham', 'sliceham', 'tomato', 'slicetomato', 'cheese', 'slicecheese'],
         money: 500,
         failMessage: 'That again taste like mud! Try again!'
     },
