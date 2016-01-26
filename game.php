@@ -129,6 +129,9 @@
                 <div class="tool" title="Create Computer Combiner" data-tool="object" data-object="computerCombiner">
                     <div style="background: url(images/computer_asembly.png)"></div>
                 </div>
+                <div class="tool" title="Create Refinery" data-tool="object" data-object="refinery">
+                    <div style="background: url(images/refinery.png)"></div>
+                </div>
             </div>
         </div>
         <div class="gui-window" id="objectiveWindow">
@@ -188,9 +191,18 @@
         </div>
         <div class="gui-body">
             <div id="infoSwitch" data-x="-1" data-y="-1" class="switch-on inline"></div>
-            <div class="infoWindowText">
-                <p id="infoWindowText"></p>
+
+            <div class="infoWindowInline">
+	            <div class="infoWindowText">
+		            <p id="infoWindowText"></p>
+	            </div>
             </div>
+	        <div id="autoPushSwitch" data-x="-1" data-y="-1" class="switch-on theme2 inline"></div>
+	        <div id="pushSwitchInfo" class="infoWindowInline">
+		        <div class="infoWindowText pushSwitch">
+			        <p>Turn on if you want to immediately push all items to pipe</p>
+		        </div>
+	        </div>
             <table id="infoFilter" class="inline">
                 <tr>
                     <td></td>

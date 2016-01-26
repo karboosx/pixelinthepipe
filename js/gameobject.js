@@ -20,12 +20,14 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     this.transportRestrict = (object.transportRestrict != undefined ? object.transportRestrict : false);
     this.electricityStrength = (object.electricityStrength != undefined ? object.electricityStrength : 200);
     this.requirePower = (object.requirePower != undefined ? object.requirePower : false);
+    this.requirePowerItem = (object.requirePowerItem != undefined ? object.requirePowerItem : 'electricity');
     this.power = 0;
     this.additionalData = additionalData;
     this.vars = {};
     this.canMveItemForward = (data.itemForward != undefined) ? data.itemForward : false;
     this.maxItems = (object.maxItems != undefined) ? object.maxItems : 99;
-    
+    this.canAutoPush = (object.canAutoPush != undefined) ? object.canAutoPush : false;
+
     this.restrictAlphabet = (object.restrictAlphabet != undefined) ? object.restrictAlphabet : false;
     this.restrictSeparate = (object.restrictSeparate != undefined) ? object.restrictSeparate : false;
     this.restrictCombine = (object.restrictCombine != undefined) ? object.restrictCombine : false;
@@ -114,7 +116,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
         }
 
         if (this.needPower() && !this.checkPower()){
-            var electricityItemId =this.getItemIdByName('electricity');
+            var electricityItemId =this.getItemIdByName(this.requirePowerItem);
             if (electricityItemId != null) {
                 this.deleteItem(electricityItemId);
                 this.power = this.electricityStrength;
@@ -122,7 +124,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
         }
 
         if (!this.powered() && gameOptions.drawPowered) {
-            this.registerError('Need power',2);
+            this.registerError('Need power:'+items[this.requirePowerItem].name,2);
         }
 
     };
@@ -459,10 +461,24 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
 
     this.onTick = (object.onTick != undefined) ? object.onTick : function () {
     };
+
     this.onInit = (object.onInit != undefined) ? object.onInit : function () {
     };
 
+    this.buildInInit = function () {
+        if (this.canAutoPush){
+            this.setVar('autoPush',false);
+        }
+    };
+
+    this.onBuildInTick = function (object, map, game, factory) {
+        if (this.canAutoPush && this.getVar('autoPush')){
+            this.moveItemsForward(map);
+        }
+    };
     this.onInit(this, factory);
+    this.buildInInit(this, factory);
+
 
     this.patch9 = (object.input != undefined) ? bindIO(object.input, object.output) :
     {

@@ -27,6 +27,7 @@ var imagesPath = [
      */
     {name: 'pin', src: 'images/pin.png', frame: 1},
     {name: 'fireplace1', src: 'images/fireplace1.png', frame: 3},
+    {name: 'refinery', src: 'images/refinery.png', frame: 5},
     {name: 'explosion1', src: 'images/explosion1.png', frame: 6},
     {name: 'cos', src: 'images/cos.png', frame: 2},
     {name: 'combiner', src: 'images/asembly.png', frame: 5},
@@ -151,6 +152,7 @@ var objectsData = {
         cost: 20,
         canStop: true,
         randomCombine:true,
+        canAutoPush:true,
         onTick: function (object, map) {
 
             var rand = 30;
@@ -171,7 +173,7 @@ var objectsData = {
             object.combine(object.objects);
 
         },
-        desc: 'Burn or boil elements',
+        desc: 'Burn or boil elements.',
         name: 'Fireplace'
     },
     electrogenerator: {
@@ -209,6 +211,26 @@ var objectsData = {
         },
         desc: 'Ferment alcohol',
         name: 'Fermenter'
+    },
+    refinery: {
+        type: 'refinery',
+        image: 'refinery',
+        input: io('left'),
+        output: io('right'),
+        cost: 20,
+        canStop: true,
+        frameDelay:3,
+        restrictCombine:true,
+        randomCombine:true,
+        requirePower:true,
+        requirePowerItem:'steam',
+        onTick: function (object, map) {
+
+            object.combine(object.objects);
+
+        },
+        desc: 'Refinery oil',
+        name: 'Refinery'
     },
     distiller: {
         type: 'distiller',
