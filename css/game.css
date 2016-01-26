@@ -44,7 +44,7 @@ select {
     margin-bottom: 20px;
 }
 
-#bookWindow {
+.bookWindow {
     width: 812px;
     height: 490px;
     background: url("../images/bookWindow.png");
@@ -55,7 +55,7 @@ select {
     color:#212240;
 }
 
-#bookWindow > .bookmarks {
+.bookWindow > .bookmarks {
     float: left;
     width: 124px;
     margin-top: 31px;
@@ -64,12 +64,12 @@ select {
     font-size: 1.5em;
 }
 
-#bookWindow > .bookmarks .bookmark:hover {
+.bookWindow > .bookmarks .bookmark:hover {
     background: url("../images/bookmark-active.png");
     cursor: pointer;
     color:#fafafa;
 }
-#bookWindow > .bookmarks .bookmark {
+.bookWindow > .bookmarks .bookmark {
     background: url("../images/bookmark.png");
     width: 102px;
     height: 35px;
@@ -80,7 +80,7 @@ select {
     margin-top: -7px;
 }
 
-#bookWindow > .left {
+.bookWindow > .left {
     float: left;
     width: 343px;
     margin-top: 7px;
@@ -90,7 +90,7 @@ select {
 
 }
 
-#bookWindow > .right {
+.bookWindow > .right {
     float: right;
     width: 336px;
     margin-top: 7px;
@@ -112,6 +112,21 @@ select {
 #cookbook:hover {
     cursor: pointer;
     background: url("../images/bookHover.png");
+}
+
+#manual {
+    position: fixed;
+    top: 84px;
+    right: 0;
+    width: 84px;
+    height: 84px;
+    background: url("../images/book-manual.png");
+    margin:9px;
+}
+
+#manual:hover {
+    cursor: pointer;
+    background: url("../images/book-manualHover.png");
 }
 
 .gui-window .gui-title {
@@ -501,13 +516,14 @@ tr, td {
 td {
     width: 82px;
 }
-#bookWindow p{
+.bookWindow p{
     margin: 10px 3px 3px;
     font-size: 0.8em;
 }
-#bookWindow p.small{
+.bookWindow p.small{
     font-size:0.7em;
 }
+
 .info-message {
     margin: 0;
     text-align: center;

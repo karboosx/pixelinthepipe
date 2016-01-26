@@ -111,7 +111,15 @@ var objectsData = {
         itemForward: false,
         cost: 1,
         input: io('none'),
-        output: io('none')
+        output: io('none'),
+        name:'Block',
+        desc:'Block object from fall'
+    },
+    info: {
+        type: 'info',
+        image: 'info',
+        name:'Information',
+        desc:'Show information and options for selected object'
     },
     floor: {
         type: 'floor',
@@ -192,7 +200,8 @@ var objectsData = {
 
         },
         desc: 'Burn or boil elements',
-        name: 'Electricity generator'
+        name: 'Electricity generator',
+        abbr:'Electo. gener.'
     },
     fermenter: {
         type: 'fermenter',
@@ -264,7 +273,12 @@ var objectsData = {
         desc: 'This machine brewing coffee',
         name: 'Coffee Machine'
     },
-
+    pusher:{
+        type: 'pusher',
+        image: 'pusher',
+        desc: 'Push items to pipe',
+        name: 'Plunger'
+    },
     freezer: {
         type: 'freezer',
         image: 'freezer',
@@ -447,7 +461,8 @@ var objectsData = {
 
         },
         desc: 'Combine elements to more complex items',
-        name: 'Element combiner'
+        name: 'Element combiner',
+        abbr:'Combiner'
     },
 
     computerCombiner: {
@@ -476,7 +491,8 @@ var objectsData = {
 
         },
         desc: 'Combine elements create computers',
-        name: 'Computer Combiner'
+        name: 'Computer Combiner',
+        abbr:'Comp. combiner'
     },
 
     separator: {
@@ -494,7 +510,8 @@ var objectsData = {
 
         },
         desc: 'Separate element for more basic items',
-        name: 'Element separator'
+        name: 'Element separator',
+        abbr:'Separator'
     },
 
     filter: {

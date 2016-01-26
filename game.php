@@ -6,7 +6,6 @@
     <script src="js/jquery.js"></script>
     <script src="js/jquery-ui.js"></script>
 
-    <script src="js/cookbook.js"></script>
 	<script src="js/item.js"></script>
     <script src="js/levels.js"></script>
     <script src="js/animation.js"></script>
@@ -17,6 +16,8 @@
     <script src="js/gameobject.js"></script>
     <script src="js/render.js"></script>
     <script src="js/game.js"></script>
+	<script src="js/cookbook.js"></script>
+	<script src="js/manual.js"></script>
     <meta name="factory" content="<?php echo(isset($_GET['factory']) ? $_GET['factory'] : 'tutorial1'); ?>">
     <meta name="reset" content="<?php echo(isset($_GET['reset']) ? $_GET['reset'] : 'no'); ?>">
     <meta name="sizeX" content="<?php echo(isset($_GET['sizeX']) ? $_GET['sizeX'] : 'null'); ?>">
@@ -157,11 +158,25 @@
 
     <div id="cookbook" title="Open / Close cookbook">
     </div>
-    <div id="bookWindow" class="hide">
+    <div id="bookWindow" class="hide bookWindow">
         <div class="bookmarks">
-            <div class="bookmark">test</div>
-            <div class="bookmark">test</div>
-            <div class="bookmark">test</div>
+        </div>
+	    <div class="left">
+            <div class="text"></div>
+        </div>
+        <div class="right">
+            <div class="text"></div>
+        </div>
+
+		<div class="arrows">
+			<div class="arrow left"></div>
+			<div class="arrow right"></div>
+		</div>
+    </div>
+	<div id="manual" title="Open / Close manual">
+    </div>
+    <div id="manualWindow" class="hide bookWindow">
+        <div class="bookmarks">
         </div>
 	    <div class="left">
             <div class="text"></div>

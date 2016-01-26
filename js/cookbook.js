@@ -1,34 +1,34 @@
 function CookBook() {
-    this.cookBookPage = 0;
-    this.cookBookItemList = undefined;
+    this.manualPage = 0;
+    this.manualObjectList = undefined;
 
     this.renderBookmarks = function () {
         var bookmark= $('#bookWindow > .bookmarks');
         bookmark.html('');
 
-        for (var i = 0; i < this.cookBookItemList.length; i++) {
-            var obj = this.cookBookItemList[i];
+        for (var i = 0; i < this.manualObjectList.length; i++) {
+            var obj = this.manualObjectList[i];
             bookmark.append('<div class="bookmark" data-page="'+i+'">'+items[obj].name+'</div>');
         }
 
     };
-    this.initCookBook = function (itemList) {
+    this.initManual = function (itemList) {
         if (itemList == undefined){
-            this.noCookbook();
+            this.noManual();
             return;
         }
 
-        this.cookBookItemList = itemList;
-        this.renderCookBook();
+        this.manualObjectList = itemList;
+        this.renderManual();
         this.renderBookmarks();
 
         var leftClick = function (cookBook) {
             return function () {
-                cookBook.cookBookPage -= 2;
+                cookBook.manualPage -= 2;
 
-                if (cookBook.cookBookPage < 0)
-                    cookBook.cookBookPage = 0;
-                cookBook.renderCookBook();
+                if (cookBook.manualPage < 0)
+                    cookBook.manualPage = 0;
+                cookBook.renderManual();
             }
         };
 
@@ -36,17 +36,17 @@ function CookBook() {
 
         var rightClick = function (cookBook) {
             return function () {
-                if (cookBook.cookBookItemList.length - 2 > cookBook.cookBookPage)
-                    cookBook.cookBookPage += 2;
+                if (cookBook.manualObjectList.length - 2 > cookBook.manualPage)
+                    cookBook.manualPage += 2;
 
-                cookBook.renderCookBook();
+                cookBook.renderManual();
             }
         };
 
         var bookmarkClick = function (cookBook) {
             return function () {
-                cookBook.cookBookPage = Math.floor(parseInt($(this).data('page')) / 2)*2;
-                cookBook.renderCookBook();
+                cookBook.manualPage = Math.floor(parseInt($(this).data('page')) / 2)*2;
+                cookBook.renderManual();
             }
         };
 
@@ -56,7 +56,7 @@ function CookBook() {
 
     };
 
-    this.noCookbook = function () {
+    this.noManual = function () {
 
         $('#fail-message').hide();
         $('#fail-text').html('Cookbook not available');
@@ -85,22 +85,22 @@ function CookBook() {
     };
 
     this.renderPage = function (page) {
-        if (page < this.cookBookItemList.length) {
-            return '<h2 class="center">' + items[this.cookBookItemList[page]].name + '</h2>' +
-                '<h3 class="center">Element type: ' + itemTypes[items[this.cookBookItemList[page]].type].name + '</h3>' +
-                '<p class="small center">' + itemTypes[items[this.cookBookItemList[page]].type].desc + '</p>' +
-                (items[this.cookBookItemList[page]].transportType != undefined ?
-                '<p class="center">Transportation: ' + transportationItems[items[this.cookBookItemList[page]].transportType].name + '</p>'
+        if (page < this.manualObjectList.length) {
+            return '<h2 class="center">' + items[this.manualObjectList[page]].name + '</h2>' +
+                '<h3 class="center">Element type: ' + itemTypes[items[this.manualObjectList[page]].type].name + '</h3>' +
+                '<p class="small center">' + itemTypes[items[this.manualObjectList[page]].type].desc + '</p>' +
+                (items[this.manualObjectList[page]].transportType != undefined ?
+                '<p class="center">Transportation: ' + transportationItems[items[this.manualObjectList[page]].transportType].name + '</p>'
                     :
                 '<p class="center">Transportation: ' + transportationItems['pipe'].name + ', ' + transportationItems['line'].name + '</p>') +
 
-                '<p class="center">Combined by: ' + this.renderItemList(items[this.cookBookItemList[page]].combine) + '</p>' +
-                '<p class="center">Disassemble: ' + this.renderItemList(items[this.cookBookItemList[page]].separate) + '</p>'+
-                (items[this.cookBookItemList[page]].combineDevice != undefined ?
-                '<p class="center">Combine Device: ' + objectsData[items[this.cookBookItemList[page]].combineDevice].name + '</p>'
+                '<p class="center">Combined by: ' + this.renderItemList(items[this.manualObjectList[page]].combine) + '</p>' +
+                '<p class="center">Disassemble: ' + this.renderItemList(items[this.manualObjectList[page]].separate) + '</p>'+
+                (items[this.manualObjectList[page]].combineDevice != undefined ?
+                '<p class="center">Combine Device: ' + objectsData[items[this.manualObjectList[page]].combineDevice].name + '</p>'
                     : '')+
-                (items[this.cookBookItemList[page]].separateDevice != undefined ?
-                '<p class="center">Separate Device: ' + objectsData[items[this.cookBookItemList[page]].separateDevice].name + '</p>'
+                (items[this.manualObjectList[page]].separateDevice != undefined ?
+                '<p class="center">Separate Device: ' + objectsData[items[this.manualObjectList[page]].separateDevice].name + '</p>'
                     : '')
 
 
@@ -110,8 +110,8 @@ function CookBook() {
         }
     };
 
-    this.renderCookBook = function () {
-        $('#bookWindow .left .text').html(this.renderPage(this.cookBookPage));
-        $('#bookWindow .right .text').html(this.renderPage(this.cookBookPage + 1));
+    this.renderManual = function () {
+        $('#bookWindow .left .text').html(this.renderPage(this.manualPage));
+        $('#bookWindow .right .text').html(this.renderPage(this.manualPage + 1));
     };
 }

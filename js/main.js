@@ -47,9 +47,11 @@ var startFunction = function () {
         if (factoryLevels[factoryID]['objectives'] == undefined)
             game.noObjectives();
 
+        game.create();
+
         var cookBook = new CookBook();
         if (factoryLevels[factoryID]['cookbook'] != undefined) {
-            cookBook.initCookBook(factoryLevels[factoryID]['cookbook']);
+            cookBook.initManual(factoryLevels[factoryID]['cookbook']);
             game.allowedItems = factoryLevels[factoryID]['cookbook'];
 
             var $bookWindow = $('#bookWindow');
@@ -66,11 +68,32 @@ var startFunction = function () {
             $bookWindow.draggable();
         }else{
             $('#cookbook').click(function () {
-                cookBook.noCookbook();
+                cookBook.noManual();
             });
         }
 
-        game.create();
+        var manual = new Manual(game);
+        if (factoryLevels[factoryID]['tools'] != undefined) {
+            manual.initManual(factoryLevels[factoryID]['tools']);
+            game.allowedItems = factoryLevels[factoryID]['tools'];
+
+            var $manualWindow = $('#manualWindow');
+            $('#manual').click(function () {
+                if ($manualWindow.hasClass('hide'))
+                    $manualWindow.fadeIn(100, function(){
+                        $(this).removeClass('hide');
+                    });
+                else
+                    $manualWindow.fadeOut(100, function(){
+                        $(this).addClass('hide');
+                    });
+            });
+            $manualWindow.draggable();
+        }else{
+            $('#manual').click(function () {
+                manual.noManual();
+            });
+        }
 
         if (factoryLevels[factoryID]['nextFactory'] != undefined)
             game.nextFactory = factoryLevels[factoryID]['nextFactory'];
