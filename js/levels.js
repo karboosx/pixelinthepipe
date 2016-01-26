@@ -2306,9 +2306,9 @@ var factoryLevels = {
             factory.mark(4,13,'red');
             factory.placeObject(4,12,'block',true,false);
             factory.mark(4,12,'red');
-            factory.placeObject(3,13,'generator',true,false,{items:['O']});
+            factory.placeObject(3,13,'generator',true,false,{items:['water','smoke']});
             factory.mark(3,13,'red');
-            factory.placeObject(3,6,'generator',true,false,{items:['gasoline']});
+            factory.placeObject(3,6,'generator',true,false,{items:['oil']});
             factory.mark(3,6,'red');
             factory.placeObject(3,12,'pipe',true,false);
             factory.mark(3,12,'red');
@@ -2316,8 +2316,8 @@ var factoryLevels = {
             factory.placeObject(3,5,'pipe',true,false);
             factory.mark(3,5,'red');
             factory.placeObject(3,4,'pipe',true,false);
-            factory.placeObject(5,6,'pin').text = 'Gasoline';
-            factory.placeObject(5,13,'pin').text = 'Oxygen';
+            factory.placeObject(5,6,'pin').text = 'Oil';
+            factory.placeObject(5,13,'pin').text = 'Water and smoke';
             factory.placeObject(22,8,'block',true,false);
             factory.mark(22,8,'red');
             factory.placeObject(23,8,'block',true,false);
@@ -2353,8 +2353,8 @@ var factoryLevels = {
         },
         name: 'Day 2-1',
         subname: 'New job',
-        difficult:'easy',
-        itemsToGenerate: ['gasoline','O'],
+        difficult:'normal',
+        itemsToGenerate: ['oil','water','smoke'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('electricity',15));
         },
@@ -2367,10 +2367,11 @@ var factoryLevels = {
             {text: 'So, today you have to make generator!'},
             {text: 'Here you have gasoline and oxygen provider.'},
             {text: 'Just connect everything right and all will be right :)'},
+            {text: 'Well, first you have to make gasoline.'},
         ],
-        tools:['pusher','pipe','cable','block','electrogenerator'],
-        cookbook: ['gasoline','O','electricity'],
-        money: 200
+        tools:['pusher','pipe','cable','block','electrogenerator','separator','fireplace','refinery','info','filter'],
+        cookbook: ['gasoline','O','H','electricity','oil','water','smoke','heat','lowheat','steam','hotwater'],
+        money: 500
     },
     new2: {
         map: function (factory) {
@@ -2381,7 +2382,7 @@ var factoryLevels = {
         name: 'Day 2-2',
         subname: 'Alcohol',
         difficult:'normal',
-        itemsToGenerate: ['gasoline','O','H','wheat'],
+        itemsToGenerate: ['oil','water','wheat'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('beer',15));
         },

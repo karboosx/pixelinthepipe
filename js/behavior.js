@@ -96,6 +96,24 @@ function GameBehavior(game, factory) {
         init: function () {
 
             $('#infoWindow').center().draggable();
+            $('#autoPushSwitch').click(function () {
+                var pin = $(this);
+
+                if (pin.data('x') >= 0 && pin.data('y') >= 0) {
+                    var object = game.getFactory().getObject(pin.data('x'), pin.data('y'));
+
+                    if (object != undefined) {
+
+                        $('#autoPushSwitch').removeClass('switch-on').removeClass('switch-off');
+                        object.setVar('autoPush',!object.getVar('autoPush'));
+                        if (object.getVar('autoPush')) {
+                            $('#autoPushSwitch').addClass('switch-off');
+                        } else {
+                            $('#autoPushSwitch').addClass('switch-on');
+                        }
+                    }
+                }
+            });
             $('#infoSwitch').click(function () {
                 var pin = $(this);
 
@@ -155,6 +173,7 @@ function GameBehavior(game, factory) {
                 $('#infoWindowText').html(object.desc);
 
                 $('#infoSwitch').removeClass('switch-on').removeClass('switch-off').data('x', x).data('y', y);
+                $('#autoPushSwitch').removeClass('switch-on').removeClass('switch-off').data('x', x).data('y', y);
 
                 if (object.getData().canStop) {
                     $('#infoSwitch').show();
@@ -166,6 +185,20 @@ function GameBehavior(game, factory) {
                     showWindow = true;
                 } else {
                     $('#infoSwitch').hide();
+                }
+
+                if (object.canAutoPush) {
+                    $('#autoPushSwitch').show();
+                    $('#pushSwitchInfo').show();
+                    if (!object.getVar('autoPush')) {
+                        $('#autoPushSwitch').addClass('switch-on');
+                    } else {
+                        $('#autoPushSwitch').addClass('switch-off');
+                    }
+                    showWindow = true;
+                } else {
+                    $('#autoPushSwitch').hide();
+                    $('#pushSwitchInfo').hide();
                 }
 
                 if (object.getData().canFilter) {
