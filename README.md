@@ -81,7 +81,7 @@ Basic objective:
 ```
 This objective will be displaced as **Objective #1**. After collected 1 element od water and 2 elements of water, player gain 50$.
 
-You can also change subname this objective by adding this atribute:
+You can also change subname this objective by adding this attribute:
 ```json
 "itemsTitle":"Collect that items:"
 ```
