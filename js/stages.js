@@ -2,6 +2,7 @@ $(function () {
     var screen = $('#screen');
     var difficultyLevels = {
         easy:{name:'Easy',addClass:'easy-color'},
+        extraeasy:{name:'Extra easy',addClass:'extraeasy-color'},
         tutorial:{name:'Tutorial',addClass:'tutorial-color'},
         normal:{name:'Normal',addClass:'normal-color'},
         hard:{name:'Hard',addClass:'hard-color'},
