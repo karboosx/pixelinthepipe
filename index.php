@@ -23,12 +23,13 @@
         <div id="text">
             <a href="intro.html">New Game</a>
             <a href="editor.html">Editor</a>
+            <a href="save.html">Save Level</a>
             <a href="stages.html">Select level</a>
             <a href="credits.html">Credits</a>
         </div>
     </div>
 </div>
-    <a href="https://twitter.com/karboosx">Created by Michał Karbowiak</a>
+<a href="https://twitter.com/karboosx">Created by Michał Karbowiak</a>
 
 <?php echo include "analytics.php"; ?>
 </body>
