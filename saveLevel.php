@@ -8,10 +8,7 @@
 $error = null;
 $success = null;
 
-$settings = include 'settings.php';
-$mapBaseDir = $settings['mapBaseDir'];
-
-$pdo = new PDO('mysql:host='.$settings['mysql']['host'].';dbname='.$settings['mysql']['db'].';charset=utf8',$settings['mysql']['username'],$settings['mysql']['password']);
+include 'connect.php';
 
 if (isset($_POST['data']) && isset($_POST['data']) && isset($_POST['password'])) {
 	$json = json_decode($_POST['data'], true);
