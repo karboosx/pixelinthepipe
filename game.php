@@ -67,7 +67,7 @@
                 <div class="tool" title="Mark as unbreakable" data-tool="mark" data-mark="red">
                     <div style="background: url(images/cursor-error.png)"></div>
                 </div>
-                <div class="tool" title="Handyman - Push items to pipe" data-tool="pusher">
+                <div class="tool" title="Plunger - Push items to pipe" data-tool="pusher">
                     <div style="background: url(images/pusher.png)"></div>
                 </div>
             </div>

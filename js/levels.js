@@ -76,21 +76,22 @@ var factoryLevels = {
                 text: 'Hello worker. Before you go to work, you have to pass this training.<br>' +
                 'On our first lesson we will be learn how to build a pipe!'
             },
-            {text: 'On left side of screen, in Objects window, you can see objects that you can build.'},
-            {text: 'Now, there is only a pipe, but don\'t worry. Next objects will be appear later :)'},
-            {text: 'OK. Look on the factory map. I pin some text for you to better understand where everything is.'},
+            {text: 'On left side of our screen, in Objects window, you can see objects that you can build.'},
+            {text: 'Now, there is only a pipe, but don\'t worry. Next objects and tools will be appear later :)'},
+            {text: 'OK. Look on the factory map. I pin some text for you, to better understand where everything is.'},
             {
                 text: 'Look at Hydrogen generator. It produce Hydrogen, you can check that by hover mouse on\n' +
                 'bubbles coming from it.'
             },
-            {text: 'Now. Using pipe, connect generator to collector above. Some pipe was already made. '},
+            {text: 'Now, using pipe, connect generator to collector above. Some pipe was already made.'},
             {
-                text: 'Your goal is collect 5 hydrogen in collector. As soon as you reach it, you can click\n' +
+                text: 'Your goal is to collect 5 hydrogen in collector. As soon as you reach it, you can click\n' +
                 '"Next Day" button in Objectives window to go to next training factory.'
             },
-			{text:'Quick instruction: Construction object - Left mouse button'},
+			{text:'Quick instruction: Construction selected object - Left mouse button'},
 			{text:'Remove object/Disconnect pipe - Right mouse button'},
 			{text:'Move map - Middle mouse button'},
+			{text:'Good luck!'},
         ]
     },
     tutorial2: {
@@ -300,7 +301,7 @@ var factoryLevels = {
             game.addObjective(objectivesPrefabs[0]('water', 10));
         },
         nextFactory: 'tutorial3',
-        tools: ['pipe', 'info'],
+        tools: ['pipe', 'info','pusher'],
         animation: [
             {text: 'Second lesson! Yey! Today, we will be learning how to combine different elements.'},
             {text: 'Look at the factory map. As you can see, there is two generators. One is produce hydrogen and another oxygen.'},
@@ -309,6 +310,7 @@ var factoryLevels = {
             {text: 'Connect both generators to combiner and look how water will be make :)'},
             {text: 'After collecting 10 elements of water, click "Next Day" for next tutorial.'},
             {text: 'And remember! Items remain in combiner until it can by combine to something new.'},
+            {text: 'You can use plunger to push remaining items from combiner to pipe.'},
         ]
     },
     tutorial3: {
@@ -982,7 +984,7 @@ var factoryLevels = {
         tools: ['pipe', 'info'],
         animation: [
             {text: 'It\'s time for our last lesson! Finally, we will be learning how to use filters!'},
-            {text: 'Filter can block some elements, and pass elements that you want to go it through.'},
+            {text: 'Filter can block some elements, and pass elements that you want to go on specific direction.'},
             {text: 'Select "Wrench" tool from tools window on left side and click on the filter.'},
             {text: 'It\'s weirdly blinking thing on top of the map.'},
             {text: 'To limit some output of filter for example to steam, select it from the list.'},
@@ -1071,7 +1073,8 @@ var factoryLevels = {
             {text: 'Shall we?'},
             {
                 text: 'Quick tips: Generators produce randomly oxygen and hydrogen.<br>' +
-                'Object have input ond output. Remember to put pipe on appropriate side.'
+                'Object have input ond output. Remember to put pipe on appropriate side.<br>' +
+                'Cookbook can be very helpful. If you have any trouble, answer is probably there :)'
             },
             {text: '[whisper] One more tip: Spacebar is pause!'},
             {text: 'Good luck!'},
@@ -1084,29 +1087,10 @@ var factoryLevels = {
         map: function (factory) {
             factory.createBaseFloor();
         },
-        name: 'First factory',
-        subname: 'Ice cream!',
-        itemsToGenerate: ['H','O','juice','ice'],
+        name: 'Editor Factory',
+        subname: 'Feel free to create',
         nextFactory: 'empty',
         money:-1,
-    },
-    emptyhouse: {
-        map: function (factory) {
-            factory.createBaseFloor();
-            $('#storyscreen').addClass('home');
-            factory.getGame().getRenderEngine().changeBackground('background2');
-        },
-        name: 'First homise',
-        subname: 'Ice cream!',
-        difficult:'tutorial',
-        itemsToGenerate: ['water', 'coffeebeans'],
-        objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[0]('coffee', 2));
-            game.addObjective(objectivesPrefabs[0]('coffeesugar', 2), [
-                {text: 'Could you add some sugar to my coffee, please?'}
-            ]);
-        },
-        nextFactory: 'tutorial2',
     },
     stage1: {
         map: function (factory) {
@@ -1204,8 +1188,10 @@ var factoryLevels = {
         nextFactory: 'stage2',
         tools: ['pipe', 'info', 'block'],
         animation: [
-            {text: 'Hello again worker! From now on, I\'m your manager!'},
-            {text: 'Here is your task for today.'},
+            {text: 'Hello again worker! Welcome in your first day of work.'},
+            {text: 'Glad you complete final exam!'},
+            {text: 'From now on, I\'m your manager.'},
+            {text: 'Here is your task for today:'},
             {text: 'Our water pump was damaged, and some oxygen getting into pipe.'},
             {text: 'You have to filter water and destroy oxygen.'},
             {text: 'Unfortunately we don\'t have any filters.'},
@@ -1322,12 +1308,12 @@ var factoryLevels = {
         },
         nextFactory: 'stage3',
         animation: [
-            {text: 'Crisis alert! Our ice cream machine is broken, and there are kids waiting for their ice cream!!'},
+            {text: 'Crisis alert! Our ice cream machine is broken, and there are kids waiting for their ice-cream!!'},
             {text: 'We have to fix this, and quick!'},
             {text: 'Here! Make some useful thing using separator and freezer!'},
             {text: 'Quick info: Separator tears items on parts. Useful for making juice ;)'},
             {text: 'And freezer, well... freeze staff :)'},
-            {text: 'Hurry!'},
+            {text: 'Hurry up!'},
 
         ],
         cookbook: ['orange', 'water', 'ice', 'icecream', 'juice', 'pulp']
@@ -1590,6 +1576,7 @@ var factoryLevels = {
         animation: [
             {text: 'Hello there worker! We have here some bad situation...'},
             {text: 'As you can see, our transportation line can\'t go through this pipe!'},
+            {text: 'And nobody can destroy it.'},
             {text: 'But we must transport this little phones to warehouse!'},
             {text: 'Please, figure out how to do it and do it!'},
 
@@ -1715,10 +1702,11 @@ var factoryLevels = {
         nextFactory: 'stage5',
         animation: [
             {text: 'Hmmm... Is\'t very odd... It seams that we don\'t have any issue. Hmm...'},
-            {text: 'Well, never mind! Task for you:<br>Today you will be cook!'},
+            {text: 'Well, never mind! Task for you:'},
+            {text: 'Today you will be cook!'},
             {text: 'Our client require 15 bread. And you have amazing opportunity to do it :)'},
             {text: 'Here is your cook cap. Back to work!'},
-            {text: 'Aaaaa! Now I find missing issue! We don\'t a lot of money!'},
+            {text: 'Aaaaa! Now I find missing issue! We don\'t a lot of money.'},
             {text: 'I\'m sure you can make it :)'},
 
         ],
@@ -1805,6 +1793,7 @@ var factoryLevels = {
         },
         name: 'Day 5',
         subname: 'Yammi Yammi',
+        difficult:'easy',
         tools: ['pipe', 'line', 'info', 'block', 'filter', 'combiner', 'separator', 'pusher', 'deleter'],
         itemsToGenerate: ['bread', 'goodbread'],
         objectives: function (game, factory) {
@@ -1824,7 +1813,7 @@ var factoryLevels = {
         ],
         cookbook: ['bread', 'goodbread', 'slicebread', 'goodslicebread', 'ham', 'sliceham', 'tomato', 'slicetomato', 'cheese', 'slicecheese'],
         money: 500,
-        failMessage: 'That again taste like mud! Try again!'
+        failMessage: 'That again taste like mud! Try again! Remember to use good bread.'
     },
     home1: {
         map: function (factory) {
@@ -2059,6 +2048,7 @@ var factoryLevels = {
         },
         name: 'Day 7',
         subname: 'Freeze!',
+        difficult:'easy',
         itemsToGenerate: ['water'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[2]({hotwater:{count:20,text:'Temperature'}},10));
@@ -2070,6 +2060,7 @@ var factoryLevels = {
             {text: 'Could you check it and fix it?', linkText: 'Sure!'},
             {text: 'Just heat some water and put it into heater'},
             {text: 'Oh! Remember that steam in heater may cause explode!', linkText: 'OK....'},
+            {text: 'Well, everything except hot water in heater will cause explode.', linkText: 'OK! I get it!'},
 
         ],
         tools:['pipe','info', 'block','deleter'],
@@ -2225,7 +2216,7 @@ var factoryLevels = {
         },
         name: 'Day 8',
         subname: 'Boring work...',
-        difficult:'easy',
+        difficult:'extraeasy',
         itemsToGenerate: ['phone'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('phone',10));
@@ -2246,7 +2237,7 @@ var factoryLevels = {
     rep2: {
         map: 'rep1',
         name: 'Another day',
-        difficult:'easy',
+        difficult:'extraeasy',
         subname: 'Boring work. Again.',
         itemsToGenerate: ['phone'],
         objectives: function (game, factory) {
@@ -2266,7 +2257,7 @@ var factoryLevels = {
     rep3: {
         map: 'rep1',
         name: 'Another day',
-        difficult:'easy',
+        difficult:'extraeasy',
         subname: 'Boring work. Again.',
         itemsToGenerate: ['phone'],
         objectives: function (game, factory) {
