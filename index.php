@@ -19,12 +19,16 @@
 
 <div id="viewport" class="centerBlock">
     <div id="screen" class="cell">
-
         <div id="text">
             <a href="intro.html">New Game</a>
-            <a href="editor.html">Editor</a>
-            <a href="save.html">Save Level</a>
             <a href="stages.html">Select level</a>
+	        <a href="editor.html">Editor</a>
+        </div>
+    </div>
+    <div id="screen" class="cell">
+        <div id="text">
+            <a href="save.html">Save Level</a>
+            <a href="extra.html">Select extra level</a>
             <a href="credits.html">Credits</a>
         </div>
     </div>
