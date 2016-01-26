@@ -90,7 +90,6 @@ a {
     border: 3px solid #3a3a3a;
     padding: 5px;
     margin: 5px;
-    text-align:center;
     color:#fafafa;
     font-family: 'VT323', serif;
     font-size:2em;
@@ -102,4 +101,19 @@ a {
 .input-button:hover {
     background: url("../images/gui-background-green.png");
 
+}
+
+textarea.input{
+    width:490px;
+    height: 100px;
+    font-size: 0.9em;
+}
+
+input.input{
+    width: 490px;
+}
+
+label{
+    width:100px;
+    display: inline-block;
 }

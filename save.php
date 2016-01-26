@@ -27,8 +27,8 @@
 
 		<form action="savelevel.php" method="post">
 			<div>
-				<label for="sizeX">X size</label>
-				<textarea class="input" name="data"></textarea>
+				<label for="data">Level data</label>
+				<textarea class="input" id="data" name="data">{"map":{"objects":[],"marks":[],"transporters":[],"pins":[]},"name":"admin","money":-1}</textarea>
 			</div>
 			<div>
 				<label for="name">Name</label>
@@ -40,6 +40,7 @@
 			</div>
 			<button id="startEditor" class="input input-button">Save level</button>
 		</form>
+		If you wish to learn how to make level data, please visit <a href="https://github.com/karboosx/pixelinthepipe">github page.</a>
 	</div>
 </div>
 <a class="back" href="index.html">Back to menu</a>
