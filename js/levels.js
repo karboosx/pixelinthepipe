@@ -2371,7 +2371,8 @@ var factoryLevels = {
         ],
         tools:['pusher','pipe','cable','block','electrogenerator','separator','fireplace','refinery','info','filter'],
         cookbook: ['gasoline','O','H','electricity','oil','water','smoke','heat','lowheat','steam','hotwater'],
-        money: 500
+        money: 500,
+        objectLimits:{filter:2}
     },
     new2: {
         map: function (factory) {

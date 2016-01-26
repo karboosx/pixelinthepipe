@@ -10,6 +10,7 @@ function Factory(name_, subname_, game_, x_, y_) {
 
     this.map = undefined;
     var objects = [];
+    this.objectLimits = {};
 
     this.toJson = function () {
         return {
@@ -36,19 +37,43 @@ function Factory(name_, subname_, game_, x_, y_) {
         return objects;
     };
 
+    this.setObjectLimits = function (limits) {
+        this.objectLimits = limits;
+    };
+
+    this.canPlaceObject = function (object) {
+        if (this.objectLimits.hasOwnProperty(object)) {
+            var count = 0;
+            for (var id in objects) {
+                var objectFor = objects[id];
+                if (objectFor.getType() == object)
+                    count ++;
+            }
+            return this.objectLimits[object] > count;
+
+        }else{
+            return true;
+        }
+
+    };
+
     this.placeObject = function (x, y, object, destructable, gravity, additionalData) {
 
         if (destructable == undefined) destructable = true;
 
-        if (game_.subMoney(objectsData[object].hasOwnProperty('cost') ? objectsData[object].cost : 0)) {
-            var obj = new GameObject(x, y, objectsData[object], this, objectsData[object].name || object, destructable, gravity);
+        if (this.canPlaceObject(object)) {
+            if (game_.subMoney(objectsData[object].hasOwnProperty('cost') ? objectsData[object].cost : 0)) {
+                var obj = new GameObject(x, y, objectsData[object], this, objectsData[object].name || object, destructable, gravity);
 
-            obj.additionalData = additionalData;
-            if (obj.getData().randomFrame != undefined)
-                obj.randomFrame();
-            objects.push(obj);
+                obj.additionalData = additionalData;
+                if (obj.getData().randomFrame != undefined)
+                    obj.randomFrame();
+                objects.push(obj);
 
-            return obj;
+                return obj;
+            }
+        }else{
+            game_.getRenderEngine().error('objectCountReached');
         }
         return undefined;
 
@@ -177,6 +202,7 @@ function Factory(name_, subname_, game_, x_, y_) {
 
         }
 
+
         for (id in objects) {
             object = objects[id];
             if (!gameOptions.pause) {
@@ -188,6 +214,7 @@ function Factory(name_, subname_, game_, x_, y_) {
                 if (!object.stop && object.powered()) {
 
                     object.onTick(object, map, game_, this);
+                    object.onBuildInTick(object, map, game_, this);
                     object.tickObjects(object, map, game_, this);
                     object.deleteDeadObjects();
                 }

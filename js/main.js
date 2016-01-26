@@ -38,6 +38,9 @@ var startFunction = function () {
                 if (factoryLevels[factoryID]['objectives'] != undefined)
                     factoryLevels[factoryID]['objectives'](this, factory);
 
+                if (factoryLevels[factoryID]['objectLimits'] != undefined)
+                factory.setObjectLimits(factoryLevels[factoryID]['objectLimits']);
+
             }
         );
 

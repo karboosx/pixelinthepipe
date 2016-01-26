@@ -14,7 +14,8 @@ function Render(target_, cursor_) {
     var timeouts = {
         errorMoney: undefined,
         timer: undefined,
-        infoFactory: undefined
+        infoFactory: undefined,
+        errorObjectCountReached:undefined
     };
 
     var data = {
@@ -85,6 +86,13 @@ function Render(target_, cursor_) {
                 $('#money').css('background', '');
                 errorMessage = '';
             }, 800);
+        }else if (type == 'objectCountReached') {
+            errorMessage = 'Can\'t place that many object of this type!';
+            if (timeouts.errorObjectCountReached != undefined) clearTimeout(timeouts.errorObjectCountReached);
+
+            timeouts.errorObjectCountReached = setTimeout(function () {
+                errorMessage = '';
+            }, 1800);
         }
     };
 
