@@ -47,7 +47,7 @@
 
 	    foreach ($file->fetchAll() as $level){
 		    ?>
-		    <a href="extra_<?php echo $level['name'] ?>.html" class="level">
+		    <a href="extra_<?php echo $level['filename'] ?>.html" class="level">
 			    <h3><?php echo $level['name'] ?></h3>
 			    <h4><?php echo $level['subname'] ?></h4>
 			    <p class="<?php echo $level['difficult'] ?>-color">[<?php echo $difficult[$level['difficult']] ?>]</p>

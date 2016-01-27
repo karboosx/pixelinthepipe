@@ -16,18 +16,59 @@ if (isset($_POST['data']) && isset($_POST['data']) && isset($_POST['password']))
 
 	function saveFile($filename, $password, $data, $savePassword)
 	{
-		global $mapBaseDir, $success, $pdo;
+		global $mapBaseDir, $success, $pdo, $error;
 
 		file_put_contents($mapBaseDir . $filename.'.json', json_encode($data));
 
+		if (isset($data['name'])){
+			$name = $data['name'];
+		}else{
+			$name = $filename;
+		}
+
+		if (isset($data['subname'])){
+			$subname = $data['subname'];
+		}else{
+			$subname = '';
+		}
+
+		if (isset($data['difficult'])){
+			$difficult = $data['difficult'];
+		}else{
+			$difficult = 'easy';
+		}
+
+
 		if ($savePassword) {
-			$file = $pdo->prepare('insert into levels(name,password) VALUES (:name,:password);');
+			try {
+				$file = $pdo->prepare('insert into levels(filename,password,name,subname,difficult) VALUES (:filename,:password,:name,:subname,:difficult);');
 
-			$hash = sha1($password);
+				$hash = sha1($password);
 
-			$file->bindParam(':name', $filename, PDO::PARAM_STR);
-			$file->bindParam(':password', $hash, PDO::PARAM_STR);
-			$file->execute();
+				$file->bindParam(':filename', $filename, PDO::PARAM_STR);
+				$file->bindParam(':name', $name, PDO::PARAM_STR);
+				$file->bindParam(':subname', $subname, PDO::PARAM_STR);
+				$file->bindParam(':difficult', $difficult, PDO::PARAM_STR);
+				$file->bindParam(':password', $hash, PDO::PARAM_STR);
+				$file->execute();
+			}catch (Exception $e){
+				$error = 'Error!';
+			}
+		}else{
+			try {
+				$file = $pdo->prepare('update levels set filename = :filename, name = :name, subname = :subname,difficult = :difficult WHERE filename = :filename;');
+
+				$hash = sha1($password);
+
+				$file->bindParam(':filename', $filename, PDO::PARAM_STR);
+				$file->bindParam(':name', $name, PDO::PARAM_STR);
+				$file->bindParam(':subname', $subname, PDO::PARAM_STR);
+				$file->bindParam(':difficult', $difficult, PDO::PARAM_STR);
+				$file->bindParam(':password', $hash, PDO::PARAM_STR);
+				$file->execute();
+			}catch (Exception $e){
+				$error = 'Error!';
+			}
 		}
 
 		$success = 'Level saved!';
