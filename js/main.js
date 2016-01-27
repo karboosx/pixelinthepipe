@@ -19,7 +19,7 @@
         } else {
             try {
                 if (factoryLevels[factoryID].hasOwnProperty('x') && factoryLevels[factoryID].hasOwnProperty('y'))
-                    var game = new Game(factoryLevels[factoryID]['x'], factoryLevels[factoryID]['y']);
+                    var game = new Game(factoryLevels[factoryID]['x'], factoryLevels[factoryID]['y']+1);
                 else if (sizeX != 'null' && sizeY != 'null')
                     game = new Game(parseInt(sizeX), parseInt(sizeY));
                 else
@@ -35,6 +35,7 @@
                         if (typeof factoryLevels[factoryID]['map'] == 'string') {
                             factoryLevels[factoryLevels[factoryID]['map']]['map'](factory);
                         } else if (typeof factoryLevels[factoryID]['map'] == 'object') {
+                            factory.createBaseFloor();
                             factory.loadByJson(factoryLevels[factoryID]['map']);
                         } else {
                             factoryLevels[factoryID]['map'](factory);
