@@ -30,7 +30,7 @@
 
 	    $itemsPerPage = 10;
 
-	    $file = $pdo->prepare('select `name` FROM levels order by id limit :startID,:limit;');
+	    $file = $pdo->prepare('select * FROM levels order by id limit :startID,:limit;');
 
 	    $startID = $page*$itemsPerPage;
 
@@ -38,10 +38,20 @@
 	    $file->bindParam(':limit', $itemsPerPage, PDO::PARAM_INT);
 	    $file->execute();
 
+	    $difficult = [
+		    'supereasy' => 'Super easy',
+		    'easy' => 'Easy',
+		    'normal' => 'Normal',
+		    'hard' => 'Hard',
+	    ];
+
 	    foreach ($file->fetchAll() as $level){
 		    ?>
 		    <a href="extra_<?php echo $level['name'] ?>.html" class="level">
 			    <h3><?php echo $level['name'] ?></h3>
+			    <h4><?php echo $level['subname'] ?></h4>
+			    <p class="<?php echo $level['difficult'] ?>-color">[<?php echo $difficult[$level['difficult']] ?>]</p>
+			    <p></p>
 		    </a>
 	        <?php
 	    }
