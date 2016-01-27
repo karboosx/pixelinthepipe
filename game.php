@@ -158,8 +158,12 @@
         </canvas>
     </div>
 
-    <div id="cookbook" title="Open / Close cookbook"></div>
-	<div id="save" title="Save this factory"></div>
+	<div class="books">
+	    <div id="cookbook" title="Open / Close cookbook"></div>
+		<div id="manual" title="Open / Close manual"></div>
+		<div id="save" title="Save this factory"></div>
+	</div>
+
     <div id="bookWindow" class="hide bookWindow">
         <div class="bookmarks">
         </div>
@@ -180,8 +184,6 @@
         <textarea></textarea>
     </div>
 
-	<div id="manual" title="Open / Close manual">
-    </div>
     <div id="manualWindow" class="hide bookWindow">
         <div class="bookmarks">
         </div>

@@ -99,10 +99,12 @@ select {
     font-size: 1.5em;
 }
 
-#cookbook {
+.books{
     position: fixed;
-    top: 0;
-    right: 0;
+    top:0;
+    right:0;
+}
+#cookbook {
     width: 84px;
     height: 84px;
     background: url("../images/book.png");
@@ -115,9 +117,6 @@ select {
 }
 
 #save {
-    position: fixed;
-    top: 0;
-    right: 0;
     width: 84px;
     height: 84px;
     background: url("../images/book-save.png");
@@ -130,9 +129,7 @@ select {
 }
 
 #manual {
-    position: fixed;
     top: 84px;
-    right: 0;
     width: 84px;
     height: 84px;
     background: url("../images/book-manual.png");
