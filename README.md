@@ -1,4 +1,4 @@
-# Pixel in the pipe
+# Pixel in the Pipe
 It's simple game where you create machines! There is 12 build-in levels. Or course you or someone else can create next one in editor and publish it.
 
 # Level data
@@ -114,10 +114,15 @@ Alternatively, you can specify custom items for single generator. To do that, yo
 }
 ```
 
-
 Message displaced when objective fail.
 ```json
 "failMessage":"Your objective fail"
+```
+
+Size of level
+```json
+"x":10,
+"y":20
 ```
 
 # Demo
