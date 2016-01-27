@@ -16,7 +16,7 @@ function Save(factory) {
 
             } else {
                 //console.log('objects.placeObject(' + object['x'] + ',' + object['y'] + ',\'' + object['type'] + '\',true,true);');
-                jsonMap.objects.push({x:object['x'],y:object['y'],type:object['type']});
+                jsonMap.objects.push({x:object['x'],y:object['y'],type:object['type'],data:{}});
             }
             if (!object.destructable) {
                 //console.log('objects.mark(' + object['x'] + ',' + object['y'] + ',\'red\');');
