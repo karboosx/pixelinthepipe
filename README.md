@@ -114,10 +114,15 @@ Alternatively, you can specify custom items for single generator. To do that, yo
 }
 ```
 
-
 Message displaced when objective fail.
 ```json
 "failMessage":"Your objective fail"
+```
+
+Size of level
+```json
+"x":10,
+"y":20
 ```
 
 # Demo
