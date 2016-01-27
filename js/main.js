@@ -89,7 +89,6 @@
                 var manual = new Manual(game);
                 if (factoryLevels[factoryID]['tools'] != undefined) {
                     manual.initManual(factoryLevels[factoryID]['tools']);
-                    game.allowedItems = factoryLevels[factoryID]['tools'];
 
                     var $manualWindow = $('#manualWindow');
                     $('#manual').click(function () {
