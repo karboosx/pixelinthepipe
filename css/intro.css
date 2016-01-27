@@ -1,7 +1,6 @@
 body {
     margin: 0;
     background: url("../images/gui-background.png");
-    overflow: hidden;
     font-family: 'VT323', serif;
     color: #fafafa;
 }
