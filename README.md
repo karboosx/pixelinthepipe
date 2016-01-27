@@ -1,4 +1,4 @@
-# Pixel in the pipe
+# Pixel in the Pipe
 It's simple game where you create machines! There is 12 build-in levels. Or course you or someone else can create next one in editor and publish it.
 
 # Level data
