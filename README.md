@@ -69,6 +69,7 @@ Default value for restrict attribute is false.
 ```json
 "tools":["info","pipe"]
 ```
+[List of all tools](https://github.com/karboosx/pixelinthepipe/wiki/List-of-tools)
 
   Additional name. Great to describe level.
 ```json
@@ -79,6 +80,7 @@ Default value for restrict attribute is false.
 ```json
 "cookbook":["info","pipe"]
 ```
+[List of all items](https://github.com/karboosx/pixelinthepipe/wiki/List-of-items)
 
   Animation will be displaced at beginning of level.
 ```json
