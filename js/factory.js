@@ -12,6 +12,8 @@ function Factory(name_, subname_, game_, x_, y_) {
     var objects = [];
     this.objectLimits = {};
 
+    var effects = [];
+
     this.toJson = function () {
         return {
             name: this.name,
@@ -37,6 +39,10 @@ function Factory(name_, subname_, game_, x_, y_) {
         return objects;
     };
 
+    this.getEffects = function () {
+        return effects;
+    };
+
     this.setObjectLimits = function (limits) {
         this.objectLimits = limits;
     };
@@ -56,6 +62,16 @@ function Factory(name_, subname_, game_, x_, y_) {
         }
 
     };
+
+    this.placeEffect = function (x, y, name) {
+        effects.push(new Effect(x,y,name));
+    };
+
+    this.deleteEffect = function (i) {
+        effects.splice(effects,i);
+    };
+
+
 
     this.loadByJson = function (json) {
         var objectsLength = json.objects.length;

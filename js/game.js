@@ -23,6 +23,13 @@ var imagesPath = [
     {name: 'background3', src: 'images/background3.png', frame: 1},
 
     /*
+     Effects
+     */
+
+    {name: 'sparks', src: 'images/effect-spark.png', frame: 4, size:3},
+    {name: 'ok-effect', src: 'images/effect-ok.png', frame: 6, size:1},
+
+    /*
      Objects
      */
     {name: 'pin', src: 'images/pin.png', frame: 1},
@@ -60,7 +67,8 @@ var gameOptions = {
     drawItemsNames: true,
     drawPowered: true,
     pauseBorder:true,
-    pauseForce:false
+    pauseForce:false,
+    renderEffects:true
 };
 
 
@@ -366,6 +374,7 @@ var objectsData = {
                         if (game.getObjective().checkReqItem(itemName)) {
                             game.addItemToStorage(object, i);
                             objectsToReturn.push(itemName);
+                            game.getFactory(game.getType().id).placeEffect(object.x,object.y,'ok-effect');
                         }else {
                             object.moveItemForward(i, map);
                         }

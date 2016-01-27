@@ -294,6 +294,8 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
                 }
             }
 
+            this.factory.placeEffect(this.x,this.y,'sparks');
+
             for (; item_count > 0; item_count--) {
                 this.moveItemForward(this.objects.length - 1, factory.map);
             }
@@ -357,7 +359,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
                 }
             }
 
-
+            factory.placeEffect(x,y,'sparks');
             this.objects = newObjectsArray;
         }
     };

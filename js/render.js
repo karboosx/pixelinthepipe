@@ -38,6 +38,9 @@ function Render(target_, cursor_) {
     var images = {};
     var loadedImages = 0;
 
+    this.getImage = function (name) {
+        return images[name];
+    };
 
     this.toJson = function () {
         return {
@@ -468,6 +471,7 @@ function Render(target_, cursor_) {
         var maxY = factory.getSize().y;
 
         var objects = factory.getObjects();
+        var effects = factory.getEffects();
 
         for (var id in objects) {
 
@@ -547,6 +551,32 @@ function Render(target_, cursor_) {
                 this.renderWarningOnMap(game,object.x,object.y,object.warningMessage,0);
             }
         }
+
+        for (id in effects) {
+
+            var effect = effects[id];
+
+            if (effect.isEnded()){
+                factory.deleteEffect(id);
+            }else{
+                this.renderEffect(game,effect);
+                effect.tick();
+            }
+        }
+    };
+
+    this.renderEffect = function (game,effect) {
+        canvas.drawImage(images[effect.name],//image
+            effect.frame * game.sizeX*effect.size / game.scale,//posX skad bierze obrazek
+            0,//posY skad bierze obrazek
+            game.sizeX*effect.size / game.scale,
+            game.sizeY*effect.size / game.scale,
+            (effect.x-effect.back) * game.sizeX,//posX
+            (effect.y-effect.back) * game.sizeY,//posY
+            game.sizeX*effect.size,
+            game.sizeY*effect.size
+        );
+
     };
 
     this.setPos = function (posX, posY) {
