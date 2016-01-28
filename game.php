@@ -142,6 +142,7 @@
 
     </div>
 	<div id="cardpad">
+		<div id="closecardpard" class="close"></div>
 		<div id="storyscreen" class="hide">
 			<div id="text">No text</div>
 			<a id="nextFrame" href="#">NEXT</a>

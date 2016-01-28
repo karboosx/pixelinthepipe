@@ -149,8 +149,15 @@
 
                 if (factoryLevels[factoryID]['animation'] != undefined && reset != 'yes') {
                     var intro = new IntroAnimation('#storyscreen', factoryLevels[factoryID]['animation']);
-                    intro.setParent($('#cardpad'));
-                    intro.setDraggable($('#cardpad'));
+
+                    var cardpad = $('#cardpad');
+
+                    intro.setParent(cardpad);
+                    intro.setDraggable(cardpad);
+
+                    $('#closecardpard').click(function () {
+                        cardpad.fadeOut(200);
+                    });
                 }else{
                     $('#cardpad').hide();
                 }
