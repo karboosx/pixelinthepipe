@@ -196,18 +196,18 @@
 		</div>
     </div>
 
-    <div id="pinEditWindow" class="gui-window gui-window-float hide">
+    <div id="pinEditWindow" class="gui-window big gui-window-float hide">
         <div class="gui-title">Edit text
-            <div id="pinClose" class="close">X</div>
+            <div id="pinClose" class="close"></div>
         </div>
         <div class="gui-body">
             <textarea id="pinEdit" data-x="-1" data-y="-1"></textarea>
         </div>
     </div>
-    <div id="infoWindow" class="gui-window gui-window-float hide">
+    <div id="infoWindow" class="gui-window big gui-window-float hide">
         <div class="gui-title" id="infoText">
             <div id="infoTextVal"></div>
-            <div id="infoClose" class="close">X</div>
+            <div id="infoClose" class="close"></div>
         </div>
         <div class="gui-body">
             <div id="infoSwitch" data-x="-1" data-y="-1" class="switch-on inline"></div>
