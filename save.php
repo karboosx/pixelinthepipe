@@ -15,7 +15,7 @@
 
 <h2>Save level</h2>
 
-<div id="viewport" style="height: 420px">
+<div id="viewport" style="height: 460px">
 	<div class="centerBlock">
 		<div id="screen" class="cell">
 			<div class="text">Input factory data</div>
