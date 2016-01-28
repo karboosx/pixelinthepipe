@@ -28,6 +28,9 @@
 
                 game.setMoney(1000);
 
+                if (factoryLevels[factoryID]['offset'] != undefined)
+                    game.setFactoryOffset(factoryLevels[factoryID]['offset']);
+
                 game.setupFactory(
                     function () {
                         return game.addFactory(game.newBasicFactory(factoryLevels[factoryID]['name'], factoryLevels[factoryID]['subname']), factoryLevels[factoryID]['itemsToGenerate']);

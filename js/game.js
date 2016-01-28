@@ -611,6 +611,10 @@ function Game(x_, y_, engine_) {
         this.hideObjectives = true;
     };
 
+    this.setFactoryOffset = function (offset) {
+        this.offset = offset;
+    };
+
     this.toJson = function () {
         return {
             scale: this.scale,
@@ -911,6 +915,8 @@ function Game(x_, y_, engine_) {
         behavior.init();
 
         this.buildingFunc(this.returnFactory);
+
+        this.setFactoryOffset(undefined);
 
     };
 

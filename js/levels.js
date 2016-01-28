@@ -71,6 +71,7 @@ var factoryLevels = {
         },
         nextFactory: 'tutorial2',
         tools: ['pipe', 'info'],
+        		offset:{x:5,y:0},
         animation: [
             {
                 text: 'Hello worker. Before you go to work, you have to pass this training.<br>' +
@@ -302,6 +303,7 @@ var factoryLevels = {
         },
         nextFactory: 'tutorial3',
         tools: ['pipe', 'info','pusher'],
+		offset:{x:5,y:0},
         animation: [
             {text: 'Second lesson! Yey! Today, we will be learning how to combine different elements.'},
             {text: 'Look at the factory map. As you can see, there is two generators. One is produce hydrogen and another oxygen.'},
@@ -440,6 +442,7 @@ var factoryLevels = {
         },
         nextFactory: 'tutorial4',
         tools: ['pipe', 'info'],
+		offset:{x:5,y:0},
         animation: [
             {text: 'Ohh! This will be good! Finally, we put some hot staff to system :)'},
             {text: 'How to make a steam? By boiling water of course! So, let\'s do that.'},
@@ -982,6 +985,7 @@ var factoryLevels = {
         },
         nextFactory: 'tutorial5',
         tools: ['pipe', 'info'],
+		offset:{x:5,y:0},
         animation: [
             {text: 'It\'s time for our last lesson! Finally, we will be learning how to use filters!'},
             {text: 'Filter can block some elements, and pass elements that you want to go on specific direction.'},
@@ -1066,6 +1070,7 @@ var factoryLevels = {
         nextFactory: 'stage1',
         itemsToGenerate: ['H', 'O'],
         tools: ['pipe', 'info', 'filter', 'fireplace', 'generator', 'combiner', 'block'],
+		offset:{x:5,y:0},
         animation: [
             {text: 'This is your final test! Now, you\'re on your own.'},
             {text: 'But don\'t worry, it\'s not hard test. In fact, you do exact same last time :)'},
@@ -1192,6 +1197,7 @@ var factoryLevels = {
         },
         nextFactory: 'stage2',
         tools: ['pipe', 'info', 'block'],
+		offset:{x:5,y:0},
         animation: [
             {text: 'Hello again worker! Welcome in your first day of work.'},
             {text: 'Glad you complete final exam!'},
@@ -1307,6 +1313,7 @@ var factoryLevels = {
         subname: 'No ice cream!',
         difficult:'easy',
         tools: ['pipe', 'info', 'block', 'filter', 'combiner', 'separator', 'freezer'],
+		offset:{x:5,y:0},
         itemsToGenerate: ['water', 'orange'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('icecream', 15));
@@ -1573,6 +1580,7 @@ var factoryLevels = {
         subname: 'Blocked by pipe',
         difficult:'easy',
         tools: ['pipe', 'line', 'info', 'block', 'filter', 'combiner', 'separator', 'pusher'],
+		offset:{x:5,y:0},
         itemsToGenerate: ['phone'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('phone', 15));
@@ -1694,6 +1702,7 @@ var factoryLevels = {
         subname: 'Baking time!',
         difficult:'easy',
         tools: ['pipe', 'line', 'info', 'block', 'filter', 'combiner', 'separator', 'pusher', 'fireplace'],
+		offset:{x:5,y:0},
         itemsToGenerate: [],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('bread', 15));
@@ -1800,6 +1809,7 @@ var factoryLevels = {
         subname: 'Yammi Yammi',
         difficult:'easy',
         tools: ['pipe', 'line', 'info', 'block', 'filter', 'combiner', 'separator', 'pusher', 'deleter'],
+		offset:{x:5,y:0},
         itemsToGenerate: ['bread', 'goodbread'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('goodsandwich', 15));
@@ -1901,6 +1911,7 @@ var factoryLevels = {
         subname: 'Home, sweet home',
         difficult:'easy',
         tools: ['pipe', 'info', 'block', 'filter', 'combiner', 'separator', 'pusher', 'deleter','coffeemachine'],
+		offset:{x:5,y:0},
         itemsToGenerate: ['water', 'coffeebeans', 'sugar'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[0]('coffee', 2));
@@ -2069,6 +2080,7 @@ var factoryLevels = {
 
         ],
         tools:['pipe','info', 'block','deleter'],
+		offset:{x:5,y:0},
         cookbook: ['water', 'ice', 'hotwater'],
         money: 25,
         failMessage: 'Heater damaged!'
@@ -2236,6 +2248,7 @@ var factoryLevels = {
             {text: 'Sorry for that. That\'s not my call.'},
         ],
         tools:['pusher'],
+		offset:{x:5,y:0},
         cookbook: ['phone'],
         money: 0,
     },
@@ -2255,6 +2268,7 @@ var factoryLevels = {
             {text: 'Your production line waiting for you. Move it!', linkText:'Yes, yes...'},
         ],
         tools:['pusher'],
+		offset:{x:5,y:0},
         cookbook: ['phone'],
         money: 0,
         listing:false
@@ -2275,6 +2289,7 @@ var factoryLevels = {
             {text: 'Your production line waiting for you. Move it!', linkText:'Yes, yes...'},
         ],
         tools:['pusher'],
+		offset:{x:5,y:0},
         cookbook: ['phone'],
         money: 0,
         listing:false
@@ -2376,6 +2391,7 @@ var factoryLevels = {
             {text: 'Be aware that we have only one filter. Use it wisely.'},
         ],
         tools:['pusher','pipe','cable','block','electrogenerator','separator','fireplace','refinery','info','filter'],
+		offset:{x:5,y:0},
         cookbook: ['gasoline','O','H','electricity','oil','water','smoke','heat','lowheat','steam','hotwater'],
         money: 500,
         objectLimits:{filter:1}
@@ -2403,6 +2419,7 @@ var factoryLevels = {
 
         ],
         tools:['info','pusher','pipe','cable','block','electrogenerator','fermenter','distiller','filter','storage','generator','pin','combiner','deleter'],
+		offset:{x:5,y:0},
         cookbook: ['gasoline','O','H','wheat','electricity','alcohol','water','beer'],
         money: 500
     },
@@ -2430,6 +2447,7 @@ var factoryLevels = {
 
         ],
         tools:['info','pusher','pipe','line','cable','block','electrogenerator','computerCombiner','filter','storage','generator','pin','combiner','deleter'],
+		offset:{x:5,y:0},
         cookbook: ['aluminium','motherboard','graphicCard','ram','computerCase','computer','software','copper','silicon','gasoline','O','electricity','electronic'],
         money: -1
     },
