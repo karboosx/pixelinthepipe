@@ -97,7 +97,10 @@ a {
 #decision a{
     margin: 40px;
     font-size: 2em;
-    color:#1c94c4;
+    color:#14FF53;
+}
+#decision a:hover{
+    color: #FF6369;
 }
 
 #nextFrame.active{
