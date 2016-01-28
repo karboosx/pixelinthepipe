@@ -17,21 +17,23 @@
 <body>
 <h1><a href="index.html">Pixel in the Pipe!</a></h1>
 
-<div id="viewport" class="centerBlock">
-    <div id="screen" class="cell">
-        <div id="text">
-            <a href="intro.html">New Game</a>
-            <a href="stages.html">Select level</a>
-	        <a href="editor.html">Editor</a>
-        </div>
-    </div>
-    <div id="screen" class="cell">
-        <div id="text">
-            <a href="save.html">Save Level</a>
-            <a href="extra.html">Select extra level</a>
-            <a href="credits.html">Credits</a>
-        </div>
-    </div>
+<div id="viewport">
+	<div class="centerBlock">
+	    <div id="screen" class="cell">
+	        <div class="text">
+	            <a href="intro.html">New Game</a>
+	            <a href="stages.html">Select level</a>
+		        <a href="editor.html">Editor</a>
+	        </div>
+	    </div>
+	    <div id="screen" class="cell">
+	        <div class="text">
+	            <a href="save.html">Save Level</a>
+	            <a href="extra.html">Select extra level</a>
+	            <a href="credits.html">Credits</a>
+	        </div>
+	    </div>
+	</div>
 </div>
 <a href="https://twitter.com/karboosx">Created by Michał Karbowiak</a>
 

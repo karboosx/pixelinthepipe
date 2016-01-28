@@ -170,8 +170,11 @@ function Render(target_, cursor_) {
         $('#info-subtext').html(factory.subname);
 
         var infoViewport = $('#info-viewport');
+        var infoViewportScreen = $('#info-viewport .info-screen');
+        
+        infoViewport.show();
 
-        infoViewport.fadeIn(500, function () {
+        infoViewportScreen.fadeIn(500, function () {
             timeouts.infoFactory = setTimeout(function () {
                 infoViewport.fadeOut(500);
             }, 3000);

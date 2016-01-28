@@ -6,6 +6,7 @@
 
     var startFunction = function () {
 
+        $('.info-viewport').hide();
         if (factoryLevels[factoryID] == undefined) {
 
             $('#error-text').html('Factory not found');

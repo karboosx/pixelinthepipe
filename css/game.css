@@ -259,9 +259,6 @@ select {
     text-align: center;
 }
 
-#game {
-    display: none;
-}
 
 #viewport {
     overflow: hidden;
@@ -432,36 +429,42 @@ li.green {
     color: #ffffff;
 }
 
-.info-screen {
-    height: 50vh;
-}
-
 .info-viewport {
-    display: none;
-    background: url("../images/gui-background-black.png");
-    border: 5px solid #3a3a3a;
     position: absolute;
-    width: 50vw;
-    height: 40vh;
-    left: 50vw;
-    top: 50vh;
-    margin-left: -25vw;
-    margin-top: -20vh;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #1c1c1c;
+    z-index: 200000;
 }
 
-.info-viewport.green {
-    background: url("../images/gui-background-green.png");
+.info-viewport.no-background {
+    background: none;
 }
 
-.info-viewport.red {
-    background: url("../images/gui-background-red.png");
+.info-screen {
+    background: url("../images/info.png");
+    position: absolute;
+    width: 640px;
+    height: 260px;
+    left: calc((100vw - 640px) / 2);
+    top: calc((100vh - 260px) / 2);
+    z-index: 200000;
+}
+
+.info-viewport.green .info-screen {
+    background: url("../images/info-green.png");
+}
+
+.info-viewport.red .info-screen {
+    background: url("../images/info-red.png");
 }
 
 .info-text {
     font-size: 5em;
     text-align: center;
-    height: 20vh;
-    line-height: 20vh;
+    line-height: 149px;
 }
 
 .info-subtext {
@@ -502,12 +505,13 @@ li.green {
 
 #cardpad{
     position: fixed;
-    top: 18px;
     z-index: 10000;
-    left: 331px;
     background: url("../images/pad.png");
     width: 364px;
     height: 488px;
+
+    left: calc((100vw - 364px) / 2);
+    top: calc((100vh - 488px) / 2);
 }
 #storyscreen {
     margin-left: 36px;

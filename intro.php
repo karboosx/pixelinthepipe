@@ -18,11 +18,13 @@
 
 	<h2>Intro</h2>
 
-	<div id="viewport" class="centerBlock">
-	    <div id="screen" class="cell">
-	        <div id="text"></div>
-	        <a id="nextFrame" href="#">NEXT</a>
-	    </div>
+	<div id="viewport">
+		<div class="centerBlock">
+		    <div id="screen" class="cell">
+		        <div id="text" class="text"></div>
+		        <a id="nextFrame" href="#">NEXT</a>
+		    </div>
+		</div>
 	</div>
 	<a href="factory_tutorial1.html">Skip this crap and start the game!</a>
 

@@ -29,8 +29,8 @@
 
         </div>
     </div>
-    <a class="back" href="index.html">Back to menu</a>
 </div>
+<a class="back" href="index.html">Back to menu</a>
 
 <?php echo include "analytics.php"; ?>
 </body>

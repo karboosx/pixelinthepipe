@@ -70,7 +70,7 @@
                     <div style="background: url(images/pin.png)"></div>
                 </div>
                 <div class="tool" title="Wrench - Change object settings" data-tool="info">
-                    <div style="background: url(images/info.png)"></div>
+                    <div style="background: url(images/wrench.png)"></div>
                 </div>
                 <div class="tool" title="Mark as unbreakable" data-tool="mark" data-mark="red">
                     <div style="background: url(images/cursor-error.png)"></div>
@@ -263,7 +263,7 @@
         </div>
 
     </div>
-    <div class="info-viewport green" id="finish-viewport">
+    <div class="info-viewport green no-background" id="finish-viewport">
         <div class="info-screen" id="finish-screen">
             <div class="info-text" id="finish-text">
 
@@ -274,7 +274,7 @@
         </div>
 
     </div>
-    <div class="info-viewport red" id="fail-viewport">
+    <div class="info-viewport red no-background" id="fail-viewport">
         <div class="info-screen" id="fail-screen">
             <div class="info-text" id="fail-text">
 
@@ -288,7 +288,7 @@
         </div>
 
     </div>
-    <div class="info-viewport red" id="nocookbook-viewport">
+    <div class="info-viewport red no-background" id="nocookbook-viewport">
         <div class="info-screen" id="nocookbook-screen">
             <div class="info-text" id="nocookbook-text">
 

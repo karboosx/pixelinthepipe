@@ -10,22 +10,21 @@ body {
 }
 
 .level {
-    background: url("../images/gui-background-black.png");
-    border: 3px solid #3a3a3a;
-    padding: 5px;
+    background: url("../images/stage.png");
+    height: 108px;
     float: left;
-    width: 200px;
+    width: 216px;
     margin: 5px;
 }
 
 .level h4,h3,p{
-    margin-top:10px;
+    margin-top:13px;
     margin-bottom:10px;
 }
 
 .level:hover {
     cursor: pointer;
-    background: url("../images/gui-background-dark.png");
+    background: url("../images/stage-active.png");
 }
 
 h4, h3 {
