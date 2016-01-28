@@ -266,6 +266,7 @@ function Factory(name_, subname_, game_, x_, y_) {
             }
         }
 
+
     };
 
     this.createFloor = function (y, size, type) {

@@ -112,8 +112,8 @@ a:hover{
 }
 
 .input {
-    background: url("../images/gui-background-dark.png");
-    border: 3px solid #3a3a3a;
+    background: #313744;
+    border:1px solid #a46333;
     padding: 5px;
     margin: 5px;
     color:#fafafa;
@@ -125,8 +125,7 @@ a:hover{
     cursor: pointer;
 }
 .input-button:hover {
-    background: url("../images/gui-background-green.png");
-
+    background: #1d2830;
 }
 
 textarea.input{

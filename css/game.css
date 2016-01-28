@@ -17,10 +17,12 @@ body {
 
 .ui-tooltip {
     padding: 8px;
-    position: absolute;
-    z-index: 9999;
-    max-width: 300px;
-    background: url("../images/black.png");
+    position: relative;
+    z-index: 9999000!important;
+    max-width: 150px;
+    background: #243544;
+    border:1px solid #a46333;
+    text-align: center;
 }
 
 h1 {
@@ -221,7 +223,7 @@ select {
     height: 444px;
 }
 
-.gui-window .gui-title .close {
+.close {
     float: right;
     color: #f2f2f2;
     width: 20px;
@@ -231,7 +233,7 @@ select {
     cursor: pointer;
 }
 
-.gui-window .gui-title .close:hover {
+.close:hover {
     background: url("../images/close-active.png");
 }
 
@@ -518,6 +520,14 @@ li.green {
     left: calc((100vw - 364px) / 2);
     top: calc((100vh - 488px) / 2);
 }
+
+#closecardpard{
+    float: none;
+    position: relative;
+    left: 332px;
+    top: 17px;
+}
+
 #storyscreen {
     margin-left: 36px;
     margin-top: 114px;
