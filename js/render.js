@@ -269,19 +269,14 @@ function Render(target_, cursor_) {
         if (objective != undefined && objective.calculated != undefined && objective.calculated) {//TODO
             objective.tryToShowAnimation();
 
-            /*if (!$objectiveComplete.length) {
+            if (!$objectiveComplete.length) {
                 $objective.html('<div class="text">' + objective.name + '</div> ');
                 if (objective.description != undefined)
                 $objective.append('<div class="text">' + objective.description + '</div> ');
-
-                $objective.append('<div class="pilot"> ' +
-                    '<div class="text">Reward </div> ' +
-                    '<div class="text">' + objective.reword + ' $</div> ' +
-                    '</div>');
                 $objectiveWindow.removeClass('green');
             } else {
                 this.hasToRefreshObjectives = true;
-            }*/
+            }
 
             if (!objective.canComplete) {
                 if (objective.itemsTitle != undefined){
