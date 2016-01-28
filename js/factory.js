@@ -103,10 +103,6 @@ function Factory(name_, subname_, game_, x_, y_) {
 
     this.placeObject = function (x, y, object, destructable, gravity, additionalData) {
 
-        if (game_.offset != undefined){
-            x += game_.offset.x;
-            y += game_.offset.y;
-        }
         if (destructable == undefined) destructable = true;
 
         if (this.canPlaceObject(object)) {
