@@ -2,10 +2,10 @@ var objectivesPrefabs = [
     function (item, x) {
         var needs = {};
         needs[item] = x;
-        return {name: 'Produce ' + x + ' ' + items[item].name, reword: 50, needs: needs};
+        return {name: 'Make items ', reword: 50, needs: needs};
     },
     function (needs) {
-        return {name: 'Produce items', reword: 50, needs: needs};
+        return {name: 'Make items', reword: 50, needs: needs};
     },
     function (needs,decTime) {
         var finalNeeds = {};
