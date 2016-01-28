@@ -359,7 +359,8 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
                 }
             }
 
-            factory.placeEffect(x,y,'sparks');
+            factory.placeEffect(this.x,this.y,'sparks');
+
             this.objects = newObjectsArray;
         }
     };

@@ -27,7 +27,7 @@ var imagesPath = [
      */
 
     {name: 'sparks', src: 'images/effect-spark.png', frame: 4, size:3},
-    {name: 'ok-effect', src: 'images/effect-ok.png', frame: 6, size:1},
+    {name: 'ok-effect', src: 'images/effect-ok.png', frame: 4, size:1},
 
     /*
      Objects
@@ -66,7 +66,7 @@ var gameOptions = {
     drawPowered: true,
     pauseBorder:true,
     pauseForce:false,
-    renderEffects:false
+    renderEffects:true
 };
 
 
