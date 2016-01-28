@@ -38,12 +38,6 @@ select {
     /*font-size: 2em;*/
 }
 
-.gui-window {
-    position: relative;
-    width: 300px;
-    margin-bottom: 20px;
-}
-
 .bookWindow {
     width: 812px;
     height: 490px;
@@ -101,7 +95,7 @@ select {
 
 .books{
     position: fixed;
-    top:0;
+    top:29px;
     right:0;
 }
 #cookbook {
@@ -141,6 +135,12 @@ select {
     background: url("../images/book-manualHover.png");
 }
 
+.gui-window {
+    position: relative;
+    width: 159px;
+    margin-bottom: 10px;
+}
+
 .gui-window .gui-title {
     text-align: center;
     color: #f2f2f2;
@@ -150,40 +150,25 @@ select {
     background: url("../images/gui-window-title.png");
 }
 
-.gui-window.green .gui-title {
-    background: url("../images/gui-window-title-green.png");
-}
-
 .gui-window .gui-body {
     margin: 0;
     background: url("../images/gui-window-body.png");
     padding: 2px 14px 2px 14px;
 }
 
-#objective{
-    padding-bottom: 10px;
-}
-
-#objective h1{
-    margin:2px;
-}
-.gui-window.green .gui-body {
-    background: url("../images/gui-window-body-green.png");
-}
-
 .gui-window::after {
     content: " ";
     display: block;
     background: url("../images/gui-window-bottom.png");
-    height: 11px;
+    height: 7px;
     width: 100%;
 
     position: absolute;
-    bottom: -8px;
+    bottom: -7px;
 }
 
-.gui-window.green::after {
-    background: url("../images/gui-window-bottom-green.png");
+#objective{
+    display: inline-block;
 }
 
 .gui-window small {
@@ -266,16 +251,14 @@ select {
 
 #viewport {
     overflow: hidden;
-    height: 100vh;
-    margin-left: 300px;
+    height: calc(100vh - 29px);
 
 }
 
 #viewport2 {
     overflow: hidden;
-    height: calc(100vh - 8px);
-    width: calc(100vw - 336px);
-    margin-left: 328px;
+    height: calc(100vh - 29px);
+    width: 100vw;
     position: absolute;
     z-index: 2;
     pointer-events: none;
@@ -283,29 +266,102 @@ select {
 }
 
 #tools {
-    position: relative;
-    float: left;
-    overflow-y: auto;
-    height: 100vh;
-    width: 320px;;
+    position: fixed;
+    top: 43px;
+    left: 11px;
+    overflow-y: hidden;
+    width: 166px;
+    z-index: 10000;
+}
+#top {
+    top: 0;
+    height: 29px;
+    width: 100vw;
+    background:url("../images/gui-top.png");
+    z-index: 10000;
+}
+#top.green {
+    background:url("../images/gui-top-green.png");
 }
 
+#top .text{
+    position: relative;
+    top:-5px;
+    display: inline-block;
+    height: 17px;
+}
+
+#top .pilot{
+    display: inline-block;
+    background: url("../images/gui-top-middle.png");
+    height: 17px;
+    margin: 5px;
+}
+
+#top .pilot::before {
+    content: " ";
+    display: inline-block;
+    background: url("../images/gui-top-left.png");
+    width: 2px;
+    height: 17px;
+}
+#top .pilot::after {
+    content: " ";
+    display: inline-block;
+    background: url("../images/gui-top-right.png");
+    width: 2px;
+    height: 17px;
+}
+
+#top .pilot.green{
+    background: url("../images/gui-top-middle-green.png");
+}
+#top .pilot.green::before {
+    background: url("../images/gui-top-left-green.png");
+}
+#top .pilot.green::after {
+    background: url("../images/gui-top-right-green.png");
+}
+
+#top .pilot.red{
+    background: url("../images/gui-top-middle-red.png");
+}
+#top .pilot.red::before {
+    background: url("../images/gui-top-left-red.png");
+}
+#top .pilot.red::after {
+    background: url("../images/gui-top-right-red.png");
+}
+
+#top .button{
+    display: inline-block;
+    position: relative;
+    top: -6px;
+    background: url("../images/gui-top-button.png");
+    height: 19px;
+    margin: 5px;
+    width: 87px;
+    cursor: pointer;
+    font-size: 0.96em;
+    text-align: center;
+    color: inherit;
+    padding-top: 1px;
+}
+
+#top .button:hover{
+    background: url("../images/gui-top-button-active.png");
+}
 #tools .gui-window {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 2px;
 }
 
 #infoTextVal {
     display: inline;
 }
 
-#tools {
-    padding: 4px;
-}
-
 .tool {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background: url(../images/buttonBox.png);
     display: inline-block;
     cursor: pointer;
@@ -324,7 +380,7 @@ select {
 .tool div {
     width: 32px;
     height: 32px;
-    margin: 9px;
+    margin: 4px;
 }
 
 #screen {

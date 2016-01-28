@@ -50,15 +50,19 @@
     </div>
 
 </div>
+	<div id="top">
+		<a href="index.html" class="button">
+			Back to menu
+		</a>
+		<div class="pilot">
+			<div class="text">Money </div>
+			<div id="money" class="text" style="width: 87px; text-align: right;">-</div>
+		</div>
+		<div id="objective"></div>
+
+	</div>
 <div id="game">
     <div id="tools">
-		<a class="back-button" href="index.html">Menu</a>
-        <div class="gui-window">
-            <div class="gui-title">Money</div>
-            <div class="gui-body">
-                <div id="money" class="gui-text" title="Amount money you have">100 $</div>
-            </div>
-        </div>
         <div class="gui-window">
             <div class="gui-title">Tools</div>
             <div class="gui-body">
@@ -74,11 +78,6 @@
                 <div class="tool" title="Plunger - Push items to pipe" data-tool="pusher">
                     <div style="background: url(images/pusher.png)"></div>
                 </div>
-            </div>
-        </div>
-        <div class="gui-window">
-            <div class="gui-title">Objects</div>
-            <div class="gui-body">
                 <div class="tool activeTool" title="Create pipe" data-tool="pipe">
                     <div style="background: url(images/plumb.png)"></div>
                 </div>
@@ -138,12 +137,7 @@
                 </div>
             </div>
         </div>
-        <div class="gui-window" id="objectiveWindow">
-            <div class="gui-title">Objectives</div>
-            <div id="objective" class="gui-body">
 
-            </div>
-        </div>
     </div>
     <div id="storyscreen" class="hide">
         <div id="text">No text</div>

@@ -28,7 +28,7 @@ function Render(target_, cursor_) {
     this.posY = null;
 
     var $objective = $('#objective');
-    var $objectiveWindow = $('#objectiveWindow');
+    var $objectiveWindow = $('#top');
     var $objectiveComplete = $('.objective-complete');
 
     var canvas = target[0].getContext('2d');
@@ -214,24 +214,24 @@ function Render(target_, cursor_) {
         });
     };
 
-    this.noticeWindow = function (window, timer, time) {
+    this.noticeWindow = function (window_, timer, time) {
 
-        if (timer == undefined) timer = 'noticeWindow' + window;
+        if (timer == undefined) timer = 'noticeWindow' + window_;
         if (time == undefined) time = 1000;
 
-        window = $(window);
+        window_ = $(window_);
 
-        var returnFunction = function (window) {
+        var returnFunction = function (window_) {
             return function () {
-                if (window.hasClass('green')) {
-                    window.removeClass('green');
+                if (window_.hasClass('green')) {
+                    window_.removeClass('green');
                 } else {
-                    window.addClass('green');
+                    window_.addClass('green');
                 }
             }
         };
 
-        timeouts[timer] = setInterval(returnFunction(window), time);
+        timeouts[timer] = setInterval(returnFunction(window_), time);
     };
 
     this.stopNoticeWindow = function (timer) {
@@ -248,10 +248,6 @@ function Render(target_, cursor_) {
 
         this.hasToRefreshObjectives = false;
 
-        if (game.hideObjectives){
-            $objectiveWindow.hide();
-            return;
-        }
 
         var objective = game.getObjective(objective_id);
 
@@ -260,11 +256,12 @@ function Render(target_, cursor_) {
 
             this.noticeWindow('#objectiveWindow');
             if (game.nextFactory != undefined) {
-                $objective.html('<div class="center white" style="margin-bottom: 1em">You can no go to next day! Click on button bellow to proceed.</div>' +
-                    '<div class="center"><a href="factory_' + game.nextFactory + '.html" class="gui-button objective-complete">Next Day</a></div>');
+                $objective.html('<div class="text">You can no go to next day!</div>' +
+                    '<a href="factory_' + game.nextFactory + '.html" class="button objective-complete">Next Day</a>');
+                    $objectiveWindow.addClass('green');
 
             } else {
-                $objective.html('<h1>No objectives</h1>');
+                $objective.html('<div class="text">No objectives</div>');
             }
             this.stopRenderObjective = true;
             return;
@@ -273,32 +270,35 @@ function Render(target_, cursor_) {
         if (objective != undefined && objective.calculated != undefined && objective.calculated) {//TODO
             objective.tryToShowAnimation();
 
-            if (!$objectiveComplete.length) {
-                $objective.html('<h1>' + objective.name + '</h1>');
+            /*if (!$objectiveComplete.length) {
+                $objective.html('<div class="text">' + objective.name + '</div> ');
                 if (objective.description != undefined)
-                $objective.append('<p>' + objective.description + '</p>');
+                $objective.append('<div class="text">' + objective.description + '</div> ');
 
-                $objective.append('<div>Reward: ' + objective.reword + ' $</div>');
+                $objective.append('<div class="pilot"> ' +
+                    '<div class="text">Reward </div> ' +
+                    '<div class="text">' + objective.reword + ' $</div> ' +
+                    '</div>');
                 $objectiveWindow.removeClass('green');
             } else {
                 this.hasToRefreshObjectives = true;
-            }
+            }*/
 
             if (!objective.canComplete) {
                 if (objective.itemsTitle != undefined){
-                    $objective.append('<div class="collectedItems">'+objective.itemsTitle+'</div>');
-                }else {
-                    $objective.append('<div class="collectedItems">Collected Items</div>');
+                    $objective.append('<div class="text">'+objective.itemsTitle+'</div> ');
                 }
-                $objective.append('<ol>');
+
                 for (var name in objective.needs) {
-                    $objective.append('<li class="' + (objective.collectedNeeds[name] >= objective.needs[name] ? 'green' : 'red') + '">' +
+                    $objective.append(' <div class="pilot ' + (objective.collectedNeeds[name] >= objective.needs[name] ? 'green' : 'red') + '"> ' +
+                        '<div class="text"> ' +
                         (objective.needsText != undefined ? objective.needsText[name] : items[name].name) +
-                        ' : ' + objective.collectedNeeds[name] + '/' + objective.needs[name] +
+                        ' </div>' +
+                        ' <div class="text">' +
+                        + objective.collectedNeeds[name] + '/' + objective.needs[name] +
                         (objective.additionItemText != undefined ? objective.additionItemText : '')
-                        +'</li>');
+                        +'</div> </div> ');
                 }
-                $objective.append('</ol>');
 
             } else if (!$objectiveComplete.length) {
 

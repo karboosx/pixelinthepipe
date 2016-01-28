@@ -39,7 +39,6 @@ var imagesPath = [
     {name: 'cos', src: 'images/cos.png', frame: 2},
     {name: 'combiner', src: 'images/asembly.png', frame: 5},
     {name: 'floor', src: 'images/block.png', frame: 1},
-    {name: 'floor2', src: 'images/floor2.png', frame: 1},
     {name: 'pipe', src: 'images/plumb.png', frame: 1, patch9: true},
     {name: 'line', src: 'images/transporter.png', frame: 1, patch9: true},
     {name: 'cable', src: 'images/cable.png', frame: 1, patch9: true},
@@ -47,7 +46,6 @@ var imagesPath = [
     {name: 'deleter1', src: 'images/deleter1.png', frame: 3},
     {name: 'fermenter', src: 'images/ferm.png', frame: 1},
     {name: 'distiller', src: 'images/destyl.png', frame: 1},
-    {name: 'addater', src: 'images/addater.png', frame: 4},
     {name: 'filter', src: 'images/aaa.png', frame: 4},
     {name: 'generator', src: 'images/generator.png', frame: 5},
     {name: 'electrogenerator', src: 'images/electrogenerator.png', frame: 3},
@@ -829,7 +827,7 @@ function Game(x_, y_, engine_) {
                     return false;
             },
             which: 2,
-            containment: [-marginLeft + 328, -marginTop, 328, 0]
+            containment: [-marginLeft, -marginTop, 0, 29]
         });
 
 
