@@ -15,8 +15,12 @@ body {
     float: left;
     width: 216px;
     margin: 5px;
+    color: #ffffff;
 }
 
+a.level{
+    color: #ffffff;
+}
 .level h4,h3,p{
     margin-top:13px;
     margin-bottom:10px;

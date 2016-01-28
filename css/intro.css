@@ -72,8 +72,12 @@ a {
     text-decoration: none;
     text-align: center;
     font-size: 1em;
-    color: #DCDCDC;
+    color: #ffffff;
     margin: 8px;
+}
+
+a:hover{
+    color: #a0d3ff;
 }
 
 .centerBlock {
