@@ -146,6 +146,8 @@
 
                 if (factoryLevels[factoryID]['animation'] != undefined && reset != 'yes') {
                     var intro = new IntroAnimation('#storyscreen', factoryLevels[factoryID]['animation']);
+                    intro.setParent($('#cardpad'));
+                    intro.setDraggable($('#cardpad'));
                 }
 
                 if (factoryLevels[factoryID]['failMessage'] != undefined) {

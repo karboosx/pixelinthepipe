@@ -3,6 +3,7 @@ function IntroAnimation(selector,animation,fadeIn,fadeOut){
     if (fadeIn == undefined) fadeIn = 100;
     if (fadeOut == undefined) fadeOut = 200;
 
+    var parent = undefined;
     var screen = $(selector);
 
     screen.removeClass('hide');
@@ -16,6 +17,14 @@ function IntroAnimation(selector,animation,fadeIn,fadeOut){
         return animation;
     };
 
+    this.setParent = function ($parent) {
+        parent = $parent;
+    };
+
+    this.setDraggable = function ($selector) {
+        $selector.draggable();
+    };
+
     this.nextFrame = function(){
         currentFrame++;
 
@@ -23,6 +32,8 @@ function IntroAnimation(selector,animation,fadeIn,fadeOut){
             this.renderFrame(animation[currentFrame], fadeOut, fadeIn);
         }else{
             screen.fadeOut(fadeOut);
+            if (parent != undefined)
+            parent.fadeOut(fadeOut);
         }
     };
 

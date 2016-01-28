@@ -112,13 +112,12 @@ function Render(target_, cursor_) {
 
 
         } else if (type == 'addMoney') {
-            $('#money').css('background', 'url(images/gui-text-success.png)')
-                .append(' (+' + addData + ' $)');
+            $('#money').append(' (+' + addData + ' $)').parent().addClass('green');
 
             if (timeouts.errorMoney != undefined) clearTimeout(timeouts.errorMoney);
 
             timeouts.errorMoney = setTimeout(function () {
-                $('#money').css('background', '').html(data + ' $');
+                $('#money').html(data + ' $').parent().removeClass('green');;
                 errorMessage = '';
 
             }, 800);

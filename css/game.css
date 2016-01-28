@@ -486,16 +486,27 @@ li.green {
     display: inline-block;
 }
 
-#storyscreen {
+#cardpad{
     position: fixed;
     top: 18px;
-    z-index: 10;
+    z-index: 10000;
     left: 331px;
-    background: url("../images/gui-background-black.png");
-    border: 3px solid #3a3a3a;
-    padding: 5px;
+    background: url("../images/pad.png");
+    width: 364px;
+    height: 488px;
+}
+#storyscreen {
+    margin-left: 36px;
+    margin-top: 114px;
+    margin-right: 36px;
+    margin-bottom: 83px;
+    color:#3b3d42;
+    font-size: 1.1em;
 }
 
+#storyscreen div{
+    text-align: justify;
+}
 a {
     display: block;
     text-decoration: none;
@@ -644,8 +655,25 @@ td {
 }
 
 
+#nextFrame{
+    color: #1c1c1c;
+    background: url("../images/nextframe.png");
+    width: 212px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 60px;
+    margin-top: 21px;
+
+}
+#nextFrame:hover{
+    background: url("../images/nextframe-active.png");
+
+}
+
+
 #nextFrame.active{
-    color: #8cfa72;
+    color: #267AC3;
 }
 
 .infoWindowInline {
