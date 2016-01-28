@@ -58,13 +58,10 @@ if (isset($_POST['data']) && isset($_POST['data']) && isset($_POST['password']))
 			try {
 				$file = $pdo->prepare('update levels set filename = :filename, name = :name, subname = :subname,difficult = :difficult WHERE filename = :filename;');
 
-				$hash = sha1($password);
-
 				$file->bindParam(':filename', $filename, PDO::PARAM_STR);
 				$file->bindParam(':name', $name, PDO::PARAM_STR);
 				$file->bindParam(':subname', $subname, PDO::PARAM_STR);
 				$file->bindParam(':difficult', $difficult, PDO::PARAM_STR);
-				$file->bindParam(':password', $hash, PDO::PARAM_STR);
 				$file->execute();
 			}catch (Exception $e){
 				$error = 'Error!';
@@ -86,18 +83,21 @@ if (isset($_POST['data']) && isset($_POST['data']) && isset($_POST['password']))
 			$data = $json;//temporary
 		}
 
-		$file = $pdo->prepare('SELECT * FROM levels WHERE `name` LIKE :name LIMIT 1');
+		$file = $pdo->prepare('SELECT * FROM levels WHERE `filename` LIKE :name LIMIT 1');
 
 		$file->bindParam(':name',$name,PDO::PARAM_STR);
 		$file->execute();
 
 		$result = $file->fetch();
 
+
 		if (!$result) {
 			saveFile($name, $password, $data, true);
 		} else {
+
 			if ($result['password'] == sha1($password)) {
 				saveFile($name, $password, $data, false);
+
 			} else {
 				$error = 'Wrong password';
 			}
