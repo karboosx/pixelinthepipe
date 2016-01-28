@@ -39,7 +39,7 @@
     <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div class="info-viewport red" id="error-viewport" style="min-width: 600px;">
+<div class="info-viewport overlay red" id="error-viewport" style="min-width: 600px;">
     <div class="info-screen" id="error-screen">
         <div class="info-text" id="error-text">
 
