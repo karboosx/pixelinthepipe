@@ -262,13 +262,13 @@ select {
 
 #viewport {
     overflow: hidden;
-    height: calc(100vh - 29px);
+    height: 100vh;
 
 }
 
 #viewport2 {
     overflow: hidden;
-    height: calc(100vh - 29px);
+    height: 100vh;
     width: 100vw;
     position: absolute;
     z-index: 2;
@@ -290,6 +290,7 @@ select {
     width: 100vw;
     background:url("../images/gui-top.png");
     z-index: 10000;
+    position: fixed;
 }
 #top.green {
     background:url("../images/gui-top-green.png");
@@ -397,7 +398,7 @@ select {
 #screen {
     position: relative;
     margin: auto;
-    top: 0;
+    top: 29px;
     left: 0;
 }
 
@@ -429,7 +430,7 @@ li.green {
     color: #ffffff;
 }
 
-.info-viewport {
+.overlay {
     position: absolute;
     left: 0;
     top: 0;
@@ -437,10 +438,6 @@ li.green {
     height: 100vh;
     background: #1c1c1c;
     z-index: 200000;
-}
-
-.info-viewport.no-background {
-    background: none;
 }
 
 .info-screen {
@@ -451,6 +448,14 @@ li.green {
     left: calc((100vw - 640px) / 2);
     top: calc((100vh - 260px) / 2);
     z-index: 200000;
+}
+
+.info-viewport.green .info-screen {
+    background: url("../images/info-green.png");
+}
+
+.info-viewport.red .info-screen {
+    background: url("../images/info-red.png");
 }
 
 .info-viewport.green .info-screen {
@@ -693,4 +698,21 @@ td {
 
 .infoWindowInline {
     display: inline-block;
+}
+
+#nextday{
+    position: absolute;
+    width: 216px;
+    height: 108px;
+    left: calc((100vw - 216px) / 2);
+    top: 0;
+    z-index: 5000;
+    background: url("../images/stage.png");
+    line-height: 108px;
+    font-size: 2.5em;
+    text-align: center;
+    cursor: pointer;
+    color: #fafafa;
+}#nextday:hover{
+    background: url("../images/stage-active.png");
 }

@@ -50,6 +50,7 @@
     </div>
 
 </div>
+<a id="nextday" style="top: -108px;">Next Day</a>
 	<div id="top">
 		<a href="index.html" class="button">
 			Back to menu
@@ -61,6 +62,7 @@
 		<div id="objective"></div>
 
 	</div>
+
 <div id="game">
     <div id="tools">
         <div class="gui-window">
@@ -252,7 +254,7 @@
         </div>
     </div>
 
-    <div class="info-viewport" id="info-viewport">
+    <div class="info-viewport overlay" id="info-viewport">
         <div class="info-screen" id="info-screen">
             <div class="info-text" id="info-text">
 
@@ -263,7 +265,7 @@
         </div>
 
     </div>
-    <div class="info-viewport green no-background" id="finish-viewport">
+    <div class="info-viewport green" id="finish-viewport">
         <div class="info-screen" id="finish-screen">
             <div class="info-text" id="finish-text">
 
@@ -274,7 +276,7 @@
         </div>
 
     </div>
-    <div class="info-viewport red no-background" id="fail-viewport">
+    <div class="info-viewport red" id="fail-viewport">
         <div class="info-screen" id="fail-screen">
             <div class="info-text" id="fail-text">
 
@@ -288,7 +290,7 @@
         </div>
 
     </div>
-    <div class="info-viewport red no-background" id="nocookbook-viewport">
+    <div class="info-viewport red" id="nocookbook-viewport">
         <div class="info-screen" id="nocookbook-screen">
             <div class="info-text" id="nocookbook-text">
 

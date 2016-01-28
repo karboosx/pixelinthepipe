@@ -262,6 +262,7 @@ function Render(target_, cursor_) {
                     '<a href="factory_' + game.nextFactory + '.html" class="button objective-complete">Next Day</a>');
                     $objectiveWindow.addClass('green');
 
+                $('#nextday').attr('href','factory_' + game.nextFactory + '.html').animate({top:0},500);
             } else {
                 $objective.html('<div class="text">No objectives</div>');
             }
@@ -549,15 +550,17 @@ function Render(target_, cursor_) {
             }
         }
 
-        for (id in effects) {
+        if (gameOptions.renderEffects) {
+            for (id in effects) {
 
-            var effect = effects[id];
+                var effect = effects[id];
 
-            if (effect.isEnded()){
-                factory.deleteEffect(id);
-            }else{
-                this.renderEffect(game,effect);
-                effect.tick();
+                if (effect.isEnded()) {
+                    factory.deleteEffect(id);
+                } else {
+                    this.renderEffect(game, effect);
+                    effect.tick();
+                }
             }
         }
     };
