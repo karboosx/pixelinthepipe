@@ -14,9 +14,8 @@
 
             var finishViewport = $('#error-viewport');
 
-            finishViewport.fadeIn(500, function () {
-            }).show().zIndex(1000);
-
+            finishViewport.fadeIn(0, function () {
+            }).show();
         } else {
             try {
                 if (factoryLevels[factoryID].hasOwnProperty('x') && factoryLevels[factoryID].hasOwnProperty('y'))
