@@ -831,7 +831,7 @@ function Game(x_, y_, engine_) {
                     return false;
             },
             which: 2,
-            containment: [-marginLeft, -marginTop+29, 0, 29]
+            containment: [-marginLeft, -marginTop, 0, 29]
         });
 
 
