@@ -63,12 +63,13 @@ function Factory(name_, subname_, game_, x_, y_) {
 
     };
 
-    this.placeEffect = function (x, y, name) {
-        effects.push(new Effect(x,y,name));
+    this.placeEffect = function (object, name) {
+        effects.push(new Effect(object,name));
     };
 
     this.deleteEffect = function (i) {
-        effects.splice(effects,i);
+        effects[i].getObject().isRegisteredEffect = false;
+        effects.splice(i,1);
     };
 
 

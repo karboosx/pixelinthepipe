@@ -37,6 +37,8 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
 
     this.canSelectItem = (object.canSelectItem != undefined) ? object.canSelectItem : false;
 
+    this.isRegisteredEffect = false;
+
     var selectedItems = items;
 
     this.refreshSelectedItems = function () {
@@ -294,7 +296,8 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
                 }
             }
 
-            this.factory.placeEffect(this.x,this.y,'sparks');
+
+            this.registerEffect('sparks');
 
             for (; item_count > 0; item_count--) {
                 this.moveItemForward(this.objects.length - 1, factory.map);
@@ -303,6 +306,12 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
         }
     };
 
+    this.registerEffect = function (effect) {
+        if (!this.isRegisteredEffect) {
+            this.isRegisteredEffect = true;
+            this.factory.placeEffect(this,effect);
+        }
+    };
 
     this.combine = function (objects, requireCombineItem, only) {
 
@@ -359,7 +368,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
                 }
             }
 
-            factory.placeEffect(this.x,this.y,'sparks');
+            factory.registerEffect('sparks');
 
             this.objects = newObjectsArray;
         }
@@ -415,7 +424,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     };
 
     this.clearObjects = function () {
-        this.objects.splice(0, this.objects.length);
+        this.objects.length =0;
     };
 
     this.objectCount = function () {

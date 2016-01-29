@@ -550,13 +550,14 @@ function Render(target_, cursor_) {
             }
         }
 
-        if (gameOptions.renderEffects) {
+        if (gameOptions.renderEffects && !gameOptions.pause) {
             for (id in effects) {
 
                 var effect = effects[id];
 
                 if (effect.isEnded()) {
                     factory.deleteEffect(id);
+                    return;
                 } else {
                     this.renderEffect(game, effect);
                     effect.tick();

@@ -372,7 +372,7 @@ var objectsData = {
                         if (game.getObjective().checkReqItem(itemName)) {
                             game.addItemToStorage(object, i);
                             objectsToReturn.push(itemName);
-                            game.getFactory(game.getType().id).placeEffect(object.x,object.y,'ok-effect');
+                            object.registerEffect('ok-effect');
                         }else {
                             object.moveItemForward(i, map);
                         }
