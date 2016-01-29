@@ -1099,7 +1099,7 @@ var factoryLevels = {
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[1]({water:1,O:1}));
         },
-        itemsToGenerate: ['water', 'O'],
+        itemsToGenerate: ['steam'],
     },
     stage1: {
         map: function (factory) {

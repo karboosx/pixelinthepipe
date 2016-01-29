@@ -444,7 +444,15 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     this.deleteDeadObjects = function () {
         for (var i in this.objects) {
             if (this.objects[i].checkIfDead()){
-                this.deleteItem(i);
+                if (this.objects[i].lifetimeItem != undefined){
+                    var newItem = this.objects[i].lifetimeItem;
+                    this.deleteItem(i);
+                    this.addItem(newItem);
+                }else{
+                    this.deleteItem(i);
+                }
+                return;
+
             }
         }
     };

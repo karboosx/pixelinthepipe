@@ -1,7 +1,7 @@
 var items = {
     ice: {name: 'Ice', type: 'solid', combine: {water: 1, cold: 1}, separate: {water: 1}, combineDevice: 'freezer'},
     water: {name: 'Water', type: 'liquid', combine: {H: 2, O: 1}, separate: {H: 2, O: 1}, transportType: 'pipe'},
-    hotwater: {name: 'Hot Water', type: 'liquid', combine: {lowheat: 1, water: 1}, combineAdditionalItem: {}, transportType: 'pipe', combineDevice: 'fireplace'},
+    hotwater: {name: 'Hot Water', type: 'liquid', combine: {lowheat: 1, water: 1}, combineAdditionalItem: {}, transportType: 'pipe', combineDevice: 'fireplace',lifetime:200,lifetimeItem:'water'},
     H: {name: 'Hydrogen', type: 'gas', transportType: 'pipe'},
     electricity: {name: 'Electricity', type: 'electricity',transportType:'cable',combine:{gasoline:1,O:1},combineDevice:'electrogenerator'},
     gasoline: {name: 'Gasoline', type: 'liquid', transportType: 'pipe',combine:{oil:1,heat:1,lowheat:1},separate:{oil:1},combineDevice:'refinery'},
@@ -15,7 +15,7 @@ var items = {
     pulp: {name: 'Pulp', type: 'solid'},
     heat: {name: 'Heat', type: 'gas',lifetime:10, transportType: 'pipe'},
     lowheat: {name: 'Low Heat', type: 'gas',lifetime:10, transportType: 'pipe'},
-    steam: {name: 'Steam', type: 'gas', combine: {water: 1, heat: 1}, combineAdditionalItem: {}, combineDevice: 'fireplace'},
+    steam: {name: 'Steam', type: 'gas', combine: {water: 1, heat: 1}, combineAdditionalItem: {}, combineDevice: 'fireplace',lifetime:200,lifetimeItem:'hotwater'},
     orange: {name: 'Orange', type: 'solid', combine: {juice: 1, pulp: 1}, separate: {juice: 1, pulp: 1}},
     icecream: {name: 'Ice cream', type: 'solid', combine: {juice: 1, ice: 1}, separate: {juice: 1, water: 1}},
     phone: {name: 'Phone', type: 'solid', combine: {electronic: 1, plastic: 1}, separate: {electronic: 1, plastic: 1}, transportType: 'line'},
@@ -88,6 +88,7 @@ function Item(object, item) {
 
     this.types = itemTypesDirections;
 
+    this.lifetimeItem = itemData.lifetimeItem;
     var movedInThisTick = false;
     var container = object;
     this.lifetime = 0;
