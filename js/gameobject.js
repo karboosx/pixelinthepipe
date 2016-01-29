@@ -308,7 +308,6 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
 
     this.registerEffect = function (effect) {
         if (!this.isRegisteredEffect) {
-            this.isRegisteredEffect = true;
             this.factory.placeEffect(this,effect);
         }
     };
@@ -368,7 +367,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
                 }
             }
 
-            factory.registerEffect('sparks');
+            this.registerEffect('sparks');
 
             this.objects = newObjectsArray;
         }

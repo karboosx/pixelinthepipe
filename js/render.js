@@ -550,18 +550,22 @@ function Render(target_, cursor_) {
             }
         }
 
-        if (gameOptions.renderEffects && !gameOptions.pause) {
+        if (gameOptions.renderEffects) {
             for (id in effects) {
 
                 var effect = effects[id];
 
                 if (effect.isEnded()) {
                     factory.deleteEffect(id);
-                    return;
-                } else {
-                    this.renderEffect(game, effect);
-                    effect.tick();
                 }
+            }
+
+            for (id in effects) {
+
+                effect = effects[id];
+
+                this.renderEffect(game, effect);
+                effect.tick();
             }
         }
     };

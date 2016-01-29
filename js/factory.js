@@ -64,6 +64,7 @@ function Factory(name_, subname_, game_, x_, y_) {
     };
 
     this.placeEffect = function (object, name) {
+        object.isRegisteredEffect = true;
         effects.push(new Effect(object,name));
     };
 
