@@ -531,7 +531,7 @@ function GameBehavior(game, factory) {
         left: function () {
             var object_ = factory.getObject(posX, posY);
             if (object_ != undefined) {
-                object_.moveItemsForward(factory.map);
+                object_.forceMoveItemsForward();
                 return true;
             }
         },

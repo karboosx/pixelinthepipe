@@ -66,11 +66,11 @@ var factoryLevels = {
         subname: 'Basics',
         itemsToGenerate: ['H'],
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[0]('H', 5));
+            game.addObjective(objectivesPrefabs[0]('H', 10));
         },
         nextFactory: 'tutorial2',
         tools: ['pipe', 'info'],
-        		offset:{x:5,y:0},
+        offset:{x:5,y:0},
         animation: [
             {
                 text: 'Hello worker. Before you go to work, you have to pass this training.<br>' +
@@ -85,14 +85,15 @@ var factoryLevels = {
             },
             {text: 'Now, using pipe, connect generator to collector above. Some pipe was already made.'},
             {
-                text: 'Your goal is to collect 5 hydrogen in collector. As soon as you reach it, you can click\n' +
+                text: 'Your goal is to collect 10 hydrogen in collector. As soon as you reach it, you can click\n' +
                 '"Next Day" button in Objectives window to go to next training factory.'
             },
-			{text:'Quick instruction: Construction selected object - Left mouse button'},
+			{text:'Quick instruction: <br>Construction selected object - Left mouse button'},
 			{text:'Remove object/Disconnect pipe - Right mouse button'},
 			{text:'Move map - Middle mouse button'},
 			{text:'Good luck!'},
-        ]
+        ],
+        cookbook:['H']
     },
     tutorial2: {
         map: function (factory) {
@@ -298,7 +299,7 @@ var factoryLevels = {
         subname: 'Combining items',
         itemsToGenerate: ['H', 'O'],
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[0]('water', 10));
+            game.addObjective(objectivesPrefabs[0]('water', 5));
         },
         nextFactory: 'tutorial3',
         tools: ['pipe', 'info','pusher'],
@@ -309,10 +310,11 @@ var factoryLevels = {
             {text: 'As probably everyone knows, water is H2O. So, let\'s combine two elements of hydrogen and one element of oxygen.'},
             {text: 'To do that, we provide you super advanced Element Combiner!'},
             {text: 'Connect both generators to combiner and look how water will be make :)'},
-            {text: 'After collecting 10 elements of water, click "Next Day" for next tutorial.'},
+            {text: 'After collecting 5 elements of water, click "Next Day" for next tutorial.'},
             {text: 'And remember! Items remain in combiner until it can by combine to something new.'},
             {text: 'You can use plunger to push remaining items from combiner to pipe.'},
-        ]
+        ],
+        cookbook:['H','O','water']
     },
     tutorial3: {
         map: function (factory) {
@@ -437,7 +439,7 @@ var factoryLevels = {
         difficult:'tutorial',
         itemsToGenerate: ['water'],
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[0]('steam', 1));
+            game.addObjective(objectivesPrefabs[0]('steam', 5));
         },
         nextFactory: 'tutorial4',
         tools: ['pipe', 'info'],
@@ -449,9 +451,9 @@ var factoryLevels = {
                 text: 'There is a water generator, or water pump as you will.\n' +
                 'Connect it to fireplace to boil water.'
             },
-            {text: 'That all! Collect only one steam element and go to next day.'},
+            {text: 'That all! Collect only 5 steam element and go to next day.'},
         ],
-        cookbook: ['water', 'H', 'O', 'steam']
+        cookbook: ['water', 'H', 'O', 'steam','hotwater']
     },
     tutorial4: {
         map: function (factory) {
@@ -996,7 +998,7 @@ var factoryLevels = {
                 'objective will fail and you have to start over again.'
             },
         ],
-        cookbook: ['water', 'H', 'O', 'steam']
+        cookbook: ['water', 'H', 'O', 'steam','hotwater']
     },
     tutorial5: {
         map: function (factory) {
@@ -1084,7 +1086,7 @@ var factoryLevels = {
             {text: 'Good luck!'},
 
         ],
-        cookbook: ['water', 'H', 'O', 'steam']
+        cookbook: ['water', 'H', 'O', 'steam','hotwater']
 
     },
     empty: {
@@ -1097,7 +1099,7 @@ var factoryLevels = {
         money:-1,
         allowSave:true,
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[1]({water:1,O:1}));
+            game.addObjective(objectivesPrefabs[1]({steam:100}));
         },
         itemsToGenerate: ['steam'],
     },
@@ -1817,7 +1819,7 @@ var factoryLevels = {
         animation: [
             {text: 'Hey! Tomorrow is your first 2 day vacation!'},
             {text: 'I hope you are exiting for this little break!'},
-            {text: 'Ok, back to business. Last time you was baked bread, right?', linkText: 'Right! My bread was awesome!'},
+            {text: 'Ok, back to business. Last time you was baked bread, right?', linkText: 'My bread was awesome!'},
             {text: 'Sure, sure... no one remember that muddy bread you did.'},
             {text: 'But anyway, since we have fully operational bakery, our company wants to start selling sandwiches!'},
             {text: 'Once again, you will be responsible for that.'},
@@ -1827,7 +1829,7 @@ var factoryLevels = {
         ],
         cookbook: ['bread', 'goodbread', 'slicebread', 'goodslicebread', 'ham', 'sliceham', 'tomato', 'slicetomato', 'cheese', 'slicecheese'],
         money: 500,
-        failMessage: 'That again taste like mud! Try again! Remember to use good bread.'
+        failMessage: 'Is\'s awful! Try again! Remember to use good bread.'
     },
     home1: {
         map: function (factory) {
@@ -1927,7 +1929,7 @@ var factoryLevels = {
         ],
         cookbook: ['water', 'coffeebeans', 'coffeepowder', 'coffee', 'sugar', 'coffeesugar'],
         money: 500,
-        failMessage: 'That again taste like mud! Try again!'
+        failMessage: 'No. I\' pretty sure this isn\'t a coffee.'
     },
     home2: {
         map: function (factory) {

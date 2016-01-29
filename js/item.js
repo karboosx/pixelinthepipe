@@ -118,10 +118,12 @@ function Item(object, item) {
         return item;
     };
 
+    this.clearLastDirection = function () {
+        lastDirection = '';
+    };
 
-
-    this.moveForwardOnTick = function (item, object, map) {
-        item.moveForward(object, map);
+    this.moveForwardOnTick = function (i, object, map) {
+        this.moveForward(i,object, map);
 
     };
 
@@ -176,19 +178,14 @@ function Item(object, item) {
 
     };
 
-    this.move = function (target, direction) {
+    this.move = function (i, target, direction) {
         if (!movedInThisTick) {
             movedInThisTick = true;
-            for (var i in container.objects) {
-                if (container.objects[i] == this) {
-                    lastDirection = direction;
+            lastDirection = direction;
 
-                    target.objects.push(container.objects[i]);
-                    container.objects.splice(i, 1);
-                    container = target;
-                    break;
-                }
-            }
+            target.objects.push(container.objects[i]);
+            container.objects.splice(i, 1);
+            container = target;
         }
     };
 
@@ -200,7 +197,7 @@ function Item(object, item) {
             }
         }
     };
-    this.moveForward = function (object, map) {
+    this.moveForward = function (i,object, map) {
         try {
             var top = map[object.x][object.y - 1];
             var canGoTop = top.input.bottom && !top.stop && top.patch9.bottom &&
@@ -248,10 +245,10 @@ function Item(object, item) {
 
         var direction = this.go(canGoLeft, canGoRight, canGoTop, canGoBottom);
 
-        if (direction == 'left') this.move(left, 'right');
-        if (direction == 'right') this.move(right, 'left');
-        if (direction == 'up') this.move(top, 'bottom');
-        if (direction == 'down') this.move(bottom, 'top');
+        if (direction == 'left') this.move(i, left, 'right');
+        if (direction == 'right') this.move(i, right, 'left');
+        if (direction == 'up') this.move(i, top, 'bottom');
+        if (direction == 'down') this.move(i, bottom, 'top');
         if (direction == 'none') object.registerWarning('');
         else object.removeWarning();
     }

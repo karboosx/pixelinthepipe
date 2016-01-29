@@ -25,7 +25,7 @@
 				    <input type="hidden" name="editor" value="empty">
 			        <div>
 				        <label for="sizeX">X size</label>
-				        <input type="number" class="input" name="sizeX" id="sizeX" value="30">
+				        <input type="number" class="input" name="sizeX" id="sizeX" value="50">
 			        </div>
 			        <div>
 				        <label for="sizeY">Y size</label>

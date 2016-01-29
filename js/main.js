@@ -18,6 +18,7 @@
             }).show();
         } else {
             try {
+
                 if (factoryLevels[factoryID].hasOwnProperty('x') && factoryLevels[factoryID].hasOwnProperty('y'))
                     var game = new Game(factoryLevels[factoryID]['x'], factoryLevels[factoryID]['y']+1);
                 else if (sizeX != 'null' && sizeY != 'null')
@@ -29,6 +30,8 @@
 
                 if (factoryLevels[factoryID]['offset'] != undefined)
                     game.setFactoryOffset(factoryLevels[factoryID]['offset']);
+
+                game.allowedItems = factoryLevels[factoryID]['cookbook'];
 
                 game.setupFactory(
                     function () {
@@ -71,8 +74,6 @@
                 var cookBook = new CookBook();
                 if (factoryLevels[factoryID]['cookbook'] != undefined) {
                     cookBook.initCookBook(factoryLevels[factoryID]['cookbook']);
-                    game.allowedItems = factoryLevels[factoryID]['cookbook'];
-
                     var $bookWindow = $('#bookWindow');
                     $('#cookbook').click(function () {
                         if ($bookWindow.hasClass('hide'))
@@ -165,6 +166,12 @@
                 if (factoryLevels[factoryID]['failMessage'] != undefined) {
                     game.setFailMessage(factoryLevels[factoryID]['failMessage']);
                 }
+
+                var $tools = $('#tools');
+                $tools.draggable({
+                    containment: [0, 0, $(window).width()-$tools.width(), $(window).height()-$tools.height()]
+                });
+
             }catch (e){
                 $('#error-text').html('Corrupted level!');
                 $('#error-subtext').html('<a href="index.html">GO TO MENU</a>');

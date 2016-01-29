@@ -169,7 +169,7 @@ var objectsData = {
         canAutoPush:true,
         onTick: function (object, map) {
 
-            var rand = 30;
+            var rand = 10;
             if (object.additionalData != undefined) {
                 if (object.additionalData.hasOwnProperty('random')){
                     rand = object.additionalData.random;
@@ -184,7 +184,7 @@ var objectsData = {
                 object.addItem('lowheat');
             }
 
-            object.combine(object.objects);
+            object.combine();
 
         },
         desc: 'Burn or boil elements.',
@@ -202,7 +202,7 @@ var objectsData = {
         randomCombine:true,
         onTick: function (object, map) {
 
-            object.combine(object.objects);
+            object.combine();
 
         },
         desc: 'Burn or boil elements',
@@ -221,7 +221,7 @@ var objectsData = {
         requirePower:true,
         onTick: function (object, map) {
 
-            object.combine(object.objects);
+            object.combine();
 
         },
         desc: 'Ferment alcohol',
@@ -241,7 +241,7 @@ var objectsData = {
         requirePowerItem:'steam',
         onTick: function (object, map) {
 
-            object.combine(object.objects);
+            object.combine();
 
         },
         desc: 'Refinery oil',
@@ -273,7 +273,7 @@ var objectsData = {
         frameDelay: 3,
         onTick: function (object, map) {
 
-            object.combine(object.objects, undefined, 'coffee');
+            object.combine(undefined, 'coffee');
 
         },
         desc: 'This machine brewing coffee',
@@ -302,7 +302,7 @@ var objectsData = {
                 object.addItem('cold');
             }
 
-            object.combine(object.objects, 'cold');
+            object.combine('cold');
 
         },
         desc: 'Burn or boil elements',
@@ -336,7 +336,7 @@ var objectsData = {
             }
 
             if (random < 5)
-                object.moveItemsForward(map);
+                object.moveItemsForward();
         },
         desc: 'Generate items depends on actual factory can produce one element or more',
         name: 'Generator'
@@ -373,8 +373,9 @@ var objectsData = {
                             game.addItemToStorage(object, i);
                             objectsToReturn.push(itemName);
                             object.registerEffect('ok-effect');
+                            return;
                         }else {
-                            object.moveItemForward(i, map);
+                            object.moveItemForward(i);
                         }
                     }
                 }
@@ -402,7 +403,7 @@ var objectsData = {
 
                 }
 
-                object.moveItemsForward(map);
+                object.moveItemsForward();
 
             }
 
@@ -464,7 +465,7 @@ var objectsData = {
         onTick: function (object, map) {
 
             object.refreshSelectedItems();
-            object.combine(object.objects);
+            object.combine();
 
         },
         desc: 'Combine elements to more complex items',
@@ -494,7 +495,7 @@ var objectsData = {
         onTick: function (object, map) {
 
             object.refreshSelectedItems();
-            object.combine(object.objects);
+            object.combine();
 
         },
         desc: 'Combine elements create computers',
@@ -561,7 +562,7 @@ var objectsData = {
                 };
 
 
-                object.moveItemForward(i, map);
+                object.moveItemForward(i);
             }
 
         },

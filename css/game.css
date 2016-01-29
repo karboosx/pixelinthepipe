@@ -285,6 +285,7 @@ select {
     overflow-y: hidden;
     width: 166px;
     z-index: 10000;
+    cursor: move;
 }
 #top {
     top: 0;
@@ -471,7 +472,7 @@ li.green {
 .info-text {
     font-size: 5em;
     text-align: center;
-    line-height: 149px;
+    line-height: 118px;
 }
 
 .info-subtext {
@@ -519,6 +520,8 @@ li.green {
 
     left: calc((100vw - 364px) / 2);
     top: calc((100vh - 488px) / 2);
+
+    cursor: move;
 }
 
 #closecardpard{
@@ -624,7 +627,7 @@ a {
     margin: 1px;
     color:#fafafa;
     font-family: 'VT323', serif;
-    font-size:1.2em;
+    width: 85px;
 }
 
 

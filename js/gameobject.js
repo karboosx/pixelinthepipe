@@ -229,7 +229,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     };
 
 
-    this.combineItem = function (itemName, objects, requireCombineItem, only) {
+    this.combineItem = function (itemName, requireCombineItem, only) {
         var item = selectedItems[itemName];//po tym itemie szukam combinacji
 
         if (only != undefined && itemName != only)
@@ -241,6 +241,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
             return;
 
 
+        //if there is no item(requireCombineItem) in combine:{} then do nothing
         if (requireCombineItem != undefined) {
             var haveRequiredItem = false;
             for (var item_name in item.combine) {
@@ -254,28 +255,35 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
             }
         }
 
+
+
+        //cheking if there is all required item to combine
         var temp_data = $.extend({}, item.combine);
 
-        for (var obj in objects) {
-            var obj_item = objects[obj];
+        for (var obj in this.objects) {
+            var obj_item = this.objects[obj];
 
             if (temp_data[obj_item.getName()] != undefined)
                 temp_data[obj_item.getName()]--;
 
         }
 
+
         var skip = false;
         for (obj in temp_data) {
             if (temp_data[obj] > 0)
                 skip = true;
         }
+        //if there is no all item to combine then skip = true
 
         if (!skip) {
+            //there is all items to combine
             temp_data = $.extend({}, item.combine);
 
+            //new objects array
             var newData = [];
-            for (obj in objects) {
-                obj_item = objects[obj];
+            for (obj in this.objects) {
+                obj_item = this.objects[obj];
 
                 if (temp_data[obj_item.getName()] != undefined && temp_data[obj_item.getName()] > 0) {
                     temp_data[obj_item.getName()]--;
@@ -283,10 +291,12 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
                     newData.push(obj_item);
                 }
             }
+
             this.objects = newData;
             this.addItem(itemName);
 
             var item_count = 1;
+
             if (item.combineAdditionalItem != undefined) {
                 for (var obj2 in item.combineAdditionalItem) {
                     for (var i = 0; i < item.combineAdditionalItem[obj2]; i++) {
@@ -296,12 +306,11 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
                 }
             }
 
+            for (; item_count > 0; item_count--) {
+                this.forceMoveItemForward(this.objects.length - 1);
+            }
 
             this.registerEffect('sparks');
-
-            for (; item_count > 0; item_count--) {
-                this.moveItemForward(this.objects.length - 1, factory.map);
-            }
 
         }
     };
@@ -312,9 +321,9 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
         }
     };
 
-    this.combine = function (objects, requireCombineItem, only) {
+    this.combine = function (requireCombineItem, only) {
 
-        if (objects.length == 0)
+        if (this.objects.length == 0)
             return;
 
         var itemName = undefined;
@@ -322,12 +331,12 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
         if (object.randomCombine != undefined && object.randomCombine == true) {
             itemName = combineItemsKeys[combineItemsKeys.length * Math.random() << 0];
             if (itemName != undefined)
-            this.combineItem(itemName, objects, requireCombineItem, only);
+            this.combineItem(itemName, requireCombineItem, only);
 
         }else{
             for (itemName in selectedItems) {
 
-                this.combineItem(itemName, objects, requireCombineItem, only);
+                this.combineItem(itemName, requireCombineItem, only);
             }
         }
     };
@@ -388,7 +397,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
         }
 
 
-        this.moveItemsForward(factory.map);
+        this.moveItemsForward();
 
     };
 
@@ -430,21 +439,32 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
         return this.objects.length;
     };
 
-    this.moveItemsForward = function (map) {
+    this.forceMoveItemsForward = function () {
         for (var i = this.objects.length - 1; i >= 0; i--) {
-            this.objects[i].moveForwardOnTick(this.objects[i], this, map);
-            ;
+            this.objects[i].clearLastDirection();
 
+            this.objects[i].moveForwardOnTick(i, this, factory.map);
         }
     };
 
-    this.moveItemForward = function (i, map) {
-        this.objects[i].moveForwardOnTick(this.objects[i], this, map);
+    this.moveItemsForward = function () {
+        for (var i = this.objects.length - 1; i >= 0; i--) {
+            this.objects[i].moveForwardOnTick(i, this, factory.map);
+        }
     };
 
-    this.tickObjects = function (map) {
+    this.moveItemForward = function (i) {
+        this.objects[i].moveForwardOnTick(i, this, factory.map);
+    };
+
+    this.forceMoveItemForward = function (i) {
+        this.objects[i].clearLastDirection();
+        this.objects[i].moveForwardOnTick(i, this, factory.map);
+    };
+
+    this.tickObjects = function () {
         for (var i in this.objects) {
-            this.objects[i].onTick(this.objects[i], this, map);
+            this.objects[i].onTick(i, this, factory.map);
             this.objects[i].incLifeTime();
         }
 
@@ -492,7 +512,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
 
     this.onBuildInTick = function (object, map, game, factory) {
         if (this.canAutoPush && this.getVar('autoPush')){
-            this.moveItemsForward(map);
+            this.moveItemsForward();
         }
     };
     this.onInit(this, factory);

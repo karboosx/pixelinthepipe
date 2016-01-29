@@ -239,7 +239,7 @@ function Factory(name_, subname_, game_, x_, y_) {
 
                 if (!object.stop && object.powered()) {
                     if (object.canMveItemForward) {
-                        object.moveItemsForward(map);
+                        object.moveItemsForward();
                     }
                 }
 
