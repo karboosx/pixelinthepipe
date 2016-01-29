@@ -618,11 +618,15 @@ a {
 }
 
 .gui-select {
-    width: 88px;
-    background: url("../images/black.png");
+    background: #313744;
+    border:1px solid #a46333;
+    padding: 5px;
+    margin: 1px;
+    color:#fafafa;
     font-family: 'VT323', serif;
-    font-size: 1.1em;
+    font-size:1.2em;
 }
+
 
 .gui-full{
     width: 100%;
