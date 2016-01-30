@@ -268,6 +268,12 @@ function Factory(name_, subname_, game_, x_, y_) {
             }
         }
 
+        for (id in effects) {
+
+            var effect = effects[id];
+            effect.tick();
+        }
+
 
     };
 

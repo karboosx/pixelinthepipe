@@ -19,7 +19,7 @@
         <div id="text">
             <div class="centerBlock">
                 <div class="cell">
-                    <p>Created by Michał Karbowiak</p>
+                    <p style="font-size: 2em">Created by Michał Karbowiak</p>
 
                     <p>
                         <a href="https://twitter.com/karboosx">Twitter</a>

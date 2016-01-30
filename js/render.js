@@ -19,6 +19,21 @@ function Render(target_, cursor_) {
         moneyAnimation:undefined
     };
 
+    this.finishSetup = 'basic';
+
+    var finishSetup = {
+        basic:{
+            text:'Earned salary!',
+            subtext:'Your family can survive!',
+            image:'money.png'
+        },
+        home:{
+            text:'Earned kiss',
+            subtext:'?',
+            image:'gift.png'
+        }
+    };
+
     var data = {
         timerSec: 0
     };
@@ -196,6 +211,34 @@ function Render(target_, cursor_) {
         });
     };
 
+    this.showSalaryWindow = function () {
+        clearTimeout(timeouts.infoFactory);
+        $('#finish-text').html(finishSetup[this.finishSetup].text);
+        $('#finish-subtext').html(finishSetup[this.finishSetup].subtext);
+
+        var finishViewport = $('#finish-viewport');
+
+        finishViewport.fadeIn(500, function () {
+            timeouts.infoFactory = setTimeout(function () {
+                finishViewport.fadeOut(500, function () {
+                });
+            }, 3000);
+        });
+
+        finishViewport.unbind('click').click(function () {
+            $(this).fadeOut(500, function () {
+            });
+            clearTimeout(timeouts.infoFactory);
+        });
+    };
+
+    this.setFinishSetup = function (setup) {
+        if (typeof setup  == 'object'){
+            finishSetup['basic'] = setup;
+        }else {
+            this.finishSetup = setup;
+        }
+    };
 
     this.failWindow = function (message) {
 
@@ -266,6 +309,7 @@ function Render(target_, cursor_) {
                 this.startMoneyAnimation();
             } else {
                 $objective.html('<div class="text">No objectives</div>');
+                this.startMoneyAnimation();
             }
             this.stopRenderObjective = true;
             return;
@@ -301,10 +345,15 @@ function Render(target_, cursor_) {
 
             } else if (!$objectiveComplete.length) {
 
-                this.showFinishWindow(objective.name);
                 //$objective.append('<div class="center"><a href="#" class="gui-button objective-complete" data-objective="' + objective_id + '">Complete</a></div>');
                 //$objectiveComplete = $('.objective-complete');
                 game.getBehavior().completeObjective(game.getBehavior())();
+
+                if (game.noObjectives()){
+                    this.showSalaryWindow(objective.name);
+                }else{
+                    this.showFinishWindow(objective.name);
+                }
 
             } else {
                 this.hasToRefreshObjectives = true;
@@ -566,7 +615,6 @@ function Render(target_, cursor_) {
                 effect = effects[id];
 
                 this.renderEffect(game, effect);
-                effect.tick();
             }
         }
     };
@@ -645,7 +693,7 @@ function Render(target_, cursor_) {
 
         $($div).animate(data,this.moneyAnimationShowTime, this.moneyAnimationFunc());
         $($div+' .money').each(function () {
-            $(this).animate({rotate:0}, {
+            $(this).animate({rotate:5*parseInt($(this).data('deg'))}, {
                 step: function(now,fx) {
                     $(this).css('-webkit-transform','rotate('+now+'deg)');
                     $(this).css('-moz-transform','rotate('+now+'deg)');
@@ -675,6 +723,7 @@ function Render(target_, cursor_) {
     };
 
     this.startMoneyAnimation = function () {
+        $('.money').css({background:'url("images/'+finishSetup[this.finishSetup].image+'")'});
         this.moneyAnimation();
 
     }

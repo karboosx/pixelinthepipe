@@ -1026,7 +1026,7 @@ var factoryLevels = {
             factory.mark(3, 10, 'red');
             factory.placeObject(4, 10, 'pipe', true, false);
             factory.placeObject(2, 8, 'pin').text = 'Generate Hydrogen and Oxygen';
-            factory.placeObject(16, 2, 'pin').text = 'Collector who accept ONLY steam';
+            factory.placeObject(16, 2, 'pin').text = 'Collector will accept ONLY steam';
             factory.placeObject(2, 11, 'generator', true, false);
             factory.mark(2, 11, 'red');
             factory.placeObject(3, 11, 'block', true, false);
@@ -1066,7 +1066,7 @@ var factoryLevels = {
         subname: 'Final test!',
         difficult:'tutorial',
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[0]('steam', 10));
+            game.addObjective(objectivesPrefabs[0]('steam', 5));
         },
         nextFactory: 'stage1',
         itemsToGenerate: ['H', 'O'],
@@ -1095,13 +1095,14 @@ var factoryLevels = {
         },
         name: 'Editor Factory',
         subname: 'Feel free to create',
-        nextFactory: 'empty',
+        //nextFactory: 'empty',
         money:-1,
         allowSave:true,
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[1]({steam:100}));
+            game.addObjective(objectivesPrefabs[1]({steam:1}));
+            game.addObjective(objectivesPrefabs[1]({water:1}));
         },
-        itemsToGenerate: ['steam'],
+        itemsToGenerate: ['steam','water'],
     },
     stage1: {
         map: function (factory) {
@@ -1921,6 +1922,7 @@ var factoryLevels = {
             ]);
         },
         nextFactory: 'home2',
+        setup:'home',
         animation: [
             {text: 'Wakie Wakie honey!'},
             {text: 'I see you brought some staff from work...'},
@@ -2068,8 +2070,9 @@ var factoryLevels = {
         difficult:'easy',
         itemsToGenerate: ['water'],
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[2]({hotwater:{count:20,text:'Temperature'}},10));
+            game.addObjective(objectivesPrefabs[2]({hotwater:{count:1,text:'Temperature'}},10));
         },
+        setup:'home',
         nextFactory: 'new1_d',
         animation: [
             {text: 'Honey! It\'s really cold in here!'},
@@ -2080,10 +2083,10 @@ var factoryLevels = {
             {text: 'Well, everything except hot water in heater will cause explode.', linkText: 'OK! I get it!'},
 
         ],
-        tools:['pipe','info', 'block','deleter'],
+        tools:['pipe','info', 'block','deleter','filter'],
 		offset:{x:5,y:0},
         cookbook: ['water', 'ice', 'hotwater'],
-        money: 25,
+        money: 250,
         failMessage: 'Heater damaged!'
     },
     rep1: {

@@ -28,6 +28,7 @@ var imagesPath = [
 
     {name: 'sparks', src: 'images/effect-spark.png', frame: 4, size:3},
     {name: 'ok-effect', src: 'images/effect-ok.png', frame: 4, size:1},
+    {name: 'explosion', src: 'images/explosion-effect.png', frame: 6, size:3},
 
     /*
      Objects
@@ -167,6 +168,7 @@ var objectsData = {
         canStop: true,
         randomCombine:true,
         canAutoPush:true,
+        randomCombineCount:10,
         onTick: function (object, map) {
 
             var rand = 10;
@@ -373,7 +375,7 @@ var objectsData = {
                             game.addItemToStorage(object, i);
                             objectsToReturn.push(itemName);
                             object.registerEffect('ok-effect');
-                            return;
+                            return objectsToReturn;
                         }else {
                             object.moveItemForward(i);
                         }
@@ -397,7 +399,7 @@ var objectsData = {
         canStop: true,
         onTick: function (object, map, game) {
             var objects = objectsData.storage.onTick(object,map,game);
-            if (objects.length>0){
+            if (objects != undefined && objects.length>0){
                 for (var i = 0; i < objects.length; i++) {
                     object.addItem('water');
 
@@ -609,7 +611,7 @@ function Game(x_, y_, engine_) {
     this.hideObjectives = false;
 
     this.noObjectives = function () {
-        this.hideObjectives = true;
+        return objectives.length == 0;
     };
 
     this.setFactoryOffset = function (offset) {
@@ -673,6 +675,10 @@ function Game(x_, y_, engine_) {
 
     this.getRenderEngine = function () {
         return renderEngine;
+    };
+
+    this.setFinishSetup = function (setup) {
+        renderEngine.setFinishSetup(setup);
     };
 
     this.storageCount = function (name) {

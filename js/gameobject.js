@@ -329,10 +329,17 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
         var itemName = undefined;
 
         if (object.randomCombine != undefined && object.randomCombine == true) {
-            itemName = combineItemsKeys[combineItemsKeys.length * Math.random() << 0];
-            if (itemName != undefined)
-            this.combineItem(itemName, requireCombineItem, only);
+            var count = 1;
+            if (object.randomCombineCount != undefined) {
+                count = object.randomCombineCount;
+            }
 
+            for (; count >= 0; count--) {
+                itemName = combineItemsKeys[combineItemsKeys.length * Math.random() << 0];
+                if (itemName != undefined)
+                    this.combineItem(itemName, requireCombineItem, only);
+
+            }
         }else{
             for (itemName in selectedItems) {
 
@@ -496,7 +503,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
     this.checkIfFull = function (factory) {
         if (this.objects.length >= this.maxItems) {
             factory.deleteObject(this.x, this.y, true);
-            factory.placeObject(this.x, this.y, 'explosion');
+            factory.placeObject(this.x, this.y, 'explosion').registerEffect('explosion');
         }
 
     };

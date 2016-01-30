@@ -166,6 +166,9 @@
                 if (factoryLevels[factoryID]['failMessage'] != undefined) {
                     game.setFailMessage(factoryLevels[factoryID]['failMessage']);
                 }
+                if (factoryLevels[factoryID]['setup'] != undefined) {
+                    game.setFinishSetup(factoryLevels[factoryID]['setup']);
+                }
 
                 var $tools = $('#tools');
                 $tools.draggable({
