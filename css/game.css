@@ -270,12 +270,12 @@ select {
 
 #viewport2 {
     overflow: hidden;
-    height: 100vh;
-    width: 100vw;
+    height: calc(100vh - 35px);
+    width: calc(100vw - 8px);
     position: absolute;
-    z-index: 2;
+    z-index: 100000;
+    top: 27px;
     pointer-events: none;
-
 }
 
 #tools {
@@ -453,6 +453,9 @@ li.green {
     z-index: 200000;
 }
 
+.info-viewport{
+    cursor: default;
+}
 .info-viewport.green .info-screen {
     background: url("../images/info-green.png");
 }
@@ -732,4 +735,40 @@ td {
     color: #fafafa;
 }#nextday:hover{
     background: url("../images/stage-active.png");
+}
+#pauseInfo{
+    position: absolute;
+    width: 216px;
+    height: 108px;
+    left: calc((100vw - 216px) / 2);
+    top: 0;
+    z-index: 5000;
+    background: url("../images/stage-fancy.png");
+    line-height: 108px;
+    font-size: 2.5em;
+    text-align: center;
+    color: #fafafa;
+    pointer-events: none;
+}
+
+.moneys{
+    position: fixed;
+    top: calc((100vh - 396px) / 2);
+    z-index: 2000000;
+}
+
+#moneyLeft{
+    left:-162px;
+}
+#moneyRight{
+    right:0;
+}
+
+.money{
+    background:url("../images/money.png");
+    width: 162px;
+    height: 396px;
+    position: absolute;
+    top:0;
+    left:0;
 }

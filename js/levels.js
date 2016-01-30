@@ -66,7 +66,7 @@ var factoryLevels = {
         subname: 'Basics',
         itemsToGenerate: ['H'],
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[0]('H', 10));
+            game.addObjective(objectivesPrefabs[0]('H', 1));
         },
         nextFactory: 'tutorial2',
         tools: ['pipe', 'info'],
@@ -1837,7 +1837,7 @@ var factoryLevels = {
             factory.getGame().getRenderEngine().changeBackground('background2');
             factory.createBaseFloor();
             factory.placeObject(5, 9, 'generator', true, false, {items:['coffeebeans', 'sugar']});
-            factory.placeObject(10, 9, 'generator', true, false, {items:['water']});
+            factory.placeObject(10, 9, 'generator', true, false, {items:['coffee']});
             factory.mark(5,9,'red');
             factory.placeObject(6,9,'block',true,false);
             factory.mark(6,9,'red');

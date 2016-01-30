@@ -71,11 +71,17 @@ function IntroAnimation(selector,animation,fadeIn,fadeOut){
     };
 
 
-    console.log(this.getAnimation());
+    this.isEnd = function () {
+        return currentFrame == animationLength - 1;
+    };
 
     var functionNextFrame = function (introAnimation){
         return function(){
-            introAnimation.nextFrame();
+            if (introAnimation.isEnd()){
+                $('#cardpad').fadeOut();
+            }else {
+                introAnimation.nextFrame();
+            }
         }
     };
 

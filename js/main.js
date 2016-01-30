@@ -160,7 +160,7 @@
                         cardpad.fadeOut(200);
                     });
                 }else{
-                    $('#cardpad').hide();
+                    $('#cardpad').fadeOut();
                 }
 
                 if (factoryLevels[factoryID]['failMessage'] != undefined) {

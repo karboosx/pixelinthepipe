@@ -130,6 +130,7 @@ function Objective(data, animation) {
     this.showAnimation = function (aniamtion) {
         if (this.animationInstance == undefined)
             this.animationInstance = new IntroAnimation('#storyscreen', aniamtion);
+            $('#cardpad').show();
     }
 
 }

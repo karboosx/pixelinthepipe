@@ -1,5 +1,5 @@
 var items = {
-    ice: {name: 'Ice', type: 'solid', combine: {water: 1, cold: 1}, separate: {water: 1}, combineDevice: 'freezer'},
+    ice: {name: 'Ice', type: 'solid', combine: {water: 1, cold: 1}, separate: {water: 1}, combineDevice: 'freezer',lifetime:200,lifetimeItem:'water'},
     water: {name: 'Water', type: 'liquid', combine: {H: 2, O: 1}, separate: {H: 2, O: 1}, transportType: 'pipe'},
     hotwater: {name: 'Hot Water', type: 'liquid', combine: {lowheat: 1, water: 1}, combineAdditionalItem: {}, transportType: 'pipe', combineDevice: 'fireplace',lifetime:200,lifetimeItem:'water'},
     H: {name: 'Hydrogen', type: 'gas', transportType: 'pipe'},
@@ -136,6 +136,13 @@ function Item(object, item) {
             return this.lifetime >= itemData['lifetime'];
         else
             return false;
+    };
+
+    this.getLastDirection = function () {
+        return lastDirection;
+    };
+    this.setLastDirection = function (direction) {
+        lastDirection=direction;
     };
 
     this.shuffle = function (o){

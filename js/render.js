@@ -15,7 +15,8 @@ function Render(target_, cursor_) {
         errorMoney: undefined,
         timer: undefined,
         infoFactory: undefined,
-        errorObjectCountReached:undefined
+        errorObjectCountReached:undefined,
+        moneyAnimation:undefined
     };
 
     var data = {
@@ -155,12 +156,6 @@ function Render(target_, cursor_) {
         if (this.hasToRefreshObjectives)
             this.renderObjective(game, 0);
 
-        if (gameOptions.pause && gameOptions.pauseBorder) {
-            $('#viewport2').css('border', '4px solid red');
-        } else {
-            $('#viewport2').css('border', 'none');
-        }
-
     };
 
     this.renderFactoryInfo = function (game, type) {
@@ -193,6 +188,11 @@ function Render(target_, cursor_) {
             timeouts.infoFactory = setTimeout(function () {
                 finishViewport.fadeOut(500);
             }, 3000);
+        });
+
+        finishViewport.click(function () {
+            $(this).fadeOut(500);
+            timeouts.infoFactory = undefined;
         });
     };
 
@@ -262,7 +262,8 @@ function Render(target_, cursor_) {
                     '<a href="factory_' + game.nextFactory + '.html" class="button objective-complete">Next Day</a>');
                     $objectiveWindow.addClass('green');
 
-                $('#nextday').attr('href','factory_' + game.nextFactory + '.html').animate({top:0},500);
+                $('#nextday').attr('href','factory_' + game.nextFactory + '.html').animate({top:0},1500,'easeOutBounce');
+                this.startMoneyAnimation();
             } else {
                 $objective.html('<div class="text">No objectives</div>');
             }
@@ -614,5 +615,68 @@ function Render(target_, cursor_) {
 
 
     };
+
+    this.moneyAnimationShowStatus = false;
+    this.moneyAnimationShowTime = 1000;
+    this.moneyAnimationShowTimeStart = 500;
+
+    this.moneyAnimationShow = function ($div,dir,up) {
+        var that = this;
+        var data = {};
+        data[dir] = -30+parseInt($($div).data('offset'));
+        $($div).animate(data,this.moneyAnimationShowTime, this.moneyAnimationFunc());
+
+        $($div+' .money').each(function () {
+            $(this).animate({rotate:20*parseInt($(this).data('deg'))}, {
+                step: function(now,fx) {
+                    $(this).css('-webkit-transform','rotate('+now+'deg)');
+                    $(this).css('-moz-transform','rotate('+now+'deg)');
+                    $(this).css('transform','rotate('+now+'deg)');
+                }
+                ,
+                duration:that.moneyAnimationShowTime});
+        });
+    };
+
+    this.moneyAnimationHide = function ($div,dir) {
+        var that = this;
+        var data = {};
+        data[dir] = -50+parseInt($($div).data('offset'));
+
+        $($div).animate(data,this.moneyAnimationShowTime, this.moneyAnimationFunc());
+        $($div+' .money').each(function () {
+            $(this).animate({rotate:0}, {
+                step: function(now,fx) {
+                    $(this).css('-webkit-transform','rotate('+now+'deg)');
+                    $(this).css('-moz-transform','rotate('+now+'deg)');
+                    $(this).css('transform','rotate('+now+'deg)');
+                }
+                ,
+                duration:that.moneyAnimationShowTime});
+        });
+    };
+
+    this.moneyAnimationFunc = function () {
+        var that = this;
+        return function (){
+            that.moneyAnimation();
+        }
+    };
+
+    this.moneyAnimation = function () {
+        if (this.moneyAnimationShowStatus){//is show
+            this.moneyAnimationHide('#moneyLeft','left');
+            this.moneyAnimationHide('#moneyRight','right');
+        }else{
+            this.moneyAnimationShow('#moneyLeft','left');
+            this.moneyAnimationShow('#moneyRight','right');
+        }
+        this.moneyAnimationShowStatus = !this.moneyAnimationShowStatus;
+    };
+
+    this.startMoneyAnimation = function () {
+        this.moneyAnimation();
+
+    }
 
 }

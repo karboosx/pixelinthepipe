@@ -59,6 +59,14 @@ function GameBehavior(game, factory) {
             if (e.keyCode == 0 || e.keyCode == 32) {
                 gameOptions.pause = !gameOptions.pause;
                 gameOptions.pauseForce = gameOptions.pause;
+
+                if (gameOptions.pause && gameOptions.pauseBorder) {
+                    $('#viewport2').css('border', '4px dashed #FBBA3C');
+                    $('#pauseInfo').animate({top:0},100);
+                } else {
+                    $('#viewport2').css('border', 'none');
+                    $('#pauseInfo').animate({top:-108},100);
+                }
             }
         });
 

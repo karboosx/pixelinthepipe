@@ -474,8 +474,9 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
             if (this.objects[i].checkIfDead()){
                 if (this.objects[i].lifetimeItem != undefined){
                     var newItem = this.objects[i].lifetimeItem;
+                    var lastDirection = this.objects[i].getLastDirection();
                     this.deleteItem(i);
-                    this.addItem(newItem);
+                    this.addItem(newItem).setLastDirection(lastDirection);
                 }else{
                     this.deleteItem(i);
                 }
@@ -487,7 +488,9 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
 
     this.addItem = function (item, ref) {
         if (ref == undefined) ref = this.objects;
-        ref.push(new Item(this, item));
+        var newitem = new Item(this, item)
+        ref.push(newitem);
+        return newitem;
     };
 
     this.checkIfFull = function (factory) {
@@ -567,7 +570,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
 
     };
 
-    this.nextFrame = function (map) {
+    this.nextFrame = function () {
         if (this.image != null && this.image != undefined) {
             if (imagesData[this.image].patch9 == undefined) {
                 if (this.frameDelay == 0) {
@@ -587,7 +590,7 @@ function GameObject(x, y, object, factory, name, destructable, gravity, addition
         }
     };
 
-    this.calculatePatch9 = function (map) {
+    this.calculatePatch9 = function () {
         if (this.image != null && this.image != undefined) {
             if (imagesData[this.image].patch9 != undefined) {
                 var left = this.patch9.left;

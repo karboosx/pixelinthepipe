@@ -51,6 +51,7 @@
 
 </div>
 <a id="nextday" style="top: -108px;">Next Day</a>
+<a id="pauseInfo" style="top: -108px;">Pause</a>
 	<div id="top">
 		<a href="index.html" class="button">
 			Back to menu
@@ -144,10 +145,23 @@
 	<div id="cardpad">
 		<div id="closecardpard" class="close"></div>
 		<div id="storyscreen" class="hide">
-			<div id="text">No text</div>
+			<div id="text" style=" height: 196px;">No text</div>
 			<a id="nextFrame" href="#">NEXT</a>
 		</div>
 	</div>
+
+	<div class="moneys" id="moneyLeft" data-offset="0" data-dir="left">
+		<div class="money" data-deg="1"></div>
+		<div class="money" data-deg="2"></div>
+		<div class="money" data-deg="3"></div>
+	</div>
+
+	<div class="moneys" id="moneyRight" data-offset="140" data-dir="right">
+		<div class="money" data-deg="-1"></div>
+		<div class="money" data-deg="-2"></div>
+		<div class="money" data-deg="-3"></div>
+	</div>
+
 
     <div id="viewport2"></div>
     <div id="viewport">

@@ -142,3 +142,19 @@ label{
     width:100px;
     display: inline-block;
 }
+
+.ornament{
+    position: fixed;
+    width: 85px;
+    height: 440px;
+    top:calc((100vh - 440px) /2 );
+}
+
+.ornament.left{
+    left:0;
+    background: url("../images/index-ornament-left.png");
+}
+.ornament.right{
+    right:0;
+    background: url("../images/index-ornament-right.png");
+}
