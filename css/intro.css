@@ -4,50 +4,45 @@ body {
     font-family: 'VT323', serif;
     color: #fafafa;
 }
-#viewport::before{
-    content: ' ';
-    position: absolute;
-    height: 24px;
-    width: 650px;
-    background: url("../images/bg-top.png");
-    margin-top: -24px;
 
-}
-#viewport::after{
-    content: ' ';
+.main{
+    height: 391px;
+    width: 700px;
     position: absolute;
-    height: 24px;
-    width: 650px;
-    background: url("../images/bg-bottom.png");
-    margin-bottom: -24px;
-    bottom:0;
-
+    left: calc((100vw - 703px) / 2);
+    /*top: calc((100vh - 448px) / 2);*/
 }
+
 
 #viewport {
-    background: url("../images/bg-middle.png");
-    width: 650px;
     min-height: 200px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 54px;
-    margin-bottom: 54px;
+    margin-top: 16px;
+    margin-bottom: 14px;
     position: relative;
+    border-image: url(../images/bg-border.png) 24 round;
+    border: 24px solid transparent;
+    padding: 2px;
+    -webkit-border-image: url(../images/bg-border.png) 24 round;
+    -o-border-image: url(../images/bg-border.png) 24 round;
 }
 
 .text {
-    margin: 20px;
+    margin: 5px;
     font-size: 2em;
 }
 
 .text a {
     padding: 0.3em;
+    margin-bottom: 2px;
 }
 
 h1 {
     text-align: center;
     color: #b8b8b8;
     font-size: 3em;
+    margin: 0;
 }
 .error {
     text-align: center;
@@ -73,7 +68,7 @@ a {
     text-align: center;
     font-size: 1em;
     color: #ffffff;
-    margin: 8px;
+    margin: 1px;
 }
 
 a:hover{
@@ -81,9 +76,7 @@ a:hover{
 }
 
 .centerBlock {
-    float: right;
     width: 100%;
-    height: 200px;
     display: table;
 }
 
@@ -112,20 +105,27 @@ a:hover{
 }
 
 .input {
-    background: #313744;
-    border:1px solid #a46333;
-    padding: 5px;
+    background: rgba(0, 0, 0, 0);
     margin: 5px;
     color:#fafafa;
     font-family: 'VT323', serif;
     font-size:2em;
+    border-image: url(../images/stage-border.png) 12 round;
+    border: 12px solid transparent;
+    padding: 2px;
+    -webkit-border-image: url(../images/stage-border.png) 12 round;
+    -o-border-image: url(../images/stage-border.png) 12 round;
 }
 
 .input-button{
     cursor: pointer;
 }
 .input-button:hover {
-    background: #1d2830;
+    border-image: url(../images/stage-active-border.png) 12 round;
+    border: 12px solid transparent;
+    padding: 2px;
+    -webkit-border-image: url(../images/stage-active-border.png) 12 round;
+    -o-border-image: url(../images/stage-active-border.png) 12 round;
 }
 
 textarea.input{
@@ -158,3 +158,29 @@ label{
     right:0;
     background: url("../images/index-ornament-right.png");
 }
+
+.newgame a{
+    font-size: 2em;
+    background: url("../images/stage.png");
+    width: 216px;;
+    height:108px;
+    line-height: 106px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.newgame a:hover{
+    background: url("../images/stage-active.png");
+}
+
+.stage-border{
+    border-image: url(../images/stage-border.png) 12 round;
+    border: 12px solid transparent;
+    padding: 12px;
+    -webkit-border-image: url(../images/stage-border.png) 12 round;
+    -o-border-image: url(../images/stage-border.png) 12 round;
+}.stage-border:hover {
+     border-image: url(../images/stage-active-border.png) 12 round;
+     -webkit-border-image: url(../images/stage-active-border.png) 12 round;
+     -o-border-image: url(../images/stage-active-border.png) 12 round;
+ }

@@ -28,8 +28,8 @@ function Render(target_, cursor_) {
             image:'money.png'
         },
         home:{
-            text:'Earned kiss',
-            subtext:'?',
+            text:'Earned kisses!',
+            subtext:'Your wife is pleased',
             image:'gift.png'
         }
     };

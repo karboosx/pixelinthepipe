@@ -981,7 +981,7 @@ var factoryLevels = {
         itemsToGenerate: ['H', 'O'],
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[1]({
-                steam: 10
+                steam: 4
             }));
         },
         nextFactory: 'tutorial5',
@@ -1838,7 +1838,7 @@ var factoryLevels = {
             factory.getGame().getRenderEngine().changeBackground('background2');
             factory.createBaseFloor();
             factory.placeObject(5, 9, 'generator', true, false, {items:['coffeebeans', 'sugar']});
-            factory.placeObject(10, 9, 'generator', true, false, {items:['coffee']});
+            factory.placeObject(10, 9, 'generator', true, false, {items:['water']});
             factory.mark(5,9,'red');
             factory.placeObject(6,9,'block',true,false);
             factory.mark(6,9,'red');
@@ -2070,7 +2070,7 @@ var factoryLevels = {
         difficult:'easy',
         itemsToGenerate: ['water'],
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[2]({hotwater:{count:1,text:'Temperature'}},10));
+            game.addObjective(objectivesPrefabs[2]({hotwater:{count:21,text:'Temperature'}},10));
         },
         setup:'home',
         nextFactory: 'new1_d',

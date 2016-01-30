@@ -162,7 +162,7 @@ var objectsData = {
         type: 'fireplace',
         image: 'fireplace1',
         randomFrame: true,
-        input: io('all'),
+        input: io('not-top'),
         output: io('top'),
         cost: 20,
         canStop: true,

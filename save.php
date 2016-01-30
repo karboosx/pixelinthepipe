@@ -10,7 +10,7 @@
 
 	<link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="main">
 <h1><a href="index.html">Pixel in the Pipe!</a></h1>
 
 <h2>Save level</h2>

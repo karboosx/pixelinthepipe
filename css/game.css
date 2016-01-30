@@ -200,14 +200,17 @@ select {
     color: #f2f2f2;
     font-size: 1.3em;
     font-family: 'VT323', serif;
-    background: url("../images/gui-text.png");
-    border: 5px solid #3a3a3a;
-    margin: 5px;
-    padding: 2px;
-    min-width: 247px;
-    max-width: 247px;
+    margin: 0;
+    min-width: 242px;
+    max-width: 257px;
     min-height: 97px;
     max-height: 97px;
+    border-image: url(../images/stage-border.png) 12 round;
+    border: 12px solid transparent;
+    padding: 2px;
+    -webkit-border-image: url(../images/stage-border.png) 12 round;
+    -o-border-image: url(../images/stage-border.png) 12 round;
+    background: rgba(0, 0, 0, 0);
 }
 
 #jsonShow textarea {
@@ -624,15 +627,27 @@ a {
 }
 
 .gui-select {
-    background: #313744;
-    border:1px solid #a46333;
-    padding: 5px;
     margin: 1px;
     color:#fafafa;
     font-family: 'VT323', serif;
     width: 85px;
+    border-image: url(../images/stage-border.png) 12 round;
+    border: 12px solid transparent;
+    padding: 2px;
+    -webkit-border-image: url(../images/stage-border.png) 12 round;
+    -o-border-image: url(../images/stage-border.png) 12 round;
+    background: rgba(0, 0, 0, 0);
+    margin-left: 1px;
+    margin-top: -3px;
+    margin-right: 0px;
+    margin-bottom: -3px;
 }
 
+.gui-select.active{
+    border-image: url(../images/stage-active-border.png) 12 round;
+    -webkit-border-image: url(../images/stage-active-border.png) 12 round;
+    -o-border-image: url(../images/stage-active-border.png) 12 round;
+}
 
 .gui-full{
     width: 100%;
@@ -722,19 +737,19 @@ td {
 
 #nextday{
     position: absolute;
-    width: 216px;
-    height: 108px;
-    left: calc((100vw - 216px) / 2);
+    width: 252px;
+    height: 126px;
+    left: calc((100vw - 252px) / 2);
     top: 0;
     z-index: 5000;
-    background: url("../images/stage.png");
+    background: url("../images/stage-purpura.png");
     line-height: 108px;
     font-size: 2.5em;
     text-align: center;
     cursor: pointer;
     color: #fafafa;
 }#nextday:hover{
-    background: url("../images/stage-active.png");
+    background: url("../images/stage-purpura-active.png");
 }
 #pauseInfo{
     position: absolute;

@@ -11,7 +11,9 @@
 
     <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="main">
+<div class="ornament left"></div>
+<div class="ornament right"></div>
 <h1><a href="index.html">Pixel in the Pipe!</a></h1>
 
 <div id="viewport">

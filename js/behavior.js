@@ -153,6 +153,12 @@ function GameBehavior(game, factory) {
 
                     object.setVar(select.data('direction'), select.val());
                 }
+                console.log(select.val());
+                if (select.val() != '-'){
+                    select.addClass('active');
+                }else{
+                    select.removeClass('active');
+                }
             };
             var select_click_item = function () {
                 var select = $(this);
@@ -219,10 +225,10 @@ function GameBehavior(game, factory) {
                     var alfabet = object.getVar('alfabet');
 
                     if (left && right && top && bottom && alfabet) {
-                        var $left = $('#info-left').html('').data('x', x).data('y', y).data('direction', 'left');
-                        var $right = $('#info-right').html('').data('x', x).data('y', y).data('direction', 'right');
-                        var $top = $('#info-top').html('').data('x', x).data('y', y).data('direction', 'top');
-                        var $bottom = $('#info-bottom').html('').data('x', x).data('y', y).data('direction', 'bottom');
+                        var $left = $('#info-left').html('').data('x', x).data('y', y).data('direction', 'left').removeClass('active');
+                        var $right = $('#info-right').html('').data('x', x).data('y', y).data('direction', 'right').removeClass('active');
+                        var $top = $('#info-top').html('').data('x', x).data('y', y).data('direction', 'top').removeClass('active');
+                        var $bottom = $('#info-bottom').html('').data('x', x).data('y', y).data('direction', 'bottom').removeClass('active');
 
                         for (var i in alfabet) {
                             $left.append('<option value="' + i + '" ' + (i == left ? ' selected="selected"' : '') + '>' + alfabet[i].name + '</option>');
@@ -230,6 +236,10 @@ function GameBehavior(game, factory) {
                             $top.append('<option value="' + i + '" ' + (i == top ? ' selected="selected"' : '') + '>' + alfabet[i].name + '</option>');
                             $bottom.append('<option value="' + i + '" ' + (i == bottom ? ' selected="selected"' : '') + '>' + alfabet[i].name + '</option>');
 
+                            if (i == left && i != '-') $left.addClass('active');
+                            if (i == right && i != '-') $right.addClass('active');
+                            if (i == top && i != '-') $top.addClass('active');
+                            if (i == bottom && i != '-') $bottom.addClass('active');
                         }
                     }
 

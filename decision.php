@@ -13,7 +13,7 @@
 	<meta name="factory" content="<?php echo(isset($_GET['factory']) ? $_GET['factory'] : 'tutorial1'); ?>">
     <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="main">
 <h1><a href="index.html">Pixel in the Pipe!</a></h1>
 
 <h2>Make a decision!</h2>
