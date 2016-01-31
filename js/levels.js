@@ -66,7 +66,7 @@ var factoryLevels = {
         subname: 'Basics',
         itemsToGenerate: ['H'],
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[0]('H', 1));
+            game.addObjective(objectivesPrefabs[0]('H', 10));
         },
         nextFactory: 'tutorial2',
         tools: ['pipe', 'info'],
@@ -76,9 +76,9 @@ var factoryLevels = {
                 text: 'Hello worker. Before you go to work, you have to pass this training.<br>' +
                 'On our first lesson we will be learn how to build a pipe!'
             },
-            {text: 'On left side of our screen, in Objects window, you can see objects that you can build.'},
-            {text: 'Now, there is only a pipe, but don\'t worry. Next objects and tools will be appear later :)'},
-            {text: 'OK. Look on the factory map. I pin some text for you, to better understand where everything is.'},
+            {text: 'On left side of your screen, in Tools window, you can see objects that you can build.'},
+            {text: 'Now, there is only a pipe and wrench, but don\'t worry. Next objects and tools will be appear later :)'},
+            {text: 'OK. Look on the factory map. I pin some text for you, for better understand where everything is.'},
             {
                 text: 'Look at Hydrogen generator. It produce Hydrogen, you can check that by hover mouse on\n' +
                 'bubbles coming from it.'
@@ -86,7 +86,7 @@ var factoryLevels = {
             {text: 'Now, using pipe, connect generator to collector above. Some pipe was already made.'},
             {
                 text: 'Your goal is to collect 10 hydrogen in collector. As soon as you reach it, you can click\n' +
-                '"Next Day" button in Objectives window to go to next training factory.'
+                '"Next Day" button to go to next training factory.'
             },
 			{text:'Quick instruction: <br>Construction selected object - Left mouse button'},
 			{text:'Remove object/Disconnect pipe - Right mouse button'},
@@ -309,7 +309,7 @@ var factoryLevels = {
             {text: 'Look at the factory map. As you can see, there is two generators. One is produce hydrogen and another oxygen.'},
             {text: 'As probably everyone knows, water is H2O. So, let\'s combine two elements of hydrogen and one element of oxygen.'},
             {text: 'To do that, we provide you super advanced Element Combiner!'},
-            {text: 'Connect both generators to combiner and look how water will be make :)'},
+            {text: 'Connect both generators to combiner and look how water will be made :)'},
             {text: 'After collecting 5 elements of water, click "Next Day" for next tutorial.'},
             {text: 'And remember! Items remain in combiner until it can by combine to something new.'},
             {text: 'You can use plunger to push remaining items from combiner to pipe.'},
@@ -1076,7 +1076,6 @@ var factoryLevels = {
             {text: 'This is your final test! Now, you\'re on your own.'},
             {text: 'But don\'t worry, it\'s not hard test. In fact, you do exact same last time :)'},
             {text: 'So, show me that you know everything about making steam!'},
-            {text: 'Shall we?'},
             {
                 text: 'Quick tips: Generators produce randomly oxygen and hydrogen.<br>' +
                 'Object have input ond output. Remember to put pipe on appropriate side.<br>' +

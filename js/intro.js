@@ -2,7 +2,7 @@ $(function () {
     var animation = [
         {
             background: '1.png',
-            text: 'Oh. Hello. Are you looking for some good game? If yes, you came to right place.',
+            text: 'Oh, hello. Are you looking for good game? If yes, you came to the right place.',
             align: 'center'
         },
         {
@@ -17,7 +17,7 @@ $(function () {
         },
         {
             background: '1.png',
-            text: 'Eee... I think that is not right story. You now what, maybe I skip that part and go straight to the point.',
+            text: 'Eee... I think that is not the right story. You now what, maybe I skip that part and go straight to the point.',
             align: 'center'
         },
         {
