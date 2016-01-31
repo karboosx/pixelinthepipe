@@ -66,34 +66,33 @@ var factoryLevels = {
         subname: 'Basics',
         itemsToGenerate: ['H'],
         objectives: function (game, factory) {
-            game.addObjective(objectivesPrefabs[0]('H', 10));
+            game.addObjective(objectivesPrefabs[0]('H', 5));
         },
         nextFactory: 'tutorial2',
         tools: ['pipe', 'info'],
-        offset:{x:5,y:0},
+        		offset:{x:5,y:0},
         animation: [
             {
                 text: 'Hello worker. Before you go to work, you have to pass this training.<br>' +
-                'On our first lesson we will be learn how to build a pipe!'
+                'On our first lesson we will learn how to build a pipe!'
             },
-            {text: 'On left side of your screen, in Tools window, you can see objects that you can build.'},
-            {text: 'Now, there is only a pipe and wrench, but don\'t worry. Next objects and tools will be appear later :)'},
-            {text: 'OK. Look on the factory map. I pin some text for you, for better understand where everything is.'},
+            {text: 'On left side of our screen, in Objects window, you can see objects that you can build.'},
+            {text: 'Now, there is only a pipe, but don\'t worry. Next objects and tools will be appear later :)'},
+            {text: 'OK. Look on the factory map. I pinned some text for you, for better understanding where everything is.'},
             {
-                text: 'Look at Hydrogen generator. It produce Hydrogen, you can check that by hover mouse on\n' +
-                'bubbles coming from it.'
+                text: 'Look at Hydrogen generator. It produce Hydrogen, you can check that by hovering mouse on\n' +
+                'bubbles are coming from it.'
             },
             {text: 'Now, using pipe, connect generator to collector above. Some pipe was already made.'},
             {
-                text: 'Your goal is to collect 10 hydrogen in collector. As soon as you reach it, you can click\n' +
-                '"Next Day" button to go to next training factory.'
+                text: 'Your goal is to collect 5 hydrogen in collector. As soon as you reach it, you can click\n' +
+                '"Next Day" button in Objectives window to go to next training factory.'
             },
-			{text:'Quick instruction: <br>Construction selected object - Left mouse button'},
+			{text:'Quick instruction: Construct selected object - Left mouse button'},
 			{text:'Remove object/Disconnect pipe - Right mouse button'},
 			{text:'Move map - Middle mouse button'},
 			{text:'Good luck!'},
-        ],
-        cookbook:['H']
+        ]
     },
     tutorial2: {
         map: function (factory) {
@@ -305,12 +304,12 @@ var factoryLevels = {
         tools: ['pipe', 'info','pusher'],
 		offset:{x:5,y:0},
         animation: [
-            {text: 'Second lesson! Yey! Today, we will be learning how to combine different elements.'},
-            {text: 'Look at the factory map. As you can see, there is two generators. One is produce hydrogen and another oxygen.'},
+            {text: 'Second lesson! Yey! Today, we will learn how to combine different elements.'},
+            {text: 'Look at the factory map. As you can see, there are two generators. One is produce hydrogen and another oxygen.'},
             {text: 'As probably everyone knows, water is H2O. So, let\'s combine two elements of hydrogen and one element of oxygen.'},
             {text: 'To do that, we provide you super advanced Element Combiner!'},
-            {text: 'Connect both generators to combiner and look how water will be made :)'},
-            {text: 'After collecting 5 elements of water, click "Next Day" for next tutorial.'},
+            {text: 'Connect both generators to combiner and look how water is made :)'},
+            {text: 'After collecting 10 elements of water, click "Next Day" for next tutorial.'},
             {text: 'And remember! Items remain in combiner until it can by combine to something new.'},
             {text: 'You can use plunger to push remaining items from combiner to pipe.'},
         ],
@@ -451,7 +450,7 @@ var factoryLevels = {
                 text: 'There is a water generator, or water pump as you will.\n' +
                 'Connect it to fireplace to boil water.'
             },
-            {text: 'That all! Collect only 5 steam element and go to next day.'},
+            {text: 'That\'s all! Collect only 5 steam element and go to next day.'},
         ],
         cookbook: ['water', 'H', 'O', 'steam','hotwater']
     },
@@ -988,10 +987,10 @@ var factoryLevels = {
         tools: ['pipe', 'info'],
 		offset:{x:5,y:0},
         animation: [
-            {text: 'It\'s time for our last lesson! Finally, we will be learning how to use filters!'},
+            {text: 'It\'s time for our last lesson! Finally, we will learn how to use filters!'},
             {text: 'Filter can block some elements, and pass elements that you want to go on specific direction.'},
             {text: 'Select "Wrench" tool from tools window on left side and click on the filter.'},
-            {text: 'It\'s weirdly blinking thing on top of the map.'},
+            {text: 'It\'s that weirdly blinking thing on top of the map.'},
             {text: 'To limit some output of filter for example to steam, select it from the list.'},
             {
                 text: 'Just remember! This collectors accept only specific items! If you put wrong item into it,\n' +
@@ -1074,11 +1073,12 @@ var factoryLevels = {
 		offset:{x:5,y:0},
         animation: [
             {text: 'This is your final test! Now, you\'re on your own.'},
-            {text: 'But don\'t worry, it\'s not hard test. In fact, you do exact same last time :)'},
+            {text: 'But don\'t worry, it\'s not gonna be hard. In fact, you did exactly the same last time :)'},
             {text: 'So, show me that you know everything about making steam!'},
+            {text: 'Shall we?'},
             {
                 text: 'Quick tips: Generators produce randomly oxygen and hydrogen.<br>' +
-                'Object have input ond output. Remember to put pipe on appropriate side.<br>' +
+                'Object have input ond output. Remember to put a pipe on appropriate side.<br>' +
                 'Cookbook can be very helpful. If you have any trouble, answer is probably there :)'
             },
             {text: '[whisper] One more tip: Spacebar is pause!'},
@@ -1201,10 +1201,10 @@ var factoryLevels = {
 		offset:{x:5,y:0},
         animation: [
             {text: 'Hello again worker! Welcome in your first day of work.'},
-            {text: 'Glad you complete final exam!'},
+            {text: 'Glad you\'ve completed final exam!'},
             {text: 'From now on, I\'m your manager.'},
             {text: 'Here is your task for today:'},
-            {text: 'Our water pump was damaged, and some oxygen getting into pipe.'},
+            {text: 'Our water pump was damaged, and some oxygen is getting into pipe.'},
             {text: 'You have to filter water and destroy oxygen.'},
             {text: 'Unfortunately we don\'t have any filters.'},
             {text: 'Maybe use somehow gravity or look to cookbook on right top corner of the screen. It\'s very helpful.'},
@@ -1322,7 +1322,7 @@ var factoryLevels = {
         nextFactory: 'stage3',
         animation: [
             {text: 'Crisis alert! Our ice cream machine is broken, and there are kids waiting for their ice-cream!!'},
-            {text: 'We have to fix this, and quick!'},
+            {text: 'We have to fix this quickly!'},
             {text: 'Here! Make some useful thing using separator and freezer!'},
             {text: 'Quick info: Separator tears items on parts. Useful for making juice ;)'},
             {text: 'And freezer, well... freeze staff :)'},
@@ -1718,7 +1718,7 @@ var factoryLevels = {
         animation: [
             {text: 'Hmmm... Is\'t very odd... It seams that we don\'t have any issue. Hmm...'},
             {text: 'Well, never mind! Task for you:'},
-            {text: 'Today you will be cook!'},
+            {text: 'Today you will cook!'},
             {text: 'Our client require 15 bread. And you have amazing opportunity to do it :)'},
             {text: 'Here is your cook cap. Back to work!'},
             {text: 'Aaaaa! Now I find missing issue! We don\'t a lot of money.'},
@@ -1819,8 +1819,8 @@ var factoryLevels = {
         animation: [
             {text: 'Hey! Tomorrow is your first 2 day vacation!'},
             {text: 'I hope you are exiting for this little break!'},
-            {text: 'Ok, back to business. Last time you was baked bread, right?', linkText: 'My bread was awesome!'},
-            {text: 'Sure, sure... no one remember that muddy bread you did.'},
+            {text: 'Ok, back to business. Last time you baked bread, right?', linkText: 'Right! My bread was awesome!'},
+            {text: 'Sure, sure... no one remembers that muddy bread you did.'},
             {text: 'But anyway, since we have fully operational bakery, our company wants to start selling sandwiches!'},
             {text: 'Once again, you will be responsible for that.'},
             {text: 'And remember: it\'s hard to make a good sandwich.'},
@@ -1829,7 +1829,7 @@ var factoryLevels = {
         ],
         cookbook: ['bread', 'goodbread', 'slicebread', 'goodslicebread', 'ham', 'sliceham', 'tomato', 'slicetomato', 'cheese', 'slicecheese'],
         money: 500,
-        failMessage: 'Is\'s awful! Try again! Remember to use good bread.'
+        failMessage: 'That again tastes like mud! Try again! Remember to use good bread.'
     },
     home1: {
         map: function (factory) {
@@ -2071,15 +2071,14 @@ var factoryLevels = {
         objectives: function (game, factory) {
             game.addObjective(objectivesPrefabs[2]({hotwater:{count:21,text:'Temperature'}},10));
         },
-        setup:'home',
         nextFactory: 'new1_d',
         animation: [
             {text: 'Honey! It\'s really cold in here!'},
             {text: 'I think heater was broken.'},
             {text: 'Could you check it and fix it?', linkText: 'Sure!'},
             {text: 'Just heat some water and put it into heater'},
-            {text: 'Oh! Remember that steam in heater may cause explode!', linkText: 'OK....'},
-            {text: 'Well, everything except hot water in heater will cause explode.', linkText: 'OK! I get it!'},
+            {text: 'Oh! Remember that steam in heater may cause explosion!', linkText: 'OK....'},
+            {text: 'Well, everything except hot water in heater will cause explosion.', linkText: 'OK! I get it!'},
 
         ],
         tools:['pipe','info', 'block','deleter','filter'],
@@ -2268,7 +2267,7 @@ var factoryLevels = {
         },
         nextFactory: 'rep2_d',
         animation: [
-            {text: 'Your production line waiting for you. Move it!', linkText:'Yes, yes...'},
+            {text: 'Your production line is waiting for you. Move it!', linkText:'Yes, yes...'},
         ],
         tools:['pusher'],
 		offset:{x:5,y:0},
@@ -2289,7 +2288,7 @@ var factoryLevels = {
         },
         nextFactory: 'rep3',
         animation: [
-            {text: 'Your production line waiting for you. Move it!', linkText:'Yes, yes...'},
+            {text: 'Your production line is waiting for you. Move it!', linkText:'Yes, yes...'},
         ],
         tools:['pusher'],
 		offset:{x:5,y:0},
@@ -2384,12 +2383,12 @@ var factoryLevels = {
         nextFactory: 'new2',
         animation: [
             {text: 'Hello there! Welcome to "We make everything" factory!', linkText:'Hello!'},
-            {text: 'OK. Let\'s start your today work.'},
-            {text: 'Today, you will get easy task.'},
+            {text: 'OK. Let\'s start your today\'s work.'},
+            {text: 'Today, you will get an easy task.'},
             {text: 'Since yesterday we can make electricity!'},
             {text: 'So, today you have to make generator!'},
             {text: 'Here you have oil and water provider.'},
-            {text: 'Just connect everything right and all will be right :)'},
+            {text: 'Just connect everything right and all will be fine :)'},
             {text: 'Well, first you have to make gasoline.'},
             {text: 'Be aware that we have only one filter. Use it wisely.'},
         ],
@@ -2444,7 +2443,7 @@ var factoryLevels = {
             {text: 'Welcome back! Today we have very exiting task.'},
             {text: 'We have to build a computer!'},
             {text: 'It\'s great to play games :)'},
-            {text: 'I suggest to study cookbook first.'},
+            {text: 'I suggest to study a cookbook first.'},
             {text: 'Just like yesterday, you are free to do it.'},
             {text: 'Good luck!'},
 
