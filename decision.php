@@ -18,11 +18,11 @@
 
 <h2>Make a decision!</h2>
 
-<div id="viewport" style="height: 284px;">
+<div id="viewport">
 	<div class="centerBlock">
-	    <div id="screen">
+	    <div id="screen" class="cell">
 	        <div class="text" id="text"></div>
-	        <a id="nextFrame" href="#">NEXT</a>
+	        <a id="nextFrame" class="stage-border" href="#">NEXT</a>
 	    </div>
 	    <div id="decision" style="display: none" class="cell">
 	    </div>

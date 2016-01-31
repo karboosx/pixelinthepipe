@@ -23,8 +23,8 @@
 	<div id="viewport">
 		<div class="centerBlock">
 		    <div id="screen" class="cell">
-		        <div id="text" class="text" style="height: 128px;"></div>
-		        <a id="nextFrame" href="#">NEXT</a>
+		        <div id="text" class="text" style="min-height: 128px;"></div>
+		        <a id="nextFrame" class="stage-border" href="#">NEXT</a>
 		    </div>
 		</div>
 	</div>

@@ -6,16 +6,12 @@ body {
 }
 
 .main{
-    height: 391px;
-    width: 700px;
-    position: absolute;
-    left: calc((100vw - 703px) / 2);
-    /*top: calc((100vh - 448px) / 2);*/
 }
 
 
 #viewport {
     min-height: 200px;
+    max-width:700px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 16px;
@@ -31,6 +27,9 @@ body {
 .text {
     margin: 5px;
     font-size: 2em;
+    margin-top:10px;
+    margin-bottom:10px;
+    min-height: 128px;
 }
 
 .text a {
@@ -80,11 +79,12 @@ a:hover{
     display: table;
 }
 
-.centerBlock .cell {
+.centerBlock .cell{
     margin: 0;
     display: table-cell;
     vertical-align: middle;
     text-align: center;
+    min-height:200px;
 }
 
 .back {
@@ -135,7 +135,7 @@ textarea.input{
 }
 
 input.input{
-    width: 470px;
+
 }
 
 label{
@@ -144,10 +144,11 @@ label{
 }
 
 .ornament{
-    position: fixed;
+    position: absolute;
     width: 85px;
     height: 440px;
     top:calc((100vh - 440px) /2 );
+    z-index: -1;
 }
 
 .ornament.left{
@@ -159,6 +160,12 @@ label{
     background: url("../images/index-ornament-right.png");
 }
 
+#nextFrame{
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
 .newgame a{
     font-size: 2em;
     background: url("../images/stage.png");

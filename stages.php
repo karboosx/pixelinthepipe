@@ -21,7 +21,7 @@
 <h1><a href="index.html">Pixel in the Pipe!</a></h1>
 
 <div id="viewport-big" class="no-background">
-    <div id="screen">
+    <div id="screen" class="flex">
 
     </div>
 </div>
